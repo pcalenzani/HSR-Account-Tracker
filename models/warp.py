@@ -38,7 +38,7 @@ class Warp(models.Model):
             warp.banner_id = sr_banner
 
     def _warp_exists(self, wid):
-        self.env.cr.execute("SELECT 1 FROM sr_warp WHERE wid={wid}")
+        self.env.cr.execute(f"SELECT 1 FROM sr_warp WHERE wid={wid}")
         return self.env.cr.fetchone()
 
     def generate_warps(self, vals_list):
