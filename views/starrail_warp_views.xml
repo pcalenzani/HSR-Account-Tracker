@@ -111,15 +111,17 @@
         <field name="name">res.users.form.inherit.starrail</field>
         <field name="model">res.users</field>
         <field name="arch" type="xml">
-            <xpath expr="//page" position="before">
-                <page string="Player Data" name="srdata" attrs="{'invisible': [('active','=',False)]}">
-                    <button name="get_warps" string="Refresh Warps" type="object" 
-                        class="btn-primary" attrs="{'invisible': ['|', ('active','=',False), ('sr_update','=',False)]}"/>
-                    <field name="sr_uid"/>
-                    <field name="sr_authkey"/>
-                    <field name="sr_update" widget="boolean_toggle"/>
-                </page>
-            </xpath>
+            <data>
+                <xpath expr="//page" position="before">
+                    <page string="Player Data" name="srdata" attrs="{'invisible': [('active','=',False)]}">
+                        <button name="get_warps" string="Refresh Warps" type="object" 
+                            class="btn-primary" attrs="{'invisible': ['|', ('active','=',False), ('sr_update','=',False)]}"/>
+                        <field name="sr_uid"/>
+                        <field name="sr_authkey"/>
+                        <field name="sr_update" widget="boolean_toggle"/>
+                    </page>
+                </xpath>
+            </data>
         </field>
     </record>
 </odoo>
