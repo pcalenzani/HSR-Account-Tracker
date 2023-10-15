@@ -1,6 +1,9 @@
 from odoo import api, fields, models, tools
 from odoo.exceptions import ValidationError
 from datetime import datetime, timedelta
+import logging
+
+_logger = logging.getLogger(__name__)
 
 class Warp(models.Model):
     _name = 'sr.warp'
@@ -37,6 +40,7 @@ class Warp(models.Model):
     def generate_warps(self, vals_list):
         try:
             warps = self.create(vals_list)
+            _logger.info(warps) # debug
             return warps[-1]['wid']
         except ValidationError:
             return None
