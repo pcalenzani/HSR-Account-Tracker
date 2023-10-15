@@ -26,7 +26,7 @@ class Warp(models.Model):
 
     def _compute_warp_banner(self):
         for warp in self:
-            sr_banner = self.env['sr.banner'].search([('gacha_id','=',warp.gacha_id)])
+            sr_banner = self.env['sr.banner'].search([('banner_key','=',warp.gacha_id)])
             if not sr_banner:
                 sr_banner = self.env['sr.banner'].create({
                     'banner_key': warp.gacha_id,
