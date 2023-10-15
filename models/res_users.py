@@ -1,6 +1,9 @@
 from odoo import api, fields, models, tools
 from urllib.parse import urlencode, parse_qs
 import requests
+import logging
+
+_logger = logging.getLogger(__name__)
 
 WARP_API_URL = 'https://api-os-takumi.mihoyo.com/common/gacha_record/api/getGachaLog'
 
@@ -28,7 +31,8 @@ class Users(models.Model):
             'end_id': end_id
         }
         ret = requests.get(WARP_API_URL + '?' + urlencode(params)).json()
-        
+        _logger.info(ret.url)
+
         # TODO Log or raise this
         if ret['retcode'] != 0:
             print(f"Error {ret['retcode']}: {ret['message']}") 
