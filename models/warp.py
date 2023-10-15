@@ -37,13 +37,19 @@ class Warp(models.Model):
                 })
             warp.banner_id = sr_banner
 
+    def _warp_exists(self, wid):
+        self.cr.execute("SELECT 1 FROM sr_warp WHERE wid={wid}")
+        return self.cr.fetchone()
+
     def generate_warps(self, vals_list):
-        try:
-            warps = self.create(vals_list)
-            _logger.info(warps) # debug
-            return warps[-1]['wid']
-        except ValidationError:
-            return None
+        for i in range(len(vals_list)):
+            id = vals_list[i]['id']
+            if not self._warp_exists(id):
+                vals_list = vals_list[:i]
+                break
+        warps = self.create(vals_list)
+        _logger.debug(warps)
+        return warps[-1]['wid']
 
     @api.model_create_multi
     def create(self, vals_list):

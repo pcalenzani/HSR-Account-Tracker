@@ -32,7 +32,7 @@ class Users(models.Model):
         }
         url = WARP_API_URL + '?' + urlencode(params)
         ret = requests.get(url).json()
-        _logger.info(url)
+        _logger.debug(url)
 
         # TODO Log or raise this
         if ret['retcode'] != 0:
@@ -51,7 +51,6 @@ class Users(models.Model):
             end_id = 0
             while end_id is not None:
                 data = self.get_warp_data(type, end_id=end_id)
-                _logger.info(data['list'])
                 if not data or not len(data['list']):
                     break
 
