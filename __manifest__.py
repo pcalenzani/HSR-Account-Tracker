@@ -2,11 +2,12 @@
     'name': 'Honkai: Star Rail',
     'version': '1.0',
     'summary': 'Honkai: Star Rail Suite',
-    'sequence': 10,
+    'sequence': 0,
     'description': "",
     'depends': ['base'],
     'data': [
         'data/sr_banner_data.xml',
+        'data/ir_cron_data.xml',
         'views/starrail_warp_views.xml',
 
         'security/ir.model.access.csv',
