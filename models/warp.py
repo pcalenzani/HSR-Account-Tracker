@@ -46,6 +46,7 @@ class Warp(models.Model):
             id = vals_list[i]['id']
             if not self._warp_exists(id):
                 vals_list = vals_list[:i]
+                _logger.info(vals_list)
                 break
         warps = self.create(vals_list)
         _logger.debug(warps)
