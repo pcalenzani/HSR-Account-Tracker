@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_sr_warp,sr.warp.all,model_sr_warp,,1,1,1,0
+access_sr_banner,sr.banner.all,model_sr_warp,,1,1,1,0
+access_sr_banner_type,sr.banner.type.all,model_sr_warp,,1,1,1,0
