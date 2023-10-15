@@ -51,7 +51,8 @@ class Users(models.Model):
             end_id = 0
             while end_id is not None:
                 data = self.get_warp_data(type, end_id=end_id)
-                if not data or len(data['list']) == '0':
+                _logger.info(data['list'])
+                if not data or not len(data['list']):
                     break
 
                 end_id = self.env['sr.warp'].generate_warps(data['list'])
