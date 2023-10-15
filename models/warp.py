@@ -48,6 +48,10 @@ class Warp(models.Model):
             if self._warp_exists(id):
                 vals_list = vals_list[:i]
                 break
+
+        if not vals_list:
+            return None
+        
         warps = self.create(vals_list)
         _logger.debug(warps)
         return warps[-1]['wid']
