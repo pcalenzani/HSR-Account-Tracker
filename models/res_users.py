@@ -40,12 +40,7 @@ class Users(models.Model):
         return ret['data']
     
     def get_warps(self):
-        # banner_types = self.env['sr.banner.type'].search().mapped('banner_key')
-        # 1 norm
-        # 2 departure
-        # 11 special
-        # 12 lc
-        banner_types = ['2'] # Debug
+        banner_types = self.env['sr.banner.type'].search().mapped('banner_key')
 
         for type in banner_types:
             end_id = 0

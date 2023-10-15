@@ -6,7 +6,10 @@
     'description': "",
     'depends': ['base'],
     'data': [
-        'data/sr_banner_data.xml'
+        'data/sr_banner_data.xml',
+        'data/starrail_menuitems.xml',
+        
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'application': True,

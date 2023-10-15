@@ -1,5 +1,4 @@
 from odoo import api, fields, models, tools
-from odoo.exceptions import ValidationError
 from datetime import datetime, timedelta
 import logging
 
@@ -8,20 +7,23 @@ _logger = logging.getLogger(__name__)
 class Warp(models.Model):
     _name = 'sr.warp'
     _description = 'Warp'
+    _order = 'wid desc'
 
-    uid = fields.Char('User ID')
-    gacha_id = fields.Char('Banner ID')
-    gacha_type = fields.Char('Banner Type')
-    item_id = fields.Char('Item ID')
+    uid = fields.Char('User ID', readonly=True)
+    gacha_id = fields.Char('Banner ID', readonly=True)
+    gacha_type = fields.Char('Banner Type', readonly=True)
+    item_id = fields.Char('Item ID', readonly=True)
     count = fields.Char('Count')
-    time = fields.Datetime('Time')
+    time = fields.Datetime('Time', readonly=True)
     name = fields.Char('Name')
     lang = fields.Char('Lang')
     item_type = fields.Char('Item Type')
     rank_type = fields.Integer('Rarity')
-    wid = fields.Char('Warp ID', index=True)
+    wid = fields.Char('Warp ID', index=True, readonly=True)
 
-    banner_id = fields.Many2one('sr.banner', compute='_compute_warp_banner')
+    pity = fields.Integer("Pity", store=True, _compute_pity="_compute_pity")
+    banner_id = fields.Many2one('sr.banner', readonly=True, compute='_compute_warp_banner')
+    banner_type_id = fields.Many2one('sr.banner.type', readonly=True, compute='_compute_warp_banner_type')
 
     _sql_constraints = [
         ('warp_key', 'UNIQUE (wid)',  'You can not have two warps with the same ID')
@@ -36,13 +38,24 @@ class Warp(models.Model):
                     'gacha_type_id': warp.gacha_type,
                 })
             warp.banner_id = sr_banner
+        
+    def _compute_warp_banner_type(self):
+        for warp in self:
+            warp.banner_type_id = self.env['sr.banner.type'].search([('gacha_type','=',warp.banner_type_id)])
+
+    def _compute_warp_pity(self):
+        for warp in self:
+            # TODO calculate pity
+            warp.pity = 0
 
     def _warp_exists(self, wid):
+        # Returns 1 if the wid is already recorded
         self.env.cr.execute(f"SELECT 1 FROM sr_warp WHERE wid='{wid}'")
         ret = self.env.cr.fetchone()
         return ret
 
     def generate_warps(self, vals_list):
+        # Check if warps exist before creating
         for i in range(len(vals_list)):
             id = vals_list[i]['id']
             if self._warp_exists(id):
@@ -54,6 +67,7 @@ class Warp(models.Model):
         
         warps = self.create(vals_list)
         _logger.debug(warps)
+        # Return oldest warp for pagination
         return warps[-1]['wid']
 
     @api.model_create_multi
@@ -73,15 +87,22 @@ class BannerType(models.Model):
     _description = 'Warp Banner Type'
 
     name = fields.Char('Name')
-    gacha_type = fields.Char('Banner Type')
+    active = fields.Boolean('Active')
+    gacha_type = fields.Char('Banner Type', readonly=True)
+    pity_level = fields.Integer('Pity', store=False, compute="_compute_pity_level")
 
+    def _compute_pity_level(self):
+        for banner in self:
+            # TODO calculate pity
+            banner.pity_level = 0
 
 class Banner(models.Model):
     _name = 'sr.banner'
     _description = 'Warp Banner'
 
     name = fields.Char('Name', default='~')
-    banner_key = fields.Char('Banner ID')
+    active = fields.Boolean('Active')
+    banner_key = fields.Char('Banner ID', readonly=True)
     gacha_type_id = fields.Many2one('sr.banner.type')
 
     _sql_constraints = [
