@@ -5,7 +5,6 @@ import requests
 WARP_API_URL = "https://api-os-takumi.mihoyo.com/common/gacha_record/api/getGachaLog"
 
 class Users(models.Model):
-    _name = "sr.warp"
     _description = "Warp"
     _inherit = "res.users"
 
