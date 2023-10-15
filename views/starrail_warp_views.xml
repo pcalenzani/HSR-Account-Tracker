@@ -98,4 +98,28 @@
     <menuitem id="menu_banner_types" name="Banner Types" sequence="20"
         parent="starrail.menu_warps_root"
         action="starrail_banner_type_action"/>
+
+    <!-- PLAYER -->
+    <record id="button_starrail_warpdata" model="ir.actions.server">
+        <field name="name">Get Warp Data</field>
+        <field name="model_id" ref="base.model_res_users"/>
+        <field name="state">code</field>
+        <field name="code">record.get_warps()</field>
+    </record>
+
+    <record id="view_users_form_inherit_sr_player" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.starrail</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <xpath expr="//page" position="before">
+                <page string="Player Data" name="srdata" attrs="{'invisible': [('active','=',False)]}">
+                    <button name="get_warps" string="Refresh Warps" type="object" 
+                        class="btn-primary" attrs="{'invisible': ['|', ('active','=',False), ('sr_update','=',False)]}"/>
+                    <field name="sr_uid"/>
+                    <field name="sr_authkey"/>
+                    <field name="sr_update" widget="boolean_toggle"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
 </odoo>

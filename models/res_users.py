@@ -50,3 +50,9 @@ class Users(models.Model):
                     break
 
                 end_id = self.env['sr.warp'].generate_warps(data['list'])
+
+    def _cron_auto_get_warps(self):
+        players = self.env['res.users'].search([('sr_update','=',True)])
+
+        for player in players:
+            player.get_warps()

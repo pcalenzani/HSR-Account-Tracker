@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="ir_cron_auto_pull_warps" model="ir.cron">
+        <field name="name">Pull Warp Data</field>
+        <field name="model_id" ref="model_res_users"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_auto_get_warps()</field>
+        <field name="active" eval="False"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>
