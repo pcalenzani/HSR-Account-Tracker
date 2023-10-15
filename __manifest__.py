@@ -5,7 +5,9 @@
     'sequence': 10,
     'description': "",
     'depends': ['base'],
-    'data': [],
+    'data': [
+        'data/sr_banner_data.xml'
+    ],
     'installable': True,
     'application': True,
     # 'post_init_hook': '_method_name',
