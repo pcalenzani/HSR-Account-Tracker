@@ -31,7 +31,7 @@
         </field>
     </record>
 
-    <record id="starrail_warps_action" model="ir.actions.act_window">
+    <record id="starrail_warp_action" model="ir.actions.act_window">
         <field name="name">Warps</field>
         <field name="res_model">sr.warp</field>
         <field name="view_mode">tree,form</field>
@@ -39,4 +39,57 @@
 
     <menuitem id="menu_warps" name="Warps" sequence="0" parent="starrail.menu_warps_root"/>
 
+    <!-- SR.BANNER -->
+    <record id="starrail_banner_view_tree" model="ir.ui.view">
+        <field name="name">starrail.banner.tree</field>
+        <field name="model">sr.banner</field>
+        <field name="arch" type="xml">
+            <tree string="Banners">
+                <field name="name"/>
+                <field name="gacha_type_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="starrail_banner_view_form" model="ir.ui.view">
+        <field name="name">starrail.banner.form</field>
+        <field name="model">sr.banner</field>
+        <field name="arch" type="xml">
+            <form string="Banners">
+                <field name="name"/>
+                <field name="active"/>
+                <field name="gacha_type_id"/>
+                <field name="banner_key"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="starrail_banner_action" model="ir.actions.act_window">
+        <field name="name">Banners</field>
+        <field name="res_model">sr.banner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_banners" name="Banners" sequence="10" parent="starrail.menu_warps_root"/>
+    
+    <!-- SR.BANNER.TYPE -->
+    <record id="starrail_banner_type_view_tree" model="ir.ui.view">
+        <field name="name">starrail.banner.type.tree</field>
+        <field name="model">sr.banner.type</field>
+        <field name="arch" type="xml">
+            <tree string="Banner Types" editable="top">
+                <field name="name"/>
+                <field name="active"/>
+                <field name="pity_level"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="starrail_banner_type_action" model="ir.actions.act_window">
+        <field name="name">Banner Types</field>
+        <field name="res_model">sr.banner.type</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="menu_banner_types" name="Banner Types" sequence="20" parent="starrail.menu_warps_root"/>
 </odoo>
