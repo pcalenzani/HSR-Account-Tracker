@@ -30,8 +30,9 @@ class Users(models.Model):
             'gacha_type': gacha_type,
             'end_id': end_id
         }
-        ret = requests.get(WARP_API_URL + '?' + urlencode(params)).json()
-        _logger.info(ret.url)
+        url = WARP_API_URL + '?' + urlencode(params)
+        ret = requests.get(url).json()
+        _logger.info(url)
 
         # TODO Log or raise this
         if ret['retcode'] != 0:
