@@ -7,8 +7,8 @@
     'depends': ['base'],
     'data': [
         'data/sr_banner_data.xml',
-        'data/starrail_menuitems.xml',
-        
+        'views/starrail_warp_views.xml',
+
         'security/ir.model.access.csv',
     ],
     'installable': True,
