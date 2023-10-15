@@ -37,13 +37,13 @@ class Warp(models.Model):
                     'banner_key': warp.gacha_id,
                     'gacha_type_id': warp.gacha_type,
                 })
-                
+
                 self.env.cr.commit()
             warp.banner_id = sr_banner
         
     def _compute_warp_banner_type(self):
         for warp in self:
-            warp.banner_type_id = self.env['sr.banner.type'].search([('gacha_type','=',warp.banner_type_id)])
+            warp.banner_type_id = self.env['sr.banner.type'].search([('gacha_type','=',warp.banner_type_id.id)])
 
     def _compute_warp_pity(self):
         for warp in self:
