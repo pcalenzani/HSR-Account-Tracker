@@ -40,15 +40,13 @@ class Warp(models.Model):
     def _warp_exists(self, wid):
         self.env.cr.execute(f"SELECT 1 FROM sr_warp WHERE wid='{wid}'")
         ret = self.env.cr.fetchone()
-        _logger.warning(ret)
         return ret
 
     def generate_warps(self, vals_list):
         for i in range(len(vals_list)):
             id = vals_list[i]['id']
-            if not self._warp_exists(id):
+            if self._warp_exists(id):
                 vals_list = vals_list[:i]
-                _logger.info("CHECK LIST BREAK" + vals_list)
                 break
         warps = self.create(vals_list)
         _logger.debug(warps)
