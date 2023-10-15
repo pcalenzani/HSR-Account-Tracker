@@ -22,8 +22,8 @@ class Warp(models.Model):
     wid = fields.Char('Warp ID', index=True, readonly=True)
 
     pity = fields.Integer("Pity", store=True, _compute_pity="_compute_pity")
-    banner_id = fields.Many2one('sr.banner', readonly=True, compute='_compute_warp_banner')
-    banner_type_id = fields.Many2one('sr.banner.type', readonly=True, compute='_compute_warp_banner_type')
+    banner_id = fields.Many2one('sr.banner', store=True, readonly=True, compute='_compute_warp_banner')
+    banner_type_id = fields.Many2one('sr.banner.type', store=True, readonly=True, compute='_compute_warp_banner_type')
 
     _sql_constraints = [
         ('warp_key', 'UNIQUE (wid)',  'You can not have two warps with the same ID')
