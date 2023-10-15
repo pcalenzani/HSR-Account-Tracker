@@ -37,6 +37,8 @@ class Warp(models.Model):
                     'banner_key': warp.gacha_id,
                     'gacha_type_id': warp.gacha_type,
                 })
+                
+                self.env.cr.commit()
             warp.banner_id = sr_banner
         
     def _compute_warp_banner_type(self):
