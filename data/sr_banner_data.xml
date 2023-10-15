@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="sr.banner.type" id="sr_banner_standard_warp">
+            <field name="name">Standard Warp</field>
+            <field name="gacha_type">1</field>
+        </record>
+        <record model="sr.banner.type" id="sr_banner_departure_warp">
+            <field name="name">Departure Warp</field>
+            <field name="gacha_type">2</field>
+        </record>
+        <record model="sr.banner.type" id="sr_banner_special_warp_1">
+            <field name="name">Special Warp</field>
+            <field name="gacha_type">11</field>
+        </record>
+        <record model="sr.banner.type" id="sr_banner_light_cone_warp_1">
+            <field name="name">Light Cone Warp</field>
+            <field name="gacha_type">12</field>
+        </record>
+    </data>
