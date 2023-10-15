@@ -46,6 +46,8 @@ class Warp(models.Model):
         for vals in vals_list:
             if 'time' in vals:
                 vals['time'] = datetime.strptime(vals['time'], "%Y-%m-%d %H:%M:%S") + timedelta(hours=+5)
+            if 'id' in vals:
+                vals['wid'] = vals.pop('id')
         
         return super(Warp, self).create(vals_list)
 
