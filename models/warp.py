@@ -142,5 +142,5 @@ class Banner(models.Model):
         return super(Banner, self).create(vals_list)
     
     def _get_by_gacha_id(self, gacha_id):
-        self.env.cr.execute(f"SELECT id FROM sr_banner_type WHERE banner_key = {gacha_id}")
+        self.env.cr.execute(f"SELECT id FROM sr_banner WHERE banner_key = '{gacha_id}'")
         return self.browse(self.env.cr.fetchone())
