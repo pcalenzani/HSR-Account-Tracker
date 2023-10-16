@@ -95,7 +95,7 @@ class BannerType(models.Model):
     gacha_type = fields.Char('Banner Type', readonly=True)
     warp_ids = fields.One2many('sr.warp', 'banner_type_id', string='Warps')
 
-    pity_level = fields.Integer('Pity', store=False, compute="_compute_warps")
+    pity_level = fields.Integer('Pity', store=True, compute="_compute_warps")
     last_warp = fields.Many2one('Last Warp', store=True, compute='_compute_warps')
     last_five_star = fields.Many2one('Last 5* Warp', store=True, compute='_compute_warps')
 
@@ -120,7 +120,7 @@ class BannerType(models.Model):
                 # Keep to 0 if no 5* pulls
                 banner.last_five_star = None
                 banner.pity_level = 0
-                
+
 
 class Banner(models.Model):
     _name = 'sr.banner'

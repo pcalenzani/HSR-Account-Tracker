@@ -98,6 +98,8 @@
                 <field name="name"/>
                 <field name="active"/>
                 <field name="pity_level"/>
+                <field name="last_warp"/>
+                <field name="last_five_star"/>
             </tree>
         </field>
     </record>
