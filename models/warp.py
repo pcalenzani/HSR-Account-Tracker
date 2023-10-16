@@ -45,7 +45,7 @@ class Warp(models.Model):
     @api.depends('gacha_type')
     def _compute_warp_banner_type(self):
         for warp in self:
-            warp.banner_type_id = self.env['sr.banner.type'].search([('gacha_type','=',warp.banner_type_id.id)])
+            warp.banner_type_id = self.env['sr.banner.type'].search([('gacha_type','=',warp.gacha_type)])
 
     def _compute_warp_pity(self):
         for warp in self:
