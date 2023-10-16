@@ -32,21 +32,21 @@ class Warp(models.Model):
     @api.depends('gacha_id')
     def _compute_warp_banner(self):
         for warp in self:
-            # warp.banner_id = None
-            # warp.banner_type_id = None
-            if not self.env['sr.banner']._get_by_gacha_id(warp.gacha_id):
-                self.env.cr.execute(f"""INSERT INTO sr_banner(name, banner_key, gacha_type_id, active)
-                                    VALUES('~', '{warp.gacha_id}', {warp.gacha_type}, TRUE)""")
-                # sr_banner = self.env['sr.banner'].create({
-                #     'banner_key': warp.gacha_id,
-                #     'gacha_type_id': warp.gacha_type,
-                # })
-                self.env.cr.commit()
-                self.env.cr.execute(f"""UPDATE sr_warp
-                                    SET banner_id = {self.env['sr.banner']._get_by_gacha_id(warp.gacha_id).id}
-                                    WHERE id = {warp.id}""")
-            else:
-                warp.banner_id = self.env['sr.banner']._get_by_gacha_id(warp.gacha_id)
+            # # warp.banner_id = None
+            # # warp.banner_type_id = None
+            # if not self.env['sr.banner']._get_by_gacha_id(warp.gacha_id):
+            #     self.env.cr.execute(f"""INSERT INTO sr_banner(name, banner_key, gacha_type_id, active)
+            #                         VALUES('~', '{warp.gacha_id}', {warp.gacha_type}, TRUE)""")
+            #     # sr_banner = self.env['sr.banner'].create({
+            #     #     'banner_key': warp.gacha_id,
+            #     #     'gacha_type_id': warp.gacha_type,
+            #     # })
+            #     self.env.cr.commit()
+            #     self.env.cr.execute(f"""UPDATE sr_warp
+            #                         SET banner_id = {self.env['sr.banner']._get_by_gacha_id(warp.gacha_id).id}
+            #                         WHERE id = {warp.id}""")
+            # else:
+            warp.banner_id = self.env['sr.banner']._get_by_gacha_id(warp.gacha_id)
         
     @api.depends('gacha_type')
     def _compute_warp_banner_type(self):
@@ -148,3 +148,13 @@ class Banner(models.Model):
     def _get_by_gacha_id(self, gacha_id):
         self.env.cr.execute(f"SELECT id FROM sr_banner WHERE banner_key = '{gacha_id}'")
         return self.browse(self.env.cr.fetchone())
+    
+    def generate_banners(self, json_data):
+        banners = set()
+        for warp in json_data:
+            banners.add((warp['gacha_id', warp['gacha_type']]))
+        
+        for banner in banners:
+            if not self._get_by_gacha_id(banner[0]):
+                # If we don't have this banner yet
+                self.create({'banner_key': banner[0], 'gacha_type_id': banner[1]})
