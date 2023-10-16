@@ -158,4 +158,4 @@ class Banner(models.Model):
         for banner in banners:
             if not self._get_by_gacha_id(banner[0]):
                 # If we don't have this banner yet
-                self.create({'banner_key': banner[0], 'gacha_type_id': banner[1]})
+                self.create({'banner_key': banner[0], 'gacha_type_id': int(banner[1])})
