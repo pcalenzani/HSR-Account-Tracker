@@ -152,7 +152,7 @@ class Banner(models.Model):
     def generate_banners(self, json_data):
         banners = set()
         for warp in json_data:
-            banners.add((warp['gacha_id', warp['gacha_type']]))
+            banners.add((warp['gacha_id'], warp['gacha_type']))
         
         for banner in banners:
             if not self._get_by_gacha_id(banner[0]):
