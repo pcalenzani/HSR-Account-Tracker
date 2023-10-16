@@ -35,7 +35,6 @@ class Warp(models.Model):
             # warp.banner_id = None
             # warp.banner_type_id = None
             if not self.env['sr.banner']._get_by_gacha_id(warp.gacha_id):
-                Command.create()
                 sr_banner = self.env['sr.banner'].create({
                     'banner_key': warp.gacha_id,
                     'gacha_type_id': warp.gacha_type,
