@@ -143,6 +143,9 @@ class Banner(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        for vals in vals_list:
+            if 'gacha_type_id' in vals:
+                vals['gacha_type_id'] = self._get_by_gacha_id(vals['gacha_type_id'])
         return super(Banner, self).create(vals_list)
     
     def _get_by_gacha_id(self, gacha_id):
