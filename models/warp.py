@@ -42,7 +42,7 @@ class Warp(models.Model):
                     'gacha_type_id': warp.gacha_type,
                 })
                 self.env.cr.commit()
-            warp.banner_id = sr_banner
+            warp.banner_id = self.env['sr.banner']._get_by_gacha_id(warp.gacha_id)
         
     @api.depends('gacha_type')
     def _compute_warp_banner_type(self):
