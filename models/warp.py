@@ -96,8 +96,8 @@ class BannerType(models.Model):
     warp_ids = fields.One2many('sr.warp', 'banner_type_id', string='Warps')
 
     pity_level = fields.Integer('Pity', store=True, compute="_compute_warps")
-    last_warp = fields.Many2one('Last Warp', store=True, compute='_compute_warps')
-    last_five_star = fields.Many2one('Last 5* Warp', store=True, compute='_compute_warps')
+    last_warp = fields.Many2one('sr.warp', string='Last Warp', store=True, compute='_compute_warps')
+    last_five_star = fields.Many2one('sr.warp', string='Last 5* Warp', store=True, compute='_compute_warps')
 
     @api.depends('warp_ids')
     def _compute_warps(self):
