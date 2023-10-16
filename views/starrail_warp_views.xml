@@ -21,12 +21,19 @@
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
             <form string="Warps">
-                <field name="name"/>
-                <field name="rank_type"/>
-                <field name="time"/>
-                <field name="pity"/>
-                <field name="banner_id"/>
-                <field name="banner_type_id"/>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="rank_type"/>
+                            <field name="item_type"/>
+                            <field name="time"/>
+                            <field name="pity"/>
+                            <field name="banner_id"/>
+                            <field name="banner_type_id"/>
+                        </group>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -58,10 +65,16 @@
         <field name="model">sr.banner</field>
         <field name="arch" type="xml">
             <form string="Banners">
-                <field name="name"/>
-                <field name="active"/>
-                <field name="gacha_type_id"/>
-                <field name="banner_key"/>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                            <field name="gacha_type_id"/>
+                            <field name="banner_key"/>
+                        </group>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -117,11 +130,17 @@
             <data>
                 <xpath expr="//page" position="before">
                     <page string="Player Data" name="srdata" attrs="{'invisible': [('active','=',False)]}">
-                        <button name="get_warps" string="Refresh Warps" type="object" 
-                            class="btn-primary" attrs="{'invisible': ['|', ('active','=',False), ('sr_update','=',False)]}"/>
+                    <group>
                         <field name="sr_uid"/>
-                        <field name="sr_authkey"/>
                         <field name="sr_update" widget="boolean_toggle"/>
+                        <field name="sr_authkey" widget="text" attrs="{'invisible': [('sr_update','=',False)]}"/>
+                    </group>
+                    <div class="row text-center">
+                        <span string="Generate Warps">
+                        <button name="get_warps" class="btn-primary btn-lg col-4" type="object" string="Refresh Warps" 
+                            attrs="{'invisible': ['|', ('active','=',False), ('sr_update','=',False)]}"/>
+                        </span>
+                    </div>
                     </page>
                 </xpath>
             </data>

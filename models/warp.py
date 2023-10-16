@@ -29,6 +29,7 @@ class Warp(models.Model):
         ('warp_key', 'UNIQUE (wid)',  'You can not have two warps with the same ID')
     ]
 
+    @api.depends('gacha_id')
     def _compute_warp_banner(self):
         for warp in self:
             sr_banner = self.env['sr.banner'].search([('banner_key','=',warp.gacha_id)])
@@ -41,6 +42,7 @@ class Warp(models.Model):
                 self.env.cr.commit()
             warp.banner_id = sr_banner
         
+    @api.depends('gacha_type')
     def _compute_warp_banner_type(self):
         for warp in self:
             warp.banner_type_id = self.env['sr.banner.type'].search([('gacha_type','=',warp.banner_type_id.id)])
@@ -89,21 +91,27 @@ class BannerType(models.Model):
     _description = 'Warp Banner Type'
 
     name = fields.Char('Name')
-    active = fields.Boolean('Active')
+    active = fields.Boolean('Active', default=True)
     gacha_type = fields.Char('Banner Type', readonly=True)
-    pity_level = fields.Integer('Pity', store=False, compute="_compute_pity_level")
+    warp_ids = fields.One2many('sr.warp', 'banner_type_id', string='Warps')
 
-    def _compute_pity_level(self):
+    pity_level = fields.Integer('Pity', store=False, compute="_compute_warps")
+    last_warp = fields.Many2one('Last Warp', store=True, compute='_compute_warps')
+    last_five_star = fields.Many2one('Last 5* Warp', store=True, compute='_compute_warps')
+
+    @api.depends('warp_ids')
+    def _compute_warps(self):
         for banner in self:
-            # TODO calculate pity
-            banner.pity_level = 0
+            banner.last_warp = banner.warp_ids[1]
+            banner.last_five_star = banner.warp_ids.filtered(lambda w: w.rank_type == 5)[1]
+            banner.pity_level = len(banner.warp_ids.filtered(lambda w: w.wid > banner.last_five_star.wid))
 
 class Banner(models.Model):
     _name = 'sr.banner'
     _description = 'Warp Banner'
 
     name = fields.Char('Name', default='~')
-    active = fields.Boolean('Active')
+    active = fields.Boolean('Active', default=True)
     banner_key = fields.Char('Banner ID', readonly=True)
     gacha_type_id = fields.Many2one('sr.banner.type')
 
