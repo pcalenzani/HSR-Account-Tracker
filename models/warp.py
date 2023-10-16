@@ -154,6 +154,7 @@ class Banner(models.Model):
         for warp in json_data:
             banners.add((warp['gacha_id'], warp['gacha_type']))
         
+        _logger.info(banners)
         for banner in banners:
             if not self._get_by_gacha_id(banner[0]):
                 # If we don't have this banner yet
