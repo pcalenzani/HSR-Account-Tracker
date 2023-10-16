@@ -35,12 +35,16 @@ class Warp(models.Model):
             # warp.banner_id = None
             # warp.banner_type_id = None
             if not self.env['sr.banner']._get_by_gacha_id(warp.gacha_id):
-                sr_banner = self.env['sr.banner'].create({
-                    'banner_key': warp.gacha_id,
-                    'gacha_type_id': warp.gacha_type,
-                })
+                self.env.cr.execute(f"""INSERT INTO sr_warp(name, banner_key, gacha_type_id, active)
+                                    VALUES '~', '{warp.gacha_id}', {warp.gacha_type}, TRUE""")
+                # sr_banner = self.env['sr.banner'].create({
+                #     'banner_key': warp.gacha_id,
+                #     'gacha_type_id': warp.gacha_type,
+                # })
                 self.env.cr.commit()
-                self.env.cr.execute(f"UPDATE sr_warp SET banner_id = {sr_banner.id} WHERE id = {warp.id}")
+                self.env.cr.execute(f"""UPDATE sr_warp
+                                    SET banner_id = {self.env['sr.banner']._get_by_gacha_id(warp.gacha_id).id}
+                                    WHERE id = {warp.id}""")
             else:
                 warp.banner_id = self.env['sr.banner']._get_by_gacha_id(warp.gacha_id)
         
