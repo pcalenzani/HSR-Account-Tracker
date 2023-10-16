@@ -1,4 +1,4 @@
-from odoo import api, fields, models, tools
+from odoo import api, fields, models, tools, Command
 from datetime import datetime, timedelta
 import logging
 
@@ -31,16 +31,24 @@ class Warp(models.Model):
 
     @api.depends('gacha_id')
     def _compute_warp_banner(self):
-        for warp in self:
-            sr_banner = self.env['sr.banner'].search([('banner_key','=',warp.gacha_id)])
-            if not sr_banner:
-                sr_banner = self.env['sr.banner'].create({
-                    'banner_key': warp.gacha_id,
-                    'gacha_type_id': warp.gacha_type,
-                })
+        banner_ids = {}
 
-                self.env.cr.commit()
-            warp.banner_id = sr_banner
+        for warp in self:
+            warp.banner_id = None
+            warp.banner_type_id = None
+            # sr_banner = self.env['sr.banner'].search([('banner_key','=',warp.gacha_id)])
+            # if not sr_banner:
+            #     Command.create()
+            #     # if warp.gacha_id not in banner_ids:
+            #     #     banner_ids.update({})
+
+            #     # sr_banner = self.env['sr.banner'].create({
+            #     #     'banner_key': warp.gacha_id,
+            #     #     'gacha_type_id': warp.gacha_type,
+            #     # })
+
+            #     # self.env.cr.commit()
+            # warp.banner_id = sr_banner
         
     @api.depends('gacha_type')
     def _compute_warp_banner_type(self):
