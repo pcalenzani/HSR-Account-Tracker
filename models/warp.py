@@ -138,7 +138,7 @@ class Banner(models.Model):
 
     name = fields.Char('Name', default='~')
     active = fields.Boolean('Active', default=True)
-    banner_key = fields.Char('Banner ID', readonly=True)
+    banner_key = fields.Char('Banner ID', index=True, readonly=True)
     gacha_type_id = fields.Many2one('sr.banner.type')
 
     _sql_constraints = [
@@ -149,7 +149,7 @@ class Banner(models.Model):
     def create(self, vals_list):
         for vals in vals_list:
             if 'gacha_type_id' in vals:
-                vals['gacha_type_id'] = self.env['sr.banner.type']._get_by_gacha_type_id(vals['gacha_type_id'])
+                vals['gacha_type_id'] = self.env['sr.banner.type']._get_by_gacha_type_id(vals['gacha_type_id']).id
         return super(Banner, self).create(vals_list)
     
     def _get_by_gacha_id(self, gacha_id):
