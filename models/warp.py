@@ -102,9 +102,25 @@ class BannerType(models.Model):
     @api.depends('warp_ids')
     def _compute_warps(self):
         for banner in self:
-            banner.last_warp = banner.warp_ids[1]
-            banner.last_five_star = banner.warp_ids.filtered(lambda w: w.rank_type == 5)[1]
-            banner.pity_level = len(banner.warp_ids.filtered(lambda w: w.wid > banner.last_five_star.wid))
+            if not banner.warp_ids:
+                # If no warps
+                banner.last_warp = None
+                banner.last_five_star = None
+                banner.pity_level = 0
+                return
+            
+            banner.last_warp = banner.warp_ids[0]
+            # Get all 5* warps
+            fives = banner.warp_ids.filtered(lambda w: w.rank_type == 5)
+            if fives:
+                # Calculate from latest 5*
+                banner.last_five_star = fives[0]
+                banner.pity_level = len(banner.warp_ids.filtered(lambda w: w.wid > fives[0].wid))
+            else:
+                # Keep to 0 if no 5* pulls
+                banner.last_five_star = None
+                banner.pity_level = 0
+                
 
 class Banner(models.Model):
     _name = 'sr.banner'
