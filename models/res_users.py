@@ -49,6 +49,7 @@ class Users(models.Model):
                 if not data or not len(data['list']):
                     break
 
+                self.env['sr.banner'].generate_banners(data['list'])
                 end_id = self.env['sr.warp'].generate_warps(data['list'])
 
     def _cron_auto_get_warps(self):
