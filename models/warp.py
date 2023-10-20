@@ -9,17 +9,17 @@ class Warp(models.Model):
     _description = 'Warp'
     _order = 'wid desc'
 
-    uid = fields.Char('User ID', readonly=True)
-    gacha_id = fields.Char('Banner ID', readonly=True)
-    gacha_type = fields.Char('Banner Type ID', readonly=True)
-    item_id = fields.Char('Item ID', readonly=True)
+    uid = fields.Char('User ID')
+    gacha_id = fields.Char('Gacha ID')
+    gacha_type = fields.Char('Gacha Type ID')
+    item_id = fields.Char('Item ID')
     count = fields.Char('Count')
-    time = fields.Datetime('Time', readonly=True)
+    time = fields.Datetime('Time')
     name = fields.Char('Name')
     lang = fields.Char('Lang')
     item_type = fields.Char('Item Type')
     rank_type = fields.Integer('Rarity')
-    wid = fields.Char('Warp ID', index=True, readonly=True)
+    wid = fields.Char('Warp ID', index=True)
 
     pity = fields.Integer("Pity", store=True, _compute_pity="_compute_pity")
     banner_id = fields.Many2one('sr.banner', store=True, readonly=True, compute='_compute_warp_banner')
@@ -84,7 +84,7 @@ class BannerType(models.Model):
 
     name = fields.Char('Name')
     active = fields.Boolean('Active', default=True)
-    gacha_type = fields.Char('Banner Type', readonly=True)
+    gacha_type = fields.Char('Gacha Type', readonly=True)
     warp_ids = fields.One2many('sr.warp', 'banner_type_id', string='Warps')
 
     pity_level = fields.Integer('Pity', store=True, compute="_compute_warps")

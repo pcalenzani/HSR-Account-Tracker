@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <odoo>
-    <menuitem id="menu_warps_root" name="Warps" sequence="30"/>
+    <menuitem id="menu_warps_root" name="Warps" sequence="30" web_icon="starrail,static/description/icon(1).png"/>
 
     <!-- SR.WARP -->
     <record id="starrail_warps_view_tree" model="ir.ui.view">
         <field name="name">starrail.warps.tree</field>
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
-            <tree string="Warps">
+            <tree string="Warps" edit="0">
                 <field name="name"/>
                 <field name="rank_type"/>
                 <field name="time"/>
