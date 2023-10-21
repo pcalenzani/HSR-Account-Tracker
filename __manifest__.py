@@ -14,6 +14,7 @@
     ],
     'installable': True,
     'application': True,
+    'icon': '/starrail/static/description/icon(1).jpg',
     # 'post_init_hook': '_method_name',
     'assets': {}
 }
