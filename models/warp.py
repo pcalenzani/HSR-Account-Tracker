@@ -22,9 +22,9 @@ class Warp(models.Model):
     rank_type = fields.Integer('Rarity')
     wid = fields.Char('Warp ID', index=True)
 
-    pity = fields.Integer("Pity", store=True, compute="_compute_pity")
-    banner_id = fields.Many2one('sr.banner', store=True, compute="_compute_banner_id")
-    banner_type_id = fields.Many2one('sr.banner.type', store=True, compute="_compute_banner_type_id")
+    pity = fields.Integer('Pity', store=True, compute='_compute_pity')
+    banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_banner_id')
+    banner_type_id = fields.Many2one('sr.banner.type', store=True, compute='_compute_banner_type_id')
 
     _sql_constraints = [
         ('warp_key', 'UNIQUE (wid)',  'You can not have two warps with the same ID')
@@ -32,10 +32,12 @@ class Warp(models.Model):
 
     def load(self, fields, data):
         if 'gacha_id' not in fields:
-            raise UserError("The import file must contain a banner id column.")
+            raise UserError('The import file must contain a banner id column.')
         
-        fields.append("banner_id")
-        gacha_index = fields.index("gacha_id"), fields.index("gacha_type")
+        fields.append('banner_id.id')
+        fields.append('.id')
+        wid_index = fields.index('wid')
+        gacha_index = fields.index('gacha_id'), fields.index('gacha_type')
         self.env['sr.banner'].generate_banners(data, fields=gacha_index)
 
         # Prepare banner dict to reference ids
@@ -47,6 +49,10 @@ class Warp(models.Model):
         for row in data:
             banner_id = banner_ids.get(row[gacha_index[0]])
             row.append(banner_id)
+
+            warp_id = self._warp_exists(row[wid_index])
+            if warp_id:
+                row.append(warp_id)
 
         return super().load(fields, data)
 
@@ -66,8 +72,8 @@ class Warp(models.Model):
             warp.pity = 0
 
     def _warp_exists(self, wid):
-        # Returns 1 if the wid is already recorded
-        self.env.cr.execute(f"SELECT 1 FROM sr_warp WHERE wid='{wid}'")
+        # Returns id if the wid is already recorded
+        self.env.cr.execute(f"SELECT id FROM sr_warp WHERE wid='{wid}'")
         ret = self.env.cr.fetchone()
         return ret
 
@@ -110,7 +116,7 @@ class BannerType(models.Model):
     gacha_type = fields.Char('Gacha Type', readonly=True)
     warp_ids = fields.One2many('sr.warp', 'banner_type_id', string='Warps')
 
-    pity_level = fields.Integer('Pity', store=True, compute="_compute_warps")
+    pity_level = fields.Integer('Pity', store=True, compute='_compute_warps')
     last_warp = fields.Many2one('sr.warp', string='Last Warp', store=True, compute='_compute_warps')
     last_five_star = fields.Many2one('sr.warp', string='Last 5* Warp', store=True, compute='_compute_warps')
 
