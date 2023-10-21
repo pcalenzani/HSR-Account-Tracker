@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <odoo>
-    <menuitem id="menu_warps_root" name="Warps" sequence="30" web_icon="starrail,static/description/icon(2).jpg"/>
+    <menuitem id="menu_warps_root" name="Warps" sequence="30" web_icon="hsr_warp,static/description/icon(2).jpg"/>
 
     <!-- SR.WARP -->
-    <record id="starrail_warps_view_tree" model="ir.ui.view">
-        <field name="name">starrail.warps.tree</field>
+    <record id="hsr_warp_warps_view_tree" model="ir.ui.view">
+        <field name="name">hsr_warp.warps.tree</field>
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
             <tree string="Warps">
@@ -17,8 +17,8 @@
         </field>
     </record>
 
-    <record id="starrail_warps_view_form" model="ir.ui.view">
-        <field name="name">starrail.warps.form</field>
+    <record id="hsr_warp_warps_view_form" model="ir.ui.view">
+        <field name="name">hsr_warp.warps.form</field>
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
             <form string="Warps" edit="0">
@@ -39,8 +39,8 @@
         </field>
     </record>
 
-    <record id="starrail_warps_view_search" model="ir.ui.view">
-        <field name="name">starrail.warps.search</field>
+    <record id="hsr_warp_warps_view_search" model="ir.ui.view">
+        <field name="name">hsr_warp.warps.search</field>
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
             <search>
@@ -67,19 +67,19 @@
 
     </record>
 
-    <record id="starrail_warp_action" model="ir.actions.act_window">
+    <record id="hsr_warp_warp_action" model="ir.actions.act_window">
         <field name="name">Warps</field>
         <field name="res_model">sr.warp</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="menu_warps" name="Warps" sequence="0" 
-        parent="starrail.menu_warps_root"
-        action="starrail_warp_action"/>
+        parent="hsr_warp.menu_warps_root"
+        action="hsr_warp_warp_action"/>
 
     <!-- SR.BANNER -->
-    <record id="starrail_banner_view_tree" model="ir.ui.view">
-        <field name="name">starrail.banner.tree</field>
+    <record id="hsr_warp_banner_view_tree" model="ir.ui.view">
+        <field name="name">hsr_warp.banner.tree</field>
         <field name="model">sr.banner</field>
         <field name="arch" type="xml">
             <tree string="Banners">
@@ -89,8 +89,8 @@
         </field>
     </record>
 
-    <record id="starrail_banner_view_form" model="ir.ui.view">
-        <field name="name">starrail.banner.form</field>
+    <record id="hsr_warp_banner_view_form" model="ir.ui.view">
+        <field name="name">hsr_warp.banner.form</field>
         <field name="model">sr.banner</field>
         <field name="arch" type="xml">
             <form string="Banners">
@@ -108,7 +108,7 @@
         </field>
     </record>
 
-    <record id="starrail_banner_action" model="ir.actions.act_window">
+    <record id="hsr_warp_banner_action" model="ir.actions.act_window">
         <field name="name">Banners</field>
         <field name="res_model">sr.banner</field>
         <field name="view_mode">tree,form</field>
@@ -116,11 +116,11 @@
 
     <menuitem id="menu_banners" name="Banners" sequence="10" 
         parent="menu_warps_root"
-        action="starrail_banner_action"/>
+        action="hsr_warp_banner_action"/>
     
     <!-- SR.BANNER.TYPE -->
-    <record id="starrail_banner_type_view_tree" model="ir.ui.view">
-        <field name="name">starrail.banner.type.tree</field>
+    <record id="hsr_warp_banner_type_view_tree" model="ir.ui.view">
+        <field name="name">hsr_warp.banner.type.tree</field>
         <field name="model">sr.banner.type</field>
         <field name="arch" type="xml">
             <tree string="Banner Types" editable="top">
@@ -133,7 +133,7 @@
         </field>
     </record>
 
-    <record id="starrail_banner_type_action" model="ir.actions.act_window">
+    <record id="hsr_warp_banner_type_action" model="ir.actions.act_window">
         <field name="name">Banner Types</field>
         <field name="res_model">sr.banner.type</field>
         <field name="view_mode">tree</field>
@@ -141,10 +141,10 @@
 
     <menuitem id="menu_banner_types" name="Banner Types" sequence="20"
         parent="menu_warps_root"
-        action="starrail_banner_type_action"/>
+        action="hsr_warp_banner_type_action"/>
 
     <!-- PLAYER -->
-    <record id="button_starrail_warpdata" model="ir.actions.server">
+    <record id="button_hsr_warp_warpdata" model="ir.actions.server">
         <field name="name">Get Warp Data</field>
         <field name="model_id" ref="base.model_res_users"/>
         <field name="state">code</field>
@@ -152,7 +152,7 @@
     </record>
 
     <record id="view_users_form_inherit_sr_player" model="ir.ui.view">
-        <field name="name">res.users.form.inherit.starrail</field>
+        <field name="name">res.users.form.inherit.hsr_warp</field>
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form"/>
         <field name="mode">extension</field>

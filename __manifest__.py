@@ -1,20 +1,20 @@
 {
-    'name': 'Honkai: Star Rail',
+    'name': 'Warp Tracker',
     'version': '1.0',
-    'summary': 'Honkai: Star Rail Suite',
+    'summary': 'Honkai: Star Rail Warp Tracker',
     'sequence': 0,
     'description': "",
     'depends': ['base'],
     'data': [
         'data/sr_banner_data.xml',
         'data/ir_cron_data.xml',
-        'views/starrail_warp_views.xml',
+        'views/hsr_warp_warp_views.xml',
 
         'security/ir.model.access.csv',
     ],
     'installable': True,
     'application': True,
-    'icon': '/starrail/static/description/icon(1).jpg',
+    'icon': '/hsr_warp/static/description/icon(1).jpg',
     # 'post_init_hook': '_method_name',
     'assets': {}
 }
