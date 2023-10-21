@@ -40,12 +40,12 @@ class Warp(models.Model):
 
         # Prepare banner dict to reference ids
         banner_ids = {}
-        banners = self.env['sr.banner'].search_read(domain=[], read=['banner_key'])
+        banners = self.env['sr.banner'].search_read(domain=[], fields=['banner_key'])
         for banner in banners:
             banner_ids[banner['banner_key']] = banner['id']
 
         for row in data:
-            banner_id = banner_ids.get([row[gacha_index[0]]])
+            banner_id = banner_ids.get(row[gacha_index[0]])
             row.append(banner_id)
 
         return super().load(fields, data)
@@ -95,9 +95,9 @@ class Warp(models.Model):
             if 'id' in vals:
                 vals['wid'] = vals.pop('id')
             if 'gacha_id' in vals:
-                vals['banner_id'] = self.env['sr.banner']._get_by_gacha_id(vals['gacha_id'])
+                vals['banner_id'] = self.env['sr.banner']._get_by_gacha_id(vals['gacha_id']).id
             if 'gacha_type' in vals:
-                vals['banner_type_id'] = self.env['sr.banner.type'].search([('gacha_type','=',vals['gacha_type'])])
+                vals['banner_type_id'] = self.env['sr.banner.type'].search([('gacha_type','=',vals['gacha_type'])]).id
         return super(Warp, self).create(vals_list)
 
 
