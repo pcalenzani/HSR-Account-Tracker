@@ -74,8 +74,7 @@ class Warp(models.Model):
     def _warp_exists(self, wid):
         # Returns id if the wid is already recorded
         self.env.cr.execute(f"SELECT id FROM sr_warp WHERE wid='{wid}'")
-        ret = self.env.cr.fetchone()
-        return ret
+        return self.env.cr.fetchone()[0] or None
 
     def generate_warps(self, vals_list):
         # Check if warps exist before creating
