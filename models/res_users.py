@@ -4,6 +4,7 @@ import requests
 import logging
 
 _logger = logging.getLogger(__name__)
+"TEST"
 
 WARP_API_URL = 'https://api-os-takumi.mihoyo.com/common/gacha_record/api/getGachaLog'
 
