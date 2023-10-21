@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <odoo>
-    <menuitem id="menu_warps_root" name="Warps" sequence="30" web_icon="starrail,static/description/icon(1).png"/>
+    <menuitem id="menu_warps_root" name="Warps" sequence="30" web_icon="starrail,static/description/icon(1).jpg"/>
 
     <!-- SR.WARP -->
     <record id="starrail_warps_view_tree" model="ir.ui.view">
         <field name="name">starrail.warps.tree</field>
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
-            <tree string="Warps" edit="0">
+            <tree string="Warps">
                 <field name="name"/>
                 <field name="rank_type"/>
                 <field name="time"/>
@@ -21,7 +21,7 @@
         <field name="name">starrail.warps.form</field>
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
-            <form string="Warps">
+            <form string="Warps" edit="0">
                 <sheet>
                     <group>
                         <group>
@@ -40,23 +40,31 @@
     </record>
 
     <record id="starrail_warps_view_search" model="ir.ui.view">
-        <field name="name"/>
-        <field name="banner_id"/>
-        <field name="banner_type_id"/>
-        <filter string="5* Warps" name="5_warps" domain="[('rank_type','=',5)]"/>
-        <filter string="4* Warps" name="4_warps" domain="[('rank_type','=',4)]"/>
-        <separator/>
-        <filter string="Event Warps" name="event" domain="[('gacha_type','=',11)]"/>
-        <filter string="Light Cone Warps" name="light_cone" domain="[('gacha_type','=',12)]"/>
-        <filter string="Standard Warps" name="standard" domain="[('gacha_type','=',1)]"/>
-        <filter string="Departure Warps" name="departure" domain="[('gacha_type','=',2)]"/>
-        <group expand="0" string="Group By">
-            <filter string="Event Banner" name="banner" domain="[]" context="{'group_by': 'banner_id'}"/>
-            <filter string="Banner Type" name="banner_type" domain="[]" context="{'group_by': 'banner_type_id'}"/>
-            <separator/>
-            <filter string="Rarity" name="rarity" domain="[]" context="{'group_by': 'rank_type'}"/>
-            <filter string="Drop" name="drop" domain="[]" context="{'group_by': 'name'}"/>
-        </group>
+        <field name="name">starrail.warps.search</field>
+        <field name="model">sr.warp</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="banner_id"/>
+                <field name="banner_type_id"/>
+                <filter string="5* Warps" name="5_warps" domain="[('rank_type','=',5)]"/>
+                <filter string="4* Warps" name="4_warps" domain="[('rank_type','=',4)]"/>
+                <separator/>
+                <filter string="Event Warps" name="event" domain="[('gacha_type','=',11)]"/>
+                <filter string="Light Cone Warps" name="light_cone" domain="[('gacha_type','=',12)]"/>
+                <filter string="Standard Warps" name="standard" domain="[('gacha_type','=',1)]"/>
+                <filter string="Departure Warps" name="departure" domain="[('gacha_type','=',2)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Event Banner" name="banner" domain="[]" context="{'group_by': 'banner_id'}"/>
+                    <filter string="Banner Type" name="banner_type" domain="[]" context="{'group_by': 'banner_type_id'}"/>
+                    <separator/>
+                    <filter string="Rarity" name="rarity" domain="[]" context="{'group_by': 'rank_type'}"/>
+                    <filter string="Drop" name="drop" domain="[]" context="{'group_by': 'name'}"/>
+                </group>
+            </search>
+        </field>
+
+
     </record>
 
     <record id="starrail_warp_action" model="ir.actions.act_window">
@@ -107,7 +115,7 @@
     </record>
 
     <menuitem id="menu_banners" name="Banners" sequence="10" 
-        parent="starrail.menu_warps_root"
+        parent="menu_warps_root"
         action="starrail_banner_action"/>
     
     <!-- SR.BANNER.TYPE -->
@@ -132,7 +140,7 @@
     </record>
 
     <menuitem id="menu_banner_types" name="Banner Types" sequence="20"
-        parent="starrail.menu_warps_root"
+        parent="menu_warps_root"
         action="starrail_banner_type_action"/>
 
     <!-- PLAYER -->
