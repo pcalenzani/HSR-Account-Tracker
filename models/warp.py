@@ -22,21 +22,16 @@ class Warp(models.Model):
     wid = fields.Char('Warp ID', index=True)
 
     pity = fields.Integer("Pity", store=True, _compute_pity="_compute_pity")
-    banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_warp_banner')
-    banner_type_id = fields.Many2one('sr.banner.type', store=True, compute='_compute_warp_banner_type')
+    banner_id = fields.Many2one('sr.banner', store=True)
+    banner_type_id = fields.Many2one('sr.banner.type', store=True)
 
     _sql_constraints = [
         ('warp_key', 'UNIQUE (wid)',  'You can not have two warps with the same ID')
     ]
 
-    @api.depends('gacha_id')
-    def _compute_warp_banner(self):
+    def button_update_banner_data(self):
         for warp in self:
             warp.banner_id = self.env['sr.banner']._get_by_gacha_id(warp.gacha_id)
-        
-    @api.depends('gacha_type')
-    def _compute_warp_banner_type(self):
-        for warp in self:
             warp.banner_type_id = self.env['sr.banner.type'].search([('gacha_type','=',warp.gacha_type)])
 
     def _compute_warp_pity(self):
@@ -73,9 +68,11 @@ class Warp(models.Model):
                 vals['time'] = datetime.strptime(vals['time'], "%Y-%m-%d %H:%M:%S") + timedelta(hours=+5)
             if 'id' in vals:
                 vals['wid'] = vals.pop('id')
-        
+            if 'gacha_id' in vals:
+                vals['banner_id'] = self.env['sr.banner']._get_by_gacha_id(vals['gacha_id'])
+            if 'gacha_type' in vals:
+                vals['banner_type_id'] = self.env['sr.banner.type'].search([('gacha_type','=',vals['gacha_type'])])
         return super(Warp, self).create(vals_list)
-
 
 
 class BannerType(models.Model):
@@ -92,7 +89,7 @@ class BannerType(models.Model):
     last_five_star = fields.Many2one('sr.warp', string='Last 5* Warp', store=True, compute='_compute_warps')
 
     def _get_by_gacha_type_id(self, gacha_type_id):
-        self.env.cr.execute(f"SELECT id FROM sr_banner_type WHERE gacha_type = '{gacha_type_id}'")
+        self.env.cr.execute(f"SELECT id FROM sr_banner_type WHERE gacha_type = '{gacha_type_id}' LIMIT 1")
         return self.browse(self.env.cr.fetchone())
     
     @api.depends('warp_ids')
