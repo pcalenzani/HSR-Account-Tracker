@@ -1,4 +1,5 @@
 from odoo import api, fields, models, tools, Command
+from odoo.exceptions import UserError
 from datetime import datetime, timedelta
 import logging
 
@@ -21,17 +22,42 @@ class Warp(models.Model):
     rank_type = fields.Integer('Rarity')
     wid = fields.Char('Warp ID', index=True)
 
-    pity = fields.Integer("Pity", store=True, _compute_pity="_compute_pity")
-    banner_id = fields.Many2one('sr.banner', store=True)
-    banner_type_id = fields.Many2one('sr.banner.type', store=True)
+    pity = fields.Integer("Pity", store=True, compute="_compute_pity")
+    banner_id = fields.Many2one('sr.banner', store=True, compute="_compute_banner_id")
+    banner_type_id = fields.Many2one('sr.banner.type', store=True, compute="_compute_banner_type_id")
 
     _sql_constraints = [
         ('warp_key', 'UNIQUE (wid)',  'You can not have two warps with the same ID')
     ]
 
-    def button_update_banner_data(self):
+    def load(self, fields, data):
+        if 'gacha_id' not in fields:
+            raise UserError("The import file must contain a banner id column.")
+        
+        fields.append("banner_id")
+        gacha_index = fields.index("gacha_id"), fields.index("gacha_type")
+        self.env['sr.banner'].generate_banners(data, fields=gacha_index)
+
+        # Prepare banner dict to reference ids
+        banner_ids = {}
+        banners = self.env['sr.banner'].search_read(domain=[], read=['banner_key'])
+        for banner in banners:
+            banner_ids[banner['banner_key']] = banner['id']
+
+        for row in data:
+            banner_id = banner_ids.get([row[gacha_index[0]]])
+            row.append(banner_id)
+
+        return super().load(fields, data)
+
+    @api.depends('gacha_id')
+    def _compute_banner_id(self):
         for warp in self:
             warp.banner_id = self.env['sr.banner']._get_by_gacha_id(warp.gacha_id)
+
+    @api.depends('gacha_type')
+    def _compute_banner_type_id(self):
+        for warp in self:
             warp.banner_type_id = self.env['sr.banner.type'].search([('gacha_type','=',warp.gacha_type)])
 
     def _compute_warp_pity(self):
@@ -121,7 +147,7 @@ class Banner(models.Model):
 
     name = fields.Char('Name', default='~')
     active = fields.Boolean('Active', default=True)
-    banner_key = fields.Char('Banner ID', index=True, readonly=True)
+    banner_key = fields.Char('Banner ID', index=True)
     gacha_type_id = fields.Many2one('sr.banner.type')
 
     _sql_constraints = [
@@ -139,10 +165,11 @@ class Banner(models.Model):
         self.env.cr.execute(f"SELECT id FROM sr_banner WHERE banner_key = '{gacha_id}'")
         return self.browse(self.env.cr.fetchone())
     
-    def generate_banners_json(self, json_data):
+    def generate_banners(self, data, fields=None):
+        gacha_id, gacha_type = fields or ('gacha_id', 'gacha_type')
         banners = set()
-        for warp in json_data:
-            banners.add((warp['gacha_id'], warp['gacha_type']))
+        for warp in data:
+            banners.add((warp[gacha_id], warp[gacha_type]))
         
         for banner in banners:
             if not self._get_by_gacha_id(banner[0]):
