@@ -1,5 +1,18 @@
 from odoo import api, fields, models, tools, Command
 
+class RelicSetBonus(models.Model):
+    _name = 'sr.relic.set.bonus'
+
+    # --- Manual Fields ---
+    relic_set_id = fields.Many2one('sr.relic.set')
+
+    # --- API Fields ---
+    num = fields.Char('Bonus Requirement')
+    desc = fields.Char('Description')
+
+    def name_get(self):
+        return f"{self.num} Set - {self.relic_set_id.name}"
+    
 class RelicSet(models.Model):
     _name = 'sr.relic.set'
 
@@ -13,18 +26,6 @@ class RelicSet(models.Model):
     name = fields.Char('Set')
     set_id = fields.Integer('Set ID')
 
-class RelicSetBonus(models.Model):
-    _name = 'sr.relic.set.bonus'
-
-    # --- Manual Fields ---
-    relic_set_id = fields.Many2one('sr.relic.set')
-
-    # --- API Fields ---
-    num = fields.Char('Bonus Requirement')
-    desc = fields.Char('Description')
-
-    def name_get(self):
-        return f"{self.num} Set - {self.relic_set_id.name}"
 
 
 class Relic(models.Model):
