@@ -32,10 +32,10 @@ class Character(models.Model):
 
     # --- Manual Fields ---
     template_id = fields.Many2one('sr.character.template')
-    general_mat_id = fields.Many2one(related='templated_id.general_mad_id')
-    advanced_mat_id = fields.Many2one(related='templated_id.advanced_mat_id')
-    ascension_mad_id = fields.Many2one(related='templated_id.ascension_mad_id')
-    eidolon_ids = fields.Many2many(related='templated_id.eidolon_ids')
+    general_mat_id = fields.Many2one(related='template_id.general_mad_id')
+    advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
+    ascension_mad_id = fields.Many2one(related='template_id.ascension_mad_id')
+    eidolon_ids = fields.Many2many(related='template_id.eidolon_ids')
 
     # --- API Fields ---
     promotion = fields.Integer(string='Ascension Level')
