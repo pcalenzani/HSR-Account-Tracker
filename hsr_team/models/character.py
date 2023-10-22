@@ -8,7 +8,7 @@ class CharacterTemplate(models.Model):
     character_id = fields.Integer('Character ID')
     general_mat_id = fields.Many2one('sr.character.material', string='General Material')
     advanced_mat_id = fields.Many2one('sr.character.material', string='Advanced Material')
-    ascension_mad_id = fields.Many2one('sr.character.material', string='Ascension Material')
+    ascension_mat_id = fields.Many2one('sr.character.material', string='Ascension Material')
     eidolon_ids = fields.Many2many('sr.character.eidolon')
 
     element = fields.Selection(
@@ -32,9 +32,9 @@ class Character(models.Model):
 
     # --- Manual Fields ---
     template_id = fields.Many2one('sr.character.template')
-    general_mat_id = fields.Many2one(related='template_id.general_mad_id')
+    general_mat_id = fields.Many2one(related='template_id.general_mat_id')
     advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
-    ascension_mad_id = fields.Many2one(related='template_id.ascension_mad_id')
+    ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
     eidolon_ids = fields.Many2many(related='template_id.eidolon_ids')
 
     # --- API Fields ---
