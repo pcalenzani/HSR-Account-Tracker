@@ -1,7 +1,7 @@
 {
     'name': 'Warp Tracker',
     'version': '1.0',
-    'summary': 'Honkai: Star Rail Warp Tracker',
+    'summary': 'Honkai: Star Rail - Warp Tracker',
     'sequence': 0,
     'description': "",
     'depends': ['base'],
