@@ -20,7 +20,7 @@ class RelicSet(models.Model):
     is_ornament = fields.Boolean('Is Ornament Set?')
     is_relic_set = fields.Boolean('Is Relic Set?')
 
-    bonus_ids = fields.One2many('sr.relic.set.bonus', inverse_name='set_id', string='Set Bonuses')
+    bonus_ids = fields.One2many('sr.relic.set.bonus', inverse_name='relic_set_id', string='Set Bonuses')
 
     # --- API Fields ---
     name = fields.Char('Set')
