@@ -25,6 +25,9 @@ class CharacterTemplate(models.Model):
         string='Element'
     )
 
+    def name_get(self):
+        return f"{self.avatar} (Template)"
+
 class Character(models.Model):
     _name = 'sr.character'
     _description = 'Character'
