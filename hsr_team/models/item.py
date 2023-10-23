@@ -32,7 +32,7 @@ class Item(models.Model):
     )
 
     def _compute_count(self):
-        self.env['sr.warp'].search([('item_id','=',str(self.item_id))])
+        self.count = self.env['sr.warp'].search_count([('item_id','=',str(self.item_id))])
 
 
 class LightCone(models.Model):
