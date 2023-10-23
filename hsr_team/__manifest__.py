@@ -16,6 +16,6 @@
     'installable': True,
     'application': True,
     'icon': '/hsr_warp/static/description/icon(3).jpg',
-    # 'post_init_hook': '_method_name',
+    'pre_init_hook': 'pre_init',
     'assets': {}
 }

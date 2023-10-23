@@ -13,6 +13,7 @@ class RelicSetBonus(models.Model):
     def name_get(self):
         return [(rec.id, f"{rec.num} Set - {rec.relic_set_id.name}") for rec in self]
     
+    
 class RelicSet(models.Model):
     _name = 'sr.relic.set'
 
@@ -25,7 +26,6 @@ class RelicSet(models.Model):
     # --- API Fields ---
     name = fields.Char('Set')
     set_id = fields.Integer('Set ID')
-
 
 
 class Relic(models.Model):
@@ -46,6 +46,7 @@ class Relic(models.Model):
 
     def name_get(self):
         return [(rec.id, f"{rec.set_id.name}: {rec.relic_name}") for rec in self]
+
 
 class RelicAffix(models.Model):
     _name = 'sr.relic.affix'

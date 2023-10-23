@@ -28,6 +28,7 @@ class CharacterTemplate(models.Model):
     def name_get(self):
         return [(rec.id, f"{rec.avatar} (Template)") for rec in self]
 
+
 class Character(models.Model):
     _name = 'sr.character'
     _description = 'Character'
@@ -45,6 +46,7 @@ class Character(models.Model):
     promotion = fields.Integer(string='Ascension Level')
     light_cone_id = fields.Many2one('sr.light.cone')
     element = fields.Selection(related='template_id.element', store=True)
+
 
 class Eidolon(models.Model):
     _name = 'sr.character.eidolon'
