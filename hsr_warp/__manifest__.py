@@ -12,6 +12,9 @@
 
         'security/ir.model.access.csv',
     ],
+    'assets': {
+        'web.assets_backend': ['hsr_warp/static/src/web_client.js']
+    },
     'installable': True,
     'application': True,
     'icon': '/hsr_warp/static/description/icon(1).jpg',
