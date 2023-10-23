@@ -40,7 +40,7 @@ class Character(models.Model):
     # --- API Fields ---
     promotion = fields.Integer(string='Ascension Level')
     light_cone_id = fields.Many2one('sr.light.cone')
-    element = fields.Selection(related='template_id.element')
+    element = fields.Selection(related='template_id.element', store=True)
 
 class Eidolon(models.Model):
     _name = 'sr.character.eidolon'

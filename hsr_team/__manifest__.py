@@ -6,7 +6,9 @@
     'description': "",
     'depends': ['hsr_warp'],
     'data': [
+        'views/hsr_team_character_views.xml',
 
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'application': True,

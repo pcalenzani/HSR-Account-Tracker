@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sr_character,sr.character.all,model_sr_character,,1,1,1,1
+access_sr_character_template,sr.character.template.all,model_sr_character_template,,1,1,1,1
+access_sr_character_eidolon,sr.character.eidolon.all,model_sr_character_eidolon,,1,1,1,1
+access_sr_light_cone,sr.light.cone,model_sr_light_cone,,1,1,1,1
+access_sr_item,sr.item.all,model_sr_item,,1,1,1,1

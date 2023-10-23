@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem id="menu_character_root" name="Characters" sequence="31" web_icon="hsr_warp,static/description/icon(10).jpg"/>
+
+    <!-- SR.CHARACTER -->
+    <record id="hsr_team_character_view_tree" model="ir.ui.view">
+        <field name="name">hsr_team.character.tree</field>
+        <field name="model">sr.character</field>
+        <field name="arch" type="xml">
+            <tree string="Characters">
+                <field name="name"/>
+                <field name="element"/>
+                <field name="path"/>
+                <field name="is_owned" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hsr_team_character_view_form" model="ir.ui.view">
+        <field name="name">hsr_team.character.form</field>
+        <field name="model">sr.character</field>
+        <field name="arch" type="xml">
+            <form string="Characters">
+                <sheet>
+                    <field name="is_owned" invisible="1"/>
+                    <header><field name="name"/></header>
+                    <group>
+                        <field name="element"/>
+                        <field name="path"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hsr_warp_character_action" model="ir.actions.act_window">
+        <field name="name">Characters</field>
+        <field name="res_model">sr.character</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_characters" name="Banners" sequence="10" 
+        parent="menu_character_root"
+        action="hsr_warp_character_action"/>
+
+</odoo>
