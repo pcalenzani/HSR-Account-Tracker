@@ -22,14 +22,37 @@
         <field name="arch" type="xml">
             <form string="Characters">
                 <sheet>
+                    <field name="item_id" invisible="1"/>
                     <field name="is_owned" invisible="1"/>
+                    <field name="template_id" invisible="1"/>
                     <div class="oe_title">
                         <h1><field name="name"/></h1>
                     </div>
                     <group>
-                        <field name="element"/>
-                        <field name="path"/>
+                        <group>
+                            <field name="element"/>
+                            <field name="path"/>
+                        </group>
+                        <group>
+                            <field name="rarity"/>
+                            <field name="level"/>
+                            <field name="rank"/>
+                            <field name="promotion"/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Light Cone">
+                            <field name="light_cone_id"/>
+                        </page>
+                        <page string="Eidolons">
+                            <field name="eidolon_ids"/>
+                        </page>
+                        <page string="Upgrade Mats">
+                            <field name="ascension_mat_id"/>
+                            <field name="advanced_mat_id"/>
+                            <field name="general_mat_id"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -45,4 +68,5 @@
         parent="menu_character_root"
         action="hsr_warp_character_action"/>
 
+    <!-- SR.CHARACTER.TEMPLATE -->
 </odoo>

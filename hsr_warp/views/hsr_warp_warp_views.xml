@@ -177,4 +177,19 @@
             </data>
         </field>
     </record>
+
+    <!-- OTHER -->
+    <record id="view_layout_inherit_hsr_warp" model="ir.ui.view">
+        <field name="name">web.layout.inherit.hsr_warp</field>
+        <field name="inherit_id" ref="web.layout"/>
+        <field name="mode">extension</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//title" position="replace">
+                    <title>Star Rail</title>
+                </xpath>
+            </data>
+        </field>
+    </record>
 </odoo>
