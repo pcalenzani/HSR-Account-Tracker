@@ -29,73 +29,73 @@
         <!-- ADVANCED MATERIALS -->
         <record model="sr.character.material" id="sr_advanced_mat_1">
             <field name="name">Destroyer's Final Road</field>
-            <field name="type" eval="eow"/>
+            <field name="type">eow</field>
         </record>
         <record model="sr.character.material" id="sr_advanced_mat_2">
             <field name="name">Guardian's Lament</field>
-            <field name="type" eval="eow"/>
+            <field name="type">eow</field>
         </record>
         <record model="sr.character.material" id="sr_advanced_mat_3">
             <field name="name">Regret of Infinite Ochema</field>
-            <field name="type" eval="eow"/>
+            <field name="type">eow</field>
         </record>
 
         <!-- ASCENSION MATERIALS -->
         <record model="sr.character.material" id="sr_ascension_mat_1">
             <field name="name">Void Cast Iron</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_2">
             <field name="name">Storm Eye</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_3">
             <field name="name">Lightning Crown</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_4">
             <field name="name">Endotherm Chitin</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_5">
             <field name="name">Broken Teeth</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_6">
             <field name="name">Gelid Chitin</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_7">
             <field name="name">Lightning Staff</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_8">
             <field name="name">Horn of Snow</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_9">
             <field name="name">Golden Crown</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_10">
             <field name="name">Ascendant Debris</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_11">
             <field name="name">Nail of the Ape</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_12">
             <field name="name">Suppressing Edict</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_13">
             <field name="name">Searing Steel Blade</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
         <record model="sr.character.material" id="sr_ascension_mat_14">
             <field name="name">Netherworld Pass</field>
-            <field name="type" eval="ascension"/>
+            <field name="type">ascension</field>
         </record>
     </data>
 </odoo>

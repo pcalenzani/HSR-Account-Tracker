@@ -4,7 +4,7 @@
         <record model="sr.character.template" id="sr_character_clara">
             <field name="avatar">Clara</field>
             <field name="character_id">1107</field>
-            <field name="element" eval="Physical"/>
+            <field name="element">Physical</field>
             <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
