@@ -26,7 +26,7 @@ class CharacterTemplate(models.Model):
     )
 
     def name_get(self):
-        return [f"{rec.avatar} (Template)" for rec in self]
+        return [(rec.id, f"{rec.avatar} (Template)") for rec in self]
 
 class Character(models.Model):
     _name = 'sr.character'
