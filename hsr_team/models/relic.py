@@ -11,7 +11,7 @@ class RelicSetBonus(models.Model):
     desc = fields.Char('Description')
 
     def name_get(self):
-        return f"{self.num} Set - {self.relic_set_id.name}"
+        return [f"{rec.num} Set - {rec.relic_set_id.name}" for rec in self]
     
 class RelicSet(models.Model):
     _name = 'sr.relic.set'
@@ -45,7 +45,7 @@ class Relic(models.Model):
     sub_affix = fields.Many2many('sr.relic.attribute', string='Attributes')
 
     def name_get(self):
-        return f"{self.set_id.name}: {self.relic_name}"
+        return [f"{rec.set_id.name}: {rec.relic_name}" for rec in self]
 
 class RelicAffix(models.Model):
     _name = 'sr.relic.affix'
@@ -83,5 +83,5 @@ class RelicAffix(models.Model):
         ],
         string='Type')
 
-    def _name_get(self):
-        return f"{self.display} {self.affix_name}"
+    def name_get(self):
+        return [f"{rec.display} {rec.affix_name}" for rec in self]
