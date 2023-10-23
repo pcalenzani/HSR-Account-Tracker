@@ -64,7 +64,7 @@ class Eidolon(models.Model):
 
 class Material(models.Model):
     _name = 'sr.character.material'
-    _description = 'Character Material'
+    _description = 'Upgrade Material'
 
     name = fields.Char("Name")
     type = fields.Selection(
