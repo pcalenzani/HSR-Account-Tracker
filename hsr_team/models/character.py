@@ -5,6 +5,7 @@ class CharacterTemplate(models.Model):
     _name = 'sr.character.template'
     _description = 'Character Template'
     
+    avatar = fields.Char("Character Name")
     character_id = fields.Integer('Character ID')
     general_mat_id = fields.Many2one('sr.character.material', string='General Material')
     advanced_mat_id = fields.Many2one('sr.character.material', string='Advanced Material')
@@ -65,6 +66,7 @@ class Material(models.Model):
     _name = 'sr.character.material'
     _description = 'Character Material'
 
+    name = fields.Char("Name")
     type = fields.Selection(
         selection=[
             ('basic', 'General'),
