@@ -2,6 +2,7 @@ from odoo import api, fields, models, tools, Command
 
 class RelicSetBonus(models.Model):
     _name = 'sr.relic.set.bonus'
+    _description = 'Relic Bonus'
 
     # --- Manual Fields ---
     relic_set_id = fields.Many2one('sr.relic.set')
@@ -16,6 +17,7 @@ class RelicSetBonus(models.Model):
     
 class RelicSet(models.Model):
     _name = 'sr.relic.set'
+    _description = 'Relic Set'
 
     # --- Manual Fields ---
     is_ornament = fields.Boolean('Is Ornament Set?')
@@ -30,6 +32,7 @@ class RelicSet(models.Model):
 
 class Relic(models.Model):
     _name = 'sr.relic'
+    _description = 'Relic'
 
     # --- Manual Fields ---
     score = fields.Float('Relic Score')
@@ -41,8 +44,8 @@ class Relic(models.Model):
     relic_name = fields.Char('Relic Name')
     rarity = fields.Integer('Rarity')
     level = fields.Integer('Relic Level')
-    main_affix = fields.Many2one('sr.relic.attribute', string='Main Attribute')
-    sub_affix = fields.Many2many('sr.relic.attribute', string='Attributes')
+    main_affix = fields.Many2one('sr.relic.affix', string='Main Attribute')
+    sub_affix = fields.Many2many('sr.relic.affix', string='Attributes')
 
     def name_get(self):
         return [(rec.id, f"{rec.set_id.name}: {rec.relic_name}") for rec in self]
@@ -50,6 +53,7 @@ class Relic(models.Model):
 
 class RelicAffix(models.Model):
     _name = 'sr.relic.affix'
+    _description = 'Relic Stat'
 
     # --- Manual Fields ---
 

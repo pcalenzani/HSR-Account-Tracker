@@ -51,6 +51,7 @@ class Item(models.Model):
         if response.status_code == 200:
             self.parse_character_data(response.json()['characters'])
         else:
+            _logger.info(url)
             _logger.error(response.reason)
             return
         
