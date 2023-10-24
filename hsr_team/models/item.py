@@ -40,8 +40,8 @@ class Item(models.Model):
 
         self.env['sr.character'].create(ch_data)
 
-    def get_profile_data(self):
-        if not self.user_id.sr_uid:
+    def get_profile_data(self, user_id=2):
+        if not self.env['res.users'].browse(user_id).sr_uid:
             return
         url = "https://api.mihomo.me/sr_info_parsed/{self.user_id.sr_uid}?lang=en&version=v2"
         response = requests.get(url)
