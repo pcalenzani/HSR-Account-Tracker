@@ -44,7 +44,7 @@ class Item(models.Model):
         sr_uid = self.env['res.users'].browse(user_id).sr_uid
         if not sr_uid:
             return
-        url = "https://api.mihomo.me/sr_info_parsed/{sr_uid}?lang=en&version=v2"
+        url = "https://api.mihomo.me/sr_info_parsed/%s?lang=en&version=v2"%(sr_uid)
         response = requests.get(url)
 
         _logger.info(response.status_code)
