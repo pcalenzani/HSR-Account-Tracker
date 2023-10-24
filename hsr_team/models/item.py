@@ -15,30 +15,6 @@ class Item(models.Model):
     item_id = fields.Integer('Item ID')
     name = fields.Char('Name')
 
-    def _create_character_json(self, ch_data):
-        to_remove = [
-            'icon',
-            'preview',
-            'portrait',
-            'rank_icons',
-            'element',
-            'skills',
-            'skill_trees',
-            'light_cone',
-            'relics',
-            'relic_sets',
-            'attributes',
-            'additions',
-            'properties',
-        ]
-        for k in to_remove:
-            if k in ch_data:
-                del ch_data[k]
-        
-        ch_data['item_id'] = ch_data.pop('id')
-        ch_data['path'] = ch_data['path']['id']
-
-        self.env['sr.character'].create(ch_data)
 
     def get_profile_data(self, user_id=2):
         sr_uid = self.env['res.users'].browse(user_id).sr_uid
@@ -49,21 +25,12 @@ class Item(models.Model):
 
         _logger.info(response.status_code)
         if response.status_code == 200:
-            self.parse_character_data(response.json()['characters'])
+            self.env['sr.character'].parse_character_data(response.json()['characters'])
         else:
             _logger.info(url)
             _logger.error(response.reason)
             return
         
-    def parse_character_data(self, data):
-        for ch in data:
-            ch_rec = self.check_exists(ch['id'])
-            if not ch_rec:
-                # Create new item
-                self._create_character_json(ch)
-            else:
-                # Update item
-                pass
 
 
 class Character(models.Model):
@@ -108,9 +75,44 @@ class Character(models.Model):
             
     def check_exists(self, item_id):
         # Returns id if the item id is already present in db
-        self.env.cr.execute(f"SELECT id FROM sr_item WHERE wid='{item_id}'")
+        self.env.cr.execute(f"SELECT id FROM sr_character WHERE wid='{item_id}'")
         ret = self.env.cr.fetchone()
         return ret[0] if ret else None
+    
+    def parse_character_data(self, data):
+        for ch in data:
+            ch_rec = self.check_exists(ch['id'])
+            if not ch_rec:
+                # Create new item
+                self._create_character_json(ch)
+            else:
+                # Update item
+                pass
+            
+    def _create_character_json(self, ch_data):
+        to_remove = [
+            'icon',
+            'preview',
+            'portrait',
+            'rank_icons',
+            'element',
+            'path',
+            'skills',
+            'skill_trees',
+            'light_cone',
+            'relics',
+            'relic_sets',
+            'attributes',
+            'additions',
+            'properties',
+        ]
+        for k in to_remove:
+            if k in ch_data:
+                del ch_data[k]
+        
+        ch_data['item_id'] = ch_data.pop('id')
+
+        self.create(ch_data)
     
 
 class LightCone(models.Model):
