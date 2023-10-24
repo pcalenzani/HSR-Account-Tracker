@@ -2,7 +2,7 @@
     'name': 'Character Tracker',
     'version': '1.0',
     'summary': 'Honkai: Star Rail - Character Tracker',
-    'sequence': 0,
+    'sequence': 1,
     'description': "",
     'depends': ['hsr_warp'],
     'data': [

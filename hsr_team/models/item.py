@@ -1,4 +1,8 @@
 from odoo import api, fields, models, tools, Command
+import requests
+import logging
+
+_logger = logging.getLogger(__name__)
 
 class Item(models.Model):
     _name = 'sr.item'
@@ -6,19 +10,116 @@ class Item(models.Model):
     _order = 'item_id DESC'
 
     # --- Manual Fields ---
-    count = fields.Integer('Count', store=True, compute='_compute_count')
-    is_owned = fields.Boolean('Is Owned', store=True, compute='_compute_count')
-    date_obtained = fields.Date('Obtained on')
-    free_pulls = fields.Integer('Free Pulls')
-    warp_ids = fields.Many2many('sr.warp')
 
     # --- API Fields ---
     item_id = fields.Integer('Item ID')
     name = fields.Char('Name')
+
+    def _create_character_json(self, ch_data):
+        to_remove = [
+            'icon',
+            'preview',
+            'portrait',
+            'rank_icons',
+            'element',
+            'skills',
+            'skill_trees',
+            'light_cone',
+            'relics',
+            'relic_sets',
+            'attributes',
+            'additions',
+            'properties',
+        ]
+        for k in to_remove:
+            if k in ch_data:
+                del ch_data[k]
+        
+        ch_data['item_id'] = ch_data.pop('id')
+        ch_data['path'] = ch_data['path']['id']
+
+        self.env['sr.character'].create(ch_data)
+
+    def get_profile_data(self):
+        if not self.user_id.sr_uid:
+            return
+        url = "https://api.mihomo.me/sr_info_parsed/{self.user_id.sr_uid}?lang=en&version=v2"
+        response = requests.get(url)
+
+        if response['status_code'] == 200:
+            self.parse_character_data(response.json()['characters'])
+        else:
+            _logger.error(response['reason'])
+            return
+        
+    def parse_character_data(self, data):
+        for ch in data:
+            ch_rec = self.check_exists(ch['id'])
+            if not ch_rec:
+                # Create new item
+                self._create_character_json(ch)
+            else:
+                # Update item
+                pass
+
+
+class Character(models.Model):
+    _name = 'sr.character'
+    _description = 'Character'
+    _inherit = 'sr.item'
+    _order = 'item_id DESC'
+
+    # --- Manual Fields ---
+    template_id = fields.Many2one('sr.character.template')
+    general_mat_id = fields.Many2one(related='template_id.general_mat_id')
+    advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
+    ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
+    eidolon_ids = fields.Many2many(related='template_id.eidolon_ids')
+    element = fields.Selection(related='template_id.element', store=True)
+    path = fields.Selection(related='template_id.path', store=True)
+
+    count = fields.Integer('Count', store=True, compute='_compute_count')
+    is_owned = fields.Boolean('Is Owned', store=True, compute='_compute_count')
+    date_obtained = fields.Date('Obtained on')
+    free_pulls = fields.Integer('Free Pulls')
+
+    # --- API Fields ---
+    promotion = fields.Integer(string='Ascension Level')
+    light_cone_id = fields.Many2one('sr.light.cone')
+    
     rarity = fields.Integer('Rarity')
     rank = fields.Integer('Rank')
     level = fields.Integer('Level')
     promotion = fields.Integer('Promotion')
+
+    _sql_constraints = [
+        ('character_key', 'UNIQUE (item_id)',  'Duplicate character deteced. Item ID must be unique.')
+    ]
+    
+    @api.depends('template_id.warp_ids')
+    def _compute_count(self):
+        for item in self:
+            count = self.env['sr.warp'].search_count([('item_id','=',str(item.item_id))])
+            item.count = count
+            item.is_owned = count + item.free_pulls
+            
+    def check_exists(self, item_id):
+        # Returns id if the item id is already present in db
+        self.env.cr.execute(f"SELECT id FROM sr_item WHERE wid='{item_id}'")
+        ret = self.env.cr.fetchone()
+        return ret[0] if ret else None
+    
+
+class LightCone(models.Model):
+    _name = 'sr.light.cone'
+    _description = 'Light Cone'
+    _inherit = 'sr.item'
+    _order = 'item_id DESC'
+
+    rarity = fields.Integer('Rarity')
+    rank = fields.Integer('Rank')
+    level = fields.Integer('Level')
+    promotion = fields.Integer('Superimposition')
 
     path = fields.Selection(
         selection=[
@@ -33,26 +134,15 @@ class Item(models.Model):
         string='Path'
     )
 
-    _sql_constraints = [
-        ('item_key', 'UNIQUE (item_id)',  'Duplicate deteced. Item ID must be unique.')
-    ]
-    
-    @api.depends('warp_ids')
-    def _compute_count(self):
-        item_count = self.env['sr.warp'].search_count([('item_id','=',str(self.item_id))])
-        self.count = item_count
-        self.is_owned = item_count + self.free_pulls
 
+class Warp(models.Model):
+    _inherit = 'sr.warp'
 
-class LightCone(models.Model):
-    _name = 'sr.light.cone'
-    _description = 'Light Cone'
-    _inherit = 'sr.item'
-    _order = 'item_id DESC'
+    character_id = fields.Many2one('sr.character', store=True, compute='_compute_character_id')
 
-    promotion = fields.Integer(string='Superimposition')
-    
-
+    def _compute_character_id(self):
+        for warp in self:
+            warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)])
 
 # Attributes
 # Properties

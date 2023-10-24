@@ -10,7 +10,8 @@ class CharacterTemplate(models.Model):
     general_mat_id = fields.Many2one('sr.character.material', string='General Material')
     advanced_mat_id = fields.Many2one('sr.character.material', string='Advanced Material')
     ascension_mat_id = fields.Many2one('sr.character.material', string='Ascension Material')
-    eidolon_ids = fields.Many2many('sr.character.eidolon')
+    eidolon_ids = fields.Many2many('sr.character.eidolon', string='Eidolons')
+    warp_ids = fields.One2many('sr.warp', 'character_id', string='Warps')
 
     element = fields.Selection(
         selection=[
@@ -25,27 +26,25 @@ class CharacterTemplate(models.Model):
         string='Element'
     )
 
+    path = fields.Selection(
+        selection=[
+            ('Warrior', 'Destruction'),
+            ('Priest', 'Abundance'),
+            ('Rogue', 'Hunt'),
+            ('Mage', 'Erudition'),
+            ('Shaman', 'Harmony'),
+            ('Warlock', 'Nihility'),
+            ('Knight', 'Preservation'),
+        ],
+        string='Path'
+    )
+
+    _sql_constraints = [
+        ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
+    ]
+
     def name_get(self):
         return [(rec.id, f"{rec.avatar} (Template)") for rec in self]
-
-
-class Character(models.Model):
-    _name = 'sr.character'
-    _description = 'Character'
-    _inherit = 'sr.item'
-    _order = 'item_id DESC'
-
-    # --- Manual Fields ---
-    template_id = fields.Many2one('sr.character.template')
-    general_mat_id = fields.Many2one(related='template_id.general_mat_id')
-    advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
-    ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
-    eidolon_ids = fields.Many2many(related='template_id.eidolon_ids')
-
-    # --- API Fields ---
-    promotion = fields.Integer(string='Ascension Level')
-    light_cone_id = fields.Many2one('sr.light.cone')
-    element = fields.Selection(related='template_id.element', store=True)
 
 
 class Eidolon(models.Model):

@@ -5,6 +5,7 @@
             <field name="avatar">March 7th</field>
             <field name="character_id">1001</field>
             <field name="element">Ice</field>
+            <field name="path">Knight</field>
             <field name="general_mat_id" ref="sr_general_mat_2"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
@@ -14,6 +15,7 @@
             <field name="avatar">Dan Heng</field>
             <field name="character_id">1002</field>
             <field name="element">Wind</field>
+            <field name="path">Rogue</field>
             <field name="general_mat_id" ref="sr_general_mat_1"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_2"/>
@@ -23,6 +25,7 @@
             <field name="avatar">Himeko</field>
             <field name="character_id">1003</field>
             <field name="element">Fire</field>
+            <field name="path">Mage</field>
             <field name="general_mat_id" ref="sr_general_mat_1"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_4"/>
@@ -32,6 +35,7 @@
             <field name="avatar">Welt</field>
             <field name="character_id">1004</field>
             <field name="element">Imaginary</field>
+            <field name="path">Warlock</field>
             <field name="general_mat_id" ref="sr_general_mat_3"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_9"/>
@@ -41,6 +45,7 @@
             <field name="avatar">Kafka</field>
             <field name="character_id">1005</field>
             <field name="element">Lightning</field>
+            <field name="path">Warlock</field>
             <field name="general_mat_id" ref="sr_general_mat_2"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_7"/>
@@ -50,6 +55,7 @@
             <field name="avatar">Silver Wolf</field>
             <field name="character_id">1006</field>
             <field name="element">Quantum</field>
+            <field name="path">Warlock</field>
             <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_1"/>
@@ -59,6 +65,7 @@
             <field name="avatar">Arlan</field>
             <field name="character_id">1008</field>
             <field name="element">Lightning</field>
+            <field name="path">Warrior</field>
             <field name="general_mat_id" ref="sr_general_mat_1"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
@@ -68,6 +75,7 @@
             <field name="avatar">Asta</field>
             <field name="character_id">1009</field>
             <field name="element">Fire</field>
+            <field name="path">Shaman</field>
             <field name="general_mat_id" ref="sr_general_mat_3"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_4"/>
@@ -77,6 +85,7 @@
             <field name="avatar">Herta</field>
             <field name="character_id">1013</field>
             <field name="element">Ice</field>
+            <field name="path">Mage</field>
             <field name="general_mat_id" ref="sr_general_mat_1"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
@@ -86,6 +95,7 @@
             <field name="avatar">Bronya</field>
             <field name="character_id">1101</field>
             <field name="element">Wind</field>
+            <field name="path">Shaman</field>
             <field name="general_mat_id" ref="sr_general_mat_3"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_2"/>
@@ -95,6 +105,7 @@
             <field name="avatar">Seele</field>
             <field name="character_id">1102</field>
             <field name="element">Quantum</field>
+            <field name="path">Rogue</field>
             <field name="general_mat_id" ref="sr_general_mat_2"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_1"/>
@@ -104,6 +115,7 @@
             <field name="avatar">Serval</field>
             <field name="character_id">1103</field>
             <field name="element">Lightning</field>
+            <field name="path">Mage</field>
             <field name="general_mat_id" ref="sr_general_mat_3"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
@@ -113,6 +125,7 @@
             <field name="avatar">Gepard</field>
             <field name="character_id">1104</field>
             <field name="element">Ice</field>
+            <field name="path">Knight</field>
             <field name="general_mat_id" ref="sr_general_mat_3"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
@@ -122,6 +135,7 @@
             <field name="avatar">Natasha</field>
             <field name="character_id">1105</field>
             <field name="element">Physical</field>
+            <field name="path">Priest</field>
             <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
@@ -131,6 +145,7 @@
             <field name="avatar">Pela</field>
             <field name="character_id">1106</field>
             <field name="element">Ice</field>
+            <field name="path">Warlock</field>
             <field name="general_mat_id" ref="sr_general_mat_1"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
@@ -140,6 +155,7 @@
             <field name="avatar">Clara</field>
             <field name="character_id">1107</field>
             <field name="element">Physical</field>
+            <field name="path">Warrior</field>
             <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
@@ -149,6 +165,7 @@
             <field name="avatar">Sampo</field>
             <field name="character_id">1108</field>
             <field name="element">Wind</field>
+            <field name="path">Warlock</field>
             <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_2"/>
@@ -158,6 +175,7 @@
             <field name="avatar">Hook</field>
             <field name="character_id">1109</field>
             <field name="element">Fire</field>
+            <field name="path">Warrior</field>
             <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_4"/>
@@ -167,6 +185,7 @@
             <field name="avatar">Lynx</field>
             <field name="character_id">1110</field>
             <field name="element">Quantum</field>
+            <field name="path">Priest</field>
             <field name="general_mat_id" ref="sr_general_mat_1"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_11"/>
@@ -176,6 +195,7 @@
             <field name="avatar">Luka</field>
             <field name="character_id">1111</field>
             <field name="element">Physical</field>
+            <field name="path">Warlock</field>
             <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
@@ -185,6 +205,7 @@
             <field name="avatar">Topaz and Numby</field>
             <field name="character_id">1112</field>
             <field name="element">Fire</field>
+            <field name="path">Rogue</field>
             <field name="general_mat_id" ref="sr_general_mat_3"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_13"/>
@@ -194,6 +215,7 @@
             <field name="avatar">QingQue</field>
             <field name="character_id">1201</field>
             <field name="element">Quantum</field>
+            <field name="path">Mage</field>
             <field name="general_mat_id" ref="sr_general_mat_2"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_1"/>
@@ -203,6 +225,7 @@
             <field name="avatar">Tingyun</field>
             <field name="character_id">1202</field>
             <field name="element">Lightning</field>
+            <field name="path">Shaman</field>
             <field name="general_mat_id" ref="sr_general_mat_5"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
@@ -212,6 +235,7 @@
             <field name="avatar">Luocha</field>
             <field name="character_id">1203</field>
             <field name="element">Imaginary</field>
+            <field name="path">Priest</field>
             <field name="general_mat_id" ref="sr_general_mat_6"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_9"/>
@@ -221,6 +245,7 @@
             <field name="avatar">Jing Yuan</field>
             <field name="character_id">1204</field>
             <field name="element">Lightning</field>
+            <field name="path">Mage</field>
             <field name="general_mat_id" ref="sr_general_mat_5"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_7"/>
@@ -230,6 +255,7 @@
             <field name="avatar">Blade</field>
             <field name="character_id">1205</field>
             <field name="element">Wind</field>
+            <field name="path">Warrior</field>
             <field name="general_mat_id" ref="sr_general_mat_5"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_10"/>
@@ -239,6 +265,7 @@
             <field name="avatar">Sushang</field>
             <field name="character_id">1206</field>
             <field name="element">Physical</field>
+            <field name="path">Rogue</field>
             <field name="general_mat_id" ref="sr_general_mat_6"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
@@ -248,6 +275,7 @@
             <field name="avatar">Yukong</field>
             <field name="character_id">1207</field>
             <field name="element">Imaginary</field>
+            <field name="path">Shaman</field>
             <field name="general_mat_id" ref="sr_general_mat_6"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_9"/>
@@ -257,6 +285,7 @@
             <field name="avatar">FuXuan</field>
             <field name="character_id">1208</field>
             <field name="element">Quantum</field>
+            <field name="path">Knight</field>
             <field name="general_mat_id" ref="sr_general_mat_6"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_11"/>
@@ -266,6 +295,7 @@
             <field name="avatar">Yanqing</field>
             <field name="character_id">1209</field>
             <field name="element">Ice</field>
+            <field name="path">Rogue</field>
             <field name="general_mat_id" ref="sr_general_mat_2"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_6"/>
@@ -275,6 +305,7 @@
             <field name="avatar">Guinaifen</field>
             <field name="character_id">1210</field>
             <field name="element">Fire</field>
+            <field name="path">Warlock</field>
             <field name="general_mat_id" ref="sr_general_mat_6"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_13"/>
@@ -284,6 +315,7 @@
             <field name="avatar">Bailu</field>
             <field name="character_id">1211</field>
             <field name="element">Lightning</field>
+            <field name="path">Priest</field>
             <field name="general_mat_id" ref="sr_general_mat_1"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
@@ -293,6 +325,7 @@
             <field name="avatar">Jingliu</field>
             <field name="character_id">1212</field>
             <field name="element">Ice</field>
+            <field name="path">Warrior</field>
             <field name="general_mat_id" ref="sr_general_mat_5"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_6"/>
@@ -302,6 +335,7 @@
             <field name="avatar">Dan Heng - Imbibitor Lunae</field>
             <field name="character_id">1213</field>
             <field name="element">Imaginary</field>
+            <field name="path">Warrior</field>
             <field name="general_mat_id" ref="sr_general_mat_5"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_12"/>
@@ -311,6 +345,7 @@
             <field name="avatar">Xueyi</field>
             <field name="character_id">1214</field>
             <field name="element">Quantum</field>
+            <field name="path">Warrior</field>
             <!-- <field name="general_mat_id" ref="sr_general_mat_6"/> -->
             <!-- <field name="advanced_mat_id" ref="sr_advanced_mat_3"/> -->
             <!-- <field name="ascension_mat_id" ref="sr_ascension_mat_14"/> -->
@@ -320,6 +355,7 @@
             <field name="avatar">Hanya</field>
             <field name="character_id">1215</field>
             <field name="element">Physical</field>
+            <field name="path">Shaman</field>
             <field name="general_mat_id" ref="sr_general_mat_6"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_14"/>
@@ -329,6 +365,7 @@
             <field name="avatar">Huohuo</field>
             <field name="character_id">1217</field>
             <field name="element">Wind</field>
+            <field name="path">Priest</field>
             <field name="general_mat_id" ref="sr_general_mat_5"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_10"/>
@@ -338,6 +375,7 @@
             <field name="avatar">Argenti</field>
             <field name="character_id">1302</field>
             <field name="element">Physical</field>
+            <field name="path">Mage</field>
             <field name="general_mat_id" ref="sr_general_mat_1"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_14"/>
@@ -347,6 +385,7 @@
             <field name="avatar">Ruan Mei</field>
             <field name="character_id">1303</field>
             <field name="element">Ice</field>
+            <field name="path">Shaman</field>
             <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
@@ -356,6 +395,7 @@
             <field name="avatar">Aventurine</field>
             <field name="character_id">1304</field>
             <field name="element">Imaginary</field>
+            <field name="path">Knight</field>
             <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
@@ -365,6 +405,7 @@
             <field name="avatar">Dr. Ratio</field>
             <field name="character_id">1305</field>
             <field name="element">Imaginary</field>
+            <field name="path">Rogue</field>
             <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
@@ -374,6 +415,7 @@
             <field name="avatar">Hanabi</field>
             <field name="character_id">1306</field>
             <field name="element">Quantum</field>
+            <field name="path">Shaman</field>
             <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
@@ -383,6 +425,7 @@
             <field name="avatar">Black Swan</field>
             <field name="character_id">1307</field>
             <field name="element">Wind</field>
+            <field name="path">Warlock</field>
             <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
@@ -392,6 +435,7 @@
             <field name="avatar">Sam</field>
             <field name="character_id">1310</field>
             <field name="element">Fire</field>
+            <field name="path">Warrior</field>
             <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
@@ -401,6 +445,7 @@
             <field name="avatar">Screwllum</field>
             <field name="character_id">1311</field>
             <field name="element">Imaginary</field>
+            <field name="path">Mage</field>
             <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
@@ -410,6 +455,7 @@
             <field name="avatar">Misha</field>
             <field name="character_id">1312</field>
             <field name="element">Ice</field>
+            <field name="path">Warrior</field>
             <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
             <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
             <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
