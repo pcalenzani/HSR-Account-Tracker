@@ -46,7 +46,7 @@ class Item(models.Model):
         url = "https://api.mihomo.me/sr_info_parsed/{self.user_id.sr_uid}?lang=en&version=v2"
         response = requests.get(url)
 
-        if response['status_code'] == 200:
+        if response.status_code == 200:
             self.parse_character_data(response.json()['characters'])
         else:
             _logger.error(response['reason'])
