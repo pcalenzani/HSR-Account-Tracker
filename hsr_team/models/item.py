@@ -32,7 +32,6 @@ class Item(models.Model):
             return
         
 
-
 class Character(models.Model):
     _name = 'sr.character'
     _description = 'Character'
@@ -75,7 +74,7 @@ class Character(models.Model):
             
     def check_exists(self, item_id):
         # Returns id if the item id is already present in db
-        self.env.cr.execute(f"SELECT id FROM sr_character WHERE wid='{item_id}'")
+        self.env.cr.execute(f"SELECT id FROM sr_character WHERE item_id='{item_id}'")
         ret = self.env.cr.fetchone()
         return ret[0] if ret else None
     
