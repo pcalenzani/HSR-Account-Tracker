@@ -1,7 +1,10 @@
 from odoo import api, fields, models, tools, Command
-from hsr_warp.sr_tools import get_image_data
 import requests
 import logging
+import sys
+
+sys.path.append('~/src/starrail')
+from hsr_warp.sr_tools import get_image_data
 
 _logger = logging.getLogger(__name__)
 
