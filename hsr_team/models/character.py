@@ -76,7 +76,7 @@ class Eidolon(models.Model):
         ]
     )
     owned = fields.Boolean('Is Owned')
-    character_template_id = fields.Many2one('sr.character.template', string='Character',store=True)
+    character_template_id = fields.Many2one('sr.character.template', 'eidolon_ids', string='Character',store=True)
     character_item_id = fields.Integer(related='character_template_id.character_id')
 
 
