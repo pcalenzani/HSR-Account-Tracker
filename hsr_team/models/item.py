@@ -1,11 +1,8 @@
 from odoo import api, fields, models, tools, Command
+from odoo.modules import get_module_resource
 import requests
 import logging
-import sys
-import os
-
-sys.path.append(os.path.expanduser('~') + '/src/starrail')
-import sr_tools
+import base64
 
 _logger = logging.getLogger(__name__)
 
@@ -35,7 +32,21 @@ class Item(models.Model):
             _logger.info(url)
             _logger.error(response.reason)
             return
-        
+    
+    def _read_image(self, path):
+        if not path:
+            return False
+        path_info = path.split(',')
+        icon_path = get_module_resource(path_info[0], path_info[1])
+        image = False
+        if icon_path:
+            with tools.file_open(icon_path, 'rb') as icon_file:
+                image = base64.encodebytes(icon_file.read())
+        return image
+
+    def get_image_data(self, img_path):
+        if img_path and len(img_path.split(',')) == 2:
+            return self._read_image(img_path)
 
 class Character(models.Model):
     _name = 'sr.character'
