@@ -170,7 +170,7 @@ class Material(models.Model):
     def create(self, vals_list):
         for vals in vals_list:
             path = 'hsr_warp\static\icon\item\%s.png'%(vals['item_id'])
-            vals.append({'img_path': path})
+            vals['img_path'] = path
         super().create(vals_list)
 
 
