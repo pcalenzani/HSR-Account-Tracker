@@ -1,4 +1,5 @@
 from odoo import api, fields, models, tools, Command
+from hsr_warp.sr_tools import get_image_data
 import requests
 import logging
 
@@ -167,11 +168,17 @@ class Material(models.Model):
         ]
     )
     img_path = fields.Char('Image Path')
+    image = fields.Binary('Image', attachment=True, compute='_compute_image')
+
+    @api.depends('img_path')
+    def _compute_image(self):
+        for rec in self:
+            rec.image = get_image_data(self.img_path)
 
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            path = 'hsr_warp\static\icon\item\%s.png'%(vals['item_id'])
+            path = 'hsr_warp,static/icon/item/%s.png'%(vals['item_id'])
             vals['img_path'] = path
         return super(Material, self).create(vals_list)
 

@@ -7,11 +7,16 @@ class CharacterTemplate(models.Model):
     
     avatar = fields.Char("Character Name")
     character_id = fields.Integer('Character ID')
-    general_mat_id = fields.Many2one('sr.item.material', string='General Material')
-    advanced_mat_id = fields.Many2one('sr.item.material', string='Advanced Material')
-    ascension_mat_id = fields.Many2one('sr.item.material', string='Ascension Material')
     eidolon_ids = fields.One2many('sr.character.eidolon', 'character_template_id', string='Eidolons')
     warp_ids = fields.One2many('sr.warp', 'character_id', string='Warps')
+
+    # -- Materials --
+    general_mat_id = fields.Many2one('sr.item.material', string='General Material')
+    general_mat_img = fields.Binary(related='general_mat_id.image', string='General Material Image')
+    advanced_mat_id = fields.Many2one('sr.item.material', string='Advanced Material')
+    advanced_mat_img = fields.Binary(related='advanced_mat_id.image', string='Advanced Material Image')
+    ascension_mat_id = fields.Many2one('sr.item.material', string='Ascension Material')
+    ascension_mat_img = fields.Binary(related='ascension_mat_id.image', string='Ascension Material Image')
 
     element = fields.Selection(
         selection=[
