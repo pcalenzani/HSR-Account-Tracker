@@ -90,6 +90,8 @@ class Character(models.Model):
         for ch in characters:
             ch.template_id = self.env['sr.character.template'].browse_sr_id(ch.item_id)
             _logger.info(f"New character record: {ch.name}")
+        
+        return characters
     
     def parse_character_data(self, data):
         for ch in data:
@@ -171,7 +173,7 @@ class Material(models.Model):
         for vals in vals_list:
             path = 'hsr_warp\static\icon\item\%s.png'%(vals['item_id'])
             vals['img_path'] = path
-        super(Material, self).create(vals_list)
+        return super(Material, self).create(vals_list)
 
 
 class Warp(models.Model):
