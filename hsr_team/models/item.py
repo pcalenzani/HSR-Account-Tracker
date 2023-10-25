@@ -78,6 +78,12 @@ class Character(models.Model):
         ret = self.env.cr.fetchone()
         return ret[0] if ret else None
     
+    @api.model_create_multi
+    def create(self, vals_list):
+        characters = self.super().create(vals_list)
+        for ch in characters:
+            ch.template_id = self.env['sr.character.template'].browse_sr_id(ch.item_id)
+    
     def parse_character_data(self, data):
         for ch in data:
             ch_rec = self.check_exists(ch['id'])

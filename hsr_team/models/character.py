@@ -43,6 +43,18 @@ class CharacterTemplate(models.Model):
         ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]
 
+    def browse_sr_id(self, sr_ids=None):
+        if not sr_ids:
+            sr_ids= ()
+        elif sr_ids.__class__ is int:
+            sr_ids = (sr_ids,)
+        else:
+            sr_ids= tuple(sr_ids)
+            
+        self.env.cr.execute(""""SELECT id FROM sr_character_template WHERE character_id in %s""", [sr_ids])
+        ids = tuple(self.env.cr.fetchall())
+        return self.__class__(self.env, ids, ids)
+
     def name_get(self):
         return [(rec.id, f"{rec.avatar} (Template)") for rec in self]
 
@@ -51,7 +63,7 @@ class Eidolon(models.Model):
     _name = 'sr.character.eidolon'
     _description = 'Eidolon'
 
-    name = fields.Char('Name')
+    title = fields.Char('Title')
     description = fields.Char('Description')
     level = fields.Selection(
         selection=[
