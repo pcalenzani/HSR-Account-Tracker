@@ -80,7 +80,7 @@ class Character(models.Model):
     
     @api.model_create_multi
     def create(self, vals_list):
-        characters = self.super().create(vals_list)
+        characters = super().create(vals_list)
         for ch in characters:
             ch.template_id = self.env['sr.character.template'].browse_sr_id(ch.item_id)
     
