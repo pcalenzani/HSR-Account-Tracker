@@ -5,7 +5,7 @@ import sys
 import os
 
 sys.path.append(os.path.expanduser('~') + '/src/starrail')
-from hsr_warp.sr_tools import get_image_data
+import sr_tools
 
 _logger = logging.getLogger(__name__)
 
@@ -177,7 +177,7 @@ class Material(models.Model):
     @api.depends('img_path')
     def _compute_image(self):
         for rec in self:
-            rec.image = get_image_data(self.img_path)
+            rec.image = sr_tools.get_image_data(self.img_path)
 
     @api.model_create_multi
     def create(self, vals_list):
