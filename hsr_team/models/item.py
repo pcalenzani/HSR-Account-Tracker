@@ -39,6 +39,8 @@ class Item(models.Model):
         path_info = path.split(',')
         icon_path = get_module_resource(path_info[0], path_info[1])
         image = False
+        _logger.info(path_info)
+        _logger.info(icon_path)
         if icon_path:
             with tools.file_open(icon_path, 'rb') as icon_file:
                 image = base64.encodebytes(icon_file.read())
