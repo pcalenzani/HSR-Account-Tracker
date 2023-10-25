@@ -156,7 +156,7 @@ class Material(models.Model):
     _description = 'Upgrade Material'
     _inherit = 'sr.item'
 
-    full_name = fields.Char("Name")
+    full_name = fields.Char('Full Name')
     type = fields.Selection(
         selection=[
             ('basic', 'General'),
@@ -164,6 +164,14 @@ class Material(models.Model):
             ('ascension', 'Ascension')
         ]
     )
+    img_path = fields.Char('Image Path')
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            path = 'hsr_warp\static\icon\item\%s.png'%(vals['item_id'])
+            vals.append({'img_path': path})
+        super().create(vals_list)
 
 
 class Warp(models.Model):
