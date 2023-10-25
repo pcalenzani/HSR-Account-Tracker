@@ -84,3 +84,12 @@ class Eidolon(models.Model):
     character_template_id = fields.Many2one('sr.character.template', string='Character',store=True)
     character_item_id = fields.Integer(related='character_template_id.character_id')
 
+
+class Warp(models.Model):
+    _inherit = 'sr.warp'
+
+    character_id = fields.Many2one('sr.character', store=True, compute='_compute_character_id')
+
+    def _compute_character_id(self):
+        for warp in self:
+            warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)])

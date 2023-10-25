@@ -11,12 +11,8 @@ class Item(models.Model):
     _description = 'Item'
     _order = 'item_id DESC'
 
-    # --- Manual Fields ---
-
-    # --- API Fields ---
     item_id = fields.Integer('Item ID')
     name = fields.Char('Name')
-
 
     def get_profile_data(self, user_id=2):
         sr_uid = self.env['res.users'].browse(user_id).sr_uid
@@ -39,11 +35,12 @@ class Item(models.Model):
         path_info = path.split(',')
         icon_path = get_module_resource(path_info[0], path_info[1])
         image = False
-        _logger.info(path_info)
-        _logger.info(icon_path)
+        
         if icon_path:
             with tools.file_open(icon_path, 'rb') as icon_file:
                 image = base64.encodebytes(icon_file.read())
+        else:
+            _logger.error(path_info)
         return image
 
     def get_image_data(self, img_path):
@@ -185,7 +182,7 @@ class Material(models.Model):
         ]
     )
     img_path = fields.Char('Image Path')
-    image = fields.Binary('Image', attachment=True, compute='_compute_image')
+    image = fields.Binary('Image', attachment=True, store=True, compute='_compute_image')
 
     @api.depends('img_path')
     def _compute_image(self):
@@ -199,15 +196,6 @@ class Material(models.Model):
             vals['img_path'] = path
         return super(Material, self).create(vals_list)
 
-
-class Warp(models.Model):
-    _inherit = 'sr.warp'
-
-    character_id = fields.Many2one('sr.character', store=True, compute='_compute_character_id')
-
-    def _compute_character_id(self):
-        for warp in self:
-            warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)])
 
 # Attributes
 # Properties
