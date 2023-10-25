@@ -154,6 +154,7 @@ class LightCone(models.Model):
 class Material(models.Model):
     _name = 'sr.item.material'
     _description = 'Upgrade Material'
+    _inherit = 'sr.item'
 
     full_name = fields.Char("Name")
     type = fields.Selection(
