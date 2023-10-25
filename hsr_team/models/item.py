@@ -86,7 +86,7 @@ class Character(models.Model):
     
     @api.model_create_multi
     def create(self, vals_list):
-        characters = super().create(vals_list)
+        characters = super(Character, self).create(vals_list)
         for ch in characters:
             ch.template_id = self.env['sr.character.template'].browse_sr_id(ch.item_id)
             _logger.info(f"New character record: {ch.name}")
@@ -171,7 +171,7 @@ class Material(models.Model):
         for vals in vals_list:
             path = 'hsr_warp\static\icon\item\%s.png'%(vals['item_id'])
             vals['img_path'] = path
-        super().create(vals_list)
+        super(Material, self).create(vals_list)
 
 
 class Warp(models.Model):
