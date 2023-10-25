@@ -190,7 +190,7 @@ class Material(models.Model):
     @api.depends('img_path')
     def _compute_image(self):
         for rec in self:
-            rec.image = self.get_image_data(self.img_path)
+            rec.image = rec.get_image_data(self.img_path)
 
     @api.model_create_multi
     def create(self, vals_list):
