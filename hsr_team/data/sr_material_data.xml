@@ -1,100 +1,152 @@
 <odoo>
     <data>
         <!-- GENERAL MATERIALS -->
-        <record model="sr.character.material" id="sr_general_mat_1">
+        <record model="sr.item.material" id="sr_general_mat_1">
             <field name="name">Squirming Core</field>
+            <field name="full_name">Squirming Core</field>
+            <field name="item_id">111003</field>
             <field name="type">basic</field>
         </record>
-        <record model="sr.character.material" id="sr_general_mat_2">
+        <record model="sr.item.material" id="sr_general_mat_2">
             <field name="name">Conquerors Will</field>
+            <field name="full_name">Conqueror's Will</field>
+            <field name="item_id">111013</field>
             <field name="type">basic</field>
         </record>
-        <record model="sr.character.material" id="sr_general_mat_3">
+        <record model="sr.item.material" id="sr_general_mat_3">
             <field name="name">Silvermane Medal</field>
+            <field name="full_name">Silvermane Medal</field>
+            <field name="item_id">112003</field>
             <field name="type">basic</field>
         </record>
-        <record model="sr.character.material" id="sr_general_mat_4">
+        <record model="sr.item.material" id="sr_general_mat_4">
             <field name="name">Ancient Engine</field>
+            <field name="full_name">Ancient Engine</field>
+            <field name="item_id">112013</field>
             <field name="type">basic</field>
         </record>
-        <record model="sr.character.material" id="sr_general_mat_5">
+        <record model="sr.item.material" id="sr_general_mat_5">
             <field name="name">Immortal Lumintwig</field>
+            <field name="full_name">Immortal Lumintwig</field>
+            <field name="item_id">113003</field>
             <field name="type">basic</field>
         </record>
-        <record model="sr.character.material" id="sr_general_mat_6">
+        <record model="sr.item.material" id="sr_general_mat_6">
             <field name="name">Artifex's Gyreheart</field>
+            <field name="full_name">Artifex's Gyreheart</field>
+            <field name="item_id">113013</field>
             <field name="type">basic</field>
         </record>
 
         <!-- ADVANCED MATERIALS -->
-        <record model="sr.character.material" id="sr_advanced_mat_1">
+        <record model="sr.item.material" id="sr_advanced_mat_1">
             <field name="name">Destroyer's Final Road</field>
+            <field name="full_name">Destroyer's Final Road</field>
+            <field name="item_id">110501</field>
             <field name="type">eow</field>
         </record>
-        <record model="sr.character.material" id="sr_advanced_mat_2">
+        <record model="sr.item.material" id="sr_advanced_mat_2">
             <field name="name">Guardian's Lament</field>
+            <field name="full_name">Guardian's Lament</field>
+            <field name="item_id">110502</field>
             <field name="type">eow</field>
         </record>
-        <record model="sr.character.material" id="sr_advanced_mat_3">
+        <record model="sr.item.material" id="sr_advanced_mat_3">
             <field name="name">Regret of Infinite Ochema</field>
+            <field name="full_name">Regret of Infinite Ochema</field>
+            <field name="item_id">110503</field>
+            <field name="type">eow</field>
+        </record>
+        <record model="sr.item.material" id="sr_advanced_mat_destiny">
+            <field name="name">Tracks of Destiny</field>
+            <field name="full_name">Tracks of Destiny</field>
+            <field name="item_id">241</field>
             <field name="type">eow</field>
         </record>
 
         <!-- ASCENSION MATERIALS -->
-        <record model="sr.character.material" id="sr_ascension_mat_1">
+        <record model="sr.item.material" id="sr_ascension_mat_1">
             <field name="name">Void Cast Iron</field>
+            <field name="full_name">Void Cast Iron</field>
+            <field name="item_id">110406</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_2">
+        <record model="sr.item.material" id="sr_ascension_mat_2">
             <field name="name">Storm Eye</field>
+            <field name="full_name">Storm Eye</field>
+            <field name="item_id">110405</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_3">
+        <record model="sr.item.material" id="sr_ascension_mat_3">
             <field name="name">Lightning Crown</field>
+            <field name="full_name">Lightning Crown of the Past Shadow</field>
+            <field name="item_id">110404</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_4">
+        <record model="sr.item.material" id="sr_ascension_mat_4">
             <field name="name">Endotherm Chitin</field>
+            <field name="full_name">Endotherm Chitin</field>
+            <field name="item_id">110402</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_5">
+        <record model="sr.item.material" id="sr_ascension_mat_5">
             <field name="name">Broken Teeth</field>
+            <field name="full_name">Broken Teeth of Iron Wolf</field>
+            <field name="item_id">110401</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_6">
+        <record model="sr.item.material" id="sr_ascension_mat_6">
             <field name="name">Gelid Chitin</field>
+            <field name="full_name">Gelid Chitin</field>
+            <field name="item_id">110413</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_7">
+        <record model="sr.item.material" id="sr_ascension_mat_7">
             <field name="name">Lightning Staff</field>
+            <field name="full_name">Shape Shifter's Lightning Staff</field>
+            <field name="item_id">110414</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_8">
+        <record model="sr.item.material" id="sr_ascension_mat_8">
             <field name="name">Horn of Snow</field>
+            <field name="full_name">Horn of Snow</field>
+            <field name="item_id">110403</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_9">
+        <record model="sr.item.material" id="sr_ascension_mat_9">
             <field name="name">Golden Crown</field>
+            <field name="full_name">Golden Crown of the Past Shadow</field>
+            <field name="item_id">110407</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_10">
+        <record model="sr.item.material" id="sr_ascension_mat_10">
             <field name="name">Ascendant Debris</field>
+            <field name="full_name">Ascendant Debris</field>
+            <field name="item_id">110415</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_11">
+        <record model="sr.item.material" id="sr_ascension_mat_11">
             <field name="name">Nail of the Ape</field>
+            <field name="full_name">Nail of the Ape</field>
+            <field name="item_id">110416</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_12">
+        <record model="sr.item.material" id="sr_ascension_mat_12">
             <field name="name">Suppressing Edict</field>
+            <field name="full_name">Suppressing Edict</field>
+            <field name="item_id">110417</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_13">
-            <field name="name">Searing Steel Blade</field>
+        <record model="sr.item.material" id="sr_ascension_mat_13">
+            <field name="name">Searing Steel</field>
+            <field name="full_name">Searing Steel Blade</field>
+            <field name="item_id">110412</field>
             <field name="type">ascension</field>
         </record>
-        <record model="sr.character.material" id="sr_ascension_mat_14">
+        <record model="sr.item.material" id="sr_ascension_mat_14">
             <field name="name">Netherworld Pass</field>
+            <field name="full_name">Netherworld Pass</field>
+            <field name="item_id">110411</field>
             <field name="type">ascension</field>
         </record>
     </data>

@@ -7,9 +7,9 @@ class CharacterTemplate(models.Model):
     
     avatar = fields.Char("Character Name")
     character_id = fields.Integer('Character ID')
-    general_mat_id = fields.Many2one('sr.character.material', string='General Material')
-    advanced_mat_id = fields.Many2one('sr.character.material', string='Advanced Material')
-    ascension_mat_id = fields.Many2one('sr.character.material', string='Ascension Material')
+    general_mat_id = fields.Many2one('sr.item.material', string='General Material')
+    advanced_mat_id = fields.Many2one('sr.item.material', string='Advanced Material')
+    ascension_mat_id = fields.Many2one('sr.item.material', string='Ascension Material')
     eidolon_ids = fields.One2many('sr.character.eidolon', 'character_template_id', string='Eidolons')
     warp_ids = fields.One2many('sr.warp', 'character_id', string='Warps')
 
@@ -79,16 +79,3 @@ class Eidolon(models.Model):
     character_template_id = fields.Many2one('sr.character.template', string='Character',store=True)
     character_item_id = fields.Integer(related='character_template_id.character_id')
 
-
-class Material(models.Model):
-    _name = 'sr.character.material'
-    _description = 'Upgrade Material'
-
-    name = fields.Char("Name")
-    type = fields.Selection(
-        selection=[
-            ('basic', 'General'),
-            ('eow', 'Advanced'),
-            ('ascension', 'Ascension')
-        ]
-    )

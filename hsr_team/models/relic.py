@@ -33,15 +33,15 @@ class RelicSet(models.Model):
 class Relic(models.Model):
     _name = 'sr.relic'
     _description = 'Relic'
+    _inherit = 'sr.item'
 
     # --- Manual Fields ---
     score = fields.Float('Relic Score')
 
     # --- API Fields ---
-    relic_id = fields.Integer('Relic ID')
+    name = fields.Char('Relic Name')
     set_id = fields.Many2one('sr.relic.set')
     set_name = fields.Char(related='set_id.name', store=True)
-    relic_name = fields.Char('Relic Name')
     rarity = fields.Integer('Rarity')
     level = fields.Integer('Relic Level')
     main_affix = fields.Many2one('sr.relic.affix', string='Main Attribute')

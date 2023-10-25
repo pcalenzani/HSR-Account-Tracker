@@ -151,6 +151,20 @@ class LightCone(models.Model):
     )
 
 
+class Material(models.Model):
+    _name = 'sr.item.material'
+    _description = 'Upgrade Material'
+
+    full_name = fields.Char("Name")
+    type = fields.Selection(
+        selection=[
+            ('basic', 'General'),
+            ('eow', 'Advanced'),
+            ('ascension', 'Ascension')
+        ]
+    )
+
+
 class Warp(models.Model):
     _inherit = 'sr.warp'
 
