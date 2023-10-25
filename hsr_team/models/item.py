@@ -71,22 +71,29 @@ class Character(models.Model):
             count = self.env['sr.warp'].search_count([('item_id','=',str(item.item_id))])
             item.count = count
             item.is_owned = count + item.free_pulls
-            
-    def check_exists(self, item_id):
-        # Returns id if the item id is already present in db
-        self.env.cr.execute(f"SELECT id FROM sr_character WHERE item_id='{item_id}'")
-        ret = self.env.cr.fetchone()
-        return ret[0] if ret else None
+    
+    def browse_sr_id(self, sr_ids=None):
+        if not sr_ids:
+            sr_ids= ()
+        elif sr_ids.__class__ is int:
+            sr_ids = (sr_ids,)
+        else:
+            sr_ids= tuple(sr_ids)
+
+        self.env.cr.execute("""SELECT id FROM sr_character WHERE item_id in %s""", [sr_ids])
+        ids = tuple(self.env.cr.fetchall())
+        return self.__class__(self.env, ids, ids)
     
     @api.model_create_multi
     def create(self, vals_list):
         characters = super().create(vals_list)
         for ch in characters:
             ch.template_id = self.env['sr.character.template'].browse_sr_id(ch.item_id)
+            _logger.info(f"New character record: {ch.name}")
     
     def parse_character_data(self, data):
         for ch in data:
-            ch_rec = self.check_exists(ch['id'])
+            ch_rec = self.browse_sr_id(ch['id'])
             if not ch_rec:
                 # Create new item
                 self._create_character_json(ch)
@@ -116,7 +123,6 @@ class Character(models.Model):
                 del ch_data[k]
         
         ch_data['item_id'] = ch_data.pop('id')
-
         self.create(ch_data)
     
 

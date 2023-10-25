@@ -10,7 +10,7 @@ class CharacterTemplate(models.Model):
     general_mat_id = fields.Many2one('sr.character.material', string='General Material')
     advanced_mat_id = fields.Many2one('sr.character.material', string='Advanced Material')
     ascension_mat_id = fields.Many2one('sr.character.material', string='Ascension Material')
-    eidolon_ids = fields.Many2many('sr.character.eidolon', string='Eidolons')
+    eidolon_ids = fields.One2many('sr.character.eidolon', string='Eidolons')
     warp_ids = fields.One2many('sr.warp', 'character_id', string='Warps')
 
     element = fields.Selection(
@@ -76,6 +76,8 @@ class Eidolon(models.Model):
         ]
     )
     owned = fields.Boolean('Is Owned')
+    character_template_id = fields.Many2one('sr.character.template', string='Character',store=True)
+    character_item_id = fields.Integer(related='character_template_id.character_id')
 
 
 class Material(models.Model):

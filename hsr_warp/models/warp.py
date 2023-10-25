@@ -50,9 +50,9 @@ class Warp(models.Model):
             banner_id = banner_ids.get(row[gacha_index[0]])
             row.append(banner_id)
 
-            warp_id = self._warp_exists(row[wid_index])
-            if warp_id:
-                row.append(warp_id)
+            warp = self.browse_sr_id(row[wid_index])
+            if warp:
+                row.append(warp.id)
 
         return super().load(fields, data)
 
@@ -70,18 +70,24 @@ class Warp(models.Model):
         for warp in self:
             # TODO calculate pity
             warp.pity = 0
+    
+    def browse_sr_id(self, sr_ids=None):
+        if not sr_ids:
+            sr_ids= ()
+        elif sr_ids.__class__ is int:
+            sr_ids = (sr_ids,)
+        else:
+            sr_ids= tuple(sr_ids)
 
-    def _warp_exists(self, wid):
-        # Returns id if the wid is already recorded
-        self.env.cr.execute(f"SELECT id FROM sr_warp WHERE wid='{wid}'")
-        ret = self.env.cr.fetchone()
-        return ret[0] if ret else None
+        self.env.cr.execute("""SELECT id FROM sr_warp WHERE wid in %s""", [sr_ids])
+        ids = tuple(self.env.cr.fetchall())
+        return self.__class__(self.env, ids, ids)
 
     def generate_warps(self, vals_list):
         # Check if warps exist before creating
         for i in range(len(vals_list)):
             id = vals_list[i]['id']
-            if self._warp_exists(id):
+            if self.browse_sr_id(id):
                 vals_list = vals_list[:i]
                 break
 
