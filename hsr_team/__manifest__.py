@@ -7,6 +7,7 @@
     'depends': ['hsr_warp'],
     'data': [
         'views/hsr_team_character_views.xml',
+        'views/hsr_team_item_views.xml',
 
         'data/sr_material_data.xml',
         'data/sr_character_data.xml',
