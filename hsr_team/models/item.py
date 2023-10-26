@@ -39,23 +39,20 @@ class Item(models.Model):
             _logger.error(response.reason)
             return
     
-    def _read_image(self, path):
-        if not path:
-            return False
-        path_info = path.split(',')
-        icon_path = get_module_resource(path_info[0], path_info[1])
+    def _read_image(self, module, path):
+        icon_path = get_module_resource(module, path)
         image = False
         
         if icon_path:
             with tools.file_open(icon_path, 'rb') as icon_file:
                 image = base64.encodebytes(icon_file.read())
         else:
-            _logger.error(path_info)
+            _logger.error(path)
         return image
 
     def get_image_data(self, img_path):
-        if img_path and len(img_path.split(',')) == 2:
-            return self._read_image(img_path)
+        if img_path:
+            return self._read_image('hsr_warp', 'static/' +  img_path)
 
 class Character(models.Model):
     _name = 'sr.character'
