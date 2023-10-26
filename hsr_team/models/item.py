@@ -13,6 +13,15 @@ class Item(models.Model):
 
     item_id = fields.Integer('Item ID')
     name = fields.Char('Name')
+    rarity = fields.Selection('Rarity', selection=[
+        ('0', 'N/A'),
+        ('1', 'N/A'),
+        ('2', '2 Star'),
+        ('3', '3 Star'),
+        ('4', '4 Star'),
+        ('5', '5 Star'),
+    ])
+    level = fields.Integer('Relic Level')
 
     def get_profile_data(self, user_id=2):
         sr_uid = self.env['res.users'].browse(user_id).sr_uid
@@ -29,23 +38,23 @@ class Item(models.Model):
             _logger.error(response.reason)
             return
     
-    # def _read_image(self, path):
-    #     if not path:
-    #         return False
-    #     path_info = path.split(',')
-    #     icon_path = get_module_resource(path_info[0], path_info[1])
-    #     image = False
+    def _read_image(self, path):
+        if not path:
+            return False
+        path_info = path.split(',')
+        icon_path = get_module_resource(path_info[0], path_info[1])
+        image = False
         
-    #     if icon_path:
-    #         with tools.file_open(icon_path, 'rb') as icon_file:
-    #             image = base64.encodebytes(icon_file.read())
-    #     else:
-    #         _logger.error(path_info)
-    #     return image
+        if icon_path:
+            with tools.file_open(icon_path, 'rb') as icon_file:
+                image = base64.encodebytes(icon_file.read())
+        else:
+            _logger.error(path_info)
+        return image
 
-    # def get_image_data(self, img_path):
-    #     if img_path and len(img_path.split(',')) == 2:
-    #         return self._read_image(img_path)
+    def get_image_data(self, img_path):
+        if img_path and len(img_path.split(',')) == 2:
+            return self._read_image(img_path)
 
 class Character(models.Model):
     _name = 'sr.character'
@@ -71,9 +80,7 @@ class Character(models.Model):
     promotion = fields.Integer(string='Ascension Level')
     light_cone_id = fields.Many2one('sr.light.cone')
     
-    rarity = fields.Integer('Rarity')
     rank = fields.Integer('Rank')
-    level = fields.Integer('Level')
     promotion = fields.Integer('Promotion')
 
     _sql_constraints = [
@@ -149,9 +156,7 @@ class LightCone(models.Model):
     _inherit = 'sr.item'
     _order = 'item_id DESC'
 
-    rarity = fields.Integer('Rarity')
     rank = fields.Integer('Rank')
-    level = fields.Integer('Level')
     promotion = fields.Integer('Superimposition')
 
     path = fields.Selection(
@@ -182,17 +187,17 @@ class Material(models.Model):
         ]
     )
     img_path = fields.Char('Image Path')
-    # image = fields.Binary('Image', attachment=True, store=True, compute='_compute_image')
+    image = fields.Binary('Image', store=False, compute='_compute_image')
 
-    # @api.depends('img_path')
-    # def _compute_image(self):
-    #     for rec in self:
-    #         rec.image = rec.get_image_data(rec.img_path)
+    @api.depends('img_path')
+    def _compute_image(self):
+        for rec in self:
+            rec.image = rec.get_image_data(rec.img_path)
 
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            path = 'hsr_warp,static/icon/item/%s.png'%(vals['item_id'])
+            path = 'icon/item/%s.png'%(vals['item_id'])
             vals['img_path'] = path
         return super(Material, self).create(vals_list)
 

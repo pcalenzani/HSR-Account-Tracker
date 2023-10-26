@@ -3,7 +3,7 @@
     <menuitem id="menu_character_root" name="Characters" sequence="31" web_icon="hsr_warp,static/description/icon(10).jpg"/>
 
     <!-- SR.CHARACTER -->
-    <record id="hsr_team_character_view_tree" model="ir.ui.view">
+    <record id="sr_character_view_tree" model="ir.ui.view">
         <field name="name">hsr_team.character.tree</field>
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
@@ -16,7 +16,7 @@
         </field>
     </record>
 
-    <record id="hsr_team_character_view_form" model="ir.ui.view">
+    <record id="sr_character_view_form" model="ir.ui.view">
         <field name="name">hsr_team.character.form</field>
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
@@ -86,7 +86,7 @@
         </field>
     </record>
 
-    <record id="hsr_warp_character_action" model="ir.actions.act_window">
+    <record id="sr_character_action" model="ir.actions.act_window">
         <field name="name">Characters</field>
         <field name="res_model">sr.character</field>
         <field name="view_mode">tree,form</field>
@@ -94,7 +94,7 @@
 
     <menuitem id="menu_characters" name="Characters" sequence="10" 
         parent="menu_character_root"
-        action="hsr_warp_character_action"/>
+        action="sr_character_action"/>
 
     <!-- SR.CHARACTER.TEMPLATE -->
 </odoo>
