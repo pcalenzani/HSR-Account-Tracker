@@ -29,23 +29,23 @@ class Item(models.Model):
             _logger.error(response.reason)
             return
     
-    def _read_image(self, path):
-        if not path:
-            return False
-        path_info = path.split(',')
-        icon_path = get_module_resource(path_info[0], path_info[1])
-        image = False
+    # def _read_image(self, path):
+    #     if not path:
+    #         return False
+    #     path_info = path.split(',')
+    #     icon_path = get_module_resource(path_info[0], path_info[1])
+    #     image = False
         
-        if icon_path:
-            with tools.file_open(icon_path, 'rb') as icon_file:
-                image = base64.encodebytes(icon_file.read())
-        else:
-            _logger.error(path_info)
-        return image
+    #     if icon_path:
+    #         with tools.file_open(icon_path, 'rb') as icon_file:
+    #             image = base64.encodebytes(icon_file.read())
+    #     else:
+    #         _logger.error(path_info)
+    #     return image
 
-    def get_image_data(self, img_path):
-        if img_path and len(img_path.split(',')) == 2:
-            return self._read_image(img_path)
+    # def get_image_data(self, img_path):
+    #     if img_path and len(img_path.split(',')) == 2:
+    #         return self._read_image(img_path)
 
 class Character(models.Model):
     _name = 'sr.character'
@@ -182,12 +182,12 @@ class Material(models.Model):
         ]
     )
     img_path = fields.Char('Image Path')
-    image = fields.Binary('Image', attachment=True, store=True, compute='_compute_image')
+    # image = fields.Binary('Image', attachment=True, store=True, compute='_compute_image')
 
-    @api.depends('img_path')
-    def _compute_image(self):
-        for rec in self:
-            rec.image = rec.get_image_data(rec.img_path)
+    # @api.depends('img_path')
+    # def _compute_image(self):
+    #     for rec in self:
+    #         rec.image = rec.get_image_data(rec.img_path)
 
     @api.model_create_multi
     def create(self, vals_list):
