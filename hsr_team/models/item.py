@@ -13,14 +13,15 @@ class Item(models.Model):
 
     item_id = fields.Integer('Item ID')
     name = fields.Char('Name')
-    rarity = fields.Selection('Rarity', selection=[
+    rarity = fields.Selection(selection=[
         ('0', 'N/A'),
         ('1', 'N/A'),
         ('2', '2 Star'),
         ('3', '3 Star'),
         ('4', '4 Star'),
         ('5', '5 Star'),
-    ])
+    ],
+    string='Rarity')
     level = fields.Integer('Relic Level')
 
     def get_profile_data(self, user_id=2):
