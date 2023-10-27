@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem id="menu_sr_config_root" name="Configuration" sequence="99" parent="menu_config_root"/>
+    
+    <!-- SR.ELEMENT -->
+    <record id="sr_item_element_view_form" model="ir.ui.view">
+        <field name="name">hsr_team.element.form</field>
+        <field name="model">sr.element</field>
+        <field name="arch" type="xml">
+            <form string="Elements">
+                <sheet>
+                    <field name="image" widget="image" style="background-color:#0000;float:right;"/>
+                    <div class="oe_title">
+                        <label for="name" string="Element Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="name"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="reference"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sr_elements_action" model="ir.actions.act_window">
+        <field name="name">Elements</field>
+        <field name="res_model">sr.element</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_root" action="sr_elements_action"/>
+
+    <!-- SR.PATH -->
+    <record id="sr_item_path_view_form" model="ir.ui.view">
+        <field name="name">hsr_team.path.form</field>
+        <field name="model">sr.path</field>
+        <field name="arch" type="xml">
+            <form string="Aeon Paths">
+                <sheet>
+                    <field name="image" widget="image" style="background-color:#0000;float:right;"/>
+                    <div class="oe_title">
+                        <label for="name" string="Aeon Path"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="name"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="reference"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sr_paths_action" model="ir.actions.act_window">
+        <field name="name">Paths</field>
+        <field name="res_model">sr.path</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_sr_paths" name="Aeon Paths" sequence="10" parent="menu_sr_config_root" action="sr_paths_action"/>
+
+</odoo>

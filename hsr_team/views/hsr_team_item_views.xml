@@ -13,13 +13,13 @@
                         <label for="name" string="Material Name"/>
                         <h1>
                             <div class="d-flex">
-                                <field class="text-break" name="name" placeholder="e.g. Cheese Burger"/>
+                                <field class="text-break" name="name"/>
                             </div>
                         </h1>
                     </div>
                     <group>
                         <group>
-                            <field name="rarity"/>
+                            <field name="rarity" widget="priority"/>
                             <field name="type"/>
                         </group>
                     </group>
@@ -35,6 +35,6 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_sr_item_materials" name="Upgrade Materials" sequence="10" parent="menu_sr_items_root" action=""/>
+    <menuitem id="menu_sr_item_materials" name="Upgrade Materials" sequence="10" parent="menu_sr_items_root" action="sr_item_materials_action"/>
 
 </odoo>
