@@ -97,15 +97,70 @@
         action="sr_character_action"/>
 
     <!-- SR.CHARACTER.TEMPLATE -->
+    <record id="sr_character_template_view_tree" model="ir.ui.view">
+        <field name="name">hsr_team.character.template.tree</field>
+        <field name="model">sr.character.template</field>
+        <field name="arch" type="xml">
+            <tree string="Character Templates">
+                <field name="icon_image" widget="image"/>
+                <field name="avatar"/>
+                <field name="element_id"/>
+                <field name="path_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sr_character_template_view_search" model="ir.ui.view">
+        <field name="name">hsr_team.character.template.search</field>
+        <field name="model">sr.character.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="avatar"/>
+                <field name="character_id"/>
+                <field name="element_id"/>
+                <field name="path_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Element" name="element" domain="[]" context="{'group_by': 'element_id'}"/>
+                    <filter string="Aeon Path" name="path" domain="[]" context="{'group_by': 'path_id'}"/>
+                    <filter string="General Material" name="general_mat" domain="[]" context="{'group_by': 'general_mat_id'}"/>
+                    <filter string="Advanced Material" name="advanced_mat" domain="[]" context="{'group_by': 'advanced_mat_id'}"/>
+                    <filter string="Ascension Material" name="ascension_mat" domain="[]" context="{'group_by': 'ascension_mat_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <record id="sr_character_template_view_form" model="ir.ui.view">
         <field name="name">hsr_team.character.template.form</field>
         <field name="model">sr.character.template</field>
         <field name="arch" type="xml">
             <form string="Character Settings">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                      <button name="action_element" class="oe_stat_button">
+                        <div>
+                          <span>
+                            <field name="element_img" widget="image" options="{'size': [36,36]}" style="background-color:#0000"/>
+                          </span>
+                          <span class="o_stat_text">
+                            <field name="element_id" style="margin-left:5px;margin-top:5px;font-size:15px"/>
+                          </span>
+                        </div>
+                      </button>
+                      <button name="action_path" class="oe_stat_button" string="test">
+                        <div>
+                          <span>
+                            <field name="path_img" widget="image" options="{'size': [36,36]}" style="background-color:#0000"/>
+                          </span>
+                          <span class="o_stat_text">
+                            <field name="path_id" style="margin-left:5px;margin-top:5px;font-size:15px"/>
+                          </span>
+                        </div>
+                      </button>
+                    </div>
                     <field name="preview_image" widget="image" style="background-color:#0000;float:right;"/>
                     <div class="oe_title">
-                        <label for="avatar" string="Name"/>
+                        <field name="character_id" readonly="1"/>
                         <h1>
                             <div class="d-flex">
                                 <field class="text-break" name="avatar"/>
@@ -114,9 +169,9 @@
                     </div>
                     <group>
                         <group>
-                            <field name="character_id" readonly="1"/>
                             <field name="element_id"/>
                             <field name="path_id"/>
+                            <field name="icon_image" widget="image" options="{'size': [128,128]}" style="background-color:#0000;"/>
                         </group>
                     </group>
                     <notebook>
@@ -127,8 +182,7 @@
                             <field name="warp_ids"/>
                         </page>
                         <page string="Art">
-                            <field name="portrait_image" widget="image"/>
-                            <field name="icon_image" widget="image"/>
+                            <field name="portrait_image" widget="image" style="background-color:#0000;"/>
                         </page>
                     </notebook>
                 </sheet>

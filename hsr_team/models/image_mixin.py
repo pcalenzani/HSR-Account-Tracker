@@ -24,4 +24,5 @@ class ImageMixin(models.AbstractModel):
 
     def get_image_data(self, img_path):
         if img_path:
+            _logger.info('Getting image from %s'%(img_path))
             return self._read_image('hsr_warp', 'static/' +  img_path)

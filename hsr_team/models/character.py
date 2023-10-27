@@ -67,6 +67,24 @@ class CharacterTemplate(models.Model):
         if name:
             args += ['|', ('avatar',operator,name), ('character_id',operator,name)]
         return self._search(args, limit=limit, access_rights_uid=name_get_uid)
+    
+    def action_element(self):
+        return {
+            'name': 'Character Element',
+            'type': 'ir.actions.act_window',
+            'res_model': 'sr.element',
+            'view_mode': 'form',
+            'domain': [('id','=',self.element_id.id)]
+        }    
+    
+    def action_path(self):
+        return {
+            'name': 'Character Path',
+            'type': 'ir.actions.act_window',
+            'res_model': 'sr.path',
+            'view_mode': 'form',
+            'domain': [('id','=',self.path_id.id)]
+        }
 
 
 class Element(models.Model):
