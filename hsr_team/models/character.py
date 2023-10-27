@@ -26,39 +26,26 @@ class CharacterTemplate(models.Model):
     path_img = fields.Image(related='path_id.image')
 
     # -- Character Images --
-    portrait_img_path = fields.Char('Portrait Image Path', compute='_compute_img_paths', store=True)
-    preview_img_path = fields.Char('Preview Image Path', compute='_compute_img_paths', store=True)
-    icon_img_path = fields.Char('Icon Image Path', compute='_compute_img_paths', store=True)
-
-    portrait_image = fields.Binary('Portrait Image', compute='_compute_portrait_image', store=True)
-    preview_image = fields.Binary('Preview Image', compute='_compute_preview_image', store=True)
-    icon_image = fields.Binary('Icon Image', compute='_compute_icon_image', store=True)
+    portrait_image = fields.Binary('Portrait Image', compute='_compute_images', store=True)
+    preview_image = fields.Binary('Preview Image', compute='_compute_images', store=True)
+    icon_image = fields.Binary('Icon Image', compute='_compute_images', store=True)
 
     _sql_constraints = [
         ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]
 
     @api.depends('character_id')
-    def _compute_img_paths(self):
+    def _compute_images(self):
         for rec in self:
-            rec.portrait_img_path = 'image/character_portrait/%s.png'%(rec.character_id)
-            rec.preview_img_path = 'image/character_preview/%s.png'%(rec.character_id)
-            rec.icon_img_path = 'icon/character/%s.png'%(rec.character_id)
+            portrait_image = rec.get_image_data('image/character_portrait/%s.png'%(rec.character_id))
+            preview_image = rec.get_image_data('image/character_preview/%s.png'%(rec.character_id))
+            icon_image = rec.get_image_data('icon/character/%s.png'%(rec.character_id))
 
-    @api.depends('portrait_img_path')
-    def _compute_portrait_image(self):
-        for rec in self:
-            rec.portrait_image = rec.get_image_data(rec.portrait_img_path)
-
-    @api.depends('preview_img_path')
-    def _compute_preview_image(self):
-        for rec in self:
-            rec.preview_image = rec.get_image_data(rec.preview_img_path)
-
-    @api.depends('icon_img_path')
-    def _compute_icon_image(self):
-        for rec in self:
-            rec.icon_image = rec.get_image_data(rec.icon_img_path)
+            rec.write({
+                'portrait_image': portrait_image,
+                'preview_image': preview_image,
+                'icon_image': icon_image,
+                })
 
     def browse_sr_id(self, sr_ids=None):
         if not sr_ids:
@@ -99,18 +86,12 @@ class Element(models.Model):
     
     name = fields.Char('Name')
     reference = fields.Char('Internal Ref')
-    img_path = fields.Char('Image Path')
-    image = fields.Image('Element Image', store=True, compute='_compute_image')
-
-    @api.depends('img_path')
-    def _compute_image(self):
-        for rec in self:
-            rec.image = rec.get_image_data(rec.img_path)
+    image = fields.Image('Element Image', store=True)
 
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            vals['img_path'] = 'icon/element/%s.png'%(vals['name'])
+            vals['image'] = self.get_image_data('icon/element/%s.png'%(vals['name']))
         return super(Element, self).create(vals_list)
     
 
@@ -131,18 +112,12 @@ class Path(models.Model):
     
     name = fields.Char("Name")
     reference = fields.Char('Internal Ref')
-    img_path = fields.Char('Image Path')
-    image = fields.Image('Path Image', store=True, compute='_compute_image')
-
-    @api.depends('img_path')
-    def _compute_image(self):
-        for rec in self:
-            rec.image = rec.get_image_data(rec.img_path)
+    image = fields.Image('Path Image', store=True)
 
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            vals['img_path'] = 'icon/path/%s.png'%(vals['name'])
+            vals['img_path'] = self.get_image_data('icon/path/%s.png'%(vals['name']))
         return super(Path, self).create(vals_list)
 
 
