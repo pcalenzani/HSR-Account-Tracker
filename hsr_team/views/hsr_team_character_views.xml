@@ -97,4 +97,52 @@
         action="sr_character_action"/>
 
     <!-- SR.CHARACTER.TEMPLATE -->
+    <record id="sr_character_template_view_form">
+        <field name="name">hsr_team.character.template.form</field>
+        <field name="model">sr.character.template</field>
+        <field name="arch" type="xml">
+            <form string="Character Settings">
+                <sheet>
+                    <field name="preview_image" widget="image" style="background-color:#0000;float:right;"/>
+                    <div class="oe_title">
+                        <label for="avatar" string="Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="avatar"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="character_id" readonly="1"/>
+                            <field name="element_id"/>
+                            <field name="path_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Eidolons">
+                            <field name="eidolon_ids"/>
+                        </page>
+                        <page string="Pulls">
+                            <field name="warp_ids"/>
+                        </page>
+                        <page string="Art">
+                            <field name="portrait_image" widget="image"/>
+                            <field name="icon_image" widget="image"/>
+                        </page>
+                    </notebook>
+                    </sheet>
+            </form>
+        </field>
+    
+    </record>
+
+    <record id="sr_character_template_action" model="ir.actions.act_window">
+        <field name="name">Character Settings</field>
+        <field name="res_model">sr.character.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_sr_character_template" name="Character Settings" sequence="0" parent="menu_sr_config_root" action="sr_character_template_action"/>
+
 </odoo>
