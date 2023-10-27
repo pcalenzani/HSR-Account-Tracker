@@ -37,9 +37,9 @@ class CharacterTemplate(models.Model):
     @api.depends('character_id')
     def _compute_images(self):
         for rec in self:
-            portrait_image = rec.get_image_data('image/character_portrait/%s.png'%(rec.character_id))
-            preview_image = rec.get_image_data('image/character_preview/%s.png'%(rec.character_id))
-            icon_image = rec.get_image_data('icon/character/%s.png'%(rec.character_id))
+            portrait_image = self.get_image_data('image/character_portrait/%s.png'%(rec.character_id))
+            preview_image = self.get_image_data('image/character_preview/%s.png'%(rec.character_id))
+            icon_image = self.get_image_data('icon/character/%s.png'%(rec.character_id))
 
             rec.write({
                 'portrait_image': portrait_image,

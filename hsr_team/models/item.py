@@ -163,7 +163,7 @@ class Material(models.Model):
     @api.depends('item_id')
     def _compute_image(self):
         for rec in self:
-            rec.image = rec.get_image_data('icon/item/%s.png'%(rec.item_id))
+            rec.image = self.get_image_data('icon/item/%s.png'%(rec.item_id))
 
 
 # Attributes
