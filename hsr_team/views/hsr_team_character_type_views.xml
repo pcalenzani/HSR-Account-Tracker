@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-    <menuitem id="menu_sr_config_root" name="Configuration" sequence="99" parent="menu_config_root"/>
+    <menuitem id="menu_sr_config_root" name="Configuration" sequence="99" parent="menu_character_root"/>
     
     <!-- SR.ELEMENT -->
     <record id="sr_item_element_view_form" model="ir.ui.view">
