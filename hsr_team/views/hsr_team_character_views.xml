@@ -97,7 +97,7 @@
         action="sr_character_action"/>
 
     <!-- SR.CHARACTER.TEMPLATE -->
-    <record id="sr_character_template_view_form">
+    <record id="sr_character_template_view_form" model="ir.ui.view">
         <field name="name">hsr_team.character.template.form</field>
         <field name="model">sr.character.template</field>
         <field name="arch" type="xml">
@@ -131,10 +131,9 @@
                             <field name="icon_image" widget="image"/>
                         </page>
                     </notebook>
-                    </sheet>
+                </sheet>
             </form>
         </field>
-    
     </record>
 
     <record id="sr_character_template_action" model="ir.actions.act_window">
