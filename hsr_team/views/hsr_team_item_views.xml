@@ -8,14 +8,19 @@
         <field name="arch" type="xml">
             <form string="Materials">
                 <sheet>
+                    <field name="image" widget="image" style="background-color:#0000;float:right;"/>
                     <div class="oe_title">
-                        <h1><field name="name"/></h1>
+                        <label for="name" string="Material Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="name" placeholder="e.g. Cheese Burger"/>
+                            </div>
+                        </h1>
                     </div>
                     <group>
                         <group>
+                            <field name="rarity"/>
                             <field name="type"/>
-                            <!-- <field name="image" widget="image" style="background-color:#0000;"/> -->
-                            <field name="image"/>
                         </group>
                     </group>
                 </sheet>

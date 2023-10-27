@@ -18,31 +18,11 @@ class CharacterTemplate(models.Model):
     ascension_mat_id = fields.Many2one('sr.item.material', string='Ascension Material')
     ascension_mat_img = fields.Binary(related='ascension_mat_id.image', string='Ascension Material Image')
 
-    element = fields.Selection(
-        selection=[
-            ('Wind', 'Wind'),
-            ('Ice', 'Ice'),
-            ('Physical', 'Physical'),
-            ('Fire', 'Fire'),
-            ('Quantum', 'Quantum'),
-            ('Lightning', 'Lightning'),
-            ('Imaginary', 'Imaginary'),
-        ],
-        string='Element'
-    )
-
-    path = fields.Selection(
-        selection=[
-            ('Warrior', 'Destruction'),
-            ('Priest', 'Abundance'),
-            ('Rogue', 'Hunt'),
-            ('Mage', 'Erudition'),
-            ('Shaman', 'Harmony'),
-            ('Warlock', 'Nihility'),
-            ('Knight', 'Preservation'),
-        ],
-        string='Path'
-    )
+    # -- Element & Path --
+    element_id = fields.Many2one('sr.element', string='Element')
+    element_img = fields.Image(related='element_id.image')
+    path_id = fields.Many2one('sr.element', string='Path')
+    path_img = fields.Image(related='path_id.image')
 
     _sql_constraints = [
         ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
@@ -62,30 +42,80 @@ class CharacterTemplate(models.Model):
 
     def name_get(self):
         return [(rec.id, f"{rec.avatar} (Template)") for rec in self]
+    
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        args = args or []
+        if name:
+            args += ['|', ('avatar',operator,name), ('character_id',operator,name)]
+        return self._search(args, limit=limit, access_rights_uid=name_get_uid)
 
 
-class Eidolon(models.Model):
-    _name = 'sr.character.eidolon'
-    _description = 'Eidolon'
+class Element(models.Model):
+    _name = 'sr.element'
+    _description = 'Element'
+    _inherit = 'sr.image.mixin'
 
-    title = fields.Char('Title')
-    description = fields.Char('Description')
-    level = fields.Selection(
-        selection=[
-            ('e1', 'Eidolon 1'),
-            ('e2', 'Eidolon 2'),
-            ('e3', 'Eidolon 3'),
-            ('e4', 'Eidolon 4'),
-            ('e5', 'Eidolon 5'),
-            ('e6', 'Eidolon 6'),
-        ]
-    )
-    owned = fields.Boolean('Is Owned')
-    character_template_id = fields.Many2one('sr.character.template', string='Character',store=True)
-    character_item_id = fields.Integer(related='character_template_id.character_id')
+    '''
+    ('Wind', 'Wind')
+    ('Ice', 'Ice')
+    ('Physical', 'Physical')
+    ('Fire', 'Fire')
+    ('Quantum', 'Quantum')
+    ('Lightning', 'Lightning')
+    ('Imaginary', 'Imaginary')
+    '''
+    
+    name = fields.Char('Name')
+    reference = fields.Char('Internal Ref')
+    img_path = fields.Char('Image Path')
+    image = fields.Image('Element Image', store=True, compute='_compute_image')
+
+    @api.depends('img_path')
+    def _compute_image(self):
+        for rec in self:
+            rec.image = rec.get_image_data(rec.img_path)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            vals['img_path'] = 'icon/element/%s.png'%(vals['name'])
+        return super(Element, self).create(vals_list)
+    
+
+class Path(models.Model):
+    _name = 'sr.path'
+    _description = 'Aeon Path'
+    _inherit = 'sr.image.mixin'
+    
+    '''
+    ('Warrior', 'Destruction')
+    ('Priest', 'Abundance')
+    ('Rogue', 'Hunt')
+    ('Mage', 'Erudition')
+    ('Shaman', 'Harmony')
+    ('Warlock', 'Nihility')
+    ('Knight', 'Preservation')
+    '''
+    
+    name = fields.Char("Name")
+    reference = fields.Char('Internal Ref')
+    img_path = fields.Char('Image Path')
+    image = fields.Image('Path Image', store=True, compute='_compute_image')
+
+    @api.depends('img_path')
+    def _compute_image(self):
+        for rec in self:
+            rec.image = rec.get_image_data(rec.img_path)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            vals['img_path'] = 'icon/path/%s.png'%(vals['name'])
+        return super(Path, self).create(vals_list)
 
 
 class Warp(models.Model):
+    # Override this model to add character link and compute
     _inherit = 'sr.warp'
 
     character_id = fields.Many2one('sr.character', store=True, compute='_compute_character_id')
