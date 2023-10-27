@@ -21,7 +21,7 @@ class CharacterTemplate(models.Model):
     # -- Element & Path --
     element_id = fields.Many2one('sr.element', string='Element')
     element_img = fields.Image(related='element_id.image')
-    path_id = fields.Many2one('sr.element', string='Path')
+    path_id = fields.Many2one('sr.path', string='Path')
     path_img = fields.Image(related='path_id.image')
 
     _sql_constraints = [
