@@ -1,5 +1,5 @@
 <odoo>
-    <data>
+    <data noupdate="1">
         <!-- GENERAL MATERIALS -->
         <record model="sr.item.material" id="sr_general_mat_1">
             <field name="name">Squirming Core</field>

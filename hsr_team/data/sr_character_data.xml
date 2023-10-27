@@ -1,5 +1,5 @@
 <odoo>
-    <data>
+    <data noupdate="1">
         <!-- CHARACTERS -->
         <record model="sr.character.template" id="sr_character_march7th">
             <field name="avatar">March 7th</field>

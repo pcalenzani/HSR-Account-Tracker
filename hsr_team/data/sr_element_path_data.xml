@@ -1,5 +1,5 @@
 <odoo>
-    <data>
+    <data noupdate="1">
         <!-- CHARACTER ELEMENTS -->
         <record model="sr.element" id="sr_element_wind">
             <field name="name">Wind</field>
