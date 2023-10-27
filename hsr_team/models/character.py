@@ -30,9 +30,9 @@ class CharacterTemplate(models.Model):
     preview_img_path = fields.Char('Preview Image Path', compute='_compute_img_paths', store=True)
     icon_img_path = fields.Char('Icon Image Path', compute='_compute_img_paths', store=True)
 
-    portrait_image = fields.Binary('Portrait Image', compute='_compute_portrait_image')
-    preview_image = fields.Binary('Preview Image', compute='_compute_preview_image')
-    icon_image = fields.Binary('Icon Image', compute='_compute_icon_image')
+    portrait_image = fields.Binary('Portrait Image', compute='_compute_portrait_image', store=True)
+    preview_image = fields.Binary('Preview Image', compute='_compute_preview_image', store=True)
+    icon_image = fields.Binary('Icon Image', compute='_compute_icon_image', store=True)
 
     _sql_constraints = [
         ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
