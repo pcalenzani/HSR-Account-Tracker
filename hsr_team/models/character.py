@@ -117,7 +117,7 @@ class Path(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            vals['img_path'] = self.get_image_data('icon/path/%s.png'%(vals['name']))
+            vals['image'] = self.get_image_data('icon/path/%s.png'%(vals['name']))
         return super(Path, self).create(vals_list)
 
 

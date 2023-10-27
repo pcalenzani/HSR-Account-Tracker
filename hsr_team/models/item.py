@@ -158,20 +158,12 @@ class Material(models.Model):
             ('ascension', 'Ascension')
         ]
     )
-    img_path = fields.Char('Image Path')
-    image = fields.Binary('Image', store=False, compute='_compute_image')
+    image = fields.Binary('Image', store=True, compute='_compute_image')
 
-    @api.depends('img_path')
+    @api.depends('item_id')
     def _compute_image(self):
         for rec in self:
-            rec.image = rec.get_image_data(rec.img_path)
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            path = 'icon/item/%s.png'%(vals['item_id'])
-            vals['img_path'] = path
-        return super(Material, self).create(vals_list)
+            rec.image = rec.get_image_data('icon/item/%s.png'%(rec.item_id))
 
 
 # Attributes
