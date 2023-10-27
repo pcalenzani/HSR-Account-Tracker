@@ -102,7 +102,7 @@
         <field name="model">sr.character.template</field>
         <field name="arch" type="xml">
             <tree string="Character Templates">
-                <field name="icon_image" widget="image"/>
+                <field name="icon_image" class="image_bg" widget="image"/>
                 <field name="avatar"/>
                 <field name="element_id"/>
                 <field name="path_id"/>
