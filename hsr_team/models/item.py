@@ -50,8 +50,8 @@ class Character(models.Model):
     advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
     ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
     eidolon_ids = fields.One2many(related='template_id.eidolon_ids')
-    element = fields.Selection(related='template_id.element', store=True)
-    path = fields.Selection(related='template_id.path', store=True)
+    element_id = fields.Many2one(related='template_id.element_id', store=True)
+    path_id = fields.Many2one(related='template_id.path_id', store=True)
 
     count = fields.Integer('Count', store=True, compute='_compute_count')
     is_owned = fields.Boolean('Is Owned', store=True, compute='_compute_count')
@@ -142,18 +142,7 @@ class LightCone(models.Model):
     rank = fields.Integer('Rank')
     promotion = fields.Integer('Superimposition')
 
-    path = fields.Selection(
-        selection=[
-            ('Warrior', 'Destruction'),
-            ('Priest', 'Abundance'),
-            ('Rogue', 'Hunt'),
-            ('Mage', 'Erudition'),
-            ('Shaman', 'Harmony'),
-            ('Warlock', 'Nihility'),
-            ('Knight', 'Preservation'),
-        ],
-        string='Path'
-    )
+    path_id = fields.Many2one('sr.path', string='Path')
 
 
 class Material(models.Model):
