@@ -145,6 +145,7 @@ class Character(models.Model):
                 del ch_data[k]
         
         ch_data['item_id'] = ch_data.pop('id')
+        ch_data['rarity'] = str(ch_data.pop('rarity'))
         self.create(ch_data)
     
 
