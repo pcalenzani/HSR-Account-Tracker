@@ -4,6 +4,7 @@ from odoo import api, fields, models, tools, Command
 class CharacterTemplate(models.Model):
     _name = 'sr.character.template'
     _description = 'Character Template'
+    _inherit = 'sr.image.mixin'
     
     avatar = fields.Char("Character Name")
     character_id = fields.Integer('Character ID')
@@ -24,9 +25,40 @@ class CharacterTemplate(models.Model):
     path_id = fields.Many2one('sr.path', string='Path')
     path_img = fields.Image(related='path_id.image')
 
+    # -- Character Images --
+    portrait_img_path = fields.Char('Portrait Image Path', compute='_compute_img_paths', store=True)
+    preview_img_path = fields.Char('Preview Image Path', compute='_compute_img_paths', store=True)
+    icon_img_path = fields.Char('Icon Image Path', compute='_compute_img_paths', store=True)
+
+    portrait_image = fields.Binary('Portrait Image', compute='_compute_portrait_image')
+    preview_image = fields.Binary('Preview Image', compute='_compute_preview_image')
+    icon_image = fields.Binary('Icon Image', compute='_compute_icon_image')
+
     _sql_constraints = [
         ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]
+
+    @api.depends('character_id')
+    def _compute_img_paths(self):
+        for rec in self:
+            rec.portrait_img_path = 'image/character_portrait/%s.png'%(rec.character_id)
+            rec.preview_img_path = 'image/character_preview/%s.png'%(rec.character_id)
+            rec.icon_img_path = 'icon/character/%s.png'%(rec.character_id)
+
+    @api.depends('portrait_img_path')
+    def _compute_portrait_image(self):
+        for rec in self:
+            rec.portrait_image = rec.get_image_data(rec.portrait_img_path)
+
+    @api.depends('preview_img_path')
+    def _compute_preview_image(self):
+        for rec in self:
+            rec.preview_image = rec.get_image_data(rec.preview_img_path)
+
+    @api.depends('icon_img_path')
+    def _compute_icon_image(self):
+        for rec in self:
+            rec.icon_image = rec.get_image_data(rec.icon_img_path)
 
     def browse_sr_id(self, sr_ids=None):
         if not sr_ids:
