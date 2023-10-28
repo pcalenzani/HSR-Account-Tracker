@@ -12,5 +12,5 @@
 }
 
 .o_home_menu_background{
-    --homeMenu-bg-image: !important;
+    --homeMenu-bg-image: none !important;
 }
