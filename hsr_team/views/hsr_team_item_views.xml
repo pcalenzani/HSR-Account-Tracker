@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <form string="Materials">
                 <sheet>
-                    <field name="image" widget="image" style="background-color:#0000;float:right;"/>
+                    <field name="image" widget="image" class="image_bg_float"/>
                     <div class="oe_title">
                         <label for="name" string="Material Name"/>
                         <h1>

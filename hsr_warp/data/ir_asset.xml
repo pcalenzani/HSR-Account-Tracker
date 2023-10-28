@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="hsr_warp_css" model="ir.asset">
+        <field name="name">HSR Warp CSS</field>
+        <field name="bundle">web.assets_backend</field>
+        <field name="path">/hsr_warp/static/src/css/hsr_warp.css</field>
+        <field name="sequence" eval="16"/>
+    </record>
+</odoo>

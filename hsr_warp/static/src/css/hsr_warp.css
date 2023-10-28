@@ -1,3 +1,8 @@
 .image_bg{
     background-color: #0000 !important;
 }
+
+.image_bg_float{
+    background-color: #0000 !important;
+    float: right !important;
+}
