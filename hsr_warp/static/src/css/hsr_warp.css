@@ -7,6 +7,6 @@
     float: right !important;
 }
 
-.o_home_menu_background{
+.o_web_client.o_home_menu_background{
     --homeMenu-bg-image: var(--homeMenu-bg-image, radial-gradient(at 100% 0%, rgba(59, 44, 63, 0.6) 0px, transparent 50%), radial-gradient(at 7% 13%, rgba(119, 114, 126, 0.42) 0px, transparent 50%), radial-gradient(at 96% 94%, rgba(117, 111, 123, 0.51) 0px, transparent 50%), radial-gradient(at 3% 96%, rgba(59, 44, 63, 0.41) 0px, transparent 50%), url(/hsr_warp/static/description/star_rail_background.jpg)) !important;
 }
