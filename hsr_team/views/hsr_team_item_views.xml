@@ -24,13 +24,5 @@
                 </sheet>
             </form>
         </field>
-
     </record>
-
-    <record id="sr_item_materials_action" model="ir.actions.act_window">
-        <field name="name">Upgrade Materials</field>
-        <field name="res_model">sr.item.material</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
 </odoo>

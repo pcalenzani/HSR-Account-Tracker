@@ -84,12 +84,6 @@
         </field>
     </record>
 
-    <record id="sr_character_action" model="ir.actions.act_window">
-        <field name="name">Characters</field>
-        <field name="res_model">sr.character</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
     <!-- SR.CHARACTER.TEMPLATE -->
     <record id="sr_character_template_view_tree" model="ir.ui.view">
         <field name="name">hsr_team.character.template.tree</field>
@@ -183,11 +177,4 @@
             </form>
         </field>
     </record>
-
-    <record id="sr_character_template_action" model="ir.actions.act_window">
-        <field name="name">Character Settings</field>
-        <field name="res_model">sr.character.template</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
 </odoo>

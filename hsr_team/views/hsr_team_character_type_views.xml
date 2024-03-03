@@ -40,12 +40,6 @@
         </field>
     </record>
 
-    <record id="sr_elements_action" model="ir.actions.act_window">
-        <field name="name">Elements</field>
-        <field name="res_model">sr.element</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
     <!-- SR.PATH -->
     <record id="sr_item_path_view_form" model="ir.ui.view">
         <field name="name">hsr_team.path.form</field>
@@ -71,11 +65,4 @@
             </form>
         </field>
     </record>
-
-    <record id="sr_paths_action" model="ir.actions.act_window">
-        <field name="name">Paths</field>
-        <field name="res_model">sr.path</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
 </odoo>

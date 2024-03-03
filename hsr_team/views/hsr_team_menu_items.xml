@@ -1,5 +1,31 @@
 <?xml version="1.0"?>
 <odoo>
+    <record id="sr_elements_action" model="ir.actions.act_window">
+        <field name="name">Elements</field>
+        <field name="res_model">sr.element</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="sr_paths_action" model="ir.actions.act_window">
+        <field name="name">Paths</field>
+        <field name="res_model">sr.path</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="sr_character_action" model="ir.actions.act_window">
+        <field name="name">Characters</field>
+        <field name="res_model">sr.character</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="sr_character_template_action" model="ir.actions.act_window">
+        <field name="name">Character Settings</field>
+        <field name="res_model">sr.character.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="sr_item_materials_action" model="ir.actions.act_window">
+        <field name="name">Upgrade Materials</field>
+        <field name="res_model">sr.item.material</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
     <menuitem id="menu_character_root" name="Characters" sequence="31" web_icon="hsr_warp,static/description/icon(10).jpg"/>
     <menuitem id="menu_sr_config_root" name="Configuration" sequence="99" parent="menu_character_root"/>
     <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_root" action="sr_elements_action"/>
