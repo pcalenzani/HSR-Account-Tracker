@@ -52,6 +52,7 @@ class Warp(models.Model):
 
             warp = self.browse_sr_id(row[wid_index])
             if warp:
+                _logger.info(warp)
                 row.append(warp.id)
 
         _logger.info(fields)
