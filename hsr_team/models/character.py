@@ -147,4 +147,4 @@ class Warp(models.Model):
 
     def _compute_character_id(self):
         for warp in self:
-            warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)])
+            warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)]) or None
