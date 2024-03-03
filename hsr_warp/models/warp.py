@@ -51,7 +51,7 @@ class Warp(models.Model):
             row.append(banner_id)
 
             warp = self.browse_sr_id(row[wid_index])
-            if not warp:
+            if warp:
                 row.append(warp.id)
 
         return super().load(fields, data)
@@ -79,6 +79,7 @@ class Warp(models.Model):
         else:
             sr_ids= tuple(sr_ids)
 
+        _logger.warning(sr_ids)
         self.env.cr.execute("""SELECT id FROM sr_warp WHERE wid in %s""", [sr_ids])
         ids = tuple(self.env.cr.fetchall())
         return self.__class__(self.env, ids, ids)
