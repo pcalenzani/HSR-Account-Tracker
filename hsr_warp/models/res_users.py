@@ -1,5 +1,5 @@
 from odoo import api, fields, models, tools
-from urllib.parse import urlencode, parse_qs
+from urllib.parse import urlencode, parse_qs, unquote
 import requests
 import logging
 
@@ -12,11 +12,12 @@ class Users(models.Model):
     _inherit = 'res.users'
 
     sr_uid = fields.Char('Star Rail UID')
-    sr_authkey = fields.Char('Auth Key')
+    sr_authkey = fields.Char('Warp URL')
     sr_update = fields.Boolean('Update Player Warps', default=False)
 
-    def get_authkey_from_url(self, url):
-        self.sr_authkey = parse_qs(url)['authkey']
+    def get_authkey_from_url(self):
+        authkey_raw = parse_qs(self.sr_authkey)['authkey'][0]
+        return unquote(authkey_raw)
 
     def get_warp_data(self, gacha_type, size=20, end_id=0):
         self.ensure_one()
@@ -24,7 +25,7 @@ class Users(models.Model):
         params = {
             'authkey_ver': '1',
             'lang': 'en',
-            'authkey': self.sr_authkey,
+            'authkey': self.get_authkey_from_url(),
             'game_biz': 'hkrpg_global',
             'size': size,
             'gacha_type': gacha_type,
@@ -32,11 +33,9 @@ class Users(models.Model):
         }
         url = WARP_API_URL + '?' + urlencode(params)
         ret = requests.get(url).json()
-        _logger.info(ret)
 
-        # TODO Log or raise this
         if ret['retcode'] != 0:
-            print(f"Error {ret['retcode']}: {ret['message']}") 
+            _logger.error(f"Error {ret['retcode']}: {ret['message']}") 
         return ret['data']
     
     def get_warps(self):

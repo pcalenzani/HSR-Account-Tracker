@@ -20,7 +20,7 @@ class Warp(models.Model):
     lang = fields.Char('Lang')
     item_type = fields.Char('Item Type')
     rank_type = fields.Integer('Rarity')
-    wid = fields.Char('Warp ID', index=True)
+    wid = fields.Integer('Warp ID', index=True)
 
     pity = fields.Integer('Pity', store=True, compute='_compute_pity')
     banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_banner_id')
@@ -88,7 +88,7 @@ class Warp(models.Model):
         for i in range(len(vals_list)):
             id = vals_list[i]['id']
             if self.browse_sr_id(id):
-                _logger.warning(id)
+                _logger.warning("ID FOUND: " + str(id))
                 vals_list = vals_list[:i]
                 break
 
