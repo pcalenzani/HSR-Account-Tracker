@@ -51,7 +51,7 @@ class Warp(models.Model):
             row.append(banner_id)
 
             warp = self.browse_sr_id(row[wid_index])
-            if warp:
+            if not warp:
                 row.append(warp.id)
 
         return super().load(fields, data)
