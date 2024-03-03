@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <odoo>
-    <menuitem id="menu_sr_items_root" name="Items" sequence="20" parent="menu_character_root"/>
-    
     <record id="sr_item_material_view_form" model="ir.ui.view">
         <field name="name">hsr_team.material.form</field>
         <field name="model">sr.item.material</field>
@@ -34,7 +32,5 @@
         <field name="res_model">sr.item.material</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <menuitem id="menu_sr_item_materials" name="Upgrade Materials" sequence="10" parent="menu_sr_items_root" action="sr_item_materials_action"/>
 
 </odoo>

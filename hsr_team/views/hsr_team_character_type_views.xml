@@ -46,8 +46,6 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_root" action="sr_elements_action"/>
-
     <!-- SR.PATH -->
     <record id="sr_item_path_view_form" model="ir.ui.view">
         <field name="name">hsr_team.path.form</field>
@@ -79,7 +77,5 @@
         <field name="res_model">sr.path</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <menuitem id="menu_sr_paths" name="Aeon Paths" sequence="10" parent="menu_sr_config_root" action="sr_paths_action"/>
 
 </odoo>

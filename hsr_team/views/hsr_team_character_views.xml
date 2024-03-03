@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <odoo>
-    <menuitem id="menu_character_root" name="Characters" sequence="31" web_icon="hsr_warp,static/description/icon(10).jpg"/>
-
     <!-- SR.CHARACTER -->
     <record id="sr_character_view_tree" model="ir.ui.view">
         <field name="name">hsr_team.character.tree</field>
@@ -91,10 +89,6 @@
         <field name="res_model">sr.character</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <menuitem id="menu_characters" name="Characters" sequence="10" 
-        parent="menu_character_root"
-        action="sr_character_action"/>
 
     <!-- SR.CHARACTER.TEMPLATE -->
     <record id="sr_character_template_view_tree" model="ir.ui.view">
@@ -195,7 +189,5 @@
         <field name="res_model">sr.character.template</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <menuitem id="menu_sr_character_template" name="Character Settings" sequence="0" parent="menu_sr_config_root" action="sr_character_template_action"/>
 
 </odoo>

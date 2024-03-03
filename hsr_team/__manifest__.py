@@ -6,6 +6,7 @@
     'description': "",
     'depends': ['hsr_warp'],
     'data': [
+        'views/hsr_team_menu_items.xml'
         'views/hsr_team_character_views.xml',
         'views/hsr_team_item_views.xml',
         'views/hsr_team_character_type_views.xml',
