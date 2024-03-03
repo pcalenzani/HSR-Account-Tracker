@@ -63,8 +63,6 @@
                 </group>
             </search>
         </field>
-
-
     </record>
 
     <record id="hsr_warp_warp_action" model="ir.actions.act_window">
