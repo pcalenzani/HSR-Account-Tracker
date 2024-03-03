@@ -52,11 +52,8 @@ class Warp(models.Model):
 
             warp = self.browse_sr_id(row[wid_index])
             if warp:
-                _logger.info(warp)
                 row.append(warp.id)
 
-        _logger.info(fields)
-        _logger.info(data)
         return super().load(fields, data)
 
     @api.depends('gacha_id')
@@ -86,7 +83,6 @@ class Warp(models.Model):
 
         self.env.cr.execute("""SELECT id FROM sr_warp WHERE wid in %s""", [sr_ids])
         ids = self.env.cr.fetchall()[0]
-        _logger.info(ids)
         return self.__class__(self.env, ids, ids)
 
     def generate_warps(self, vals_list):
@@ -94,7 +90,7 @@ class Warp(models.Model):
         for i in range(len(vals_list)):
             id = vals_list[i]['id']
             if self.browse_sr_id(id):
-                _logger.warning("ID FOUND: " + str(id))
+                _logger.warning("ID FOUND: " + str(id) + " - Skipping...")
                 vals_list = vals_list[:i]
                 break
 
