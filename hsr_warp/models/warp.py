@@ -87,7 +87,6 @@ class Warp(models.Model):
         # Check if warps exist before creating
         for i in range(len(vals_list)):
             id = vals_list[i]['id']
-            _logger.warning("TEST" + str(id))
             if self.browse_sr_id(id):
                 _logger.warning(id)
                 vals_list = vals_list[:i]

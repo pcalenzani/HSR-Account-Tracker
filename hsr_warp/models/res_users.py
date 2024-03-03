@@ -32,7 +32,7 @@ class Users(models.Model):
         }
         url = WARP_API_URL + '?' + urlencode(params)
         ret = requests.get(url).json()
-        _logger.info(url)
+        _logger.info(ret)
 
         # TODO Log or raise this
         if ret['retcode'] != 0:
