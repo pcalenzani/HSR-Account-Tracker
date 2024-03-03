@@ -88,6 +88,7 @@ class Warp(models.Model):
         for i in range(len(vals_list)):
             id = vals_list[i]['id']
             if self.browse_sr_id(id):
+                _logger.warning(id)
                 vals_list = vals_list[:i]
                 break
 
