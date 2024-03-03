@@ -86,6 +86,7 @@ class Warp(models.Model):
 
         self.env.cr.execute("""SELECT id FROM sr_warp WHERE wid in %s""", [sr_ids])
         ids = tuple(self.env.cr.fetchall())
+        _logger.info(ids)
         return self.__class__(self.env, ids, ids)
 
     def generate_warps(self, vals_list):
