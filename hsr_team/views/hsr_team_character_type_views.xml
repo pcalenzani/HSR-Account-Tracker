@@ -33,10 +33,10 @@
             <kanban>
                 <templates>
                     <t t-name="kanban-box">
-                    
+                    <!-- TODO: KANBAN -->
                     </t>
                 </templates>
-            </form>
+            </kanban>
         </field>
     </record>
 
