@@ -20,7 +20,7 @@ class Warp(models.Model):
     lang = fields.Char('Lang')
     item_type = fields.Char('Item Type')
     rank_type = fields.Integer('Rarity')
-    wid = fields.Integer('Warp ID', index=True)
+    wid = fields.Char('Warp ID', index=True)
 
     pity = fields.Integer('Pity', store=True, compute='_compute_pity')
     banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_banner_id')
@@ -75,7 +75,7 @@ class Warp(models.Model):
         if not sr_ids:
             sr_ids= ()
         elif sr_ids.__class__ is int:
-            sr_ids = (sr_ids,)
+            sr_ids = (str(sr_ids),)
         else:
             sr_ids= tuple(sr_ids)
 
