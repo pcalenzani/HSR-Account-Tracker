@@ -54,6 +54,8 @@ class Warp(models.Model):
             if warp:
                 row.append(warp.id)
 
+        _logger.info(fields)
+        _logger.info(data)
         return super().load(fields, data)
 
     @api.depends('gacha_id')
