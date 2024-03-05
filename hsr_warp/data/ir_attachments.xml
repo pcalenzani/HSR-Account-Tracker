@@ -6,7 +6,7 @@
             <field name="name">Element_Fire.png</field>
             <field name="res_model">sr.element</field>
             <field name="res_field">img_id</field>
-            <field name="public" eval="True">
+            <field name="public" eval="True"/>
             <field name="type">url</field>
             <field name="url">/starrail/hsr_warp/static/icon/element/Fire.png</field>
         </record>
