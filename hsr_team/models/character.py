@@ -34,7 +34,7 @@ class CharacterTemplate(models.Model):
         ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]
 
-    @api.depends('character_id')
+    # @api.depends('character_id')
     def _compute_images(self):
         for rec in self:
             portrait_image = self.get_image_data('image/character_portrait/%s.png'%(rec.character_id))
@@ -109,8 +109,8 @@ class Element(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        for vals in vals_list:
-            vals['image'] = self.get_image_data('icon/element/%s.png'%(vals['name']))
+        # for vals in vals_list:
+        #     vals['image'] = self.get_image_data('icon/element/%s.png'%(vals['name']))
         return super(Element, self).create(vals_list)
     
 

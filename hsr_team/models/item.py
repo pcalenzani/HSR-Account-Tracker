@@ -160,7 +160,7 @@ class Material(models.Model):
     )
     # image = fields.Binary('Image', store=True, compute='_compute_image')
 
-    @api.depends('item_id')
+    # @api.depends('item_id')
     def _compute_image(self):
         for rec in self:
             rec.image = self.get_image_data('icon/item/%s.png'%(rec.item_id))
