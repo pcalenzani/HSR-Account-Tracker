@@ -104,14 +104,7 @@ class Element(models.Model):
     
     name = fields.Char('Name')
     reference = fields.Char('Internal Ref')
-    image = fields.Image('Element Image', store=True)
     img_id = fields.Many2one('ir.attachment', string='Image', domain="[('res_model','=','sr.element'),('res_field','=','img_id')]")
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        # for vals in vals_list:
-        #     vals['image'] = self.get_image_data('icon/element/%s.png'%(vals['name']))
-        return super(Element, self).create(vals_list)
     
 
 class Path(models.Model):
@@ -131,13 +124,7 @@ class Path(models.Model):
     
     name = fields.Char("Name")
     reference = fields.Char('Internal Ref')
-    image = fields.Image('Path Image', store=True)
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        # for vals in vals_list:
-        #     vals['image'] = self.get_image_data('icon/path/%s.png'%(vals['name']))
-        return super(Path, self).create(vals_list)
+    img_id = fields.Many2one('ir.attachment', string='Image', domain="[('res_model','=','sr.path'),('res_field','=','img_id')]")
 
 
 class Warp(models.Model):

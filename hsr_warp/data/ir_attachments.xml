@@ -2,13 +2,120 @@
 <odoo>
     <data noupdate="1">
         <!-- IMAGE ATTACHMENTS -->
+        <!-- ELEMENTS -->
         <record id="icon_fire" model="ir.attachment">
-            <field name="name">Element_Fire.png</field>
+            <field name="name">Fire.png</field>
             <field name="res_model">sr.element</field>
             <field name="res_field">img_id</field>
             <field name="public" eval="True"/>
             <field name="type">url</field>
-            <field name="url">/starrail/hsr_warp/static/icon/element/Fire.png</field>
+            <field name="url">/hsr_warp/static/icon/element/Fire.png</field>
+        </record>
+        <record id="icon_ice" model="ir.attachment">
+            <field name="name">Ice.png</field>
+            <field name="res_model">sr.element</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/element/Ice.png</field>
+        </record>
+        <record id="icon_imaginary" model="ir.attachment">
+            <field name="name">Imaginary.png</field>
+            <field name="res_model">sr.element</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/element/Imaginary.png</field>
+        </record>
+        <record id="icon_lightning" model="ir.attachment">
+            <field name="name">Lightning.png</field>
+            <field name="res_model">sr.element</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/element/Lightning.png</field>
+        </record>
+        <record id="icon_physical" model="ir.attachment">
+            <field name="name">Physical.png</field>
+            <field name="res_model">sr.element</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/element/Physical.png</field>
+        </record>
+        <record id="icon_quantum" model="ir.attachment">
+            <field name="name">Quantum.png</field>
+            <field name="res_model">sr.element</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/element/Quantum.png</field>
+        </record>
+        <record id="icon_wind" model="ir.attachment">
+            <field name="name">Wind.png</field>
+            <field name="res_model">sr.element</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/element/Wind.png</field>
+        </record>
+
+        <!-- PATH -->
+        <record id="icon_abundance" model="ir.attachment">
+            <field name="name">Abundance.png</field>
+            <field name="res_model">sr.path</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/path/Abundance.png</field>
+        </record>
+        <record id="icon_destruction" model="ir.attachment">
+            <field name="name">Destruction.png</field>
+            <field name="res_model">sr.path</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/path/Destruction.png</field>
+        </record>
+        <record id="icon_erudition" model="ir.attachment">
+            <field name="name">Erudition.png</field>
+            <field name="res_model">sr.path</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/path/Erudition.png</field>
+        </record>
+        <record id="icon_harmony" model="ir.attachment">
+            <field name="name">Harmony.png</field>
+            <field name="res_model">sr.path</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/path/Harmony.png</field>
+        </record>
+        <record id="icon_hunt" model="ir.attachment">
+            <field name="name">Hunt.png</field>
+            <field name="res_model">sr.path</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/path/Hunt.png</field>
+        </record>
+        <record id="icon_nihility" model="ir.attachment">
+            <field name="name">Nihility.png</field>
+            <field name="res_model">sr.path</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/path/Nihility.png</field>
+        </record>
+        <record id="icon_preservation" model="ir.attachment">
+            <field name="name">Preservation.png</field>
+            <field name="res_model">sr.path</field>
+            <field name="res_field">img_id</field>
+            <field name="public" eval="True"/>
+            <field name="type">url</field>
+            <field name="url">/hsr_warp/static/icon/path/Preservation.png</field>
         </record>
     </data>
 </odoo>
