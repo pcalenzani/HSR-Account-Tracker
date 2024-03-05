@@ -16,7 +16,7 @@
         <record model="sr.element" id="sr_element_fire">
             <field name="name">Fire</field>
             <field name="reference">Fire</field>
-            <field name="img_id" eval="hsr_warp.icon_fire"/>
+            <field name="img_id" ref="hsr_warp.icon_fire"/>
         </record>
         <record model="sr.element" id="sr_element_quantum">
             <field name="name">Quantum</field>
