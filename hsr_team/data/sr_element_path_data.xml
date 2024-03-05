@@ -4,14 +4,17 @@
         <record model="sr.element" id="sr_element_wind">
             <field name="name">Wind</field>
             <field name="reference">Wind</field>
+            <field name="img_id" ref="hsr_warp.icon_wind"/>
         </record>
         <record model="sr.element" id="sr_element_ice">
             <field name="name">Ice</field>
             <field name="reference">Ice</field>
+            <field name="img_id" ref="hsr_warp.icon_ice"/>
         </record>
         <record model="sr.element" id="sr_element_physical">
             <field name="name">Physical</field>
             <field name="reference">Physical</field>
+            <field name="img_id" ref="hsr_warp.icon_physical"/>
         </record>
         <record model="sr.element" id="sr_element_fire">
             <field name="name">Fire</field>
@@ -21,44 +24,54 @@
         <record model="sr.element" id="sr_element_quantum">
             <field name="name">Quantum</field>
             <field name="reference">Quantum</field>
+            <field name="img_id" ref="hsr_warp.icon_quantum"/>
         </record>
         <record model="sr.element" id="sr_element_lightning">
             <field name="name">Lightning</field>
             <field name="reference">Lightning</field>
+            <field name="img_id" ref="hsr_warp.icon_lightning"/>
         </record>
         <record model="sr.element" id="sr_element_imaginary">
             <field name="name">Imaginary</field>
             <field name="reference">Imaginary</field>
+            <field name="img_id" ref="hsr_warp.icon_imaginary"/>
         </record>
 
         <!-- CHARACTER PATH -->
         <record model="sr.path" id="sr_path_destruction">
             <field name="name">Destruction</field>
             <field name="reference">Warrior</field>
+            <field name="img_id" ref="hsr_warp.icon_destruction"/>
         </record>
         <record model="sr.path" id="sr_path_hunt">
             <field name="name">Hunt</field>
             <field name="reference">Rogue</field>
+            <field name="img_id" ref="hsr_warp.icon_hunt"/>
         </record>
         <record model="sr.path" id="sr_path_abundance">
             <field name="name">Abundance</field>
             <field name="reference">Priest</field>
+            <field name="img_id" ref="hsr_warp.icon_abundance"/>
         </record>
         <record model="sr.path" id="sr_path_erudition">
             <field name="name">Erudition</field>
             <field name="reference">Mage</field>
+            <field name="img_id" ref="hsr_warp.icon_erudition"/>
         </record>
         <record model="sr.path" id="sr_path_harmony">
             <field name="name">Harmony</field>
             <field name="reference">Shaman</field>
+            <field name="img_id" ref="hsr_warp.icon_harmony"/>
         </record>
         <record model="sr.path" id="sr_path_nihility">
             <field name="name">Nihility</field>
             <field name="reference">Warlock</field>
+            <field name="img_id" ref="hsr_warp.icon_nihility"/>
         </record>
         <record model="sr.path" id="sr_path_preservation">
             <field name="name">Preservation</field>
             <field name="reference">Knight</field>
+            <field name="img_id" ref="hsr_warp.icon_preservation"/>
         </record>
     </data>
 </odoo>
