@@ -1,5 +1,5 @@
-from odoo import api, fields, models, tools, Command
-from odoo.modules import get_module_resource
+from odoo import api, fields, models, Command
+from odoo.tools import file_open, file_path
 import logging
 import base64
 
@@ -12,11 +12,11 @@ class ImageMixin(models.AbstractModel):
     _description = 'Abstract Image Model'
         
     def _read_image(self, module, path):
-        icon_path = get_module_resource(module, path)
+        icon_path = file_path(module, path)
         image = False
         
         if icon_path:
-            with tools.file_open(icon_path, 'rb') as icon_file:
+            with file_open(icon_path, 'rb') as icon_file:
                 image = base64.encodebytes(icon_file.read())
         else:
             _logger.error(path)
