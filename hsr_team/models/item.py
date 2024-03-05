@@ -158,7 +158,7 @@ class Material(models.Model):
             ('ascension', 'Ascension')
         ]
     )
-    image = fields.Binary('Image', store=True, compute='_compute_image')
+    # image = fields.Binary('Image', store=True, compute='_compute_image')
 
     @api.depends('item_id')
     def _compute_image(self):
