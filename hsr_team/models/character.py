@@ -105,6 +105,7 @@ class Element(models.Model):
     name = fields.Char('Name')
     reference = fields.Char('Internal Ref')
     image = fields.Image('Element Image', store=True)
+    img_id = fields.Many2one('ir.attachment', string='Image', domain="[('res_model','=','sr.element'),('res_field','=','img_id')]")
 
     @api.model_create_multi
     def create(self, vals_list):
