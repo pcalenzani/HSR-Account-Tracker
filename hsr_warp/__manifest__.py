@@ -19,7 +19,7 @@
     },
     'installable': True,
     'application': True,
-    'icon': '/hsr_warp/static/description/icon(1).jpg',
+    'icon': '/hsr_warp/static/description/icon(1).png',
     # 'post_init_hook': '_method_name',
     'assets': {}
 }
