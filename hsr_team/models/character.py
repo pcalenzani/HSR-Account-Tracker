@@ -13,17 +13,17 @@ class CharacterTemplate(models.Model):
 
     # -- Materials --
     general_mat_id = fields.Many2one('sr.item.material', string='General Material')
-    general_mat_img = fields.Binary(related='general_mat_id.image', string='General Material Image')
+    # general_mat_img = fields.Binary(related='general_mat_id.image', string='General Material Image')
     advanced_mat_id = fields.Many2one('sr.item.material', string='Advanced Material')
-    advanced_mat_img = fields.Binary(related='advanced_mat_id.image', string='Advanced Material Image')
+    # advanced_mat_img = fields.Binary(related='advanced_mat_id.image', string='Advanced Material Image')
     ascension_mat_id = fields.Many2one('sr.item.material', string='Ascension Material')
-    ascension_mat_img = fields.Binary(related='ascension_mat_id.image', string='Ascension Material Image')
+    # ascension_mat_img = fields.Binary(related='ascension_mat_id.image', string='Ascension Material Image')
 
     # -- Element & Path --
     element_id = fields.Many2one('sr.element', string='Element')
-    element_img = fields.Image(related='element_id.image')
+    # element_img = fields.Image(related='element_id.image')
     path_id = fields.Many2one('sr.path', string='Path')
-    path_img = fields.Image(related='path_id.image')
+    # path_img = fields.Image(related='path_id.image')
 
     # -- Character Images --
     # portrait_image = fields.Binary('Portrait Image', compute='_compute_images', store=True)
