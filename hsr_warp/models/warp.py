@@ -82,6 +82,7 @@ class Warp(models.Model):
             sr_ids= tuple(sr_ids)
 
         self.env.cr.execute("""SELECT id FROM sr_warp WHERE wid in %s""", [sr_ids])
+        _logger.warning(self.env.cr.fetchall())
         ids = self.env.cr.fetchall()[0]
         return self.__class__(self.env, ids, ids)
 
