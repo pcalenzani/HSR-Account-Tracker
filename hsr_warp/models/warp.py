@@ -81,9 +81,11 @@ class Warp(models.Model):
         else:
             sr_ids= tuple(sr_ids)
 
-        self.env.cr.execute("""SELECT id FROM sr_warp WHERE wid in %s""", [sr_ids])
-        _logger.warning(self.env.cr.fetchall())
-        ids = self.env.cr.fetchall()[0]
+        try:
+            self.env.cr.execute("""SELECT id FROM sr_warp WHERE wid in %s""", [sr_ids])
+            ids = self.env.cr.fetchall()[0]
+        except IndexError:
+            return self
         return self.__class__(self.env, ids, ids)
 
     def generate_warps(self, vals_list):
