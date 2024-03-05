@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-    <menuitem id="menu_warps_root" name="Warps" sequence="30" web_icon="hsr_warp,static/description/icon(2).jpg"/>
+    <menuitem id="menu_warps_root" name="Warps" sequence="30" web_icon="hsr_warp,static/description/icon(2).png"/>
 
     <!-- SR.WARP -->
     <record id="hsr_warp_warps_view_tree" model="ir.ui.view">

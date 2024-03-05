@@ -26,7 +26,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_character_root" name="Characters" sequence="31" web_icon="hsr_warp,static/description/icon(10).jpg"/>
+    <menuitem id="menu_character_root" name="Characters" sequence="31" web_icon="hsr_warp,static/description/icon(10).png"/>
     <menuitem id="menu_sr_config_root" name="Configuration" sequence="99" parent="menu_character_root"/>
     <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_root" action="sr_elements_action"/>
     <menuitem id="menu_sr_paths" name="Aeon Paths" sequence="10" parent="menu_sr_config_root" action="sr_paths_action"/>
