@@ -185,7 +185,7 @@ class Material(models.Model):
                     'res_field': 'img_id',
                     'public': True,
                     'type': 'url',
-                    'url': '/hsr_warp/static/icon/' + img_name
+                    'url': '/hsr_warp/static/icon/item/' + img_name
                 }).id
         return super(Material, self).create(vals_list)
 
