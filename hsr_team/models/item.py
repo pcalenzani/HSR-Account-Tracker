@@ -186,7 +186,7 @@ class Material(models.Model):
                     'public': True,
                     'type': 'url',
                     'url': '/hsr_warp/static/icon/' + img_name
-                })
+                }).id
         return super(Material, self).create(vals_list)
 
 
