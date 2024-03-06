@@ -143,7 +143,7 @@ class Path(models.Model):
             if 'name' in vals:
                 # Generate image attachment
                 img_path = '/hsr_warp/static/icon/path/'
-                vals['img_id'] = self.generate_image(img_path, vals['name']).id
+                vals['img_id'] = self.generate_image(img_path, name=vals['name']).id
         return super(Path, self).create(vals_list)
     
 
