@@ -1,465 +1,462 @@
 <odoo>
-    <data noupdate="1">
-        <!-- CHARACTERS -->
-        <record model="sr.character.template" id="sr_character_march7th">
-            <field name="avatar">March 7th</field>
-            <field name="character_id">1001</field>
-            <field name="element_id" ref="sr_element_ice"/>
-            <field name="path_id" ref="sr_path_preservation"/>
-            <field name="general_mat_id" ref="sr_general_mat_2"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
-        </record>
+    <!-- CHARACTERS -->
+    <record model="sr.character.template" id="sr_character_march7th">
+        <field name="avatar">March 7th</field>
+        <field name="character_id">1001</field>
+        <field name="element_id" ref="sr_element_ice"/>
+        <field name="path_id" ref="sr_path_preservation"/>
+        <field name="general_mat_id" ref="sr_general_mat_2"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_danheng">
-            <field name="avatar">Dan Heng</field>
-            <field name="character_id">1002</field>
-            <field name="element_id" ref="sr_element_wind"/>
-            <field name="path_id" ref="sr_path_hunt"/>
-            <field name="general_mat_id" ref="sr_general_mat_1"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_2"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_danheng">
+        <field name="avatar">Dan Heng</field>
+        <field name="character_id">1002</field>
+        <field name="element_id" ref="sr_element_wind"/>
+        <field name="path_id" ref="sr_path_hunt"/>
+        <field name="general_mat_id" ref="sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_2"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_himeko">
-            <field name="avatar">Himeko</field>
-            <field name="character_id">1003</field>
-            <field name="element_id" ref="sr_element_fire"/>
-            <field name="path_id" ref="sr_path_erudition"/>
-            <field name="general_mat_id" ref="sr_general_mat_1"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_4"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_himeko">
+        <field name="avatar">Himeko</field>
+        <field name="character_id">1003</field>
+        <field name="element_id" ref="sr_element_fire"/>
+        <field name="path_id" ref="sr_path_erudition"/>
+        <field name="general_mat_id" ref="sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_4"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_welt">
-            <field name="avatar">Welt</field>
-            <field name="character_id">1004</field>
-            <field name="element_id" ref="sr_element_imaginary"/>
-            <field name="path_id" ref="sr_path_nihility"/>
-            <field name="general_mat_id" ref="sr_general_mat_3"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_9"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_welt">
+        <field name="avatar">Welt</field>
+        <field name="character_id">1004</field>
+        <field name="element_id" ref="sr_element_imaginary"/>
+        <field name="path_id" ref="sr_path_nihility"/>
+        <field name="general_mat_id" ref="sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_9"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_kafka">
-            <field name="avatar">Kafka</field>
-            <field name="character_id">1005</field>
-            <field name="element_id" ref="sr_element_lightning"/>
-            <field name="path_id" ref="sr_path_nihility"/>
-            <field name="general_mat_id" ref="sr_general_mat_2"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_7"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_kafka">
+        <field name="avatar">Kafka</field>
+        <field name="character_id">1005</field>
+        <field name="element_id" ref="sr_element_lightning"/>
+        <field name="path_id" ref="sr_path_nihility"/>
+        <field name="general_mat_id" ref="sr_general_mat_2"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_7"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_silverwolf">
-            <field name="avatar">Silver Wolf</field>
-            <field name="character_id">1006</field>
-            <field name="element_id" ref="sr_element_quantum"/>
-            <field name="path_id" ref="sr_path_nihility"/>
-            <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_1"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_silverwolf">
+        <field name="avatar">Silver Wolf</field>
+        <field name="character_id">1006</field>
+        <field name="element_id" ref="sr_element_quantum"/>
+        <field name="path_id" ref="sr_path_nihility"/>
+        <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_1"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_arlan">
-            <field name="avatar">Arlan</field>
-            <field name="character_id">1008</field>
-            <field name="element_id" ref="sr_element_lightning"/>
-            <field name="path_id" ref="sr_path_destruction"/>
-            <field name="general_mat_id" ref="sr_general_mat_1"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_arlan">
+        <field name="avatar">Arlan</field>
+        <field name="character_id">1008</field>
+        <field name="element_id" ref="sr_element_lightning"/>
+        <field name="path_id" ref="sr_path_destruction"/>
+        <field name="general_mat_id" ref="sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_asta">
-            <field name="avatar">Asta</field>
-            <field name="character_id">1009</field>
-            <field name="element_id" ref="sr_element_fire"/>
-            <field name="path_id" ref="sr_path_harmony"/>
-            <field name="general_mat_id" ref="sr_general_mat_3"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_4"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_asta">
+        <field name="avatar">Asta</field>
+        <field name="character_id">1009</field>
+        <field name="element_id" ref="sr_element_fire"/>
+        <field name="path_id" ref="sr_path_harmony"/>
+        <field name="general_mat_id" ref="sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_4"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_herta">
-            <field name="avatar">Herta</field>
-            <field name="character_id">1013</field>
-            <field name="element_id" ref="sr_element_ice"/>
-            <field name="path_id" ref="sr_path_erudition"/>
-            <field name="general_mat_id" ref="sr_general_mat_1"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_herta">
+        <field name="avatar">Herta</field>
+        <field name="character_id">1013</field>
+        <field name="element_id" ref="sr_element_ice"/>
+        <field name="path_id" ref="sr_path_erudition"/>
+        <field name="general_mat_id" ref="sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_bronya">
-            <field name="avatar">Bronya</field>
-            <field name="character_id">1101</field>
-            <field name="element_id" ref="sr_element_wind"/>
-            <field name="path_id" ref="sr_path_harmony"/>
-            <field name="general_mat_id" ref="sr_general_mat_3"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_2"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_bronya">
+        <field name="avatar">Bronya</field>
+        <field name="character_id">1101</field>
+        <field name="element_id" ref="sr_element_wind"/>
+        <field name="path_id" ref="sr_path_harmony"/>
+        <field name="general_mat_id" ref="sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_2"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_seele">
-            <field name="avatar">Seele</field>
-            <field name="character_id">1102</field>
-            <field name="element_id" ref="sr_element_quantum"/>
-            <field name="path_id" ref="sr_path_hunt"/>
-            <field name="general_mat_id" ref="sr_general_mat_2"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_1"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_seele">
+        <field name="avatar">Seele</field>
+        <field name="character_id">1102</field>
+        <field name="element_id" ref="sr_element_quantum"/>
+        <field name="path_id" ref="sr_path_hunt"/>
+        <field name="general_mat_id" ref="sr_general_mat_2"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_1"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_serval">
-            <field name="avatar">Serval</field>
-            <field name="character_id">1103</field>
-            <field name="element_id" ref="sr_element_lightning"/>
-            <field name="path_id" ref="sr_path_erudition"/>
-            <field name="general_mat_id" ref="sr_general_mat_3"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_serval">
+        <field name="avatar">Serval</field>
+        <field name="character_id">1103</field>
+        <field name="element_id" ref="sr_element_lightning"/>
+        <field name="path_id" ref="sr_path_erudition"/>
+        <field name="general_mat_id" ref="sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_gepard">
-            <field name="avatar">Gepard</field>
-            <field name="character_id">1104</field>
-            <field name="element_id" ref="sr_element_ice"/>
-            <field name="path_id" ref="sr_path_preservation"/>
-            <field name="general_mat_id" ref="sr_general_mat_3"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_gepard">
+        <field name="avatar">Gepard</field>
+        <field name="character_id">1104</field>
+        <field name="element_id" ref="sr_element_ice"/>
+        <field name="path_id" ref="sr_path_preservation"/>
+        <field name="general_mat_id" ref="sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_natasha">
-            <field name="avatar">Natasha</field>
-            <field name="character_id">1105</field>
-            <field name="element_id" ref="sr_element_physical"/>
-            <field name="path_id" ref="sr_path_abundance"/>
-            <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_natasha">
+        <field name="avatar">Natasha</field>
+        <field name="character_id">1105</field>
+        <field name="element_id" ref="sr_element_physical"/>
+        <field name="path_id" ref="sr_path_abundance"/>
+        <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_pela">
-            <field name="avatar">Pela</field>
-            <field name="character_id">1106</field>
-            <field name="element_id" ref="sr_element_ice"/>
-            <field name="path_id" ref="sr_path_nihility"/>
-            <field name="general_mat_id" ref="sr_general_mat_1"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_clara">
-            <field name="avatar">Clara</field>
-            <field name="character_id">1107</field>
-            <field name="element_id" ref="sr_element_physical"/>
-            <field name="path_id" ref="sr_path_destruction"/>
-            <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_pela">
+        <field name="avatar">Pela</field>
+        <field name="character_id">1106</field>
+        <field name="element_id" ref="sr_element_ice"/>
+        <field name="path_id" ref="sr_path_nihility"/>
+        <field name="general_mat_id" ref="sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_8"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_sampo">
-            <field name="avatar">Sampo</field>
-            <field name="character_id">1108</field>
-            <field name="element_id" ref="sr_element_wind"/>
-            <field name="path_id" ref="sr_path_nihility"/>
-            <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_2"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_hook">
-            <field name="avatar">Hook</field>
-            <field name="character_id">1109</field>
-            <field name="element_id" ref="sr_element_fire"/>
-            <field name="path_id" ref="sr_path_destruction"/>
-            <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_4"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_lynx">
-            <field name="avatar">Lynx</field>
-            <field name="character_id">1110</field>
-            <field name="element_id" ref="sr_element_quantum"/>
-            <field name="path_id" ref="sr_path_abundance"/>
-            <field name="general_mat_id" ref="sr_general_mat_1"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_11"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_luka">
-            <field name="avatar">Luka</field>
-            <field name="character_id">1111</field>
-            <field name="element_id" ref="sr_element_physical"/>
-            <field name="path_id" ref="sr_path_nihility"/>
-            <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_topaz">
-            <field name="avatar">Topaz and Numby</field>
-            <field name="character_id">1112</field>
-            <field name="element_id" ref="sr_element_fire"/>
-            <field name="path_id" ref="sr_path_hunt"/>
-            <field name="general_mat_id" ref="sr_general_mat_3"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_13"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_qingque">
-            <field name="avatar">QingQue</field>
-            <field name="character_id">1201</field>
-            <field name="element_id" ref="sr_element_quantum"/>
-            <field name="path_id" ref="sr_path_erudition"/>
-            <field name="general_mat_id" ref="sr_general_mat_2"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_1"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_tingyun">
-            <field name="avatar">Tingyun</field>
-            <field name="character_id">1202</field>
-            <field name="element_id" ref="sr_element_lightning"/>
-            <field name="path_id" ref="sr_path_harmony"/>
-            <field name="general_mat_id" ref="sr_general_mat_5"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_luocha">
-            <field name="avatar">Luocha</field>
-            <field name="character_id">1203</field>
-            <field name="element_id" ref="sr_element_imaginary"/>
-            <field name="path_id" ref="sr_path_abundance"/>
-            <field name="general_mat_id" ref="sr_general_mat_6"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_9"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_jingyuan">
-            <field name="avatar">Jing Yuan</field>
-            <field name="character_id">1204</field>
-            <field name="element_id" ref="sr_element_lightning"/>
-            <field name="path_id" ref="sr_path_erudition"/>
-            <field name="general_mat_id" ref="sr_general_mat_5"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_7"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_blade">
-            <field name="avatar">Blade</field>
-            <field name="character_id">1205</field>
-            <field name="element_id" ref="sr_element_wind"/>
-            <field name="path_id" ref="sr_path_destruction"/>
-            <field name="general_mat_id" ref="sr_general_mat_5"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_10"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_sushang">
-            <field name="avatar">Sushang</field>
-            <field name="character_id">1206</field>
-            <field name="element_id" ref="sr_element_physical"/>
-            <field name="path_id" ref="sr_path_hunt"/>
-            <field name="general_mat_id" ref="sr_general_mat_6"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_yukong">
-            <field name="avatar">Yukong</field>
-            <field name="character_id">1207</field>
-            <field name="element_id" ref="sr_element_imaginary"/>
-            <field name="path_id" ref="sr_path_harmony"/>
-            <field name="general_mat_id" ref="sr_general_mat_6"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_9"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_fuxuan">
-            <field name="avatar">FuXuan</field>
-            <field name="character_id">1208</field>
-            <field name="element_id" ref="sr_element_quantum"/>
-            <field name="path_id" ref="sr_path_preservation"/>
-            <field name="general_mat_id" ref="sr_general_mat_6"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_11"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_yanqing">
-            <field name="avatar">Yanqing</field>
-            <field name="character_id">1209</field>
-            <field name="element_id" ref="sr_element_ice"/>
-            <field name="path_id" ref="sr_path_hunt"/>
-            <field name="general_mat_id" ref="sr_general_mat_2"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_6"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_guinafen">
-            <field name="avatar">Guinaifen</field>
-            <field name="character_id">1210</field>
-            <field name="element_id" ref="sr_element_fire"/>
-            <field name="path_id" ref="sr_path_nihility"/>
-            <field name="general_mat_id" ref="sr_general_mat_6"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_13"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_bailu">
-            <field name="avatar">Bailu</field>
-            <field name="character_id">1211</field>
-            <field name="element_id" ref="sr_element_lightning"/>
-            <field name="path_id" ref="sr_path_abundance"/>
-            <field name="general_mat_id" ref="sr_general_mat_1"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_jingliu">
-            <field name="avatar">Jingliu</field>
-            <field name="character_id">1212</field>
-            <field name="element_id" ref="sr_element_ice"/>
-            <field name="path_id" ref="sr_path_destruction"/>
-            <field name="general_mat_id" ref="sr_general_mat_5"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_6"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_danhengil">
-            <field name="avatar">Dan Heng - Imbibitor Lunae</field>
-            <field name="character_id">1213</field>
-            <field name="element_id" ref="sr_element_imaginary"/>
-            <field name="path_id" ref="sr_path_destruction"/>
-            <field name="general_mat_id" ref="sr_general_mat_5"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_12"/>
-        </record>
+    <record model="sr.character.template" id="sr_character_clara">
+        <field name="avatar">Clara</field>
+        <field name="character_id">1107</field>
+        <field name="element_id" ref="sr_element_physical"/>
+        <field name="path_id" ref="sr_path_destruction"/>
+        <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_xueyi">
-            <field name="avatar">Xueyi</field>
-            <field name="character_id">1214</field>
-            <field name="element_id" ref="sr_element_quantum"/>
-            <field name="path_id" ref="sr_path_destruction"/>
-            <!-- <field name="general_mat_id" ref="sr_general_mat_6"/> -->
-            <!-- <field name="advanced_mat_id" ref="sr_advanced_mat_3"/> -->
-            <!-- <field name="ascension_mat_id" ref="sr_ascension_mat_14"/> -->
-        </record>
+    <record model="sr.character.template" id="sr_character_sampo">
+        <field name="avatar">Sampo</field>
+        <field name="character_id">1108</field>
+        <field name="element_id" ref="sr_element_wind"/>
+        <field name="path_id" ref="sr_path_nihility"/>
+        <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_2"/>
+    </record>
 
-        <record model="sr.character.template" id="sr_character_hanya">
-            <field name="avatar">Hanya</field>
-            <field name="character_id">1215</field>
-            <field name="element_id" ref="sr_element_physical"/>
-            <field name="path_id" ref="sr_path_harmony"/>
-            <field name="general_mat_id" ref="sr_general_mat_6"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_14"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_huohuo">
-            <field name="avatar">Huohuo</field>
-            <field name="character_id">1217</field>
-            <field name="element_id" ref="sr_element_wind"/>
-            <field name="path_id" ref="sr_path_abundance"/>
-            <field name="general_mat_id" ref="sr_general_mat_5"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_10"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_argenti">
-            <field name="avatar">Argenti</field>
-            <field name="character_id">1302</field>
-            <field name="element_id" ref="sr_element_physical"/>
-            <field name="path_id" ref="sr_path_erudition"/>
-            <field name="general_mat_id" ref="sr_general_mat_1"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_14"/>
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_ruanmei">
-            <field name="avatar">Ruan Mei</field>
-            <field name="character_id">1303</field>
-            <field name="element_id" ref="sr_element_ice"/>
-            <field name="path_id" ref="sr_path_harmony"/>
-            <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_aventurine">
-            <field name="avatar">Aventurine</field>
-            <field name="character_id">1304</field>
-            <field name="element_id" ref="sr_element_imaginary"/>
-            <field name="path_id" ref="sr_path_preservation"/>
-            <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_drratio">
-            <field name="avatar">Dr. Ratio</field>
-            <field name="character_id">1305</field>
-            <field name="element_id" ref="sr_element_imaginary"/>
-            <field name="path_id" ref="sr_path_hunt"/>
-            <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_hanabi">
-            <field name="avatar">Hanabi</field>
-            <field name="character_id">1306</field>
-            <field name="element_id" ref="sr_element_quantum"/>
-            <field name="path_id" ref="sr_path_harmony"/>
-            <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_blackswan">
-            <field name="avatar">Black Swan</field>
-            <field name="character_id">1307</field>
-            <field name="element_id" ref="sr_element_wind"/>
-            <field name="path_id" ref="sr_path_nihility"/>
-            <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_sam">
-            <field name="avatar">Sam</field>
-            <field name="character_id">1310</field>
-            <field name="element_id" ref="sr_element_fire"/>
-            <field name="path_id" ref="sr_path_destruction"/>
-            <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_screwllum">
-            <field name="avatar">Screwllum</field>
-            <field name="character_id">1311</field>
-            <field name="element_id" ref="sr_element_imaginary"/>
-            <field name="path_id" ref="sr_path_erudition"/>
-            <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
-        </record>
-	
-        <record model="sr.character.template" id="sr_character_misha">
-            <field name="avatar">Misha</field>
-            <field name="character_id">1312</field>
-            <field name="element_id" ref="sr_element_ice"/>
-            <field name="path_id" ref="sr_path_destruction"/>
-            <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
-            <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
-            <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
-        </record>
+    <record model="sr.character.template" id="sr_character_hook">
+        <field name="avatar">Hook</field>
+        <field name="character_id">1109</field>
+        <field name="element_id" ref="sr_element_fire"/>
+        <field name="path_id" ref="sr_path_destruction"/>
+        <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_4"/>
+    </record>
 
-    </data>
+    <record model="sr.character.template" id="sr_character_lynx">
+        <field name="avatar">Lynx</field>
+        <field name="character_id">1110</field>
+        <field name="element_id" ref="sr_element_quantum"/>
+        <field name="path_id" ref="sr_path_abundance"/>
+        <field name="general_mat_id" ref="sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_11"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_luka">
+        <field name="avatar">Luka</field>
+        <field name="character_id">1111</field>
+        <field name="element_id" ref="sr_element_physical"/>
+        <field name="path_id" ref="sr_path_nihility"/>
+        <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_topaz">
+        <field name="avatar">Topaz and Numby</field>
+        <field name="character_id">1112</field>
+        <field name="element_id" ref="sr_element_fire"/>
+        <field name="path_id" ref="sr_path_hunt"/>
+        <field name="general_mat_id" ref="sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_13"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_qingque">
+        <field name="avatar">QingQue</field>
+        <field name="character_id">1201</field>
+        <field name="element_id" ref="sr_element_quantum"/>
+        <field name="path_id" ref="sr_path_erudition"/>
+        <field name="general_mat_id" ref="sr_general_mat_2"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_1"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_tingyun">
+        <field name="avatar">Tingyun</field>
+        <field name="character_id">1202</field>
+        <field name="element_id" ref="sr_element_lightning"/>
+        <field name="path_id" ref="sr_path_harmony"/>
+        <field name="general_mat_id" ref="sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_luocha">
+        <field name="avatar">Luocha</field>
+        <field name="character_id">1203</field>
+        <field name="element_id" ref="sr_element_imaginary"/>
+        <field name="path_id" ref="sr_path_abundance"/>
+        <field name="general_mat_id" ref="sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_9"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_jingyuan">
+        <field name="avatar">Jing Yuan</field>
+        <field name="character_id">1204</field>
+        <field name="element_id" ref="sr_element_lightning"/>
+        <field name="path_id" ref="sr_path_erudition"/>
+        <field name="general_mat_id" ref="sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_7"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_blade">
+        <field name="avatar">Blade</field>
+        <field name="character_id">1205</field>
+        <field name="element_id" ref="sr_element_wind"/>
+        <field name="path_id" ref="sr_path_destruction"/>
+        <field name="general_mat_id" ref="sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_10"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_sushang">
+        <field name="avatar">Sushang</field>
+        <field name="character_id">1206</field>
+        <field name="element_id" ref="sr_element_physical"/>
+        <field name="path_id" ref="sr_path_hunt"/>
+        <field name="general_mat_id" ref="sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_yukong">
+        <field name="avatar">Yukong</field>
+        <field name="character_id">1207</field>
+        <field name="element_id" ref="sr_element_imaginary"/>
+        <field name="path_id" ref="sr_path_harmony"/>
+        <field name="general_mat_id" ref="sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_9"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_fuxuan">
+        <field name="avatar">FuXuan</field>
+        <field name="character_id">1208</field>
+        <field name="element_id" ref="sr_element_quantum"/>
+        <field name="path_id" ref="sr_path_preservation"/>
+        <field name="general_mat_id" ref="sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_11"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_yanqing">
+        <field name="avatar">Yanqing</field>
+        <field name="character_id">1209</field>
+        <field name="element_id" ref="sr_element_ice"/>
+        <field name="path_id" ref="sr_path_hunt"/>
+        <field name="general_mat_id" ref="sr_general_mat_2"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_6"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_guinafen">
+        <field name="avatar">Guinaifen</field>
+        <field name="character_id">1210</field>
+        <field name="element_id" ref="sr_element_fire"/>
+        <field name="path_id" ref="sr_path_nihility"/>
+        <field name="general_mat_id" ref="sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_13"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_bailu">
+        <field name="avatar">Bailu</field>
+        <field name="character_id">1211</field>
+        <field name="element_id" ref="sr_element_lightning"/>
+        <field name="path_id" ref="sr_path_abundance"/>
+        <field name="general_mat_id" ref="sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_3"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_jingliu">
+        <field name="avatar">Jingliu</field>
+        <field name="character_id">1212</field>
+        <field name="element_id" ref="sr_element_ice"/>
+        <field name="path_id" ref="sr_path_destruction"/>
+        <field name="general_mat_id" ref="sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_6"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_danhengil">
+        <field name="avatar">Dan Heng - Imbibitor Lunae</field>
+        <field name="character_id">1213</field>
+        <field name="element_id" ref="sr_element_imaginary"/>
+        <field name="path_id" ref="sr_path_destruction"/>
+        <field name="general_mat_id" ref="sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_12"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_xueyi">
+        <field name="avatar">Xueyi</field>
+        <field name="character_id">1214</field>
+        <field name="element_id" ref="sr_element_quantum"/>
+        <field name="path_id" ref="sr_path_destruction"/>
+        <!-- <field name="general_mat_id" ref="sr_general_mat_6"/> -->
+        <!-- <field name="advanced_mat_id" ref="sr_advanced_mat_3"/> -->
+        <!-- <field name="ascension_mat_id" ref="sr_ascension_mat_14"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_hanya">
+        <field name="avatar">Hanya</field>
+        <field name="character_id">1215</field>
+        <field name="element_id" ref="sr_element_physical"/>
+        <field name="path_id" ref="sr_path_harmony"/>
+        <field name="general_mat_id" ref="sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_14"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_huohuo">
+        <field name="avatar">Huohuo</field>
+        <field name="character_id">1217</field>
+        <field name="element_id" ref="sr_element_wind"/>
+        <field name="path_id" ref="sr_path_abundance"/>
+        <field name="general_mat_id" ref="sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_10"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_argenti">
+        <field name="avatar">Argenti</field>
+        <field name="character_id">1302</field>
+        <field name="element_id" ref="sr_element_physical"/>
+        <field name="path_id" ref="sr_path_erudition"/>
+        <field name="general_mat_id" ref="sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_14"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_ruanmei">
+        <field name="avatar">Ruan Mei</field>
+        <field name="character_id">1303</field>
+        <field name="element_id" ref="sr_element_ice"/>
+        <field name="path_id" ref="sr_path_harmony"/>
+        <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_aventurine">
+        <field name="avatar">Aventurine</field>
+        <field name="character_id">1304</field>
+        <field name="element_id" ref="sr_element_imaginary"/>
+        <field name="path_id" ref="sr_path_preservation"/>
+        <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_drratio">
+        <field name="avatar">Dr. Ratio</field>
+        <field name="character_id">1305</field>
+        <field name="element_id" ref="sr_element_imaginary"/>
+        <field name="path_id" ref="sr_path_hunt"/>
+        <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_hanabi">
+        <field name="avatar">Hanabi</field>
+        <field name="character_id">1306</field>
+        <field name="element_id" ref="sr_element_quantum"/>
+        <field name="path_id" ref="sr_path_harmony"/>
+        <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_blackswan">
+        <field name="avatar">Black Swan</field>
+        <field name="character_id">1307</field>
+        <field name="element_id" ref="sr_element_wind"/>
+        <field name="path_id" ref="sr_path_nihility"/>
+        <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_sam">
+        <field name="avatar">Sam</field>
+        <field name="character_id">1310</field>
+        <field name="element_id" ref="sr_element_fire"/>
+        <field name="path_id" ref="sr_path_destruction"/>
+        <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_screwllum">
+        <field name="avatar">Screwllum</field>
+        <field name="character_id">1311</field>
+        <field name="element_id" ref="sr_element_imaginary"/>
+        <field name="path_id" ref="sr_path_erudition"/>
+        <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_misha">
+        <field name="avatar">Misha</field>
+        <field name="character_id">1312</field>
+        <field name="element_id" ref="sr_element_ice"/>
+        <field name="path_id" ref="sr_path_destruction"/>
+        <!-- <field name="general_mat_id" ref="sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="sr_ascension_mat_5"/> -->
+    </record>
 </odoo>

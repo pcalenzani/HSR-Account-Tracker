@@ -13,39 +13,50 @@ class CharacterTemplate(models.Model):
 
     # -- Materials --
     general_mat_id = fields.Many2one('sr.item.material', string='General Material')
-    # general_mat_img = fields.Binary(related='general_mat_id.image', string='General Material Image')
+    general_mat_img_id = fields.Many2one(related='general_mat_id.img_id', string='General Material Image')
     advanced_mat_id = fields.Many2one('sr.item.material', string='Advanced Material')
-    # advanced_mat_img = fields.Binary(related='advanced_mat_id.image', string='Advanced Material Image')
+    advanced_mat_img_id = fields.Many2one(related='advanced_mat_id.img_id', string='Advanced Material Image')
     ascension_mat_id = fields.Many2one('sr.item.material', string='Ascension Material')
-    # ascension_mat_img = fields.Binary(related='ascension_mat_id.image', string='Ascension Material Image')
+    ascension_mat_img_id = fields.Many2one(related='ascension_mat_id.img_id', string='Ascension Material Image')
 
     # -- Element & Path --
     element_id = fields.Many2one('sr.element', string='Element')
-    # element_img = fields.Image(related='element_id.image')
+    element_img_id = fields.Many2one(related='element_id.img_id')
     path_id = fields.Many2one('sr.path', string='Path')
-    # path_img = fields.Image(related='path_id.image')
+    path_img_id = fields.Many2one(related='path_id.img_id')
 
     # -- Character Images --
-    # portrait_image = fields.Binary('Portrait Image', compute='_compute_images', store=True)
-    # preview_image = fields.Binary('Preview Image', compute='_compute_images', store=True)
-    # icon_image = fields.Binary('Icon Image', compute='_compute_images', store=True)
+    portrait_img_id = fields.Many2one('ir.attachment', string='Portrait Image',
+                        domain="[('res_model','=','sr.character.template'),('res_field','=','portrait_img_id')]")
+    preview_img_id = fields.Many2one('ir.attachment', string='Preview Image',
+                        domain="[('res_model','=','sr.character.template'),('res_field','=','preview_img_id')]")
+    icon_img_id = fields.Many2one('ir.attachment', string='Icon Image',
+                        domain="[('res_model','=','sr.character.template'),('res_field','=','icon_img_id')]")
 
     _sql_constraints = [
         ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]
 
-    # @api.depends('character_id')
-    def _compute_images(self):
-        for rec in self:
-            portrait_image = self.get_image_data('image/character_portrait/%s.png'%(rec.character_id))
-            preview_image = self.get_image_data('image/character_preview/%s.png'%(rec.character_id))
-            icon_image = self.get_image_data('icon/character/%s.png'%(rec.character_id))
 
-            rec.write({
-                'portrait_image': portrait_image,
-                'preview_image': preview_image,
-                'icon_image': icon_image,
-                })
+    @api.model_create_multi
+    def create(self, vals_list):
+        # On creation, look up images with corresponding character id
+        for vals in vals_list:
+            if 'character_id' in vals:
+                # Generate image attachments for each image type
+                portrait_img_path = '/hsr_warp/static/image/character_portrait/'
+                vals['portrait_img_id'] = self.generate_image(portrait_img_path,
+                                                              vals['character_id'],
+                                                              field='portrait_img_id').id
+                preview_img_path = '/hsr_warp/static/image/character_preview/'
+                vals['preview_img_id'] = self.generate_image(preview_img_path,
+                                                             vals['character_id'],
+                                                             field='preview_img_id').id
+                icon_img_path = '/hsr_warp/static/icon/character/'
+                vals['icon_img_id'] = self.generate_image(icon_img_path,
+                                                          vals['character_id'],
+                                                          field='icon_img_id').id
+        return super(CharacterTemplate, self).create(vals_list)
 
     def browse_sr_id(self, sr_ids=None):
         if not sr_ids:
@@ -68,6 +79,7 @@ class CharacterTemplate(models.Model):
             args += ['|', ('avatar',operator,name), ('character_id',operator,name)]
         return self._search(args, limit=limit, access_rights_uid=name_get_uid)
     
+    # WINDOW ACTIONS
     def action_element(self):
         return {
             'name': 'Character Element',
@@ -108,7 +120,7 @@ class Element(models.Model):
     
     @api.model_create_multi
     def create(self, vals_list):
-        # On creation, look up image with corresponding id number
+        # On creation, look up image with corresponding name
         for vals in vals_list:
             if 'name' in vals:
                 # Generate image attachment
@@ -138,7 +150,7 @@ class Path(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        # On creation, look up image with corresponding id number
+        # On creation, look up image with corresponding name
         for vals in vals_list:
             if 'name' in vals:
                 # Generate image attachment
