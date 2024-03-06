@@ -10,9 +10,8 @@ class ImageMixin(models.AbstractModel):
     _description = 'Abstract Image Model'
     
 
-    def generate_image(self, path, field=None, name=None):
+    def generate_image(self, path, name, field=None):
         if not name:
-            _logger.warning(name)
             # Use the item_id field if file name isn't passed in
             name = self.item_id
         name = str(name) + '.png'
