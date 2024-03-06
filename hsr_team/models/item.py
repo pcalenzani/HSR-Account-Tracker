@@ -178,7 +178,7 @@ class Material(models.Model):
                 # })
 
 
-                img_name = vals['item_id'] + '.png'
+                img_name = str(vals['item_id']) + '.png'
                 vals['img_id'] = self.env['ir.attachment'].create({
                     'name': img_name,
                     'res_model': self._name,
