@@ -167,7 +167,7 @@ class Material(models.Model):
         for vals in vals_list:
             if 'item_id' in vals:
                 # Generate image attachment
-                img_name = vals['item_id'] + '.png'
+                img_name = str(vals['item_id']) + '.png'
                 vals['img_id'] = [Command.create({
                     'name': img_name,
                     'res_model': self._name,
