@@ -167,19 +167,8 @@ class Material(models.Model):
         for vals in vals_list:
             if 'item_id' in vals:
                 # Generate image attachment
-                img_name = str(vals['item_id']) + '.png'
-                vals['img_id'] = [Command.create({
-                    'name': img_name,
-                    'res_model': self._name,
-                    'res_field': 'img_id',
-                    'public': True,
-                    'type': 'url',
-                    'url': '/hsr_warp/static/icon/' + img_name
-                })]
-
-
-                # img_name = vals['item_id'] + '.png'
-                # vals['img_id'] = self.env['ir.attachment'].create({
+                # img_name = str(vals['item_id']) + '.png'
+                # vals['img_id'] = Command.create({
                 #     'name': img_name,
                 #     'res_model': self._name,
                 #     'res_field': 'img_id',
@@ -187,6 +176,17 @@ class Material(models.Model):
                 #     'type': 'url',
                 #     'url': '/hsr_warp/static/icon/' + img_name
                 # })
+
+
+                img_name = vals['item_id'] + '.png'
+                vals['img_id'] = self.env['ir.attachment'].create({
+                    'name': img_name,
+                    'res_model': self._name,
+                    'res_field': 'img_id',
+                    'public': True,
+                    'type': 'url',
+                    'url': '/hsr_warp/static/icon/' + img_name
+                })
         return super(Material, self).create(vals_list)
 
 
