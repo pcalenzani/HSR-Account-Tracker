@@ -187,7 +187,7 @@ class Material(models.Model):
                 #     'type': 'url',
                 #     'url': '/hsr_warp/static/icon/' + img_name
                 # })
-        return super(Character, self).create(vals_list)
+        return super(Material, self).create(vals_list)
 
 
 # Attributes
