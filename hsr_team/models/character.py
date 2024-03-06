@@ -113,7 +113,7 @@ class Element(models.Model):
             if 'name' in vals:
                 # Generate image attachment
                 img_path = '/hsr_warp/static/icon/element/'
-                vals['img_id'] = self.generate_image(img_path, name=vals['name']).id
+                vals['img_id'] = self.generate_image(img_path, vals['name']).id
         return super(Element, self).create(vals_list)
     
 
@@ -143,8 +143,8 @@ class Path(models.Model):
             if 'name' in vals:
                 # Generate image attachment
                 img_path = '/hsr_warp/static/icon/path/'
-                vals['img_id'] = self.generate_image(img_path, name=vals['name']).id
-        return super(Element, self).create(vals_list)
+                vals['img_id'] = self.generate_image(img_path, vals['name']).id
+        return super(Path, self).create(vals_list)
     
 
 class Warp(models.Model):
