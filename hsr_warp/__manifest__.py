@@ -9,7 +9,6 @@
         'data/sr_banner_data.xml',
         'data/ir_cron_data.xml',
         'data/ir_asset.xml',
-        'data/ir_attachments.xml',
         'views/hsr_warp_warp_views.xml',
 
         'security/ir.model.access.csv',

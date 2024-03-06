@@ -1,28 +1,31 @@
-from odoo import api, fields, models, Command
-from odoo.tools import file_open, file_path
+from odoo import api, fields, models
 import logging
-import base64
 
 _logger = logging.getLogger(__name__)
 
-# -- Abstrace model for image compute functions --
+# -- Abstract model for image creation --
 
 class ImageMixin(models.AbstractModel):
     _name = 'sr.image.mixin'
     _description = 'Abstract Image Model'
-        
-    def _read_image(self, module, path):
-        icon_path = file_path(module, path)
-        image = False
-        
-        if icon_path:
-            with file_open(icon_path, 'rb') as icon_file:
-                image = base64.encodebytes(icon_file.read())
-        else:
-            _logger.error(path)
-        return image
+    
 
-    def get_image_data(self, img_path):
-        if img_path:
-            _logger.info('Getting image from %s'%(img_path))
-            return self._read_image('hsr_warp', 'static/' +  img_path)
+    def generate_image(self, path, field=None, name=None):
+        if not name:
+            # Use the item_id field if file name isn't passed in
+            name = self.item_id
+        name = str(name) + '.png'
+        if not field:
+            # Use standard img field name if none passed in
+            field = 'img_id'
+
+        # ! Can't use Command because field is not M2M
+        return self.env['ir.attachment'].create({
+                    'name': name,
+                    'res_model': self._name,
+                    'res_field': field,
+                    'public': True,
+                    'type': 'url',
+                    'url': path + name
+                })
+

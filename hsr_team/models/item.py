@@ -8,6 +8,7 @@ class Item(models.Model):
     _name = 'sr.item'
     _description = 'Item'
     _order = 'item_id DESC'
+    _inherit = 'sr.image.mixin'
 
     item_id = fields.Integer('Item ID')
     name = fields.Char('Name')
@@ -148,7 +149,7 @@ class LightCone(models.Model):
 class Material(models.Model):
     _name = 'sr.item.material'
     _description = 'Upgrade Material'
-    _inherit = ['sr.item', 'sr.image.mixin']
+    _inherit = 'sr.item'
 
     full_name = fields.Char('Full Name')
     type = fields.Selection(
@@ -164,29 +165,12 @@ class Material(models.Model):
     
     @api.model_create_multi
     def create(self, vals_list):
+        # On creation, look up image with corresponding id number
         for vals in vals_list:
             if 'item_id' in vals:
                 # Generate image attachment
-                # img_name = str(vals['item_id']) + '.png'
-                # vals['img_id'] = Command.create({
-                #     'name': img_name,
-                #     'res_model': self._name,
-                #     'res_field': 'img_id',
-                #     'public': True,
-                #     'type': 'url',
-                #     'url': '/hsr_warp/static/icon/' + img_name
-                # })
-
-
-                img_name = str(vals['item_id']) + '.png'
-                vals['img_id'] = self.env['ir.attachment'].create({
-                    'name': img_name,
-                    'res_model': self._name,
-                    'res_field': 'img_id',
-                    'public': True,
-                    'type': 'url',
-                    'url': '/hsr_warp/static/icon/item/' + img_name
-                }).id
+                img_path = '/hsr_warp/static/icon/item/'
+                vals['img_id'] = self.generate_image(img_path).id
         return super(Material, self).create(vals_list)
 
 

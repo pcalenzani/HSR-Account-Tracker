@@ -106,6 +106,16 @@ class Element(models.Model):
     reference = fields.Char('Internal Ref')
     img_id = fields.Many2one('ir.attachment', string='Image', domain="[('res_model','=','sr.element'),('res_field','=','img_id')]")
     
+    @api.model_create_multi
+    def create(self, vals_list):
+        # On creation, look up image with corresponding id number
+        for vals in vals_list:
+            if 'name' in vals:
+                # Generate image attachment
+                img_path = '/hsr_warp/static/icon/element/'
+                vals['img_id'] = self.generate_image(img_path, name=self.name).id
+        return super(Element, self).create(vals_list)
+    
 
 class Path(models.Model):
     _name = 'sr.path'
@@ -126,6 +136,16 @@ class Path(models.Model):
     reference = fields.Char('Internal Ref')
     img_id = fields.Many2one('ir.attachment', string='Image', domain="[('res_model','=','sr.path'),('res_field','=','img_id')]")
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        # On creation, look up image with corresponding id number
+        for vals in vals_list:
+            if 'name' in vals:
+                # Generate image attachment
+                img_path = '/hsr_warp/static/icon/path/'
+                vals['img_id'] = self.generate_image(img_path, name=self.name).id
+        return super(Element, self).create(vals_list)
+    
 
 class Warp(models.Model):
     # Override this model to add character link and compute
