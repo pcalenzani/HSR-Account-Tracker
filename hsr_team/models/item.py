@@ -158,12 +158,36 @@ class Material(models.Model):
             ('ascension', 'Ascension')
         ]
     )
-    # image = fields.Binary('Image', store=True, compute='_compute_image')
+    img_id = fields.Many2one('ir.attachment', string='Image',
+                             domain="[('res_model','=','sr.item.material'),('res_field','=','img_id')]")
 
-    # @api.depends('item_id')
-    def _compute_image(self):
-        for rec in self:
-            rec.image = self.get_image_data('icon/item/%s.png'%(rec.item_id))
+    
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if 'item_id' in vals:
+                # Generate image attachment
+                img_name = vals['item_id'] + '.png'
+                vals['img_id'] = [Command.create({
+                    'name': img_name,
+                    'res_model': self._name,
+                    'res_field': 'img_id',
+                    'public': True,
+                    'type': 'url',
+                    'url': '/hsr_warp/static/icon/' + img_name
+                })]
+
+
+                # img_name = vals['item_id'] + '.png'
+                # vals['img_id'] = self.env['ir.attachment'].create({
+                #     'name': img_name,
+                #     'res_model': self._name,
+                #     'res_field': 'img_id',
+                #     'public': True,
+                #     'type': 'url',
+                #     'url': '/hsr_warp/static/icon/' + img_name
+                # })
+        return super(Character, self).create(vals_list)
 
 
 # Attributes
