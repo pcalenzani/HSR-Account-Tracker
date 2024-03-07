@@ -37,6 +37,10 @@ class CharacterTemplate(models.Model):
         ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]
 
+    @api.depends('avatar')
+    def _compute_display_name(self):
+        for record in self:
+            record.display_name = record.avatar or False
 
     @api.model_create_multi
     def create(self, vals_list):
