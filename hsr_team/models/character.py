@@ -9,15 +9,24 @@ class Character(models.Model):
     _inherit = 'sr.item'
     _order = 'item_id DESC'
 
-    # --- Manual Fields ---
+    # --- Template Fields ---
     template_id = fields.Many2one('sr.character.template')
     general_mat_id = fields.Many2one(related='template_id.general_mat_id')
+    general_mat_img_id = fields.Many2one(related='template_id.general_mat_id.img_id', string='General Material Image')
     advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
+    advanced_mat_img_id = fields.Many2one(related='template_id.advanced_mat_id.img_id', string='Advanced Material Image')
     ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
+    ascension_mat_img_id = fields.Many2one(related='template_id.ascension_mat_id.img_id', string='Ascension Material Image')
     eidolon_ids = fields.One2many(related='template_id.eidolon_ids')
-    element_id = fields.Many2one(related='template_id.element_id', store=True)
-    path_id = fields.Many2one(related='template_id.path_id', store=True)
+    element_id = fields.Many2one(related='template_id.element_id')
+    element_img_id = fields.Many2one(related='template_id.element_id.img_id')
+    path_id = fields.Many2one(related='template_id.path_id')
+    path_img_id = fields.Many2one(related='template_id.path_id.img_id')
+    portrait_img_id = fields.Many2one(related='template_id.portrait_img_id')
+    preview_img_id = fields.Many2one(related='template_id.preview_img_id')
+    icon_img_id = fields.Many2one(related='template_id.icon_img_id')
 
+    # --- Manual Fields ---
     count = fields.Integer('Count', store=True, compute='_compute_count')
     is_owned = fields.Boolean('Is Owned', store=True, compute='_compute_count')
     date_obtained = fields.Date('Obtained on')

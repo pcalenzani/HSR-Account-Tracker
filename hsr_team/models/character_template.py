@@ -39,9 +39,27 @@ class CharacterTemplate(models.Model):
 
     @api.depends('avatar')
     def _compute_display_name(self):
-        for record in self:
-            record.display_name = record.avatar or False
+        # Compute name, example: Dan (Template)
+        return [(rec.id, f"{rec.avatar} (Template)") for rec in self]
+    
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        args = args or []
+        if name:
+            args += ['|', ('avatar',operator,name), ('character_id',operator,name)]
+        return self._search(args, limit=limit, access_rights_uid=name_get_uid)
 
+    def browse_sr_id(self, sr_ids=None):
+        if not sr_ids:
+            sr_ids= ()
+        elif sr_ids.__class__ is int:
+            sr_ids = (sr_ids,)
+        else:
+            sr_ids= tuple(sr_ids)
+
+        self.env.cr.execute("""SELECT id FROM sr_character_template WHERE character_id in %s""", [sr_ids])
+        ids = tuple(self.env.cr.fetchall())
+        return self.__class__(self.env, ids, ids)
+    
     @api.model_create_multi
     def create(self, vals_list):
         # On creation, look up images with corresponding character id
@@ -61,27 +79,6 @@ class CharacterTemplate(models.Model):
                                                           vals['character_id'],
                                                           field='icon_img_id').id
         return super(CharacterTemplate, self).create(vals_list)
-
-    def browse_sr_id(self, sr_ids=None):
-        if not sr_ids:
-            sr_ids= ()
-        elif sr_ids.__class__ is int:
-            sr_ids = (sr_ids,)
-        else:
-            sr_ids= tuple(sr_ids)
-
-        self.env.cr.execute("""SELECT id FROM sr_character_template WHERE character_id in %s""", [sr_ids])
-        ids = tuple(self.env.cr.fetchall())
-        return self.__class__(self.env, ids, ids)
-
-    def name_get(self):
-        return [(rec.id, f"{rec.avatar} (Template)") for rec in self]
-    
-    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
-        args = args or []
-        if name:
-            args += ['|', ('avatar',operator,name), ('character_id',operator,name)]
-        return self._search(args, limit=limit, access_rights_uid=name_get_uid)
     
     # WINDOW ACTIONS
     def action_element(self):
@@ -167,7 +164,7 @@ class Warp(models.Model):
     # Override this model to add character link and compute
     _inherit = 'sr.warp'
 
-    character_id = fields.Many2one('sr.character', store=True, compute='_compute_character_id')
+    character_id = fields.Many2one('sr.character', compute='_compute_character_id')
 
     def _compute_character_id(self):
         for warp in self:
