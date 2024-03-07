@@ -1,170 +1,103 @@
 from odoo import api, fields, models, tools, Command
+import logging
 
-# Character Template
-class CharacterTemplate(models.Model):
-    _name = 'sr.character.template'
-    _description = 'Character Template'
-    _inherit = 'sr.image.mixin'
+_logger = logging.getLogger(__name__)
+
+class Character(models.Model):
+    _name = 'sr.character'
+    _description = 'Character'
+    _inherit = 'sr.item'
+    _order = 'item_id DESC'
+
+    # --- Manual Fields ---
+    template_id = fields.Many2one('sr.character.template')
+    general_mat_id = fields.Many2one(related='template_id.general_mat_id')
+    advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
+    ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
+    eidolon_ids = fields.One2many(related='template_id.eidolon_ids')
+    element_id = fields.Many2one(related='template_id.element_id', store=True)
+    path_id = fields.Many2one(related='template_id.path_id', store=True)
+
+    count = fields.Integer('Count', store=True, compute='_compute_count')
+    is_owned = fields.Boolean('Is Owned', store=True, compute='_compute_count')
+    date_obtained = fields.Date('Obtained on')
+    free_pulls = fields.Integer('Free Pulls')
+
+    # --- API Fields ---
+    promotion = fields.Integer(string='Ascension Level')
+    light_cone_id = fields.Many2one('sr.light.cone')
     
-    avatar = fields.Char("Character Name")
-    character_id = fields.Integer('Character ID')
-    eidolon_ids = fields.One2many('sr.character.eidolon', 'character_template_id', string='Eidolons')
-    warp_ids = fields.One2many('sr.warp', 'character_id', string='Warps')
-
-    # -- Materials --
-    general_mat_id = fields.Many2one('sr.item.material', string='General Material')
-    general_mat_img_id = fields.Many2one(related='general_mat_id.img_id', string='General Material Image')
-    advanced_mat_id = fields.Many2one('sr.item.material', string='Advanced Material')
-    advanced_mat_img_id = fields.Many2one(related='advanced_mat_id.img_id', string='Advanced Material Image')
-    ascension_mat_id = fields.Many2one('sr.item.material', string='Ascension Material')
-    ascension_mat_img_id = fields.Many2one(related='ascension_mat_id.img_id', string='Ascension Material Image')
-
-    # -- Element & Path --
-    element_id = fields.Many2one('sr.element', string='Element')
-    element_img_id = fields.Many2one(related='element_id.img_id')
-    path_id = fields.Many2one('sr.path', string='Path')
-    path_img_id = fields.Many2one(related='path_id.img_id')
-
-    # -- Character Images --
-    portrait_img_id = fields.Many2one('ir.attachment', string='Portrait Image',
-                        domain="[('res_model','=','sr.character.template'),('res_field','=','portrait_img_id')]")
-    preview_img_id = fields.Many2one('ir.attachment', string='Preview Image',
-                        domain="[('res_model','=','sr.character.template'),('res_field','=','preview_img_id')]")
-    icon_img_id = fields.Many2one('ir.attachment', string='Icon Image',
-                        domain="[('res_model','=','sr.character.template'),('res_field','=','icon_img_id')]")
+    rank = fields.Integer('Rank')
+    promotion = fields.Integer('Promotion')
 
     _sql_constraints = [
-        ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
+        ('character_key', 'UNIQUE (item_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]
-
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        # On creation, look up images with corresponding character id
-        for vals in vals_list:
-            if 'character_id' in vals:
-                # Generate image attachments for each image type
-                portrait_img_path = '/hsr_warp/static/image/character_portrait/'
-                vals['portrait_img_id'] = self.generate_image(portrait_img_path,
-                                                              vals['character_id'],
-                                                              field='portrait_img_id').id
-                preview_img_path = '/hsr_warp/static/image/character_preview/'
-                vals['preview_img_id'] = self.generate_image(preview_img_path,
-                                                             vals['character_id'],
-                                                             field='preview_img_id').id
-                icon_img_path = '/hsr_warp/static/icon/character/'
-                vals['icon_img_id'] = self.generate_image(icon_img_path,
-                                                          vals['character_id'],
-                                                          field='icon_img_id').id
-        return super(CharacterTemplate, self).create(vals_list)
-
-    def browse_sr_id(self, sr_ids=None):
-        if not sr_ids:
-            sr_ids= ()
-        elif sr_ids.__class__ is int:
-            sr_ids = (sr_ids,)
-        else:
-            sr_ids= tuple(sr_ids)
-
-        self.env.cr.execute("""SELECT id FROM sr_character_template WHERE character_id in %s""", [sr_ids])
-        ids = tuple(self.env.cr.fetchall())
-        return self.__class__(self.env, ids, ids)
-
-    def name_get(self):
-        return [(rec.id, f"{rec.avatar} (Template)") for rec in self]
     
-    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
-        args = args or []
-        if name:
-            args += ['|', ('avatar',operator,name), ('character_id',operator,name)]
-        return self._search(args, limit=limit, access_rights_uid=name_get_uid)
-    
-    # WINDOW ACTIONS
-    def action_element(self):
-        return {
-            'name': 'Character Element',
-            'type': 'ir.actions.act_window',
-            'res_model': 'sr.element',
-            'view_mode': 'form',
-            'domain': [('id','=',self.element_id.id)]
-        }    
-    
-    def action_path(self):
-        return {
-            'name': 'Character Path',
-            'type': 'ir.actions.act_window',
-            'res_model': 'sr.path',
-            'view_mode': 'form',
-            'domain': [('id','=',self.path_id.id)]
-        }
-
-
-class Element(models.Model):
-    _name = 'sr.element'
-    _description = 'Element'
-    _inherit = 'sr.image.mixin'
-
-    '''
-    ('Wind', 'Wind')
-    ('Ice', 'Ice')
-    ('Physical', 'Physical')
-    ('Fire', 'Fire')
-    ('Quantum', 'Quantum')
-    ('Lightning', 'Lightning')
-    ('Imaginary', 'Imaginary')
-    '''
-    
-    name = fields.Char('Name')
-    reference = fields.Char('Internal Ref')
-    img_id = fields.Many2one('ir.attachment', string='Image', domain="[('res_model','=','sr.element'),('res_field','=','img_id')]")
+    @api.depends('template_id.warp_ids')
+    def _compute_count(self):
+        for item in self:
+            count = self.env['sr.warp'].search_count([('item_id','=',str(item.item_id))])
+            item.count = count
+            item.is_owned = count + item.free_pulls
     
     @api.model_create_multi
     def create(self, vals_list):
-        # On creation, look up image with corresponding name
-        for vals in vals_list:
-            if 'name' in vals:
-                # Generate image attachment
-                img_path = '/hsr_warp/static/icon/element/'
-                vals['img_id'] = self.generate_image(img_path, vals['name']).id
-        return super(Element, self).create(vals_list)
+        characters = super(Character, self).create(vals_list)
+        for ch in characters:
+            # Link character record to character template
+            ch.template_id = self.env['sr.character.template'].browse_sr_id(ch.item_id)
+            _logger.info(f"New character record: {ch.name}")
+        
+        return characters
     
+    def generate_character_data(self, data):
+        self._prepare_character_values(data)
+        for ch in data:
+            # Check if character record exists
+            ch_rec = self.browse_sr_id(ch['item_id'])
+            if not ch_rec:
+                # Create new item
+                self.create(ch)
+            else:
+                # Update item
+                ch_rec.write(ch)
+            
+    def _prepare_character_values(self, ch_data):
+        '''
+        Method receives list of characters to create sr.character records.
+        :param ch_data: List of character dictionaries from json
+        :returns: Parsed list of character dictionaries
+        '''
+        # Remove unused api vals
+        to_remove = [
+            # Character images already set up in assets
+            'icon',
+            'preview',
+            'portrait',
+            'rank_icons', # Eidolon ability icons
+            # Character data/icons already in assets
+            'path',
+            'element',
+            'skills', # Skill info
+            'skill_trees', # Hierarchy of traces
+            # TODO implement these later
+            'light_cone',
+            'relics',
+            'relic_sets',
+            'attributes', # Character base statistics
+            'additions', # Character added statistics
+            'properties', # Special statistics and passives
+            'pos', # Position in profile
+        ]
 
-class Path(models.Model):
-    _name = 'sr.path'
-    _description = 'Aeon Path'
-    _inherit = 'sr.image.mixin'
-    
-    '''
-    ('Warrior', 'Destruction')
-    ('Priest', 'Abundance')
-    ('Rogue', 'Hunt')
-    ('Mage', 'Erudition')
-    ('Shaman', 'Harmony')
-    ('Warlock', 'Nihility')
-    ('Knight', 'Preservation')
-    '''
-    
-    name = fields.Char("Name")
-    reference = fields.Char('Internal Ref')
-    img_id = fields.Many2one('ir.attachment', string='Image', domain="[('res_model','=','sr.path'),('res_field','=','img_id')]")
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        # On creation, look up image with corresponding name
-        for vals in vals_list:
-            if 'name' in vals:
-                # Generate image attachment
-                img_path = '/hsr_warp/static/icon/path/'
-                vals['img_id'] = self.generate_image(img_path, name=vals['name']).id
-        return super(Path, self).create(vals_list)
-    
-
-class Warp(models.Model):
-    # Override this model to add character link and compute
-    _inherit = 'sr.warp'
-
-    character_id = fields.Many2one('sr.character', store=True, compute='_compute_character_id')
-
-    def _compute_character_id(self):
-        for warp in self:
-            warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)]) or None
+        for ch in ch_data:
+            for k in to_remove:
+                # Will only remove key if exists
+                ch.pop(k, None)
+            
+            # Rename id key to db friendly, cast to int for lookup
+            ch['item_id'] = int(ch.pop('id'))
+            # Typecast fields for easy storing
+            ch['rarity'] = str(ch.pop('rarity'))
+        return ch_data
