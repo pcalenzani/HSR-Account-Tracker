@@ -10,3 +10,7 @@
 .o_web_client.o_home_menu_background{
     background-image: var(--homeMenu-bg-none, radial-gradient(at 100% 0%, rgba(59, 44, 63, 0.6) 0px, transparent 50%), radial-gradient(at 7% 13%, rgb(119 114 126 / 0%) 0px, transparent 50%), radial-gradient(at 96% 94%, rgb(117 111 123 / 0%) 0px, transparent 50%), radial-gradient(at 3% 96%, rgb(59 44 63 / 0%) 0px, transparent 50%), url(/hsr_warp/static/description/star_rail_background.png)) !important;
 }
+
+.o_form_renderer{
+    max-width: 3000 !important;
+}
