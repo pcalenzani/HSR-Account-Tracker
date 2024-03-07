@@ -14,17 +14,17 @@ class Character(models.Model):
     warp_ids = fields.One2many(related='template_id.warp_ids')
 
     element_id = fields.Many2one(related='template_id.element_id')
-    element_img_id = fields.Many2one(related='template_id.element_id.img_id')
+    element_img_id = fields.Many2one(related='template_id.element_id.img_id', string='Element Image')
     path_id = fields.Many2one(related='template_id.path_id')
-    path_img_id = fields.Many2one(related='template_id.path_id.img_id')
+    path_img_id = fields.Many2one(related='template_id.path_id.img_id', string='Path Image')
     eidolon_ids = fields.One2many(related='template_id.eidolon_ids')
 
     general_mat_id = fields.Many2one(related='template_id.general_mat_id')
-    general_mat_img_id = fields.Many2one(related='template_id.general_mat_id.img_id')
+    general_mat_img_id = fields.Many2one(related='template_id.general_mat_id.img_id', string='General Mat Image')
     advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
-    advanced_mat_img_id = fields.Many2one(related='template_id.advanced_mat_id.img_id')
+    advanced_mat_img_id = fields.Many2one(related='template_id.advanced_mat_id.img_id', string='Advanced Mat Image')
     ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
-    ascension_mat_img_id = fields.Many2one(related='template_id.ascension_mat_id.img_id')
+    ascension_mat_img_id = fields.Many2one(related='template_id.ascension_mat_id.img_id', string='Ascension Mat Image')
 
     portrait_img_id = fields.Many2one(related='template_id.portrait_img_id')
     preview_img_id = fields.Many2one(related='template_id.preview_img_id')
