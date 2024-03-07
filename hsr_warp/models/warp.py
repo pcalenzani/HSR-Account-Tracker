@@ -89,20 +89,25 @@ class Warp(models.Model):
         return self.__class__(self.env, ids, ids)
 
     def generate_warps(self, vals_list):
+        '''
+        Create warp records from given list of values
+        :param vals_list: Values list of warp data
+        :returns: Oldest warp id used for pagination
+        '''
         # Check if warps exist before creating
         for i in range(len(vals_list)):
             id = vals_list[i]['id']
             if self.browse_sr_id(id):
                 _logger.warning("ID FOUND: " + str(id) + " - Skipping...")
+                # Truncate vals list when duplicate id found
                 vals_list = vals_list[:i]
                 break
-
         if not vals_list:
+            # Truncate may have happened at first index, return nothing
             return None
         
         warps = self.create(vals_list)
         _logger.debug(warps)
-        # Return oldest warp for pagination
         return warps[-1]['wid']
 
     @api.model_create_multi
