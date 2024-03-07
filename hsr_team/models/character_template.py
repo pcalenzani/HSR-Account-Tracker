@@ -1,4 +1,7 @@
 from odoo import api, fields, models, tools, Command
+import logging
+
+_logger = logging.getLogger(__name__)
 
 # Character Template
 class CharacterTemplate(models.Model):
