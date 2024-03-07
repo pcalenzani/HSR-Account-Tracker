@@ -27,7 +27,7 @@ class Character(models.Model):
     promotion = fields.Integer(string='Ascension Level')
     light_cone_id = fields.Many2one('sr.light.cone')
     
-    rank = fields.Integer('Rank')
+    rank = fields.Integer('Eidolon Level')
     promotion = fields.Integer('Promotion')
 
     _sql_constraints = [
@@ -62,6 +62,7 @@ class Character(models.Model):
             else:
                 # Update item
                 ch_rec.write(ch)
+                _logger.info(f"Updated {ch_rec.name} data.")
             
     def _prepare_character_values(self, ch_data):
         '''
