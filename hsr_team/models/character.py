@@ -11,17 +11,21 @@ class Character(models.Model):
 
     # --- Template Fields ---
     template_id = fields.Many2one('sr.character.template')
-    general_mat_id = fields.Many2one(related='template_id.general_mat_id')
-    general_mat_img_id = fields.Many2one(related='template_id.general_mat_id.img_id', string='General Material Image')
-    advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
-    advanced_mat_img_id = fields.Many2one(related='template_id.advanced_mat_id.img_id', string='Advanced Material Image')
-    ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
-    ascension_mat_img_id = fields.Many2one(related='template_id.ascension_mat_id.img_id', string='Ascension Material Image')
-    eidolon_ids = fields.One2many(related='template_id.eidolon_ids')
+    warp_ids = fields.One2many(related='template_id.warp_ids')
+
     element_id = fields.Many2one(related='template_id.element_id')
     element_img_id = fields.Many2one(related='template_id.element_id.img_id')
     path_id = fields.Many2one(related='template_id.path_id')
     path_img_id = fields.Many2one(related='template_id.path_id.img_id')
+    eidolon_ids = fields.One2many(related='template_id.eidolon_ids')
+
+    general_mat_id = fields.Many2one(related='template_id.general_mat_id')
+    general_mat_img_id = fields.Many2one(related='template_id.general_mat_id.img_id')
+    advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
+    advanced_mat_img_id = fields.Many2one(related='template_id.advanced_mat_id.img_id')
+    ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
+    ascension_mat_img_id = fields.Many2one(related='template_id.ascension_mat_id.img_id')
+
     portrait_img_id = fields.Many2one(related='template_id.portrait_img_id')
     preview_img_id = fields.Many2one(related='template_id.preview_img_id')
     icon_img_id = fields.Many2one(related='template_id.icon_img_id')
@@ -35,10 +39,12 @@ class Character(models.Model):
     # --- API Fields ---
     promotion = fields.Integer(string='Ascension Level')
     light_cone_id = fields.Many2one('sr.light.cone')
-    
     rank = fields.Integer('Eidolon Level')
     promotion = fields.Integer('Promotion')
 
+    # --- Stat Fields ---
+    attribute_ids = fields.One2many('sr.attribute', 'character_id', string='Character Stats')
+    
     _sql_constraints = [
         ('character_key', 'UNIQUE (item_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]

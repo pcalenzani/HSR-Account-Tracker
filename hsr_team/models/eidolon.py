@@ -8,14 +8,14 @@ class Eidolon(models.Model):
     description = fields.Char('Description')
     level = fields.Selection(
         selection=[
-            ('e1', 'Eidolon 1'),
-            ('e2', 'Eidolon 2'),
-            ('e3', 'Eidolon 3'),
-            ('e4', 'Eidolon 4'),
-            ('e5', 'Eidolon 5'),
-            ('e6', 'Eidolon 6'),
+            ('rank1', 'Eidolon 1'),
+            ('rank2', 'Eidolon 2'),
+            ('skill', 'Eidolon 3'),
+            ('rank4', 'Eidolon 4'),
+            ('ultimate', 'Eidolon 5'),
+            ('rank6', 'Eidolon 6'),
         ]
     )
     owned = fields.Boolean('Is Owned')
     character_template_id = fields.Many2one('sr.character.template', string='Character',store=True)
-    character_item_id = fields.Integer(related='character_template_id.character_id')
+    
