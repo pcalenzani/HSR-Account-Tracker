@@ -41,7 +41,6 @@ class Relic(models.Model):
     # --- API Fields ---
     name = fields.Char('Relic Name')
     set_id = fields.Many2one('sr.relic.set')
-    set_name = fields.Char(related='set_id.name', store=True)
     main_affix = fields.Many2one('sr.relic.affix', string='Main Attribute')
     sub_affix = fields.Many2many('sr.relic.affix', string='Attributes')
 

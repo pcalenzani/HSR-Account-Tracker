@@ -24,9 +24,9 @@ class CharacterTemplate(models.Model):
 
     # -- Element & Path --
     element_id = fields.Many2one('sr.element', string='Element')
-    element_img_id = fields.Many2one(related='element_id.img_id')
+    element_img_id = fields.Many2one(related='element_id.img_id', string='Element Image')
     path_id = fields.Many2one('sr.path', string='Path')
-    path_img_id = fields.Many2one(related='path_id.img_id')
+    path_img_id = fields.Many2one(related='path_id.img_id', string='Path Image')
 
     # -- Character Images --
     portrait_img_id = fields.Many2one('ir.attachment', string='Portrait Image',
