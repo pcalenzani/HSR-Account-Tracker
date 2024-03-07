@@ -82,7 +82,7 @@ class Warp(models.Model):
             sr_ids= tuple(sr_ids)
 
         try:
-            self.env.cr.execute("""SELECT id FROM sr_warp WHERE wid in %s""", [sr_ids])
+            self.env.cr.execute("""SELECT id FROM sr_warp WHERE wid in %s LIMIT 1""", [sr_ids])
             ids = self.env.cr.fetchall()[0]
         except IndexError:
             return self

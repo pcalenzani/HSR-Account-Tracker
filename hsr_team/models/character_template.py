@@ -59,7 +59,7 @@ class CharacterTemplate(models.Model):
         else:
             sr_ids= tuple(sr_ids)
 
-        self.env.cr.execute("""SELECT id FROM sr_character_template WHERE character_id in %s""", [sr_ids])
+        self.env.cr.execute("""SELECT id FROM sr_character_template WHERE character_id in %s LIMIT 1""", [sr_ids])
         ids = tuple(self.env.cr.fetchall())
         return self.__class__(self.env, ids, ids)
     

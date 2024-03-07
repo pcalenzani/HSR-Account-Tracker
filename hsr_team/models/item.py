@@ -31,7 +31,7 @@ class Item(models.Model):
             sr_ids= tuple(sr_ids)
 
         try:
-            self.env.cr.execute("""SELECT id FROM sr_character WHERE item_id in %s""", [sr_ids])
+            self.env.cr.execute("""SELECT id FROM sr_character WHERE item_id in %s LIMIT 1""", [sr_ids])
             ids = self.env.cr.fetchall()[0]
         except IndexError:
             return self
