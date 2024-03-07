@@ -14,7 +14,7 @@ class Users(models.Model):
         url = "https://api.mihomo.me/sr_info_parsed/%s?lang=en&version=v2"%(self.sr_uid)
         response = requests.get(url)
 
-        _logger.info("\"GET /sr_info_parsed\" " + response.status_code)
+        _logger.info("\"GET /sr_info_parsed\" " + str(response.status_code))
         if response.status_code == 200:
             self.env['sr.character'].generate_character_data(response.json()['characters'])
         else:
