@@ -43,7 +43,8 @@ class CharacterTemplate(models.Model):
     @api.depends('avatar')
     def _compute_display_name(self):
         # Compute name, example: Dan (Template)
-        return [(rec.id, f"{rec.avatar} (Template)") for rec in self]
+        for rec in self:
+            rec.display_name = f"{rec.avatar} (Template)"
     
     def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
         args = args or []
