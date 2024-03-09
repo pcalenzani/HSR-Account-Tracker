@@ -39,7 +39,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page>
+                        <page string="Stats">
                             <field name="attribute_ids"/>
                         </page>
                         <page string="Light Cone">
