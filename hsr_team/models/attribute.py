@@ -51,7 +51,7 @@ class Attribute(models.Model):
         :returns: list of values ready for Command create call
         '''
         stats_done = [] # when using both base and additional, need to track which stats we've appended
-        commands = []
+        commands = [Command.clear()]
         for stats in base:
             stats_done.append(stats['field'])
             for field in ['icon', 'display']:
