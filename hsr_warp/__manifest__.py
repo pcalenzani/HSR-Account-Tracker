@@ -9,7 +9,12 @@
         'data/sr_banner_data.xml',
         'data/ir_cron_data.xml',
         'data/ir_asset.xml',
+        'data/sr_element_path_data.xml',
+        'data/sr_character_data.xml',
+
         'views/hsr_warp_warp_views.xml',
+        'views/hsr_warp_character_type_views.xml',
+        'views/hsr_warp_character_template_views.xml',
 
         'security/ir.model.access.csv',
     ],

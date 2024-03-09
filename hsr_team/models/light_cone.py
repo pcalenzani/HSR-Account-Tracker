@@ -14,3 +14,5 @@ class LightCone(models.Model):
     promotion = fields.Integer('Superimposition')
 
     path_id = fields.Many2one('sr.path', string='Path')
+
+    # TODO: Add images, implement m2o links, need a template?, should not inherit item?       

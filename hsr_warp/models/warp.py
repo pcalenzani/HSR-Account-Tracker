@@ -25,6 +25,7 @@ class Warp(models.Model):
     pity = fields.Integer('Pity', store=True, compute='_compute_pity')
     banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_banner_id')
     banner_type_id = fields.Many2one('sr.banner.type', store=True, compute='_compute_banner_type_id')
+    character_id = fields.Many2one('sr.character.template', store=True, compute='_compute_character_id')
 
     _sql_constraints = [
         ('warp_key', 'UNIQUE (wid)',  'You can not have two warps with the same ID')
@@ -71,6 +72,10 @@ class Warp(models.Model):
             # TODO calculate pity
             warp.pity = 0
     
+    def _compute_character_id(self):
+        for warp in self:
+            warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)]) or None
+            
     def browse_sr_id(self, sr_ids=None):
         if not sr_ids:
             sr_ids= ()

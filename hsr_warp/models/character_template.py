@@ -1,4 +1,4 @@
-from odoo import api, fields, models, Command
+from odoo import api, fields, models
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -11,16 +11,7 @@ class CharacterTemplate(models.Model):
     
     avatar = fields.Char("Character Name")
     character_id = fields.Integer('Character ID')
-    eidolon_ids = fields.One2many('sr.character.eidolon', 'character_template_id', string='Eidolons')
     warp_ids = fields.One2many('sr.warp', 'character_id', string='Warps')
-
-    # -- Materials --
-    general_mat_id = fields.Many2one('sr.item.material', string='General Material')
-    general_mat_img_id = fields.Many2one(related='general_mat_id.img_id', string='General Material Image')
-    advanced_mat_id = fields.Many2one('sr.item.material', string='Advanced Material')
-    advanced_mat_img_id = fields.Many2one(related='advanced_mat_id.img_id', string='Advanced Material Image')
-    ascension_mat_id = fields.Many2one('sr.item.material', string='Ascension Material')
-    ascension_mat_img_id = fields.Many2one(related='ascension_mat_id.img_id', string='Ascension Material Image')
 
     # -- Element & Path --
     element_id = fields.Many2one('sr.element', string='Element')
@@ -163,13 +154,3 @@ class Path(models.Model):
                 vals['img_id'] = self.generate_image(img_path, name=vals['name']).id
         return super(Path, self).create(vals_list)
     
-
-class Warp(models.Model):
-    # Override this model to add character link and compute
-    _inherit = 'sr.warp'
-
-    character_id = fields.Many2one('sr.character.template', store=True, compute='_compute_character_id')
-
-    def _compute_character_id(self):
-        for warp in self:
-            warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)]) or None
