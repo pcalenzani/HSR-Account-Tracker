@@ -1,4 +1,4 @@
-from odoo import api, fields, models, tools, Command
+from odoo import api, fields, models, Command
 
 class RelicSetBonus(models.Model):
     _name = 'sr.relic.set.bonus'

@@ -1,4 +1,5 @@
-from odoo import api, fields, models, tools, Command
+from odoo import api, fields, models, Command
+from odoo.tools import float_round
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -26,7 +27,7 @@ class Attribute(models.Model):
 
     def _compute_display_name(self):
         for record in self:
-            val = record.value
+            val = float_round(record.value, precision_digits=3)
             tag = ' ' + record.name
             if record.percent:
                 val *= 100

@@ -1,4 +1,4 @@
-from odoo import api, fields, models, tools, Command
+from odoo import fields, models
 import requests
 import logging
 

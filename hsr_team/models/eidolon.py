@@ -1,4 +1,4 @@
-from odoo import api, fields, models, tools, Command
+from odoo import api, fields, models
 
 class Eidolon(models.Model):
     _name = 'sr.character.eidolon'
