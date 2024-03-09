@@ -7,3 +7,6 @@ access_sr_item,sr.item.all,model_sr_item,,1,1,1,1
 access_sr_item_material,sr.item.material.all,model_sr_item_material,,1,1,1,1
 access_sr_element,sr.element.all,model_sr_element,,1,1,1,1
 access_sr_path,sr.path.all,model_sr_path,,1,1,1,1
+access_sr_attribute,sr.attribute.all,model_sr_attribute,,1,1,1,1
+access_sr_relic_set,sr.relic_set.all,model_sr_relic_set,,1,1,1,1
+access_sr_relic,sr.relic.all,model_sr_relic,,1,1,1,1
