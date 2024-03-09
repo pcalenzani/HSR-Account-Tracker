@@ -62,18 +62,21 @@ class Character(models.Model):
         for ch in characters:
             # Link character record to character template
             ch.template_id = self.env['sr.character.template'].browse_sr_id(ch.item_id)
-            _logger.info(f"New character record: {ch.name}")
-        
         return characters
     
     def generate_character_data(self, data):
         self._prepare_character_values(data)
+        Attribute = self.env['sr.attribute']
         for ch in data:
+            # Get attribute commands
+            ch['attribute_ids'] = Attribute._populate_attributes(ch.pop('attributes'), ch.pop('additions'))
+
             # Check if character record exists
             ch_rec = self.browse_sr_id(ch['item_id'])
             if not ch_rec:
                 # Create new item
                 self.create(ch)
+                _logger.info(f"New character record: {ch.name}")
             else:
                 # Update item
                 ch_rec.write(ch)
@@ -82,6 +85,27 @@ class Character(models.Model):
     def _prepare_character_values(self, ch_data):
         '''
         Method receives list of characters to create sr.character records.
+            id          - Object ID, str
+            name        - Name of character, str
+            rarity      - Star rarity, int
+            rank        - Eidolon Level, int
+            level       - Character Level, int
+            promotion   - Ascension Level, int
+            icon        - Icon Image Path, str
+            preview     - Preview Image Path, str
+            portrait    - Portrait Image Path, str
+            rank_icons  - Eidolon Image Paths, list(str)
+            path        - Aeon Path, dict
+            element     - Element Type, dict
+            skills      - Skill Info, list(dict)
+            skill_trees - Skill Hierarchy, list(dict)
+            light_cone  - Light Cone Equipped, dict
+            relics      - Relics Equipped, list(dict)
+            relic_sets  - Relic Set Bonuses, list(dict)
+            attributes  - Base Attributes, list(dict)
+            additions   - Added Attributes, list(dict)
+            properties  - Special Passive Bonuses, list(dict)
+            pos         - Position in Profile, list(int)
         :param ch_data: List of character dictionaries from json
         :returns: Parsed list of character dictionaries
         '''
@@ -101,8 +125,6 @@ class Character(models.Model):
             'light_cone',
             'relics',
             'relic_sets',
-            'attributes', # Character base statistics
-            'additions', # Character added statistics
             'properties', # Special statistics and passives
             'pos', # Position in profile
         ]

@@ -39,6 +39,9 @@
                         </group>
                     </group>
                     <notebook>
+                        <page>
+                            <field name="attribute_ids"/>
+                        </page>
                         <page string="Light Cone">
                             <group>
                                 <field name="light_cone_id"/>
@@ -55,9 +58,9 @@
 
                                             <t t-set="color" t-value="1"/>
                                             <div t-att-class="oe_kanban_global_click" style="background-color:#1c6e7b;">
-                                            COMMENT    <div class="o_kanban_image">
-                                            COMMENT        <img alt="Contact image" t-att-src="kanban_image('res.partner', 'avatar_128', record.id.raw_value)"/>
-                                            COMMENT    </div>
+                                                <!-- <div class="o_kanban_image">
+                                                    <img alt="Contact image" t-att-src="kanban_image('res.partner', 'avatar_128', record.id.raw_value)"/>
+                                                </div> -->
                                                 <div class="oe_kanban_details">
                                                     <field name="title"/>
                                                     <div><field name="level"/></div>
