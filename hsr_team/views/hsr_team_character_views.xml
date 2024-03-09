@@ -36,22 +36,22 @@
                             <field name="promotion"/>
                         </group>
                         <group>
-                            <field name="att_hp"/>
-                            <field name="att_atk"/>
-                            <field name="att_def"/>
-                            <field name="att_spd"/>
-                            <field name="att_crit_rate"/>
-                            <field name="att_crit_dmg"/>
+                            <field name="att_hp" string="HP"/>
+                            <field name="att_atk" string="ATK"/>
+                            <field name="att_def" string="DEF"/>
+                            <field name="att_spd" string="SPD"/>
+                            <field name="att_crit_rate" string="CRIT RATE"/>
+                            <field name="att_crit_dmg" string="CRIT DMG"/>
                         </group>
                     </group>
                     <notebook>
-                        <page string="Stats">
-                            <field name="attribute_ids"/>
-                        </page>
                         <page string="Light Cone">
                             <group>
                                 <field name="light_cone_id"/>
                             </group>
+                        </page>
+                        <page string="All Stats">
+                            <field name="attribute_ids"/>
                         </page>
                         <page string="Eidolons">
                             <field name="eidolon_ids" mode="kanban">

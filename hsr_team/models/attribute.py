@@ -27,12 +27,10 @@ class Attribute(models.Model):
 
     def _compute_display_name(self):
         for record in self:
-            val = float_round(record.value, precision_digits=3)
-            tag = ' ' + record.name
+            val = record.value
             if record.percent:
                 val *= 100
-                tag = '%' + tag
-            record.display_name = str(val) + tag
+            record.display_name = str(float_round(val, precision_digits=3))
 
     @api.depends('base', 'addition')
     def _compute_value(self):
