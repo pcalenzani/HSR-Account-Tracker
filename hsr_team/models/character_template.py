@@ -167,7 +167,7 @@ class Warp(models.Model):
     # Override this model to add character link and compute
     _inherit = 'sr.warp'
 
-    character_id = fields.Many2one('sr.character', compute='_compute_character_id')
+    character_id = fields.Many2one('sr.character.template', compute='_compute_character_id')
 
     def _compute_character_id(self):
         for warp in self:
