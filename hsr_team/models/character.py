@@ -43,7 +43,13 @@ class Character(models.Model):
     promotion = fields.Integer('Promotion')
 
     # --- Stat Fields ---
-    attribute_ids = fields.One2many('sr.attribute', 'character_id', string='Character Stats')
+    attribute_ids = fields.One2many('sr.attribute', 'character_id', string='Character Stats', inverse='_set_attributes')
+    att_hp = fields.Many2one('sr.attribute', string='HP Stat')
+    att_atk = fields.Many2one('sr.attribute', string='ATK Stat')
+    att_def = fields.Many2one('sr.attribute', string='DEF Stat')
+    att_spd = fields.Many2one('sr.attribute', string='SPD Stat')
+    att_crit_rate = fields.Many2one('sr.attribute', string='CRIT_RATE Stat')
+    att_crit_dmg = fields.Many2one('sr.attribute', string='CRIT_DMG Stat')
     
     _sql_constraints = [
         ('character_key', 'UNIQUE (item_id)',  'Duplicate character deteced. Item ID must be unique.')
@@ -51,10 +57,14 @@ class Character(models.Model):
     
     @api.depends('template_id.warp_ids')
     def _compute_count(self):
-        for item in self:
-            count = self.env['sr.warp'].search_count([('item_id','=',str(item.item_id))])
-            item.count = count
-            item.is_owned = count + item.free_pulls
+        for rec in self:
+            count = self.env['sr.warp'].search_count([('item_id','=',str(rec.item_id))])
+            rec.count = count
+            rec.is_owned = count + rec.free_pulls
+
+    def _set_attributes(self):
+        for rec in self:
+            rec.att_hp, rec.att_atk, rec.att_def, rec.att_spd, rec.att_crit_rate, rec.att_crit_dmg, *_ = rec.attribute_ids
     
     @api.model_create_multi
     def create(self, vals_list):

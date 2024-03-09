@@ -24,6 +24,15 @@ class Attribute(models.Model):
     character_id = fields.Many2one('sr.character', string='Character', ondelete='cascade')
     # relic_id = ...
 
+    def _compute_display_name(self):
+        for record in self:
+            val = record.value
+            tag = ' ' + record.name
+            if record.percent:
+                val *= 100
+                tag = '%' + tag
+            record.display_name = str(val) + tag
+
     @api.depends('base', 'addition')
     def _compute_value(self):
         for record in self:
