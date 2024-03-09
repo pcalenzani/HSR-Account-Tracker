@@ -79,6 +79,7 @@ class Character(models.Model):
                 _logger.info(f"New character record: {ch.name}")
             else:
                 # Update item
+                _logger.error(ch)
                 ch_rec.write(ch)
                 _logger.info(f"Updated {ch_rec.name} data.")
             
