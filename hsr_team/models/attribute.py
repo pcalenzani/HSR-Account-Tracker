@@ -61,7 +61,7 @@ class Attribute(models.Model):
             if additional:
                 # If two dict lists are provided, split stat value into base + addition
                 stats['base'] = stats.pop('value')
-                stats['addition'] = next((item for item in additional if item['field'] == stats['field']), 0.0)['value']
+                stats['addition'] = next((item for item in additional if item['field'] == stats['field'])['value'], 0.0)
             commands.append(Command.create(stats))
         
         if additional:
