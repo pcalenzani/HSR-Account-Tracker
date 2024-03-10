@@ -26,7 +26,7 @@ class Character(models.Model):
     template_id = fields.Many2one('sr.character.template')
     warp_ids = fields.One2many(related='template_id.warp_ids')
     light_cone_id = fields.Many2one('sr.light.cone')
-    light_cone_img_id = fields.Many2one(related='light_cone_id.preview_img_id')
+    light_cone_img_id = fields.Many2one(related='light_cone_id.preview_img_id', string='Light Cone Image')
 
     element_id = fields.Many2one(related='template_id.element_id')
     element_img_id = fields.Many2one(related='template_id.element_id.img_id', string='Element Image')
