@@ -99,7 +99,7 @@ class Character(models.Model):
             if not ch_rec:
                 # Create new item
                 self.create(ch)
-                _logger.info(f"New character record: {ch.name}")
+                _logger.info(f"New character record: {ch['name']}")
             else:
                 # Update item
                 ch_rec.write(ch)
