@@ -76,7 +76,7 @@ class LightCone(models.Model):
         # Typecast fields for easy storing
         data['rarity'] = str(data.pop('rarity'))
         # Get path record
-        data['path_id'] = self.env['sr.path'].search([('reference','=',data.pop('path')['id'])])
+        data['path_id'] = self.env['sr.path'].search([('reference','=',data.pop('path')['id'])]).id
         # Add base path to img paths
         data['icon_path'] = base_path + data.pop('icon')
         data['preview_path'] = base_path + data.pop('preview')
