@@ -25,6 +25,7 @@ class Character(models.Model):
     # --- Template Fields ---
     template_id = fields.Many2one('sr.character.template')
     warp_ids = fields.One2many(related='template_id.warp_ids')
+    light_cone_id = fields.Many2one('sr.light.cone')
 
     element_id = fields.Many2one(related='template_id.element_id')
     element_img_id = fields.Many2one(related='template_id.element_id.img_id', string='Element Image')
@@ -39,9 +40,9 @@ class Character(models.Model):
     ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
     ascension_mat_img_id = fields.Many2one(related='template_id.ascension_mat_id.img_id', string='Ascension Mat Image')
 
-    icon_path = fields.Char('Icon Image Path')
-    preview_path = fields.Char('Preview Image Path')
     portrait_path = fields.Char('Portrait Image Path')
+    preview_path = fields.Char('Preview Image Path')
+    icon_path = fields.Char('Icon Image Path')
     portrait_img_id = fields.Many2one('ir.attachment', string='Portrait Image', compute='_compute_images')
     preview_img_id = fields.Many2one('ir.attachment', string='Preview Image', compute='_compute_images')
     icon_img_id = fields.Many2one('ir.attachment', string='Icon Image', compute='_compute_images')
@@ -98,24 +99,34 @@ class Character(models.Model):
         return characters
     
     def generate_character_data(self, data):
-        self._prepare_character_values(data)
-        Attribute = self.env['sr.attribute']
+        '''
+        Create or update character records with given data.
+        Linked records will be generated from data and linked to character:
+            attribute_ids
+            light_cone_id
+        :param data: List of character dictionary data
+        '''
+        self._prepare_api_values(data)
+        LightCone = self.env['sr.light.cone']
         for ch in data:
-            # Get attribute commands
-            ch['attribute_ids'] = Attribute._populate_attributes(ch.pop('attributes'), ch.pop('additions'))
+            light_cone_data = LightCone._prepare_api_values(ch.pop('light_cone'))
 
             # Check if character record exists
             ch_rec = self.browse_sr_id(ch['item_id'])
             if not ch_rec:
-                # Create new item
+                # Create light cone
+                ch['light_cone_id'] = LightCone.create(light_cone_data)
+                # Create new character
                 self.create(ch)
                 _logger.info(f"New character record: {ch['name']}")
             else:
-                # Update item
+                # Update light cone
+                ch_rec.light_cone_id.write(light_cone_data)
+                # Update character record
                 ch_rec.write(ch)
                 _logger.info(f"Updated {ch_rec.name} data.")
             
-    def _prepare_character_values(self, ch_data):
+    def _prepare_api_values(self, data):
         '''
         Method receives list of characters to create sr.character records.
             id          - Object ID, str
@@ -139,7 +150,7 @@ class Character(models.Model):
             additions   - Added Attributes, list(dict)
             properties  - Special Passive Bonuses, list(dict)
             pos         - Position in Profile, list(int)
-        :param ch_data: List of character dictionaries from json
+        :param data: List of character dictionaries from json
         :returns: Parsed list of character dictionaries
         '''
         # Remove unused api vals
@@ -151,7 +162,6 @@ class Character(models.Model):
             'skills', # Skill info
             'skill_trees', # Hierarchy of traces
             # TODO implement these later
-            'light_cone',
             'relics',
             'relic_sets',
             'properties', # Special statistics and passives
@@ -159,7 +169,7 @@ class Character(models.Model):
         ]
         base_path = '/hsr_warp/static/'
 
-        for ch in ch_data:
+        for ch in data:
             for k in to_remove:
                 # Will only remove key if exists
                 ch.pop(k, None)
@@ -172,4 +182,6 @@ class Character(models.Model):
             ch['icon_path'] = base_path + ch.pop('icon')
             ch['preview_path'] = base_path + ch.pop('preview')
             ch['portrait_path'] = base_path + ch.pop('portrait')
-        return ch_data
+            # Get attribute commands
+            ch['attribute_ids'] = self.env['sr.attribute']._populate_attributes(ch.pop('attributes'), ch.pop('additions'))
+        return data

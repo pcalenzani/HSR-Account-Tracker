@@ -13,6 +13,9 @@ class Attribute(models.Model):
     value = fields.Float('Value', store=True, compute='_compute_value', inverse='_set_value')
     percent = fields.Boolean('Is Percent')
 
+    icon = fields.Char('Icon Image Path')
+    img_id = fields.Many2one('ir.attachment', string='Image')
+
     # Character attribute values will be split on receipt
     base = fields.Float('Base Value', default=0.0)
     addition = fields.Float('Added Value', default=0.0)
@@ -23,7 +26,8 @@ class Attribute(models.Model):
     step = fields.Integer('Step') # Affix base amount step
 
     character_id = fields.Many2one('sr.character', string='Character', ondelete='cascade')
-    # relic_id = ...
+    light_cone_id = fields.Many2one('sr.light.cone', string='Light Cone', ondelete='cascade')
+    # relic_id = fields.Many2one('sr.relic', string='Light Cone', ondelete='cascade')
 
     def _compute_display_name(self):
         for record in self:
