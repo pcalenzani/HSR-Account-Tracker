@@ -6,4 +6,11 @@
         <field name="path">/hsr_warp/static/src/css/hsr_warp.css</field>
         <field name="sequence" eval="16"/>
     </record>
+
+    <record id="hsr_warp_template" model="ir.asset">
+        <field name="name">HSR Warp Attachment Image XML</field>
+        <field name="bundle">web.assets_backend</field>
+        <field name="path">/hsr_warp/static/src/views/attachment_image_field.xml</field>
+        <field name="sequence" eval="17"/>
+    </record>
 </odoo>
