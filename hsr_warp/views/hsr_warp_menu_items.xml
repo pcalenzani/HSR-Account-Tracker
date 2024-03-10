@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="hsr_warp_warp_action" model="ir.actions.act_window">
+        <field name="name">Warps</field>
+        <field name="res_model">sr.warp</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="hsr_warp_banner_action" model="ir.actions.act_window">
+        <field name="name">Banners</field>
+        <field name="res_model">sr.banner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="hsr_warp_banner_type_action" model="ir.actions.act_window">
+        <field name="name">Banner Types</field>
+        <field name="res_model">sr.banner.type</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <record id="sr_elements_action" model="ir.actions.act_window">
+        <field name="name">Elements</field>
+        <field name="res_model">sr.element</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="sr_paths_action" model="ir.actions.act_window">
+        <field name="name">Paths</field>
+        <field name="res_model">sr.path</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="sr_character_template_action" model="ir.actions.act_window">
+        <field name="name">Character Settings</field>
+        <field name="res_model">sr.character.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hsr_root" name="Star Rail" sequence="30" web_icon="hsr_warp,static/description/icon(2).png"/>
+    <menuitem id="menu_warps_root" name="Warps" sequence="30" parent="menu_hsr_root"/>
+    <menuitem id="menu_banner_types" name="Banner Types" sequence="20" parent="menu_warps_root" action="hsr_warp_banner_type_action"/>
+    <menuitem id="menu_banners" name="Banners" sequence="10" parent="menu_warps_root" action="hsr_warp_banner_action"/>
+    <menuitem id="menu_warps" name="Warps" sequence="0" parent="menu_warps_root" action="hsr_warp_warp_action"/>
+    
+    <menuitem id="menu_sr_config_root" name="Configuration" sequence="99" parent="menu_character_root"/>
+    <menuitem id="menu_sr_character_template" name="Character Settings" sequence="0" parent="menu_sr_config_root" action="sr_character_template_action"/>
+    <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_root" action="sr_elements_action"/>
+    <menuitem id="menu_sr_paths" name="Aeon Paths" sequence="10" parent="menu_sr_config_root" action="sr_paths_action"/>
