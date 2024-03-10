@@ -5,7 +5,7 @@
         <field name="name">hsr_warp.warps.tree</field>
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
-            <tree string="Warps">
+            <tree string="Warps" decoration-warning="rank_type == 5" decoration-primary="rank_type == 4"  decoration-bf="rank_type > 3">
                 <field name="name"/>
                 <field name="rank_type"/>
                 <field name="time"/>
