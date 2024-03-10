@@ -80,11 +80,11 @@ class Warp(models.Model):
     
     def _compute_character_id(self):
         for warp in self:
-            warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)]) or None
+            warp.character_id = self.env['sr.character.template'].browse_sr_id([warp.item_id])
             
     def browse_sr_id(self, sr_ids):
         '''
-        :params sr_ids: List of ids to search
+        :params sr_ids: List of ids to search in wid
         '''
         return self.search([('wid','in',sr_ids)])
 

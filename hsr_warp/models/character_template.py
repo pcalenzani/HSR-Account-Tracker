@@ -10,7 +10,7 @@ class CharacterTemplate(models.Model):
     _inherit = 'sr.image.mixin'
     
     avatar = fields.Char("Character Name")
-    character_id = fields.Integer('Character ID')
+    character_id = fields.Integer('Character ID', index=True)
     warp_ids = fields.One2many('sr.warp', 'character_id', string='Warps')
 
     # -- Element & Path --
@@ -61,17 +61,11 @@ class CharacterTemplate(models.Model):
             args += ['|', ('avatar',operator,name), ('character_id',operator,name)]
         return self._search(args, limit=limit, access_rights_uid=name_get_uid)
 
-    def browse_sr_id(self, sr_ids=None):
-        if not sr_ids:
-            sr_ids= ()
-        elif sr_ids.__class__ is int:
-            sr_ids = (sr_ids,)
-        else:
-            sr_ids= tuple(sr_ids)
-
-        self.env.cr.execute("""SELECT id FROM sr_character_template WHERE character_id in %s LIMIT 1""", [sr_ids])
-        ids = tuple(self.env.cr.fetchall())
-        return self.__class__(self.env, ids, ids)
+    def browse_sr_id(self, sr_ids):
+        '''
+        :params sr_ids: List of ids to search in character_id
+        '''
+        return self.search([('character_id','in',sr_ids)])
     
     # WINDOW ACTIONS
     def action_element(self):

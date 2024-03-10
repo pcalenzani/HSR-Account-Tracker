@@ -9,7 +9,7 @@ class Item(models.Model):
     _order = 'item_id DESC'
     _inherit = 'sr.image.mixin'
 
-    item_id = fields.Integer('Item ID')
+    item_id = fields.Integer('Item ID', index=True)
     name = fields.Char('Name')
     rarity = fields.Selection(selection=[
         ('0', 'N/A'),
@@ -22,20 +22,11 @@ class Item(models.Model):
     string='Rarity')
     level = fields.Integer('Relic Level')
 
-    def browse_sr_id(self, sr_ids=None):
-        if not sr_ids:
-            sr_ids= ()
-        elif sr_ids.__class__ is int:
-            sr_ids = (sr_ids,)
-        else:
-            sr_ids= tuple(sr_ids)
-
-        try:
-            self.env.cr.execute("""SELECT id FROM sr_character WHERE item_id in %s LIMIT 1""", [sr_ids])
-            ids = self.env.cr.fetchall()[0]
-        except IndexError:
-            return self
-        return self.__class__(self.env, ids, ids)
+    def browse_sr_id(self, sr_ids):
+        '''
+        :params sr_ids: List of ids to search in item_id
+        '''
+        return self.search([('item_id','in',sr_ids)])
 
 
 class Material(models.Model):

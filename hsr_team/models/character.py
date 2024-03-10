@@ -95,7 +95,7 @@ class Character(models.Model):
         characters = super(Character, self).create(vals_list)
         for ch in characters:
             # Link character record to character template
-            ch.template_id = self.env['sr.character.template'].browse_sr_id(ch.item_id)
+            ch.template_id = self.env['sr.character.template'].browse_sr_id([ch.item_id])
         return characters
     
     def generate_character_data(self, data):
@@ -112,7 +112,7 @@ class Character(models.Model):
             light_cone_data = LightCone._prepare_api_values(ch.pop('light_cone'))
 
             # Check if character record exists
-            ch_rec = self.browse_sr_id(ch['item_id'])
+            ch_rec = self.browse_sr_id([ch['item_id']])
             if not ch_rec:
                 # Create light cone
                 ch['light_cone_id'] = LightCone.create(light_cone_data).id
