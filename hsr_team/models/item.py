@@ -59,5 +59,5 @@ class Material(models.Model):
         # Get image attachment when updating item_id
         img_path = '/hsr_warp/static/icon/item/'
         for rec in self:
-            rec.img_id = self.get_image_from_path(img_path, rec.item_id).id
+            rec.img_id = rec.get_image_from_path(img_path, rec.item_id).id
 

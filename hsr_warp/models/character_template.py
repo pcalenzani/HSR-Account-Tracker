@@ -42,15 +42,15 @@ class CharacterTemplate(models.Model):
         # Get image attachments for each image type when character id updated
         for rec in self:
             portrait_img_path = '/hsr_warp/static/image/character_portrait/'
-            rec.portrait_img_id = self.get_image_from_path(portrait_img_path,
+            rec.portrait_img_id = rec.get_image_from_path(portrait_img_path,
                                                            rec.character_id,
                                                            field='portrait_img_id').id
             preview_img_path = '/hsr_warp/static/image/character_preview/'
-            rec.preview_img_id = self.get_image_from_path(preview_img_path,
+            rec.preview_img_id = rec.get_image_from_path(preview_img_path,
                                                           rec.character_id,
                                                           field='preview_img_id').id
             icon_img_path = '/hsr_warp/static/icon/character/'
-            rec.icon_img_id = self.get_image_from_path(icon_img_path,
+            rec.icon_img_id = rec.get_image_from_path(icon_img_path,
                                                        rec.character_id,
                                                        field='icon_img_id').id
 
@@ -118,7 +118,7 @@ class Element(models.Model):
         # Get image attachment when updating name
         img_path = '/hsr_warp/static/icon/element/'
         for rec in self:
-            rec.img_id = self.get_image_from_path(img_path, rec.name).id
+            rec.img_id = rec.get_image_from_path(img_path, rec.name).id
     
 
 class Path(models.Model):
@@ -146,5 +146,5 @@ class Path(models.Model):
         # Get image attachment when updating name
         img_path = '/hsr_warp/static/icon/path/'
         for rec in self:
-            rec.img_id = self.get_image_from_path(img_path, rec.name).id
+            rec.img_id = rec.get_image_from_path(img_path, rec.name).id
     

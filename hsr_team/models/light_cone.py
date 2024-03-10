@@ -15,4 +15,4 @@ class LightCone(models.Model):
 
     path_id = fields.Many2one('sr.path', string='Path')
 
-    # TODO: Add images, implement m2o links, need a template?, should not inherit item?       
+    # TODO: Add images, implement m2o links, need a template?       

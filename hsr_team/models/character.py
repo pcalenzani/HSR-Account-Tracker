@@ -39,9 +39,12 @@ class Character(models.Model):
     ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
     ascension_mat_img_id = fields.Many2one(related='template_id.ascension_mat_id.img_id', string='Ascension Mat Image')
 
-    portrait_img_id = fields.Many2one(related='template_id.portrait_img_id')
-    preview_img_id = fields.Many2one(related='template_id.preview_img_id')
-    icon_img_id = fields.Many2one(related='template_id.icon_img_id')
+    icon_path = fields.Char('Icon Image Path')
+    preview_path = fields.Char('Preview Image Path')
+    portrait_path = fields.Char('Portrait Image Path')
+    portrait_img_id = fields.Many2one('ir.attachment', string='Portrait Image', compute='_compute_images')
+    preview_img_id = fields.Many2one('ir.attachment', string='Preview Image', compute='_compute_images')
+    icon_img_id = fields.Many2one('ir.attachment', string='Icon Image', compute='_compute_images')
 
     # --- Manual Fields ---
     count = fields.Integer('Count', store=True, compute='_compute_count')
@@ -74,6 +77,13 @@ class Character(models.Model):
             count = self.env['sr.warp'].search_count([('item_id','=',str(rec.item_id))])
             rec.count = count
             rec.is_owned = count + rec.free_pulls
+
+    @api.depends('icon_path', 'preview_path', 'portrait_path')
+    def _compute_images(self):
+        for rec in self:
+            rec.portrait_img_id = rec.get_image_from_path(rec.portrait_path, field='portrait_img_id').id
+            rec.preview_img_id = rec.get_image_from_path(rec.preview_path, field='preview_img_id').id
+            rec.icon_img_id = rec.get_image_from_path(rec.icon_path, field='icon_img_id').id
 
     def _set_attributes(self):
         for rec in self:
@@ -134,12 +144,8 @@ class Character(models.Model):
         '''
         # Remove unused api vals
         to_remove = [
-            # Character images already set up in assets
-            'icon',
-            'preview',
-            'portrait',
             'rank_icons', # Eidolon ability icons
-            # Character data/icons already in assets
+            # Path & element already in assets
             'path',
             'element',
             'skills', # Skill info
@@ -151,6 +157,7 @@ class Character(models.Model):
             'properties', # Special statistics and passives
             'pos', # Position in profile
         ]
+        base_path = '/hsr_warp/static/'
 
         for ch in ch_data:
             for k in to_remove:
@@ -161,4 +168,8 @@ class Character(models.Model):
             ch['item_id'] = int(ch.pop('id'))
             # Typecast fields for easy storing
             ch['rarity'] = str(ch.pop('rarity'))
+            # Add base path to img paths
+            ch['icon_path'] = base_path + ch.pop('icon')
+            ch['preview_path'] = base_path + ch.pop('preview')
+            ch['portrait_path'] = base_path + ch.pop('portrait')
         return ch_data
