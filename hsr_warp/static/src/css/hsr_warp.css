@@ -12,7 +12,6 @@
 .o_form_view .o_form_renderer{
     max-width: 100%;
 }
-
 .o_form_view .o_form_sheet_bg{
     max-width: 2000px;
     margin-inline: auto;
@@ -23,7 +22,10 @@
     --color: RGBA(213, 188, 50, var(--text-opacity, 1));
     color: var(--color) !important;
 }
-
+.text-primary {
+    --color: RGBA(179, 85, 192, var(--text-opacity, 1));
+    color: var(--color) !important;
+}
 .fw-bold {
     font-weight: 700 !important;
 }
