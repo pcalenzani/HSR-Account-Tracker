@@ -51,10 +51,10 @@
 
     <menuitem id="menu_hsr_root" name="Star Rail" sequence="30" web_icon="hsr_warp,static/description/icon(2).png"/>
     <menuitem id="menu_warps_root" name="Warps" sequence="30" parent="menu_hsr_root"/>
-    <menuitem id="menu_warps" name="Character Warps" sequence="10" parent="menu_warps_root" action="hsr_warp_warp_char_action"/>
-    <menuitem id="menu_warps" name="Light Cone Warps" sequence="20" parent="menu_warps_root" action="hsr_warp_warp_lc_action"/>
-    <menuitem id="menu_warps" name="Standard Warps" sequence="30" parent="menu_warps_root" action="hsr_warp_warp_std_action"/>
-    <menuitem id="menu_warps" name="All Warps" sequence="40" parent="menu_warps_root" action="hsr_warp_warp_all_action"/>
+    <menuitem id="menu_warps_special" name="Character Warps" sequence="10" parent="menu_warps_root" action="hsr_warp_warp_char_action"/>
+    <menuitem id="menu_warps_lc" name="Light Cone Warps" sequence="20" parent="menu_warps_root" action="hsr_warp_warp_lc_action"/>
+    <menuitem id="menu_warps_std" name="Standard Warps" sequence="30" parent="menu_warps_root" action="hsr_warp_warp_std_action"/>
+    <menuitem id="menu_warps_all" name="All Warps" sequence="40" parent="menu_warps_root" action="hsr_warp_warp_all_action"/>
     
     <menuitem id="menu_sr_config_root" name="Configuration" sequence="99" parent="menu_hsr_root"/>
     <menuitem id="menu_sr_character_template" name="Character Settings" sequence="0" parent="menu_sr_config_root" action="sr_character_template_action"/>
