@@ -34,3 +34,12 @@
 .table-hover > tbody > tr:hover > * {
     color: unset;
 }
+
+/* Image resize classes */
+.o_field_attachment_image.hsr_img_200 {
+    --hsr-img-max: 200px
+}
+
+img.image_resize {
+    max-block-size: var(--hsr-img-max);
+}
