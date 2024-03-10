@@ -49,7 +49,7 @@
                         <field name="character_id" readonly="1"/>
                         <h1>
                             <div class="d-flex">
-                                <field class="text-break" name="avatar"/>
+                                <field class="text-break" name="avatar" widget="text" readonly="1" options="{'line_breaks': False}" />
                             </div>
                         </h1>
                     </div>

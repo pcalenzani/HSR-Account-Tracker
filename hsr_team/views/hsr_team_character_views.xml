@@ -5,11 +5,11 @@
         <field name="name">hsr_team.character.tree</field>
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
-            <tree string="Characters">
+            <tree string="Characters" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="rarity != '3'">
                 <field name="name"/>
                 <field name="element_id"/>
                 <field name="path_id"/>
-                <field name="is_owned" invisible="1"/>
+                <field name="is_owned" column_invisible="1"/>
             </tree>
         </field>
     </record>
@@ -24,7 +24,12 @@
                     <field name="is_owned" invisible="1"/>
                     <field name="template_id" invisible="1"/>
                     <div class="oe_title">
-                        <h1><field name="name"/></h1>
+                        <label for="name" string="Character Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="name" widget="text" readonly="1" options="{'line_breaks': False}" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'"/>
+                            </div>
+                        </h1>
                     </div>
                     <field name="rarity" widget="priority" edit="0"/>
                     <group>
