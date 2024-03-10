@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <tree string="Light Cones" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="rarity != '3'">
                 <field name="rarity" invisible="1"/>
-                <field name="icon_img_id"/>
+                <field name="icon_img_id" widget="attachment_image"/>
                 <field name="name"/>
                 <field name="path_id"/>
                 <field name="level"/>
