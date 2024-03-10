@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="sr_light_cone_view_tree" model="ir.ui.view">
+        <field name="name">hsr_team.light.cone.tree</field>
+        <field name="model">sr.light.cone</field>
+        <field name="arch" type="xml">
+            <tree string="Light Cones" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="rarity != '3'">
+                <field name="icon_img_id"/>
+                <field name="name"/>
+                <field name="path_id"/>
+                <field name="level"/>
+                <field name="rank"/>
+                <field name="character_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sr_light_cone_view_form" model="ir.ui.view">
+        <field name="name">hsr_team.light.cone.form</field>
+        <field name="model">sr.light.cone</field>
+        <field name="arch" type="xml">
+            <form string="Light Cone">
+                <sheet>
+                    <div class="oe_title" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <field name="preview_img_id" widget="attachment_image" class="image_bg_float"/>
+                    <group>
+                        <group>
+                            <field name="path_id"/>
+                            <field name="level"/>
+                            <field name="rank"/>
+                            <field name="character_id"/>
+                        </group>
+                        <group>
+                            <field name="att_hp"/>
+                            <field name="att_atk"/>
+                            <field name="att_def"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Art">
+                            <field name="portrait_img_id" widget="attachment_image"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

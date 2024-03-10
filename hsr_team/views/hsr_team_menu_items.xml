@@ -10,8 +10,14 @@
         <field name="res_model">sr.item.material</field>
         <field name="view_mode">tree,form</field>
     </record>
+    <record id="sr_light_cone_action" model="ir.actions.act_window">
+        <field name="name">Light Cones</field>
+        <field name="res_model">sr.light.cone</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
     <menuitem id="menu_characters" name="Team" sequence="10" parent="hsr_warp.menu_hsr_root" action="sr_character_action"/>
-    <menuitem id="menu_sr_items_root" name="Items" sequence="20" parent="hsr_warp.menu_hsr_root"/>
-    <menuitem id="menu_sr_item_materials" name="Upgrade Materials" sequence="10" parent="menu_sr_items_root" action="sr_item_materials_action"/>
+    <menuitem id="menu_items_root" name="Items" sequence="20" parent="hsr_warp.menu_hsr_root"/>
+    <menuitem id="menu_light_cones" name="Light Cones" sequence="10" parent="menu_items_root" action="sr_light_cone_action"/>
+    <menuitem id="menu_materials" name="Upgrade Materials" sequence="20" parent="menu_items_root" action="sr_item_materials_action"/>
 </odoo>
