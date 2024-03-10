@@ -21,7 +21,8 @@
     ],
     'assets': {
         'web.dark_mode_assets_backend': ['hsr_warp/static/src/css/hsr_warp.css'],
-        'web.assets_backend': ['hsr_warp/static/src/css/hsr_warp.css'],
+        'web.assets_backend': ['hsr_warp/static/src/css/hsr_warp.css',
+                               'hsr_warp/static/src/views/attachment_image_field.xml'],
     },
     'installable': True,
     'application': True,
