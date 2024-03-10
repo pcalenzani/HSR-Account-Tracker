@@ -19,7 +19,7 @@
         <field name="name">hsr_warp.warps.form</field>
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
-            <form string="Warps" edit="0">
+            <form string="Warps" readonly="1">
                 <sheet>
                     <group>
                         <group>
