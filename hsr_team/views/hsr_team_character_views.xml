@@ -97,6 +97,9 @@
     <record id="sr_character_template_view_search_inherit" model="ir.ui.view">
         <field name="name">hsr_warp.character.template.search.inherit.hsr_team</field>
         <field name="model">sr.character.template</field>
+        <field name="inherit_id" ref="hsr_warp.sr_character_template_view_search"/>
+        <field name="mode">extension</field>
+        <field name="priority">80</field>
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//group" position="inside">
@@ -111,6 +114,9 @@
     <record id="sr_character_template_view_form_inherit" model="ir.ui.view">
         <field name="name">hsr_warp.character.template.form.inherit.hsr_team</field>
         <field name="model">sr.character.template</field>
+        <field name="inherit_id" ref="hsr_warp.sr_character_template_view_form"/>
+        <field name="mode">extension</field>
+        <field name="priority">80</field>
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//notebook" position="inside">
