@@ -78,6 +78,7 @@ class Warp(models.Model):
             # TODO calculate pity
             warp.pity = 0
     
+    @api.depends('item_id')
     def _compute_character_id(self):
         for warp in self:
             warp.character_id = self.env['sr.character.template'].browse_sr_id([warp.item_id])
