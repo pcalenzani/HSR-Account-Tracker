@@ -22,6 +22,8 @@ class ImageMixin(models.AbstractModel):
         else:
             # Add png file extension
             name = str(name) + '.png'
+            # Update path with full path string
+            path += name
 
         if not field:
             # Use standard img field name if none passed in
@@ -29,7 +31,7 @@ class ImageMixin(models.AbstractModel):
         
         Attachment = self.env['ir.attachment']
         # ir.attachment will auto filter records that have res_field unless specified
-        img_exists = Attachment.search([('res_field','=',field),('url','=',path + name)])
+        img_exists = Attachment.search([('res_field','=',field),('url','=',path)])
         if img_exists:
             # Return existing attachment record if found
             return img_exists
@@ -41,6 +43,6 @@ class ImageMixin(models.AbstractModel):
                     'res_field': field,
                     'public': True,
                     'type': 'url',
-                    'url': path + name
+                    'url': path
                 })
 
