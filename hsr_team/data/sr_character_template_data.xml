@@ -1,0 +1,283 @@
+<odoo>
+    <!-- ADD CHARACTERS MATERIALS -->
+    <record model="sr.character.template" id="sr_character_march7th">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_2"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_8"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_danheng">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_2"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_himeko">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_4"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_welt">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_9"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_kafka">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_2"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_7"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_silverwolf">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_1"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_arlan">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_3"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_asta">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_4"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_herta">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_8"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_bronya">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_2"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_seele">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_2"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_1"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_serval">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_3"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_gepard">
+        <field name="avatar">Gepard</field>
+        <field name="character_id">1104</field>
+        <field name="element_id" ref="hsr_warp.sr_element_ice"/>
+        <field name="path_id" ref="hsr_warp.sr_path_preservation"/>
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_8"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_natasha">
+        <field name="path_id" ref="hsr_warp.sr_path_abundance"/>
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_pela">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_8"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_clara">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_sampo">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_2"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_hook">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_4"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_lynx">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_11"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_luka">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_topaz">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_3"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_13"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_qingque">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_2"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_1"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_tingyun">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_3"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_luocha">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_9"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_jingyuan">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_7"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_blade">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_10"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_sushang">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_yukong">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_1"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_9"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_fuxuan">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_11"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_yanqing">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_2"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_6"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_guinafen">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_13"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_bailu">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_3"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_jingliu">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_6"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_danhengil">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_12"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_xueyi">
+        <!-- <field name="general_mat_id" ref="hsr_warp.sr_general_mat_6"/> -->
+        <!-- <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/> -->
+        <!-- <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_14"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_hanya">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_6"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_14"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_huohuo">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_5"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_10"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_argenti">
+        <field name="general_mat_id" ref="hsr_warp.sr_general_mat_1"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_3"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_14"/>
+    </record>
+
+    <record model="sr.character.template" id="sr_character_ruanmei">
+        <!-- <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_aventurine">
+        <!-- <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_drratio">
+        <!-- <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_hanabi">
+        <!-- <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_blackswan">
+        <!-- <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_sam">
+        <!-- <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_screwllum">
+        <!-- <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/> -->
+    </record>
+
+    <record model="sr.character.template" id="sr_character_misha">
+        <!-- <field name="general_mat_id" ref="hsr_warp.sr_general_mat_4"/>
+        <field name="advanced_mat_id" ref="hsr_warp.sr_advanced_mat_2"/>
+        <field name="ascension_mat_id" ref="hsr_warp.sr_ascension_mat_5"/> -->
+    </record>
+</odoo>
