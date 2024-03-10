@@ -115,7 +115,7 @@ class Character(models.Model):
             ch_rec = self.browse_sr_id(ch['item_id'])
             if not ch_rec:
                 # Create light cone
-                ch['light_cone_id'] = LightCone.create(light_cone_data)
+                ch['light_cone_id'] = LightCone.create(light_cone_data).id
                 # Create new character
                 self.create(ch)
                 _logger.info(f"New character record: {ch['name']}")
