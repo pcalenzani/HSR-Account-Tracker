@@ -2,8 +2,8 @@
 <templates xml:space="preserve">
 
     <t t-inherit="web.AttachmentImageField" t-inherit-mode="extension" owl="1">
-        <xpath expr="//img" position="attributes">
-            <attribute name="alt">Image TEST</attribute>
+        <xpath expr="//img" position="after">
+            <div>test</div>
             <!-- <img t-if="props.value" t-attf-src="/web/image/{{ props.value[0] }}?unique=1" t-att-title="props.value[1]" alt="Image TEST" class="att_image_resize"/> -->
         </xpath>
     </t>
