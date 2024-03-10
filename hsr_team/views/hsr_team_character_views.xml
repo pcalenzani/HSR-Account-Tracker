@@ -10,6 +10,7 @@
                 <field name="element_id"/>
                 <field name="path_id"/>
                 <field name="is_owned" column_invisible="1"/>
+                <field name="rarity" column_invisible="1"/>
             </tree>
         </field>
     </record>
