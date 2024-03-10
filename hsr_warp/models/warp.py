@@ -57,6 +57,7 @@ class Warp(models.Model):
             row.append(banner_id)
 
             warp = self.browse_sr_id([row[wid_index]])
+            # If the warp id is already in db, add id to update record
             if warp:
                 row.append(warp.id)
 
