@@ -41,3 +41,4 @@
     <menuitem id="menu_sr_character_template" name="Character Settings" sequence="0" parent="menu_sr_config_root" action="sr_character_template_action"/>
     <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_root" action="sr_elements_action"/>
     <menuitem id="menu_sr_paths" name="Aeon Paths" sequence="10" parent="menu_sr_config_root" action="sr_paths_action"/>
+</odoo>
