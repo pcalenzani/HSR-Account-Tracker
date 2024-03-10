@@ -23,8 +23,13 @@
             <form string="Light Cone">
                 <sheet>
                     <field name="rarity" invisible="1"/>
-                    <div class="oe_title" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'">
-                        <h1><field name="name"/></h1>
+                    <div class="oe_title">
+                        <label for="name" string="Light Cone Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="name" widget="text" readonly="1" options="{'line_breaks': False}" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'"/>
+                            </div>
+                        </h1>
                     </div>
                     <field name="preview_img_id" widget="attachment_image" class="image_bg_float"/>
                     <group>
@@ -32,9 +37,9 @@
                             <field name="path_id"/>
                             <field name="level"/>
                             <field name="rank"/>
-                            <field name="character_id"/>
                         </group>
                         <group>
+                            <field name="character_id"/>
                             <field name="att_hp"/>
                             <field name="att_atk"/>
                             <field name="att_def"/>
