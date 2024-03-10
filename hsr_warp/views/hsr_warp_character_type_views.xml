@@ -22,7 +22,9 @@
                         </group>
                     </group>
                     <notebook>
-                        <page></page>
+                        <page>
+                            <field name="character_template_ids"/>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
@@ -66,7 +68,9 @@
                         </group>
                     </group>
                     <notebook>
-                        <page></page>
+                        <page>
+                            <field name="character_template_ids"/>
+                        </page>
                     </notebook>
                 </sheet>
             </form>

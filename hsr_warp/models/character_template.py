@@ -112,6 +112,7 @@ class Element(models.Model):
     reference = fields.Char('Internal Ref')
     img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id',
                              domain="[('res_model','=','sr.element'),('res_field','=','img_id')]")
+    character_template_ids = fields.One2many('sr.character.template', 'element_id', string='Characters')
     
     @api.depends('name')
     def _compute_img_id(self):
@@ -140,6 +141,7 @@ class Path(models.Model):
     reference = fields.Char('Internal Ref')
     img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id',
                              domain="[('res_model','=','sr.path'),('res_field','=','img_id')]")
+    character_template_ids = fields.One2many('sr.character.template', 'path_id', string='Characters')
 
     @api.depends('name')
     def _compute_img_id(self):
