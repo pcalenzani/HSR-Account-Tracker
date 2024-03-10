@@ -69,9 +69,10 @@ class Banner(models.Model):
         gacha_id, gacha_type = fields or ('gacha_id', 'gacha_type')
         banners = set()
         for warp in data:
-            banners.add({'banner_key': warp[gacha_id], 'gacha_type_id': int(warp[gacha_type])})
+            # Store as immutable tuple (gacha_id, gacha_type)
+            banners.add((warp[gacha_id], int(warp[gacha_type])))
         
         for banner in banners:
-            if not self._get_by_gacha_id(banner['banner_key']):
+            if not self._get_by_gacha_id(banner[0]):
                 # If we don't have this banner yet
-                self.create(banner)
+                self.create({'banner_key': banner[0], 'gacha_type_id': banner[1]})
