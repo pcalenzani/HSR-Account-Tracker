@@ -9,8 +9,8 @@ class LightCone(models.Model):
     _inherit = 'sr.item'
     _order = 'item_id DESC'
 
-    rank = fields.Integer('Rank')
-    promotion = fields.Integer('Superimposition')
+    rank = fields.Integer('Superimposition')
+    promotion = fields.Integer('Ascension Level')
 
     portrait_path = fields.Char('Portrait Image Path')
     preview_path = fields.Char('Preview Image Path')
