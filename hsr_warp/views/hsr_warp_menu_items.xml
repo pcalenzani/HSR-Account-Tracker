@@ -1,9 +1,27 @@
 <?xml version="1.0"?>
 <odoo>
-    <record id="hsr_warp_warp_action" model="ir.actions.act_window">
+    <record id="hsr_warp_warp_all_action" model="ir.actions.act_window">
         <field name="name">Warps</field>
         <field name="res_model">sr.warp</field>
         <field name="view_mode">tree,form</field>
+    </record>
+    <record id="hsr_warp_warp_char_action" model="ir.actions.act_window">
+        <field name="name">Limited Character Warps</field>
+        <field name="res_model">sr.warp</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('banner_type_id.gacha_type','=','11')]</field>
+    </record>
+    <record id="hsr_warp_warp_lc_action" model="ir.actions.act_window">
+        <field name="name">Light Cone Warps</field>
+        <field name="res_model">sr.warp</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('banner_type_id.gacha_type','=','12')]</field>
+    </record>
+    <record id="hsr_warp_warp_std_action" model="ir.actions.act_window">
+        <field name="name">Standard Warps</field>
+        <field name="res_model">sr.warp</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('banner_type_id.gacha_type','=','1')]</field>
     </record>
     <record id="hsr_warp_banner_action" model="ir.actions.act_window">
         <field name="name">Banners</field>
@@ -33,12 +51,15 @@
 
     <menuitem id="menu_hsr_root" name="Star Rail" sequence="30" web_icon="hsr_warp,static/description/icon(2).png"/>
     <menuitem id="menu_warps_root" name="Warps" sequence="30" parent="menu_hsr_root"/>
-    <menuitem id="menu_banner_types" name="Banner Types" sequence="20" parent="menu_warps_root" action="hsr_warp_banner_type_action"/>
-    <menuitem id="menu_banners" name="Banners" sequence="10" parent="menu_warps_root" action="hsr_warp_banner_action"/>
-    <menuitem id="menu_warps" name="Warps" sequence="0" parent="menu_warps_root" action="hsr_warp_warp_action"/>
+    <menuitem id="menu_warps" name="Character Warps" sequence="10" parent="menu_warps_root" action="hsr_warp_warp_char_action"/>
+    <menuitem id="menu_warps" name="Light Cone Warps" sequence="20" parent="menu_warps_root" action="hsr_warp_warp_lc_action"/>
+    <menuitem id="menu_warps" name="Standard Warps" sequence="30" parent="menu_warps_root" action="hsr_warp_warp_std_action"/>
+    <menuitem id="menu_warps" name="All Warps" sequence="40" parent="menu_warps_root" action="hsr_warp_warp_all_action"/>
     
     <menuitem id="menu_sr_config_root" name="Configuration" sequence="99" parent="menu_hsr_root"/>
     <menuitem id="menu_sr_character_template" name="Character Settings" sequence="0" parent="menu_sr_config_root" action="sr_character_template_action"/>
-    <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_root" action="sr_elements_action"/>
     <menuitem id="menu_sr_paths" name="Aeon Paths" sequence="10" parent="menu_sr_config_root" action="sr_paths_action"/>
+    <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_root" action="sr_elements_action"/>
+    <menuitem id="menu_banner_types" name="Banner Types" sequence="30" parent="menu_sr_config_root" action="hsr_warp_banner_type_action"/>
+    <menuitem id="menu_banners" name="Banners" sequence="40" parent="menu_sr_config_root" action="hsr_warp_banner_action"/>
 </odoo>
