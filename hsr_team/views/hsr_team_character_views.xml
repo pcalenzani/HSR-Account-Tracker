@@ -64,6 +64,14 @@
                         <page string="All Stats">
                             <field name="attribute_ids"/>
                         </page>
+                        <page string="Pulls">
+                            <group>
+                                <field name="date_obtained"/>
+                                <field name="count"/>
+                                <field name="free_pulls"/>
+                            </group>
+                            <field name="warp_ids"/>
+                        </page>
                         <page string="Eidolons">
                             <field name="eidolon_ids" mode="kanban">
                                 <kanban>

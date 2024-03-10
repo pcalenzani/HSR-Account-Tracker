@@ -11,7 +11,13 @@ class CharacterTemplate(models.Model):
     
     avatar = fields.Char("Character Name")
     character_id = fields.Integer('Character ID', index=True)
+
+    # -- Info from warps --
     warp_ids = fields.One2many('sr.warp', 'character_id', string='Warps')
+    free_pulls = fields.Integer('Free Pulls')
+    count = fields.Integer('Count', store=True, compute='_compute_count')
+    is_owned = fields.Boolean('Is Owned', store=True, compute='_compute_count')
+    date_obtained = fields.Date('Obtained on', store=True, compute='_compute_count')
 
     # -- Element & Path --
     element_id = fields.Many2one('sr.element', string='Element')
@@ -54,6 +60,13 @@ class CharacterTemplate(models.Model):
                                                        rec.character_id,
                                                        field='icon_img_id').id
 
+    @api.depends('warp_ids', 'free_pulls')
+    def _compute_count(self):
+        for rec in self:
+            count = len(rec.warp_ids) + rec.free_pulls
+            rec.count = count
+            rec.is_owned = count # Boolean
+            rec.date_obtained = max(rec.warp_ids.mapped('time')) if rec.warp_ids else None
     
     def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
         args = args or []

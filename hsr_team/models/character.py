@@ -49,10 +49,9 @@ class Character(models.Model):
     icon_img_id = fields.Many2one('ir.attachment', string='Icon Image', compute='_compute_images')
 
     # --- Manual Fields ---
-    count = fields.Integer('Count', store=True, compute='_compute_count')
-    is_owned = fields.Boolean('Is Owned', store=True, compute='_compute_count')
-    date_obtained = fields.Date('Obtained on')
-    free_pulls = fields.Integer('Free Pulls')
+    count = fields.Integer(related='template_id.count')
+    date_obtained = fields.Date(related='template_id.date_obtained')
+    free_pulls = fields.Integer(related='template_id.free_pulls')
 
     # --- API Fields ---
     promotion = fields.Integer(string='Ascension Level')
@@ -71,13 +70,6 @@ class Character(models.Model):
     _sql_constraints = [
         ('character_key', 'UNIQUE (item_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]
-    
-    @api.depends('template_id.warp_ids')
-    def _compute_count(self):
-        for rec in self:
-            count = self.env['sr.warp'].search_count([('item_id','=',str(rec.item_id))])
-            rec.count = count
-            rec.is_owned = count + rec.free_pulls
 
     @api.depends('icon_path', 'preview_path', 'portrait_path')
     def _compute_images(self):
