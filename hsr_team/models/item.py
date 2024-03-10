@@ -51,20 +51,13 @@ class Material(models.Model):
             ('ascension', 'Ascension')
         ]
     )
-    img_id = fields.Many2one('ir.attachment', string='Image',
+    img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id',
                              domain="[('res_model','=','sr.item.material'),('res_field','=','img_id')]")
 
-    @api.model_create_multi
-    def create(self, vals_list):
-        # On creation, look up image with corresponding id number
-        for vals in vals_list:
-            if 'item_id' in vals:
-                # Generate image attachment
-                img_path = '/hsr_warp/static/icon/item/'
-                vals['img_id'] = self.get_image_from_path(img_path, vals['item_id']).id
-        return super(Material, self).create(vals_list)
+    @api.depends('item_id')
+    def _compute_img_id(self):
+        # Get image attachment when updating item_id
+        img_path = '/hsr_warp/static/icon/item/'
+        for rec in self:
+            rec.img_id = self.get_image_from_path(img_path, rec.item_id).id
 
-
-# Attributes
-# Properties
-# Skills

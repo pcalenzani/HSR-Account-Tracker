@@ -20,11 +20,11 @@ class CharacterTemplate(models.Model):
     path_img_id = fields.Many2one(related='path_id.img_id', string='Path Image')
 
     # -- Character Images --
-    portrait_img_id = fields.Many2one('ir.attachment', string='Portrait Image',
+    portrait_img_id = fields.Many2one('ir.attachment', string='Portrait Image', compute='_compute_images',
                         domain="[('res_model','=','sr.character.template'),('res_field','=','portrait_img_id')]")
-    preview_img_id = fields.Many2one('ir.attachment', string='Preview Image',
+    preview_img_id = fields.Many2one('ir.attachment', string='Preview Image', compute='_compute_images',
                         domain="[('res_model','=','sr.character.template'),('res_field','=','preview_img_id')]")
-    icon_img_id = fields.Many2one('ir.attachment', string='Icon Image',
+    icon_img_id = fields.Many2one('ir.attachment', string='Icon Image', compute='_compute_images',
                         domain="[('res_model','=','sr.character.template'),('res_field','=','icon_img_id')]")
 
     _sql_constraints = [
@@ -36,6 +36,24 @@ class CharacterTemplate(models.Model):
         # Compute name, example: Dan (Template)
         for rec in self:
             rec.display_name = f"{rec.avatar} (Template)"
+
+    @api.depends('character_id')
+    def _compute_images(self):
+        # Get image attachments for each image type when character id updated
+        for rec in self:
+            portrait_img_path = '/hsr_warp/static/image/character_portrait/'
+            rec.portrait_img_id = self.get_image_from_path(portrait_img_path,
+                                                           rec.character_id,
+                                                           field='portrait_img_id').id
+            preview_img_path = '/hsr_warp/static/image/character_preview/'
+            rec.preview_img_id = self.get_image_from_path(preview_img_path,
+                                                          rec.character_id,
+                                                          field='preview_img_id').id
+            icon_img_path = '/hsr_warp/static/icon/character/'
+            rec.icon_img_id = self.get_image_from_path(icon_img_path,
+                                                       rec.character_id,
+                                                       field='icon_img_id').id
+
     
     def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
         args = args or []
@@ -54,26 +72,6 @@ class CharacterTemplate(models.Model):
         self.env.cr.execute("""SELECT id FROM sr_character_template WHERE character_id in %s LIMIT 1""", [sr_ids])
         ids = tuple(self.env.cr.fetchall())
         return self.__class__(self.env, ids, ids)
-    
-    @api.model_create_multi
-    def create(self, vals_list):
-        # On creation, look up images with corresponding character id
-        for vals in vals_list:
-            if 'character_id' in vals:
-                # Generate image attachments for each image type
-                portrait_img_path = '/hsr_warp/static/image/character_portrait/'
-                vals['portrait_img_id'] = self.get_image_from_path(portrait_img_path,
-                                                              vals['character_id'],
-                                                              field='portrait_img_id').id
-                preview_img_path = '/hsr_warp/static/image/character_preview/'
-                vals['preview_img_id'] = self.get_image_from_path(preview_img_path,
-                                                             vals['character_id'],
-                                                             field='preview_img_id').id
-                icon_img_path = '/hsr_warp/static/icon/character/'
-                vals['icon_img_id'] = self.get_image_from_path(icon_img_path,
-                                                          vals['character_id'],
-                                                          field='icon_img_id').id
-        return super(CharacterTemplate, self).create(vals_list)
     
     # WINDOW ACTIONS
     def action_element(self):
@@ -112,17 +110,15 @@ class Element(models.Model):
     
     name = fields.Char('Name')
     reference = fields.Char('Internal Ref')
-    img_id = fields.Many2one('ir.attachment', string='Image', domain="[('res_model','=','sr.element'),('res_field','=','img_id')]")
+    img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id',
+                             domain="[('res_model','=','sr.element'),('res_field','=','img_id')]")
     
-    @api.model_create_multi
-    def create(self, vals_list):
-        # On creation, look up image with corresponding name
-        for vals in vals_list:
-            if 'name' in vals:
-                # Generate image attachment
-                img_path = '/hsr_warp/static/icon/element/'
-                vals['img_id'] = self.get_image_from_path(img_path, vals['name']).id
-        return super(Element, self).create(vals_list)
+    @api.depends('name')
+    def _compute_img_id(self):
+        # Get image attachment when updating name
+        img_path = '/hsr_warp/static/icon/element/'
+        for rec in self:
+            rec.img_id = self.get_image_from_path(img_path, rec.name).id
     
 
 class Path(models.Model):
@@ -142,15 +138,13 @@ class Path(models.Model):
     
     name = fields.Char("Name")
     reference = fields.Char('Internal Ref')
-    img_id = fields.Many2one('ir.attachment', string='Image', domain="[('res_model','=','sr.path'),('res_field','=','img_id')]")
+    img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id',
+                             domain="[('res_model','=','sr.path'),('res_field','=','img_id')]")
 
-    @api.model_create_multi
-    def create(self, vals_list):
-        # On creation, look up image with corresponding name
-        for vals in vals_list:
-            if 'name' in vals:
-                # Generate image attachment
-                img_path = '/hsr_warp/static/icon/path/'
-                vals['img_id'] = self.get_image_from_path(img_path, name=vals['name']).id
-        return super(Path, self).create(vals_list)
+    @api.depends('name')
+    def _compute_img_id(self):
+        # Get image attachment when updating name
+        img_path = '/hsr_warp/static/icon/path/'
+        for rec in self:
+            rec.img_id = self.get_image_from_path(img_path, rec.name).id
     
