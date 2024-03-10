@@ -67,21 +67,20 @@ class LightCone(models.Model):
         to_remove = ['properties']
         base_path = '/hsr_warp/static/'
 
-        for ch in data:
-            for k in to_remove:
-                # Will only remove key if exists
-                ch.pop(k, None)
+        for k in to_remove:
+            # Will only remove key if exists
+            data.pop(k, None)
 
-            # Rename id key to db friendly, cast to int for lookup
-            ch['item_id'] = int(ch.pop('id'))
-            # Get path record
-            ch['path_id'] = self.env['sr.path'].search([('reference','=',ch.pop('path')['id'])])
-            # Add base path to img paths
-            ch['icon_path'] = base_path + ch.pop('icon')
-            ch['preview_path'] = base_path + ch.pop('preview')
-            ch['portrait_path'] = base_path + ch.pop('portrait')
-            # Prepare command list for attributes
-            ch['attribute_ids'] = self.env['sr.attribute']._populate_attributes(ch.pop('attributes'))
+        # Rename id key to db friendly, cast to int for lookup
+        data['item_id'] = int(data.pop('id'))
+        # Get path record
+        data['path_id'] = self.env['sr.path'].search([('reference','=',data.pop('path')['id'])])
+        # Add base path to img paths
+        data['icon_path'] = base_path + data.pop('icon')
+        data['preview_path'] = base_path + data.pop('preview')
+        data['portrait_path'] = base_path + data.pop('portrait')
+        # Prepare command list for attributes
+        data['attribute_ids'] = self.env['sr.attribute']._populate_attributes(data.pop('attributes'))
         return data
 
     # TODO: Add images, implement m2o links
