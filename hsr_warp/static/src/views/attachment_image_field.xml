@@ -2,7 +2,8 @@
 <templates xml:space="preserve">
 
     <t t-inherit="web.AttachmentImageField" t-inherit-mode="extension" owl="1">
-        <xpath expr="//div" position="replace">
+        <xpath expr="//img" position="attributes">
+            <attribute name="class">image_resize</attribute>
         </xpath>
     </t>
 
