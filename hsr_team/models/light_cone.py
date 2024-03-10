@@ -20,7 +20,7 @@ class LightCone(models.Model):
     icon_img_id = fields.Many2one('ir.attachment', string='Icon Image', compute='_compute_images')
 
     path_id = fields.Many2one('sr.path', string='Path')
-    character_ids = fields.One2Many('sr.character', 'light_cone_id', string='Character Link')
+    character_ids = fields.One2many('sr.character', 'light_cone_id', string='Character Link')
     character_id = fields.Many2one('sr.character', string='Equipped By', store=True, compute='_compute_character_id', ondelete='cascade')
 
     attribute_ids = fields.One2many('sr.attribute', 'light_cone_id', string='Light Cone Stats', inverse='_set_attributes')
