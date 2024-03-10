@@ -20,7 +20,7 @@ class Warp(models.Model):
     lang = fields.Char('Lang')
     item_type = fields.Char('Item Type')
     rank_type = fields.Integer('Rarity')
-    wid = fields.Char('Warp ID', index=True)
+    wid = fields.Char('Warp ID', index=True) # ID is out of int bounds, cannot use long int so need to be char
 
     pity = fields.Integer('Pity', store=True, compute='_compute_pity')
     banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_banner_id')
@@ -32,6 +32,11 @@ class Warp(models.Model):
     ]
 
     def load(self, fields, data):
+        '''
+        Method override for importing records
+        :param fields: List of fields being imported
+        :param data: Matrix of data to be imported
+        '''
         if 'gacha_id' not in fields:
             raise UserError('The import file must contain a banner id column.')
         
@@ -65,7 +70,7 @@ class Warp(models.Model):
     @api.depends('gacha_type')
     def _compute_banner_type_id(self):
         for warp in self:
-            warp.banner_type_id = self.env['sr.banner.type'].search([('gacha_type','=',warp.gacha_type)])
+            warp.banner_type_id = self.env['sr.banner.type']._get_by_gacha_type_id(warp.gacha_type)
 
     def _compute_warp_pity(self):
         for warp in self:
@@ -76,22 +81,8 @@ class Warp(models.Model):
         for warp in self:
             warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)]) or None
             
-    def browse_sr_id(self, sr_ids=None):
-        if not sr_ids:
-            sr_ids= ()
-        elif sr_ids.__class__ is int:
-            sr_ids = (str(sr_ids),)
-        elif sr_ids.__class__ is str:
-            sr_ids = (sr_ids,)
-        else:
-            sr_ids= tuple(sr_ids)
-
-        try:
-            self.env.cr.execute("""SELECT id FROM sr_warp WHERE wid in %s LIMIT 1""", [sr_ids])
-            ids = self.env.cr.fetchall()[0]
-        except IndexError:
-            return self
-        return self.__class__(self.env, ids, ids)
+    def browse_sr_id(self, sr_ids):
+        return self.search([('wid','in',sr_ids)])
 
     def generate_warps(self, vals_list):
         '''

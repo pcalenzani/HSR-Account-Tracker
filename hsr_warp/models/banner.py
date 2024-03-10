@@ -17,8 +17,7 @@ class BannerType(models.Model):
     last_five_star = fields.Many2one('sr.warp', string='Last 5* Warp', store=True, compute='_compute_warps')
 
     def _get_by_gacha_type_id(self, gacha_type_id):
-        self.env.cr.execute(f"SELECT id FROM sr_banner_type WHERE gacha_type = '{gacha_type_id}' LIMIT 1")
-        return self.browse(self.env.cr.fetchone())
+        return self.search([('gacha_type','=',gacha_type_id)])
     
     @api.depends('warp_ids')
     def _compute_warps(self):
@@ -28,7 +27,7 @@ class BannerType(models.Model):
                 banner.last_warp = None
                 banner.last_five_star = None
                 banner.pity_level = 0
-                return
+                continue
             
             banner.last_warp = banner.warp_ids[0]
             # Get all 5* warps
@@ -64,8 +63,7 @@ class Banner(models.Model):
         return super(Banner, self).create(vals_list)
     
     def _get_by_gacha_id(self, gacha_id):
-        self.env.cr.execute(f"SELECT id FROM sr_banner WHERE banner_key = '{gacha_id}'")
-        return self.browse(self.env.cr.fetchone())
+        return self.search([('banner_key','=',gacha_id)])
     
     def generate_banners(self, data, fields=None):
         gacha_id, gacha_type = fields or ('gacha_id', 'gacha_type')
