@@ -56,7 +56,7 @@ class Warp(models.Model):
             banner_id = banner_ids.get(row[gacha_index[0]])
             row.append(banner_id)
 
-            warp = self.browse_sr_id(row[wid_index])
+            warp = self.browse_sr_id([row[wid_index]])
             if warp:
                 row.append(warp.id)
 
@@ -82,6 +82,9 @@ class Warp(models.Model):
             warp.character_id = self.env['sr.character.template'].search([('character_id','=',warp.item_id)]) or None
             
     def browse_sr_id(self, sr_ids):
+        '''
+        :params sr_ids: List of ids to search
+        '''
         return self.search([('wid','in',sr_ids)])
 
     def generate_warps(self, vals_list):
@@ -93,7 +96,7 @@ class Warp(models.Model):
         # Check if warps exist before creating
         for i in range(len(vals_list)):
             id = vals_list[i]['id']
-            if self.browse_sr_id(id):
+            if self.browse_sr_id([id]):
                 _logger.warning("ID FOUND: " + str(id) + " - Skipping...")
                 # Truncate vals list when duplicate id found
                 vals_list = vals_list[:i]
