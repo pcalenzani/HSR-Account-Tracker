@@ -32,6 +32,5 @@
 
 /* Hover tree view, disable text color change */
 .table-hover > tbody > tr:hover > * {
-    --table-accent-bg: var(--table-hover-bg);
-    /* color: var(--table-hover-color); */
+    color: unset;
 }
