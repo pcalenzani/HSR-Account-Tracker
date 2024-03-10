@@ -5,6 +5,7 @@
         <field name="model">sr.light.cone</field>
         <field name="arch" type="xml">
             <tree string="Light Cones" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="rarity != '3'">
+                <field name="rarity" invisible="1"/>
                 <field name="icon_img_id"/>
                 <field name="name"/>
                 <field name="path_id"/>
@@ -21,6 +22,7 @@
         <field name="arch" type="xml">
             <form string="Light Cone">
                 <sheet>
+                    <field name="rarity" invisible="1"/>
                     <div class="oe_title" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'">
                         <h1><field name="name"/></h1>
                     </div>
