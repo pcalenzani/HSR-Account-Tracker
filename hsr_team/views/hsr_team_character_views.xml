@@ -9,7 +9,6 @@
                 <field name="name"/>
                 <field name="element_id"/>
                 <field name="path_id"/>
-                <field name="is_owned" column_invisible="1"/>
                 <field name="rarity" column_invisible="1"/>
             </tree>
         </field>
@@ -22,7 +21,6 @@
             <form string="Characters">
                 <sheet>
                     <field name="item_id" invisible="1"/>
-                    <field name="is_owned" invisible="1"/>
                     <field name="template_id" invisible="1"/>
                     <div class="oe_title">
                         <label for="name" string="Character Name"/>
