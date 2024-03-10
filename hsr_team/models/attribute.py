@@ -7,6 +7,7 @@ _logger = logging.getLogger(__name__)
 class Attribute(models.Model):
     _name = 'sr.attribute'
     _description = 'Character Stat'
+    _inherit = 'sr.image.mixin'
 
     name = fields.Char('Name')
     field = fields.Char('Stat Reference')
@@ -14,7 +15,7 @@ class Attribute(models.Model):
     percent = fields.Boolean('Is Percent')
 
     icon = fields.Char('Icon Image Path')
-    img_id = fields.Many2one('ir.attachment', string='Image')
+    img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
 
     # Character attribute values will be split on receipt
     base = fields.Float('Base Value', default=0.0)
@@ -30,21 +31,29 @@ class Attribute(models.Model):
     # relic_id = fields.Many2one('sr.relic', string='Light Cone', ondelete='cascade')
 
     def _compute_display_name(self):
-        for record in self:
-            val = record.value
-            if record.percent:
+        for rec in self:
+            val = rec.value
+            if rec.percent:
                 val *= 100
-            record.display_name = str(float_round(val, precision_digits=3))
+            rec.display_name = str(float_round(val, precision_digits=3))
+    
+    @api.depends('icon')
+    def _compute_img_id(self):
+        # Get image attachment when updating item_id
+        # Icon format will be 'icon/property/IconMaxHP.png'
+        img_path = '/hsr_warp/static/'
+        for rec in self:
+            rec.img_id = rec.get_image_from_path(img_path + rec.icon)
 
     @api.depends('base', 'addition')
     def _compute_value(self):
-        for record in self:
-            record.value = record.base + record.addition
+        for rec in self:
+            rec.value = rec.base + rec.addition
 
     def _set_value(self):
         # If we set value directly, store it as the base amount
-        for record in self:
-            record.base, record.addition = record.value, 0.0
+        for rec in self:
+            rec.base, rec.addition = rec.value, 0.0
 
     def _populate_attributes(self, base, additional=None):
         '''
@@ -66,7 +75,7 @@ class Attribute(models.Model):
         commands = [Command.clear()]
         for stats in base:
             stats_done.append(stats['field'])
-            for field in ['icon', 'display']:
+            for field in ['display']:
                 # Remove unused dict values
                 stats.pop(field)
 
@@ -82,7 +91,7 @@ class Attribute(models.Model):
                     # Skip the base stats we've already done
                     continue
 
-                for field in ['icon', 'display']:
+                for field in ['display']:
                     # Remove unused dict values
                     a_stats.pop(field)
 
