@@ -92,4 +92,40 @@
             </form>
         </field>
     </record>
+    
+    <!-- SR.CHARACTER.TEMPLATE -->
+    <record id="sr_character_template_view_search_inherit" model="ir.ui.view">
+        <field name="name">hsr_warp.character.template.search.inherit.hsr_team</field>
+        <field name="model">sr.character.template</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath>
+                    <filter string="Ascension Material" name="ascension_mat" domain="[]" context="{'group_by': 'ascension_mat_id'}"/>
+                    <filter string="Advanced Material" name="advanced_mat" domain="[]" context="{'group_by': 'advanced_mat_id'}"/>
+                    <filter string="General Material" name="general_mat" domain="[]" context="{'group_by': 'general_mat_id'}"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="sr_character_template_view_form_inherit" model="ir.ui.view">
+        <field name="name">hsr_warp.character.template.form.inherit.hsr_team</field>
+        <field name="model">sr.character.template</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Eidolons">
+                        <field name="eidolon_ids"/>
+                    </page>
+                    <page string="Upgrade Materials">
+                        <group>
+                            <field name="ascension_mat"/>
+                            <field name="advanced_mat"/>
+                            <field name="general_mat"/>
+                        </group>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
 </odoo>
