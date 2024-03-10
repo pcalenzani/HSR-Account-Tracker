@@ -73,6 +73,8 @@ class LightCone(models.Model):
 
         # Rename id key to db friendly, cast to int for lookup
         data['item_id'] = int(data.pop('id'))
+        # Typecast fields for easy storing
+        data['rarity'] = str(data.pop('rarity'))
         # Get path record
         data['path_id'] = self.env['sr.path'].search([('reference','=',data.pop('path')['id'])])
         # Add base path to img paths
