@@ -11,7 +11,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <menuitem id="menu_characters" name="Team" sequence="10" parent="hsr_warp.menu_hsr_root" action="sr_character_action"/>
     <menuitem id="menu_sr_items_root" name="Items" sequence="20" parent="hsr_warp.menu_hsr_root"/>
-    <menuitem id="menu_characters" name="Characters" sequence="10" parent="menu_sr_items_root" action="sr_character_action"/>
     <menuitem id="menu_sr_item_materials" name="Upgrade Materials" sequence="10" parent="menu_sr_items_root" action="sr_item_materials_action"/>
 </odoo>
