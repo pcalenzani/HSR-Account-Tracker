@@ -62,7 +62,7 @@ class Material(models.Model):
             if 'item_id' in vals:
                 # Generate image attachment
                 img_path = '/hsr_warp/static/icon/item/'
-                vals['img_id'] = self.generate_image(img_path, vals['item_id']).id
+                vals['img_id'] = self.get_image_from_path(img_path, vals['item_id']).id
         return super(Material, self).create(vals_list)
 
 

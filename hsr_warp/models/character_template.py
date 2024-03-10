@@ -62,15 +62,15 @@ class CharacterTemplate(models.Model):
             if 'character_id' in vals:
                 # Generate image attachments for each image type
                 portrait_img_path = '/hsr_warp/static/image/character_portrait/'
-                vals['portrait_img_id'] = self.generate_image(portrait_img_path,
+                vals['portrait_img_id'] = self.get_image_from_path(portrait_img_path,
                                                               vals['character_id'],
                                                               field='portrait_img_id').id
                 preview_img_path = '/hsr_warp/static/image/character_preview/'
-                vals['preview_img_id'] = self.generate_image(preview_img_path,
+                vals['preview_img_id'] = self.get_image_from_path(preview_img_path,
                                                              vals['character_id'],
                                                              field='preview_img_id').id
                 icon_img_path = '/hsr_warp/static/icon/character/'
-                vals['icon_img_id'] = self.generate_image(icon_img_path,
+                vals['icon_img_id'] = self.get_image_from_path(icon_img_path,
                                                           vals['character_id'],
                                                           field='icon_img_id').id
         return super(CharacterTemplate, self).create(vals_list)
@@ -121,7 +121,7 @@ class Element(models.Model):
             if 'name' in vals:
                 # Generate image attachment
                 img_path = '/hsr_warp/static/icon/element/'
-                vals['img_id'] = self.generate_image(img_path, vals['name']).id
+                vals['img_id'] = self.get_image_from_path(img_path, vals['name']).id
         return super(Element, self).create(vals_list)
     
 
@@ -151,6 +151,6 @@ class Path(models.Model):
             if 'name' in vals:
                 # Generate image attachment
                 img_path = '/hsr_warp/static/icon/path/'
-                vals['img_id'] = self.generate_image(img_path, name=vals['name']).id
+                vals['img_id'] = self.get_image_from_path(img_path, name=vals['name']).id
         return super(Path, self).create(vals_list)
     
