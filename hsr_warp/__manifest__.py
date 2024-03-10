@@ -4,7 +4,7 @@
     'summary': 'Honkai: Star Rail - Warp Tracker',
     'sequence': 0,
     'description': "",
-    'depends': ['base', 'web'],
+    'depends': ['web'],
     'data': [
         'data/sr_banner_data.xml',
         'data/ir_cron_data.xml',
@@ -19,7 +19,7 @@
 
         'security/ir.model.access.csv',
     ],
-    'assets': { # Make ir.asset records
+    'assets': {
         # 'web.dark_mode_assets_backend': ['hsr_warp/static/src/css/hsr_warp.css'],
         'web.assets_backend': ['hsr_warp/static/src/css/hsr_warp.css',
                                'hsr_warp/static/src/views/attachment_image_field.xml'],
