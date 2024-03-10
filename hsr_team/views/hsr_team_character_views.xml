@@ -99,7 +99,7 @@
         <field name="model">sr.character.template</field>
         <field name="arch" type="xml">
             <data>
-                <xpath>
+                <xpath expr="//group" position="inside">
                     <filter string="Ascension Material" name="ascension_mat" domain="[]" context="{'group_by': 'ascension_mat_id'}"/>
                     <filter string="Advanced Material" name="advanced_mat" domain="[]" context="{'group_by': 'advanced_mat_id'}"/>
                     <filter string="General Material" name="general_mat" domain="[]" context="{'group_by': 'general_mat_id'}"/>
