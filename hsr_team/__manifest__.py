@@ -22,5 +22,6 @@
     'application': True,
     'icon': '/hsr_warp/static/description/icon(3).png',
     'pre_init_hook': 'pre_init',
-    'assets': {}
+    'assets': {},
+    'license': 'LGPL-3',
 }

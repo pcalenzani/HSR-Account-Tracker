@@ -1,5 +1,5 @@
 {
-    'name': 'Warp Tracker',
+    'name': 'Star Rail Base',
     'version': '1.0',
     'summary': 'Honkai: Star Rail - Warp Tracker',
     'sequence': 0,
@@ -20,7 +20,7 @@
         'security/ir.model.access.csv',
     ],
     'assets': {
-        'web.dark_mode_assets_backend': ['hsr_warp/static/src/css/hsr_warp.css'],
+        # 'web.dark_mode_assets_backend': ['hsr_warp/static/src/css/hsr_warp.css'],
         'web.assets_backend': ['hsr_warp/static/src/css/hsr_warp.css',
                                'hsr_warp/static/src/views/attachment_image_field.xml'],
     },
@@ -28,5 +28,5 @@
     'application': True,
     'icon': '/hsr_warp/static/description/icon(1).png',
     # 'post_init_hook': '_method_name',
-    'assets': {}
+    'license': 'LGPL-3',
 }
