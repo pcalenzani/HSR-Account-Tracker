@@ -37,6 +37,18 @@
             <field name="item_id">113013</field>
             <field name="type">basic</field>
         </record>
+        <record model="sr.item.material" id="sr_general_mat_7">
+            <field name="name">Dream Making Engine</field>
+            <field name="full_name">Dream Making Engine</field>
+            <field name="item_id">114003</field>
+            <field name="type">basic</field>
+        </record>
+        <record model="sr.item.material" id="sr_general_mat_8">
+            <field name="name">Shards of Desires</field>
+            <field name="full_name">Shards of Desires</field>
+            <field name="item_id">114013</field>
+            <field name="type">basic</field>
+        </record>
 
         <!-- ADVANCED MATERIALS -->
         <record model="sr.item.material" id="sr_advanced_mat_1">
@@ -55,6 +67,12 @@
             <field name="name">Regret of Infinite Ochema</field>
             <field name="full_name">Regret of Infinite Ochema</field>
             <field name="item_id">110503</field>
+            <field name="type">eow</field>
+        </record>
+        <record model="sr.item.material" id="sr_advanced_mat_4">
+            <field name="name">Past Evils of Borehole</field>
+            <field name="full_name">Past Evils of the Borehole Planet Disaster</field>
+            <field name="item_id">110504</field>
             <field name="type">eow</field>
         </record>
         <record model="sr.item.material" id="sr_advanced_mat_destiny">
@@ -144,9 +162,21 @@
             <field name="type">ascension</field>
         </record>
         <record model="sr.item.material" id="sr_ascension_mat_14">
-            <field name="name">Netherworld Pass</field>
-            <field name="full_name">Netherworld Pass</field>
+            <field name="name">Netherworld Token</field>
+            <field name="full_name">Netherworld Token</field>
             <field name="item_id">110411</field>
+            <field name="type">ascension</field>
+        </record>
+        <record model="sr.item.material" id="sr_ascension_mat_15">
+            <field name="name">Dream Fridge</field>
+            <field name="full_name">Dream Fridge</field>
+            <field name="item_id">110423</field>
+            <field name="type">ascension</field>
+        </record>
+        <record model="sr.item.material" id="sr_ascension_mat_16">
+            <field name="name">Dream Flamer</field>
+            <field name="full_name">Dream Flamer</field>
+            <field name="item_id">110426</field>
             <field name="type">ascension</field>
         </record>
     </data>
