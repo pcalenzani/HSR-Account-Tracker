@@ -17,3 +17,13 @@
     max-width: 2000px;
     margin-inline: auto;
 }
+
+/* Tree view decoration */
+.text-warning {
+    --color: RGBA(213, 188, 50, var(--text-opacity, 1));
+    color: var(--color) !important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
