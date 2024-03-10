@@ -13,6 +13,7 @@
         'views/hsr_team_attribute_views.xml',
 
         'data/sr_material_data.xml',
+        'data/sr_character_template_data.xml',
 
         'security/ir.model.access.csv',
     ],
