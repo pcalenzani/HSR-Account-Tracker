@@ -79,7 +79,6 @@
     </record>
 
     <record model="sr.character.template" id="hsr_warp.sr_character_natasha">
-        <field name="path_id" ref="sr_path_abundance"/>
         <field name="general_mat_id" ref="sr_general_mat_4"/>
         <field name="advanced_mat_id" ref="sr_advanced_mat_2"/>
         <field name="ascension_mat_id" ref="sr_ascension_mat_5"/>
