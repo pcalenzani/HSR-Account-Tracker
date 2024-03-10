@@ -54,7 +54,6 @@ class Material(models.Model):
     img_id = fields.Many2one('ir.attachment', string='Image',
                              domain="[('res_model','=','sr.item.material'),('res_field','=','img_id')]")
 
-    
     @api.model_create_multi
     def create(self, vals_list):
         # On creation, look up image with corresponding id number
