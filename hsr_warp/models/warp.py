@@ -26,8 +26,8 @@ class Warp(models.Model):
     pity = fields.Integer('Pity', store=True, compute='_compute_pity')
     banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_banner')
     banner_type_id = fields.Many2one('sr.banner.type', store=True, compute='_compute_banner')
-    character_id = fields.Many2one('sr.character.template', store=True, compute='_compute_drop')
-    img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_drop')
+    character_id = fields.Many2one('sr.character.template', store=True, compute='_compute_character_id')
+    img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
 
     _sql_constraints = [
         ('warp_key', 'UNIQUE (wid)',  'You can not have two warps with the same ID')
@@ -72,14 +72,20 @@ class Warp(models.Model):
             rec.banner_type_id = self.env['sr.banner.type']._get_by_gacha_type_id(rec.gacha_type)
 
     @api.depends('item_id')
-    def _compute_drop(self):
+    def _compute_character_id(self):
+        for rec in self:
+            if rec.item_type == 'Light Cone':
+                rec.character_id = None
+            elif rec.item_type == 'Character':
+                rec.character_id = self.env['sr.character.template'].browse_sr_id([rec.item_id])
+
+    @api.depends('item_id')
+    def _compute_img_id(self):
         for rec in self:
             if rec.item_type == 'Light Cone':
                 path = '/hsr_warp/static/image/light_cone_preview/'
-                rec.character_id = None
             elif rec.item_type == 'Character':
                 path = '/hsr_warp/static/image/character_preview/'
-                rec.character_id = self.env['sr.character.template'].browse_sr_id([rec.item_id])
             rec.img_id = rec.get_image_from_path(path, rec.item_id).id
             
     def _compute_warp_pity(self):
