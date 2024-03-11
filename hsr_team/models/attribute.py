@@ -43,7 +43,7 @@ class Attribute(models.Model):
         # Icon format will be 'icon/property/IconMaxHP.png'
         img_path = '/hsr_warp/static/'
         for rec in self:
-            rec.img_id = rec.get_image_from_path(img_path + rec.icon)
+            rec.img_id = rec.get_image_from_path(img_path + rec.icon).id
 
     @api.depends('base', 'addition')
     def _compute_value(self):
