@@ -11,15 +11,14 @@ class Item(models.Model):
 
     item_id = fields.Integer('Item ID', index=True)
     name = fields.Char('Name')
-    rarity = fields.Selection(selection=[
+    rarity = fields.Selection(string='Rarity', selection=[
         ('0', 'N/A'),
         ('1', 'N/A'),
         ('2', '2 Star'),
         ('3', '3 Star'),
         ('4', '4 Star'),
         ('5', '5 Star'),
-    ],
-    string='Rarity')
+    ])
     level = fields.Integer('Relic Level')
 
     def browse_sr_id(self, sr_ids):
