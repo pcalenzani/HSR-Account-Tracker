@@ -6,6 +6,7 @@
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
             <tree string="Characters" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="rarity != '3'">
+                <field name="icon_img_id" widget="attachment_image" class="hsr_tree_img"/>
                 <field name="name"/>
                 <field name="element_id"/>
                 <field name="path_id"/>

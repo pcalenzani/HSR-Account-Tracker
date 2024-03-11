@@ -5,6 +5,7 @@
         <field name="model">sr.attribute</field>
         <field name="arch" type="xml">
             <tree string="Stats">
+                <field name="img_id" widget="attachment_image"/>
                 <field name="display_name"/>
                 <field name="name"/>
                 <field name="base"/>

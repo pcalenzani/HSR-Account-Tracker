@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <tree string="Light Cones" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="rarity != '3'">
                 <field name="rarity" column_invisible="1"/>
-                <field name="icon_img_id" widget="attachment_image"/>
+                <field name="icon_img_id" widget="attachment_image" class="hsr_tree_img"/>
                 <field name="name"/>
                 <field name="path_id"/>
                 <field name="level"/>
@@ -47,7 +47,7 @@
                     </group>
                     <notebook>
                         <page string="Art">
-                            <field name="portrait_img_id" widget="attachment_image"/>
+                            <field name="portrait_img_id" widget="attachment_image" class="hsr_portrait_max"/>
                         </page>
                     </notebook>
                 </sheet>

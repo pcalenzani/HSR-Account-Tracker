@@ -36,8 +36,16 @@
 }
 
 /* Image resize classes */
-.o_field_attachment_image.hsr_img_200 {
-    --hsr-img-max: 200px
+.o_field_attachment_image.hsr_img_180 {
+    --hsr-img-max: 180px
+}
+
+.o_field_attachment_image.hsr_tree_img {
+    --hsr-img-max: 100px
+}
+
+.o_field_attachment_image.hsr_portrait_max {
+    --hsr-img-max: 1917px
 }
 
 img.image_resize {
