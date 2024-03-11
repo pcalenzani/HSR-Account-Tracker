@@ -9,6 +9,7 @@ class Warp(models.Model):
     _name = 'sr.warp'
     _description = 'Warp'
     _order = 'wid desc'
+    _inherit = 'sr.imgage.mixin'
 
     uid = fields.Char('User ID')
     gacha_id = fields.Char('Gacha ID')
@@ -23,9 +24,10 @@ class Warp(models.Model):
     wid = fields.Char('Warp ID', index=True) # ID is out of int bounds, cannot use long int so need to be char
 
     pity = fields.Integer('Pity', store=True, compute='_compute_pity')
-    banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_banner_id')
-    banner_type_id = fields.Many2one('sr.banner.type', store=True, compute='_compute_banner_type_id')
-    character_id = fields.Many2one('sr.character.template', store=True, compute='_compute_character_id')
+    banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_banner')
+    banner_type_id = fields.Many2one('sr.banner.type', store=True, compute='_compute_banner')
+    character_id = fields.Many2one('sr.character.template', store=True, compute='_compute_drop')
+    img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_drop')
 
     _sql_constraints = [
         ('warp_key', 'UNIQUE (wid)',  'You can not have two warps with the same ID')
@@ -63,26 +65,28 @@ class Warp(models.Model):
 
         return super().load(fields, data)
 
-    @api.depends('gacha_id')
-    def _compute_banner_id(self):
-        for warp in self:
-            warp.banner_id = self.env['sr.banner']._get_by_gacha_id(warp.gacha_id)
+    @api.depends('gacha_id', 'gacha_type')
+    def _compute_banner(self):
+        for rec in self:
+            rec.banner_id = self.env['sr.banner']._get_by_gacha_id(rec.gacha_id)
+            rec.banner_type_id = self.env['sr.banner.type']._get_by_gacha_type_id(rec.gacha_type)
 
-    @api.depends('gacha_type')
-    def _compute_banner_type_id(self):
-        for warp in self:
-            warp.banner_type_id = self.env['sr.banner.type']._get_by_gacha_type_id(warp.gacha_type)
-
-    def _compute_warp_pity(self):
-        for warp in self:
-            # TODO calculate pity
-            warp.pity = 0
-    
     @api.depends('item_id')
-    def _compute_character_id(self):
-        for warp in self:
-            warp.character_id = self.env['sr.character.template'].browse_sr_id([warp.item_id])
+    def _compute_drop(self):
+        for rec in self:
+            if rec.item_type == 'Light Cone':
+                path = '/hsr_warp/static/image/light_cone_preview/'
+                rec.character_id = None
+            elif rec.item_type == 'Character':
+                path = '/hsr_warp/static/image/character_preview/'
+                rec.character_id = self.env['sr.character.template'].browse_sr_id([rec.item_id])
+            rec.img_id = rec.get_image_from_path(path, rec.item_id).id
             
+    def _compute_warp_pity(self):
+        for rec in self:
+            # TODO calculate pity
+            rec.pity = 0
+    
     def browse_sr_id(self, sr_ids):
         '''
         :params sr_ids: List of ids to search in wid
