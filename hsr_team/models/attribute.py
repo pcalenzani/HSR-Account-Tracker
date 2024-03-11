@@ -3,6 +3,27 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
+'''
+'atk', 'Attack'
+'def', 'Defense'
+'hp', 'Health'
+'crit_rate', 'Crit Rate'
+'crit_dmg', 'Crit Damage'
+'spd', 'Speed'
+'effect_res', 'Effect Res'
+'effect_hit', 'Effect Hit Rate'
+'break_dmg', 'Break Effect'
+'sp_rate', 'Energy Regeneration Rate'
+'heal_rate', 'Outgoing Healing Boost'
+'quantum_dmg', 'Quantum DMG Boost'
+'imaginary_dmg', 'Imaginary DMG Boost'
+'lightning_dmg', 'Lightning DMG Boost'
+'physical_dmg', 'Physical DMG Boost'
+'fire_dmg', 'Fire DMG Boost'
+'wind_dmg', 'Wind DMG Boost'
+'ice_dmg', 'Ice DMG Boost'
+'''
+
 class Attribute(models.Model):
     _name = 'sr.attribute'
     _description = 'Character Stat'
@@ -27,7 +48,7 @@ class Attribute(models.Model):
 
     character_id = fields.Many2one('sr.character', string='Character', ondelete='cascade')
     light_cone_id = fields.Many2one('sr.light.cone', string='Light Cone', ondelete='cascade')
-    # relic_id = fields.Many2one('sr.relic', string='Light Cone', ondelete='cascade')
+    relic_id = fields.Many2one('sr.relic', string='Light Cone', ondelete='cascade')
 
     def _compute_display_name(self):
         for rec in self:
@@ -77,10 +98,9 @@ class Attribute(models.Model):
         commands = [Command.clear()]
         for stats in base:
             stats_done.append(stats['field'])
-            for field in ['display']:
-                # Remove unused dict values
-                stats.pop(field)
-
+            # Remove unused dict values
+            for field in ['display']: stats.pop(field)
+                
             if additional:
                 # If two dict lists are provided, split stat value into base + addition
                 stats['base'] = stats.pop('value')
@@ -92,11 +112,9 @@ class Attribute(models.Model):
                 if a_stats['field'] in stats_done:
                     # Skip the base stats we've already done
                     continue
-
-                for field in ['display']:
-                    # Remove unused dict values
-                    a_stats.pop(field)
-
+                # Remove unused dict values
+                for field in ['display']: a_stats.pop(field)
+                
                 # In the additional list, default base to 0 and use addition field
                 a_stats['base'] = 0.0
                 a_stats['addition'] = a_stats.pop('value')
