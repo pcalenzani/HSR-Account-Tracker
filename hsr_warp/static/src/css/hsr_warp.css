@@ -44,6 +44,10 @@
     --hsr-img-max: 70px
 }
 
+.o_field_attachment_image.hsr_tree_img_small {
+    --hsr-img-max: 30px
+}
+
 .o_field_attachment_image.hsr_portrait_max {
     --hsr-img-max: 1917px
 }
