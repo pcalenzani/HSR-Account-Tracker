@@ -1,5 +1,4 @@
 from odoo import api, fields, models, Command
-from odoo.tools import float_round
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -37,6 +36,7 @@ class Attribute(models.Model):
             if rec.percent:
                 val *= 100
                 tag = '%'
+            # Don't use float_round in str() due to python float multiplication
             rec.display_name = str(round(val, 1)) + tag
     
     @api.depends('icon')
