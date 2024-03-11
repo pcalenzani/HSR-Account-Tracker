@@ -66,6 +66,16 @@ class Character(models.Model):
     att_spd = fields.Many2one('sr.attribute', string='SPD Stat')
     att_crit_rate = fields.Many2one('sr.attribute', string='CRIT_RATE Stat')
     att_crit_dmg = fields.Many2one('sr.attribute', string='CRIT_DMG Stat')
+
+    # -- Relic Fields ---
+    # relic_ids
+    # relic_set_ids
+    # relic_head_id
+    # relic_body_id
+    # relic_hands_id
+    # relic_boots_id
+    # ornament_orb_id
+    # ornament_chain_id
     
     _sql_constraints = [
         ('character_key', 'UNIQUE (item_id)',  'Duplicate character deteced. Item ID must be unique.')
@@ -162,10 +172,8 @@ class Character(models.Model):
         base_path = '/hsr_warp/static/'
 
         for ch in data:
-            for k in to_remove:
-                # Will only remove key if exists
-                ch.pop(k, None)
-            
+            # Remove key if exists
+            for k in to_remove: ch.pop(k, None) 
             # Rename id key to db friendly, cast to int for lookup
             ch['item_id'] = int(ch.pop('id'))
             # Typecast fields for easy storing
