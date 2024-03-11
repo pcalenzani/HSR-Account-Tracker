@@ -21,6 +21,7 @@
         <field name="arch" type="xml">
             <form string="Warps" readonly="1">
                 <sheet>
+                    <field name="img_id" widget="attachment_image" class="hsr_img_300 image_bg_float"/>
                     <group>
                         <group>
                             <field name="name"/>

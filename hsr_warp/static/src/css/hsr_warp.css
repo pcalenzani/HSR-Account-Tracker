@@ -40,6 +40,10 @@
     --hsr-img-max: 180px
 }
 
+.o_field_attachment_image.hsr_img_300 {
+    --hsr-img-max: 300px
+}
+
 .o_field_attachment_image.hsr_tree_img {
     --hsr-img-max: 70px
 }
