@@ -37,7 +37,7 @@ class Attribute(models.Model):
             if rec.percent:
                 val *= 100
                 tag = '%'
-            rec.display_name = str(float_round(val, precision_digits=2)) + tag
+            rec.display_name = str(float_round(val, precision_digits=3)) + tag
     
     @api.depends('icon')
     def _compute_img_id(self):
