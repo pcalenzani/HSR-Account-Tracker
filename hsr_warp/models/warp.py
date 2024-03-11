@@ -9,7 +9,7 @@ class Warp(models.Model):
     _name = 'sr.warp'
     _description = 'Warp'
     _order = 'wid desc'
-    _inherit = 'sr.imgage.mixin'
+    _inherit = 'sr.image.mixin'
 
     uid = fields.Char('User ID')
     gacha_id = fields.Char('Gacha ID')
