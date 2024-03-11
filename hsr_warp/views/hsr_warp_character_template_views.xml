@@ -57,11 +57,15 @@
                         <group>
                             <field name="element_id"/>
                             <field name="path_id"/>
-                            <field name="icon_img_id" widget="attachment_image"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Pulls">
+                            <group>
+                                <field name="date_obtained"/>
+                                <field name="count"/>
+                                <field name="free_pulls"/>
+                            </group>
                             <field name="warp_ids"/>
                         </page>
                         <page string="Art">

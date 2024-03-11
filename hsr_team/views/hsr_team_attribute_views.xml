@@ -10,7 +10,6 @@
                 <field name="name"/>
                 <field name="base"/>
                 <field name="addition"/>
-                <field name="percent"/>
             </tree>
         </field>
     </record>
