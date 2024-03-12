@@ -46,9 +46,11 @@ class Attribute(models.Model):
     count = fields.Integer('Count') # Times leveled, base = 1
     step = fields.Integer('Step') # Affix base amount step
 
+    # Attributes only exist as part of character or relics, delete when the link is gone
     character_id = fields.Many2one('sr.character', string='Character', ondelete='cascade')
     light_cone_id = fields.Many2one('sr.light.cone', string='Light Cone', ondelete='cascade')
-    relic_id = fields.Many2one('sr.relic', string='Light Cone', ondelete='cascade')
+    relic_id = fields.Many2one('sr.relic', string='Relic', ondelete='cascade')
+    relic_main_id = fields.Many2one('sr.relic', string='Relic (Main Affix)', ondelete='cascade')
 
     def _compute_display_name(self):
         for rec in self:
@@ -84,15 +86,15 @@ class Attribute(models.Model):
         - Characters: Receive base stats and additional stats, need to sum together
         - Relics: Receive a main stat value and substat list
         :param statlist: list of attribute dictionaries
-                type        - Specific Stat Type (HPAddedRatio), str
+                type        - Specific Stat Type for Relic (HPAddedRatio), str
                 field       - General Stat Category (hp), str
                 name        - Attribute Name, str
                 icon        - Path to icon image, str
                 value       - base or addition, float
                 display     - Display string for value, str
                 percent     - Percent Stat flag, bool
-                count       - Times leveled for Relics, int
-                step        - Base Amount, int
+                count       - Times leveled for Relic, int
+                step        - Base Amount for Relic, int
         :param additional: list of additional attributes for characters only
         :returns: list of values ready for Command create call
         '''
@@ -102,6 +104,7 @@ class Attribute(models.Model):
             stats_done.append(stats['field'])
             # Remove unused dict values
             for field in ['display']: stats.pop(field)
+            stats['attribute'] = stats.pop('type', None)
                 
             if additional:
                 # If two dict lists are provided, split stat value into base + addition
@@ -116,6 +119,7 @@ class Attribute(models.Model):
                     continue
                 # Remove unused dict values
                 for field in ['display']: a_stats.pop(field)
+                stats['attribute'] = stats.pop('type', None)
                 
                 # In the additional list, default base to 0 and use addition field
                 a_stats['base'] = 0.0
@@ -123,4 +127,17 @@ class Attribute(models.Model):
                 commands.append(Command.create(a_stats))
         return commands
         
-        
+    def _create_main_affix(self, data):
+        '''
+        Creates sr.attribute record for relic main affix, expects single data set
+        :param data: dictionary of main affix values
+        :returns: id of created sr.attribute record
+        '''
+        return self.create({
+            'name': data['name'],
+            'field': data['field'],
+            'attribute': data['type'],
+            'value': data['value'],
+            'percent': data['percent'],
+            'icon': data['icon'],
+        }).id

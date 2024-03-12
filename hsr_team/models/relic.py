@@ -53,6 +53,12 @@ class Relic(models.Model):
         for rec in self:
             rec.img_id = rec.get_image_from_path(img_path + rec.icon).id
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        relics = super().create(vals_list)
+        for relic in relics:
+            relic.main_affix_id.relic_main_id = relic.id
+
     def _populate_relics(self, data):
         '''
             id          - Object ID, str
@@ -66,6 +72,8 @@ class Relic(models.Model):
             sub_affix   - Relic Substats, list(dict)
         '''
         to_remove = ['set_name']
+        commands = []
+        Attribute = self.env['sr.attribute']
         for rel in data:
             # Remove key if exists
             for k in to_remove: rel.pop(k, None) 
@@ -73,11 +81,12 @@ class Relic(models.Model):
             rel['item_id'] = int(rel.pop('id'))
             # Typecast fields for easy storing
             rel['rarity'] = str(rel.pop('rarity'))
-
+            # Locate set id by reference
             rel['set_id'] = self.env.ref('hsr_team.relic_set_' + rel.pop('set_id')).id
+            # Convert affixes into sr.attribute
+            rel['main_affix_id'] = Attribute._create_main_affix(rel.pop('main_affix'))
+            rel['sub_affix_ids'] = Attribute._populate_attributes(rel.pop('sub_affix'))
 
-            # TODO convert affixes into sr.attribute Commands
-
-        # TODO convert data to Command
-        return data
+            commands.append(Command.create(rel))
+        return commands
     
