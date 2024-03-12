@@ -38,7 +38,7 @@ class Relic(models.Model):
     icon = fields.Char('Icon Image Path')
     img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
 
-    # score = fields.Float('Relic Score')
+    # TODO score = fields.Float('Relic Score')
 
     def name_get(self):
         return [(rec.id, f"{rec.set_id.name}: {rec.relic_name}") for rec in self]
