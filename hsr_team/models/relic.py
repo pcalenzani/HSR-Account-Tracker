@@ -22,7 +22,7 @@ class RelicSet(models.Model):
         # Icon format will be 'icon/relic/116.png'
         img_path = '/hsr_warp/static/icon/relic/'
         for rec in self:
-            rec.img_id = rec.get_image_from_path(img_path + rec.set_id).id
+            rec.img_id = rec.get_image_from_path(img_path + str(rec.set_id)).id
 
 
 class Relic(models.Model):
