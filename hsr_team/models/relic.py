@@ -33,7 +33,7 @@ class Relic(models.Model):
     set_id = fields.Many2one('sr.relic.set')
     main_affix_id = fields.Many2one('sr.attribute')
     sub_affix_ids = fields.One2many('sr.attribute', 'relic_id')
-    character_id = fields.Many2one('sr.character', string='Equipped By')
+    character_id = fields.Many2one('sr.character', string='Equipped By', ondelete='cascade')
 
     icon = fields.Char('Icon Image Path')
     img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
