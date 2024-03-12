@@ -22,17 +22,23 @@ class Character(models.Model):
     _inherit = 'sr.item'
     _order = 'item_id DESC'
 
-    # --- Template Fields ---
-    template_id = fields.Many2one('sr.character.template')
-    warp_ids = fields.One2many(related='template_id.warp_ids')
+    promotion = fields.Integer(string='Ascension Level')
+    rank = fields.Integer('Eidolon Level')
     light_cone_id = fields.Many2one('sr.light.cone')
     light_cone_img_id = fields.Many2one(related='light_cone_id.preview_img_id', string='Light Cone Image')
+    
+    # --- Template Fields ---
+    template_id = fields.Many2one('sr.character.template')
+    count = fields.Integer(related='template_id.count')
+    date_obtained = fields.Date(related='template_id.date_obtained')
+    free_pulls = fields.Integer(related='template_id.free_pulls')
+    warp_ids = fields.One2many(related='template_id.warp_ids')
+    eidolon_ids = fields.One2many(related='template_id.eidolon_ids')
 
     element_id = fields.Many2one(related='template_id.element_id')
     element_img_id = fields.Many2one(related='template_id.element_id.img_id', string='Element Image')
     path_id = fields.Many2one(related='template_id.path_id')
     path_img_id = fields.Many2one(related='template_id.path_id.img_id', string='Path Image')
-    eidolon_ids = fields.One2many(related='template_id.eidolon_ids')
 
     general_mat_id = fields.Many2one(related='template_id.general_mat_id')
     general_mat_img_id = fields.Many2one(related='template_id.general_mat_id.img_id', string='General Mat Image')
@@ -41,22 +47,13 @@ class Character(models.Model):
     ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')
     ascension_mat_img_id = fields.Many2one(related='template_id.ascension_mat_id.img_id', string='Ascension Mat Image')
 
+    # --- Image Fields ---
     portrait_path = fields.Char('Portrait Image Path')
     preview_path = fields.Char('Preview Image Path')
     icon_path = fields.Char('Icon Image Path')
     portrait_img_id = fields.Many2one('ir.attachment', string='Portrait Image', compute='_compute_images')
     preview_img_id = fields.Many2one('ir.attachment', string='Preview Image', compute='_compute_images')
     icon_img_id = fields.Many2one('ir.attachment', string='Icon Image', compute='_compute_images')
-
-    # --- Manual Fields ---
-    count = fields.Integer(related='template_id.count')
-    date_obtained = fields.Date(related='template_id.date_obtained')
-    free_pulls = fields.Integer(related='template_id.free_pulls')
-
-    # --- API Fields ---
-    promotion = fields.Integer(string='Ascension Level')
-    rank = fields.Integer('Eidolon Level')
-    promotion = fields.Integer('Promotion')
 
     # --- Stat Fields ---
     attribute_ids = fields.One2many('sr.attribute', 'character_id', string='Character Stats', inverse='_set_attributes')
@@ -68,7 +65,7 @@ class Character(models.Model):
     att_crit_dmg = fields.Many2one('sr.attribute', string='CRIT_DMG Stat')
 
     # -- Relic Fields ---
-    # relic_ids
+    relic_ids = fields.One2many('sr.relic', 'character_id', string='Equipped Relics')
     # relic_set_ids
     # relic_head_id
     # relic_body_id
@@ -158,18 +155,18 @@ class Character(models.Model):
         # Remove unused api vals
         to_remove = [
             'rank_icons', # Eidolon ability icons
-            # Path & element already in assets
+            # Path & element already in template
             'path',
             'element',
             'skills', # Skill info
             'skill_trees', # Hierarchy of traces
-            # TODO implement these later
-            'relics',
-            'relic_sets',
+            'relic_sets', # Relic set bonuses
             'properties', # Special statistics and passives
             'pos', # Position in profile
         ]
         base_path = '/hsr_warp/static/'
+        Attribute = self.env['sr.attribute']
+        Relic = self.env['sr.relic']
 
         for ch in data:
             # Remove key if exists
@@ -182,6 +179,8 @@ class Character(models.Model):
             ch['icon_path'] = base_path + ch.pop('icon')
             ch['preview_path'] = base_path + ch.pop('preview')
             ch['portrait_path'] = base_path + ch.pop('portrait')
-            # Get attribute commands
-            ch['attribute_ids'] = self.env['sr.attribute']._populate_attributes(ch.pop('attributes'), ch.pop('additions'))
+            # Get attribute commands list
+            ch['attribute_ids'] = Attribute._populate_attributes(ch.pop('attributes'), ch.pop('additions'))
+            # Get relic commands list
+            ch['relic_ids'] = Relic._populate_relics(ch.pop('relics'))
         return data

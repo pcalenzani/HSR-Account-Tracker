@@ -30,17 +30,15 @@ class Relic(models.Model):
     _description = 'Relic'
     _inherit = 'sr.item'
 
-    # --- Manual Fields ---
-    score = fields.Float('Relic Score')
-
-    # --- API Fields ---
     set_id = fields.Many2one('sr.relic.set')
-
     main_affix_id = fields.Many2one('sr.attribute')
     sub_affix_ids = fields.One2Many('sr.attribute', 'relic_id')
+    character_id = fields.Many2one('sr.character', string='Equipped By')
 
     icon = fields.Char('Icon Image Path')
     img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
+
+    # score = fields.Float('Relic Score')
 
     def name_get(self):
         return [(rec.id, f"{rec.set_id.name}: {rec.relic_name}") for rec in self]
@@ -72,7 +70,7 @@ class Relic(models.Model):
             sub_affix   - Relic Substats, list(dict)
         '''
         to_remove = ['set_name']
-        commands = []
+        commands = [Command.clear()]
         Attribute = self.env['sr.attribute']
         for rel in data:
             # Remove key if exists
@@ -86,7 +84,6 @@ class Relic(models.Model):
             # Convert affixes into sr.attribute
             rel['main_affix_id'] = Attribute._create_main_affix(rel.pop('main_affix'))
             rel['sub_affix_ids'] = Attribute._populate_attributes(rel.pop('sub_affix'))
-
             commands.append(Command.create(rel))
         return commands
     
