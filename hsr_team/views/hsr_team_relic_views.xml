@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="sr_relic_view_tree" model="ir.ui.view">
+        <field name="name">hsr_team.relic.tree</field>
+        <field name="model">sr.relic</field>
+        <field name="arch" type="xml">
+            <tree string="Relic">
+                <field name="img_id" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="set_id"/>
+                <field name="level"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

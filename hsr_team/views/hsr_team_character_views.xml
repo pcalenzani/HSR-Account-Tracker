@@ -50,6 +50,9 @@
                         </group>
                     </group>
                     <notebook>
+                        <page string="Relics">
+                            <field name="relic_ids"/>
+                        </page>
                         <page string="Light Cone">
                             <group>
                                 <group>
