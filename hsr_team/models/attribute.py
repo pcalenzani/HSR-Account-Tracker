@@ -84,13 +84,15 @@ class Attribute(models.Model):
         - Characters: Receive base stats and additional stats, need to sum together
         - Relics: Receive a main stat value and substat list
         :param statlist: list of attribute dictionaries
-                type        - attribute, str
-                field       - field, str
-                name        - name, str
+                type        - Specific Stat Type (HPAddedRatio), str
+                field       - General Stat Category (hp), str
+                name        - Attribute Name, str
                 icon        - Path to icon image, str
                 value       - base or addition, float
                 display     - Display string for value, str
-                percent     - percent
+                percent     - Percent Stat flag, bool
+                count       - Times leveled for Relics, int
+                step        - Base Amount, int
         :param additional: list of additional attributes for characters only
         :returns: list of values ready for Command create call
         '''
@@ -120,3 +122,5 @@ class Attribute(models.Model):
                 a_stats['addition'] = a_stats.pop('value')
                 commands.append(Command.create(a_stats))
         return commands
+        
+        
