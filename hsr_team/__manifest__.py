@@ -15,7 +15,7 @@
 
         'data/sr_material_data.xml',
         'data/sr_character_template_data.xml',
-        'data/sr_relic_set.csv',
+        'data/sr_relic_set_data.csv',
 
         'security/ir.model.access.csv',
     ],
