@@ -15,7 +15,7 @@
 
         'data/sr_material_data.xml',
         'data/sr_character_template_data.xml',
-        'data/sr_relic_set_data.csv',
+        'data/sr.relic.set.csv', # csv name needs to be name of model
 
         'security/ir.model.access.csv',
     ],
