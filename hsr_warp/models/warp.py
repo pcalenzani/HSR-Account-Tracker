@@ -58,9 +58,8 @@ class Warp(models.Model):
             banner_id = banner_ids.get(row[gacha_index[0]])
             row.append(banner_id)
 
-            warp = self.browse_sr_id([row[wid_index]])
             # If the warp id is already in db, add id to update record
-            if warp:
+            if warp := self.browse_sr_id([row[wid_index]]):
                 row.append(warp.id)
 
         return super().load(fields, data)

@@ -31,8 +31,7 @@ class BannerType(models.Model):
             
             banner.last_warp = banner.warp_ids[0]
             # Get all 5* warps
-            fives = banner.warp_ids.filtered(lambda w: w.rank_type == 5)
-            if fives:
+            if fives := banner.warp_ids.filtered(lambda w: w.rank_type == 5):
                 # Calculate from latest 5*
                 banner.last_five_star = fives[0]
                 banner.pity_level = len(banner.warp_ids.filtered(lambda w: w.wid > fives[0].wid))

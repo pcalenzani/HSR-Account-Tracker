@@ -31,8 +31,7 @@ class ImageMixin(models.AbstractModel):
         
         Attachment = self.env['ir.attachment']
         # ir.attachment will auto filter records that have res_field unless specified
-        img_exists = Attachment.search([('res_field','=',field),('url','=',path)])
-        if img_exists:
+        if img_exists := Attachment.search([('res_field','=',field),('url','=',path)]):
             # Return existing attachment record if found
             return img_exists
 
