@@ -14,10 +14,7 @@
         'views/hsr_team_light_cone_views.xml',
         'views/hsr_team_relic_views.xml',
 
-        'data/sr_material_data.xml',
-        'data/sr_character_template_data.xml',
-        'data/sr.relic.set.csv', # csv name needs to be name of model
-
+        'data/sr.relic.set.csv',
         'security/ir.model.access.csv',
     ],
     'installable': True,

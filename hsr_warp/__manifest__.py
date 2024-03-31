@@ -10,7 +10,8 @@
         'data/ir_cron_data.xml',
         'data/ir_asset.xml',
         'data/sr_element_path_data.xml',
-        'data/sr_character_data.xml',
+        'data/sr.item.material.csv',
+        'data/sr.character.template.csv',
 
         'views/hsr_warp_menu_items.xml',
         'views/hsr_warp_warp_views.xml',
