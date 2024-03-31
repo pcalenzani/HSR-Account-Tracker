@@ -8,12 +8,14 @@
             <tree string="Characters" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="1">
                 <field name="rarity" column_invisible="1"/>
                 <field name="icon_img_id" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="rank"/>
                 <field name="name"/>
                 <field name="relic_score"/>
-                <field name="rank"/>
+                <field name="light_cone_id"/>
+                <field name="light_cone_img_id" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="last_sync"/>
                 <field name="element_img_id" widget="attachment_image" class="hsr_tree_img"/>
                 <field name="path_img_id" widget="attachment_image" class="hsr_tree_img"/>
-                <field name="last_sync"/>
             </tree>
         </field>
     </record>
