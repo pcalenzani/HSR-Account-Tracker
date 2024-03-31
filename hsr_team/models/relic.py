@@ -92,7 +92,7 @@ class Relic(models.Model):
         '''
         for relic in self:
             character = self.character_id.template_id
-            relic_score = 15 # TODO: set to zero
+            relic_score = 0
 
             # Main stat score
             if relic.slot not in ['head', 'hands']:
@@ -109,7 +109,7 @@ class Relic(models.Model):
             
             # Score potential scales the possible good stats obtainable per relic
             score_potential = 55.0 / character.get_slot_distribution(relic.slot)
-            relic.score = relic_score * score_potential
+            relic.score = (relic_score * score_potential) + 15 # TODO: remove 15
 
     @api.model_create_multi
     def create(self, vals_list):
