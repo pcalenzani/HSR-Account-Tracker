@@ -1,9 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_sr_warp,sr.warp.all,model_sr_warp,,1,1,1,0
-access_sr_banner,sr.banner.all,model_sr_banner,,1,1,1,0
-access_sr_banner_type,sr.banner.type.all,model_sr_banner_type,,1,1,1,0
-access_sr_character_template,sr.character.template.all,model_sr_character_template,,1,1,1,1
-access_sr_element,sr.element.all,model_sr_element,,1,1,1,1
-access_sr_path,sr.path.all,model_sr_path,,1,1,1,1
-access_sr_item,sr.item.all,model_sr_item,,1,1,1,1
-access_sr_item_material,sr.item.material.all,model_sr_item_material,,1,1,1,1
+access_sr_warp,sr.warp.all,model_sr_warp,base.group_user,1,1,1,0
+access_sr_banner,sr.banner.all,model_sr_banner,base.group_user,1,1,1,0
+access_sr_banner_type,sr.banner.type.all,model_sr_banner_type,base.group_user,1,1,1,0
+access_sr_character_template,sr.character.template.all,model_sr_character_template,base.group_user,1,1,1,1
+access_sr_element,sr.element.all,model_sr_element,base.group_user,1,1,1,1
+access_sr_path,sr.path.all,model_sr_path,base.group_user,1,1,1,1
+access_sr_item,sr.item.all,model_sr_item,base.group_user,1,1,1,1
+access_sr_item_material,sr.item.material.all,model_sr_item_material,base.group_user,1,1,1,1
