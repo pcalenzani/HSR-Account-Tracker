@@ -11,8 +11,8 @@
                 <field name="name"/>
                 <field name="relic_score"/>
                 <field name="rank"/>
-                <field name="element_id"/>
-                <field name="path_id"/>
+                <field name="element_img_id"/>
+                <field name="path_img_id"/>
                 <field name="last_sync"/>
             </tree>
         </field>
