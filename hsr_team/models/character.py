@@ -3,11 +3,6 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
-class CharacterTemplate(models.Model):
-    _inherit = 'sr.character.template'
-
-    eidolon_ids = fields.One2many('sr.character.eidolon', 'character_template_id', string='Eidolons')
-
 
 class Character(models.Model):
     _name = 'sr.character'
