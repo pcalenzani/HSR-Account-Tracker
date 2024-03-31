@@ -1,6 +1,15 @@
 from odoo import api, fields, models, Command
 
     
+RELIC_SLOTS = [
+    ('head', 'Head'),
+    ('hands', 'Hands'),
+    ('body', 'Body'),
+    ('feet', 'Feet'),
+    ('orb', 'Planar Sphere'),
+    ('chain', 'Link Rope'),
+]
+
 class RelicSet(models.Model):
     _name = 'sr.relic.set'
     _description = 'Relic Set'
@@ -34,6 +43,7 @@ class Relic(models.Model):
     main_affix_id = fields.Many2one('sr.attribute')
     sub_affix_ids = fields.One2many('sr.attribute', 'relic_id')
     character_id = fields.Many2one('sr.character', string='Equipped By', ondelete='cascade')
+    slot = fields.Selection(string='Relic Slot', selection=RELIC_SLOTS)
 
     icon = fields.Char('Icon Image Path')
     img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
@@ -72,11 +82,16 @@ class Relic(models.Model):
         to_remove = ['set_name']
         commands = [Command.clear()]
         Attribute = self.env['sr.attribute']
-        for rel in data:
+        if len(data) < 6:
+            # Skip relic saving if any empty slots, less headache for slot assignment
+            return commands
+        for ind, rel in enumerate(data):
             # Remove key if exists
             for k in to_remove: rel.pop(k, None) 
             # Rename id key to db friendly, cast to int for lookup
             rel['item_id'] = int(rel.pop('id'))
+            # Get relic slot, relics are received in precise order
+            rel['slot'] = RELIC_SLOTS[ind][0]
             # Typecast fields for easy storing
             rel['rarity'] = str(rel.pop('rarity'))
             # Locate set id by reference
