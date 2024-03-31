@@ -109,6 +109,9 @@ class Attribute(models.Model):
                 # If two dict lists are provided, split stat value into base + addition
                 stats['base'] = stats.pop('value')
                 stats['addition'] = next((item['value'] for item in additional if item['field'] == stats['field']), 0.0)
+            else:
+                if stats['percent']:
+                    stats['value'] = stats['value'] * 100
             commands.append(Command.create(stats))
         
         if additional:
