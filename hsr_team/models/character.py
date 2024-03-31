@@ -98,7 +98,8 @@ class Character(models.Model):
         self._prepare_api_values(data)
         LightCone = self.env['sr.light.cone']
         for ch in data:
-            ch['last_sync'] = fields.Datetime.now
+            ch['last_sync'] = fields.Datetime.now()
+            _logger.warning(ch['last_sync'])
             light_cone_data = LightCone._prepare_api_values(ch.pop('light_cone'))
 
             # Check if character record exists
