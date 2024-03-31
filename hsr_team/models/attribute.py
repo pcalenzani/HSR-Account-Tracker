@@ -77,8 +77,7 @@ class Attribute(models.Model):
     def _set_value(self):
         # If we set value directly, store it as the base amount
         for rec in self:
-            if rec.percent:
-                value = rec.value / 100
+            value = rec.value / 100 if rec.percent else rec.value
             rec.base, rec.addition = value, 0.0
 
     def _populate_attributes(self, base, additional=None):
