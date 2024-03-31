@@ -47,7 +47,6 @@ class CharacterTemplate(models.Model):
         ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]
 
-    @api.depends('avatar')
     def _compute_display_name(self):
         # Compute name, example: Dan (Template)
         for rec in self:
