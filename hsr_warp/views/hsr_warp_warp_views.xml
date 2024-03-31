@@ -26,7 +26,7 @@
                         <label for="name" string="Warp"/>
                         <h1>
                             <div class="d-flex">
-                                <field class="text-break" name="name" widget="text" options="{'line_breaks': False}" decoration-warning="rarity == 5" decoration-primary="rarity == 4"/>
+                                <field class="text-break" name="name" widget="text" options="{'line_breaks': False}" decoration-warning="rank_type == 5" decoration-primary="rank_type == 4"/>
                             </div>
                         </h1>
                     </div>
