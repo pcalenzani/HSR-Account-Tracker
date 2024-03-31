@@ -1,6 +1,5 @@
 from odoo import api, fields, models, Command
 
-    
 RELIC_SLOTS = [
     ('head', 'Head'),
     ('hands', 'Hands'),
@@ -9,6 +8,22 @@ RELIC_SLOTS = [
     ('orb', 'Planar Sphere'),
     ('chain', 'Link Rope'),
 ]
+
+STAT_MAX_STEPS = {
+    'AttackDelta': 21.168,
+    'DefenceDelta': 21.168,
+    'HPDelta': 42.337,
+    'AttackAddedRatio': 4.32,
+    'DefenceAddedRatio': 5.4,
+    'HPAddedRatio': 4.32,
+    'CriticalChanceBase': 3.24,
+    'CriticalDamageBase': 6.48,
+    'SpeedDelta': 2.6,
+    'StatusResistanceBase': 4.32,
+    'StatusProbabilityBase': 4.32,
+    'BreakDamageAddedRatioBase': 6.48,
+}
+
 
 class RelicSet(models.Model):
     _name = 'sr.relic.set'
@@ -48,7 +63,7 @@ class Relic(models.Model):
     icon = fields.Char('Icon Image Path')
     img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
 
-    # TODO score = fields.Float('Relic Score')
+    score = fields.Float('Relic Score')
 
     def name_get(self):
         return [(rec.id, f"{rec.set_id.name}: {rec.relic_name}") for rec in self]
@@ -60,6 +75,41 @@ class Relic(models.Model):
         img_path = '/hsr_warp/static/'
         for rec in self:
             rec.img_id = rec.get_image_from_path(img_path + rec.icon).id
+
+    def compute_relic_score(self):
+        '''
+        Compute relic score by calculating effective stat of all each relic's affixes
+        and multiplying by the stat corresponding stat weight of the character equipping it.
+        Multiply score by relic slot's weight distribution for the character.
+
+        Sum of relics stats:
+            Main stat = 3 * stat weight
+            Sub stats = value / maximum stat step
+        Potential value:
+            55.0 / relic slot weight distribution
+
+        Final score = potential value * sum of relic effective stats
+        '''
+        for relic in self:
+            character = self.character_id.template_id
+            relic_score = 15 # TODO: set to zero
+
+            # Main stat score
+            if relic.slot not in ['head', 'hands']:
+                if stat_weight := character.get_stat_weight(relic.main_affix_id.field):
+                    # If relic's main stat is a preferred stat (>0), use score of 3 * weight
+                    relic_score += 3 * stat_weight
+
+            # Get score of sub stats
+            for sub_affix in relic.sub_affix_ids:
+                # Effective stat is the stat value divided by highest possible step amount
+                effective_stat = sub_affix.value / STAT_MAX_STEPS[sub_affix.attribute]
+                stat_weight = character.get_stat_weight(sub_affix.field)
+                relic_score += effective_stat * stat_weight
+            
+            # Score potential scales the possible good stats obtainable per relic
+            score_potential = 55.0 / character.get_slot_distribution(relic.slot)
+            relic.score = relic_score * score_potential
 
     @api.model_create_multi
     def create(self, vals_list):

@@ -54,13 +54,6 @@ class Character(models.Model):
 
     # -- Relic Fields ---
     relic_ids = fields.One2many('sr.relic', 'character_id', string='Equipped Relics')
-    # relic_set_ids
-    # relic_head_id
-    # relic_body_id
-    # relic_hands_id
-    # relic_boots_id
-    # ornament_orb_id
-    # ornament_chain_id
     
     _sql_constraints = [
         ('character_key', 'UNIQUE (item_id)',  'Duplicate character deteced. Item ID must be unique.')
@@ -85,6 +78,10 @@ class Character(models.Model):
             ch.template_id = self.env['sr.character.template'].browse_sr_id([ch.item_id])
         return characters
     
+    def calculate_relic_scores(self):
+        for character in self:
+            character.relic_ids.compute_relic_score()
+
     def generate_character_data(self, data):
         '''
         Create or update character records with given data.

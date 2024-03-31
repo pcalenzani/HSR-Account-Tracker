@@ -7,14 +7,14 @@ class CharacterTemplate(models.Model):
     _inherit = 'sr.character.template'
 
     eidolon_ids = fields.One2many('sr.character.eidolon', 'character_template_id', string='Eidolons')
-    
+
     # Relic Slot Distributions
     head = fields.Float('Head Distribution Weight', readonly=True)
     hands = fields.Float('Hands Distribution Weight', readonly=True)
     body = fields.Float('Body Distribution Weight', readonly=True)
     feet = fields.Float('Feet Distribution Weight', readonly=True)
+    orb = fields.Float('Sphere Distribution Weight', readonly=True)
     chain = fields.Float('Chain Distribution Weight', readonly=True)
-    orb = fields.Float('Orb Distribution Weight', readonly=True)
 
     # Stat Weights
     stat_hp = fields.Float('HP Weight', readonly=True)
@@ -36,4 +36,9 @@ class CharacterTemplate(models.Model):
     stat_quantum_dmg = fields.Float('Quantum Damage Weight', readonly=True)
     stat_imaginary_dmg = fields.Float('Imaginary Damage Weight', readonly=True)
 
-    # TODO: Method to check if stat is non-zero (for relic main stat)
+    def get_stat_weight(self, field_name):
+        return getattr(self, 'stat_' + field_name)
+    
+    def get_slot_distribution(self, slot):
+        return getattr(self, slot)
+
