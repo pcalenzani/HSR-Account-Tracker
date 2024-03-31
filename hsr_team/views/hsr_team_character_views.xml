@@ -114,6 +114,7 @@
                             <group>
                                 <field name="ascension_mat_id"/>
                                 <field name="advanced_mat_id"/>
+                                <field name="skill_mat_id"/>
                                 <field name="general_mat_id"/>
                             </group>
                         </page>
