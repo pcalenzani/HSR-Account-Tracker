@@ -8,7 +8,6 @@
     'data': [
         'views/hsr_team_menu_items.xml',
         'views/hsr_team_character_views.xml',
-        'views/hsr_team_item_views.xml',
         'views/hsr_team_user_views.xml',
         'views/hsr_team_attribute_views.xml',
         'views/hsr_team_light_cone_views.xml',

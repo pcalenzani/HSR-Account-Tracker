@@ -19,7 +19,7 @@ class Item(models.Model):
         ('4', '4 Star'),
         ('5', '5 Star'),
     ])
-    level = fields.Integer('Relic Level')
+    level = fields.Integer('Level')
 
     def browse_sr_id(self, sr_ids):
         '''

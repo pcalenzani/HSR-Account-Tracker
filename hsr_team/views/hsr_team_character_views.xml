@@ -5,12 +5,15 @@
         <field name="name">hsr_team.character.tree</field>
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
-            <tree string="Characters" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="rarity != '3'">
+            <tree string="Characters" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="1">
+                <field name="rarity" column_invisible="1"/>
                 <field name="icon_img_id" widget="attachment_image" class="hsr_tree_img"/>
                 <field name="name"/>
+                <field name="relic_score"/>
+                <field name="rank"/>
                 <field name="element_id"/>
                 <field name="path_id"/>
-                <field name="rarity" column_invisible="1"/>
+                <field name="last_sync"/>
             </tree>
         </field>
     </record>
@@ -20,9 +23,13 @@
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
             <form string="Characters">
+                <header>
+                    <button name="calculate_relic_scores" string="Calculate Relic Scores" type="object"/>
+                </header>
                 <sheet>
                     <field name="item_id" invisible="1"/>
                     <field name="template_id" invisible="1"/>
+                    <field name="preview_img_id" widget="attachment_image" class="image_bg_float"/>
                     <div class="oe_title">
                         <label for="name" string="Character Name"/>
                         <h1>
@@ -36,9 +43,11 @@
                         <group>
                             <field name="element_id"/>
                             <field name="path_id"/>
+                            <field name="relic_score"/>
                             <field name="level"/>
                             <field name="rank"/>
                             <field name="promotion"/>
+                            <field name="last_sync"/>
                         </group>
                         <group>
                             <field name="att_hp" string="HP"/>
@@ -111,48 +120,6 @@
                     </notebook>
                 </sheet>
             </form>
-        </field>
-    </record>
-    
-    <!-- SR.CHARACTER.TEMPLATE -->
-    <record id="sr_character_template_view_search_inherit" model="ir.ui.view">
-        <field name="name">hsr_warp.character.template.search.inherit.hsr_team</field>
-        <field name="model">sr.character.template</field>
-        <field name="inherit_id" ref="hsr_warp.sr_character_template_view_search"/>
-        <field name="mode">extension</field>
-        <field name="priority">80</field>
-        <field name="arch" type="xml">
-            <data>
-                <xpath expr="//group" position="inside">
-                    <filter string="Ascension Material" name="ascension_mat" domain="[]" context="{'group_by': 'ascension_mat_id'}"/>
-                    <filter string="Advanced Material" name="advanced_mat" domain="[]" context="{'group_by': 'advanced_mat_id'}"/>
-                    <filter string="General Material" name="general_mat" domain="[]" context="{'group_by': 'general_mat_id'}"/>
-                </xpath>
-            </data>
-        </field>
-    </record>
-
-    <record id="sr_character_template_view_form_inherit" model="ir.ui.view">
-        <field name="name">hsr_warp.character.template.form.inherit.hsr_team</field>
-        <field name="model">sr.character.template</field>
-        <field name="inherit_id" ref="hsr_warp.sr_character_template_view_form"/>
-        <field name="mode">extension</field>
-        <field name="priority">80</field>
-        <field name="arch" type="xml">
-            <data>
-                <xpath expr="//notebook" position="inside">
-                    <page string="Eidolons">
-                        <field name="eidolon_ids"/>
-                    </page>
-                    <page string="Upgrade Materials">
-                        <group>
-                            <field name="ascension_mat_id"/>
-                            <field name="advanced_mat_id"/>
-                            <field name="general_mat_id"/>
-                        </group>
-                    </page>
-                </xpath>
-            </data>
         </field>
     </record>
 </odoo>

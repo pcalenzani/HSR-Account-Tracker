@@ -14,6 +14,7 @@ class Character(models.Model):
     rank = fields.Integer('Eidolon Level')
     light_cone_id = fields.Many2one('sr.light.cone')
     light_cone_img_id = fields.Many2one(related='light_cone_id.preview_img_id', string='Light Cone Image')
+    last_sync = fields.Datetime('Last Sync Date')
     
     # --- Template Fields ---
     template_id = fields.Many2one('sr.character.template')
@@ -54,6 +55,7 @@ class Character(models.Model):
 
     # -- Relic Fields ---
     relic_ids = fields.One2many('sr.relic', 'character_id', string='Equipped Relics')
+    relic_score = fields.Float('Relic Score')
     
     _sql_constraints = [
         ('character_key', 'UNIQUE (item_id)',  'Duplicate character deteced. Item ID must be unique.')
@@ -81,6 +83,7 @@ class Character(models.Model):
     def calculate_relic_scores(self):
         for character in self:
             character.relic_ids.compute_relic_score()
+            character.relic_score = sum(character.relic_ids.mapped('score'))
 
     def generate_character_data(self, data):
         '''
@@ -93,6 +96,7 @@ class Character(models.Model):
         self._prepare_api_values(data)
         LightCone = self.env['sr.light.cone']
         for ch in data:
+            ch['last_sync'] = fields.Datetime.now
             light_cone_data = LightCone._prepare_api_values(ch.pop('light_cone'))
 
             # Check if character record exists

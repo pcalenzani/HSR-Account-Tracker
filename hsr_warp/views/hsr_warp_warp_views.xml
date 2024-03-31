@@ -22,12 +22,20 @@
             <form string="Warps" readonly="1">
                 <sheet>
                     <field name="img_id" widget="attachment_image" class="hsr_img_300 image_bg_float"/>
+                    <div class="oe_title">
+                        <label for="name" string="Warp"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="name" widget="text" options="{'line_breaks': False}" decoration-warning="rarity == 5" decoration-primary="rarity == 4"/>
+                            </div>
+                        </h1>
+                    </div>
                     <group>
                         <group>
-                            <field name="name"/>
+                            <field name="time"/>
                             <field name="rank_type"/>
                             <field name="item_type"/>
-                            <field name="time"/>
+                            <field name="character_id" invisible="not character_id"/>
                             <field name="pity"/>
                             <field name="banner_id"/>
                             <field name="banner_type_id"/>
@@ -69,29 +77,11 @@
         <field name="name">hsr_warp.banner.tree</field>
         <field name="model">sr.banner</field>
         <field name="arch" type="xml">
-            <tree string="Banners">
+            <tree string="Banners" editable="top" create="0">
                 <field name="name"/>
                 <field name="gacha_type_id"/>
+                <field name="banner_key"/>
             </tree>
-        </field>
-    </record>
-
-    <record id="hsr_warp_banner_view_form" model="ir.ui.view">
-        <field name="name">hsr_warp.banner.form</field>
-        <field name="model">sr.banner</field>
-        <field name="arch" type="xml">
-            <form string="Banners">
-                <sheet>
-                    <group>
-                        <group>
-                            <field name="name"/>
-                            <field name="active" invisible="1"/>
-                            <field name="gacha_type_id"/>
-                            <field name="banner_key"/>
-                        </group>
-                    </group>
-                </sheet>
-            </form>
         </field>
     </record>
     
@@ -102,7 +92,7 @@
         <field name="arch" type="xml">
             <tree string="Banner Types" editable="top">
                 <field name="name"/>
-                <field name="active"/>
+                <field name="active" column_invisible="1"/>
                 <field name="pity_level"/>
                 <field name="last_warp"/>
                 <field name="last_five_star"/>

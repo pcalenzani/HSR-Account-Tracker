@@ -17,6 +17,7 @@
         'views/hsr_warp_warp_views.xml',
         'views/hsr_warp_character_type_views.xml',
         'views/hsr_warp_character_template_views.xml',
+        'views/hsr_warp_material_views.xml',
 
         'security/ir.model.access.csv',
     ],

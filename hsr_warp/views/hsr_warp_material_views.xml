@@ -1,10 +1,22 @@
 <?xml version="1.0"?>
 <odoo>
+    <record id="sr_item_material_view_tree" model="ir.ui.view">
+        <field name="name">hsr_team.material.template.tree</field>
+        <field name="model">sr.item.material</field>
+        <field name="arch" type="xml">
+            <tree string="Upgrade Materials">
+                <field name="img_id" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="name"/>
+                <field name="type"/>
+            </tree>
+        </field>
+    </record>
+
     <record id="sr_item_material_view_form" model="ir.ui.view">
         <field name="name">hsr_team.material.form</field>
         <field name="model">sr.item.material</field>
         <field name="arch" type="xml">
-            <form string="Materials">
+            <form string="Materials" readonly="1">
                 <sheet>
                     <field name="img_id" widget="attachment_image" class="image_bg_float"/>
                     <div class="oe_title">
@@ -17,7 +29,6 @@
                     </div>
                     <group>
                         <group>
-                            <field name="rarity" widget="priority"/>
                             <field name="type"/>
                         </group>
                     </group>
