@@ -31,6 +31,8 @@ class Character(models.Model):
 
     general_mat_id = fields.Many2one(related='template_id.general_mat_id')
     general_mat_img_id = fields.Many2one(related='template_id.general_mat_id.img_id', string='General Mat Image')
+    skill_mat_id = fields.Many2one(related='template_id.skill_mat_id')
+    skill_mat_img_id = fields.Many2one(related='template_id.skill_mat_id.img_id', string='Traces Mat Image')
     advanced_mat_id = fields.Many2one(related='template_id.advanced_mat_id')
     advanced_mat_img_id = fields.Many2one(related='template_id.advanced_mat_id.img_id', string='Advanced Mat Image')
     ascension_mat_id = fields.Many2one(related='template_id.ascension_mat_id')

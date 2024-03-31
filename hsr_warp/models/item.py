@@ -37,6 +37,7 @@ class Material(models.Model):
     type = fields.Selection(
         selection=[
             ('basic', 'General'),
+            ('skill', 'Skill Trace'),
             ('eow', 'Advanced'),
             ('ascension', 'Ascension')
         ]

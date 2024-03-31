@@ -1,31 +1,50 @@
 id,name,full_name,item_id,type
-sr_general_mat_1,"Squirming Core","Squirming Core",111003,basic
-sr_general_mat_2,"Conquerors Will","Conqueror's Will",111013,basic
-sr_general_mat_3,"Silvermane Medal","Silvermane Medal",112003,basic
-sr_general_mat_4,"Ancient Engine","Ancient Engine",112013,basic
-sr_general_mat_5,"Immortal Lumintwig","Immortal Lumintwig",113003,basic
-sr_general_mat_6,"Artifex's Gyreheart","Artifex's Gyreheart",113013,basic
-sr_general_mat_7,"Dream Making Engine","Dream Making Engine",114003,basic
-sr_general_mat_8,"Shards of Desires","Shards of Desires",114013,basic
-sr_advanced_mat_1,"Destroyer's Final Road","Destroyer's Final Road",110501,eow
-sr_advanced_mat_2,"Guardian's Lament","Guardian's Lament",110502,eow
-sr_advanced_mat_3,"Regret of Infinite Ochema","Regret of Infinite Ochema",110503,eow
-sr_advanced_mat_4,"Past Evils of Borehole","Past Evils of the Borehole Planet Disaster",110504,eow
-sr_advanced_mat_destiny,"Tracks of Destiny","Tracks of Destiny",241,eow
-sr_ascension_mat_1,"Void Cast Iron","Void Cast Iron",110406,ascension
-sr_ascension_mat_2,"Storm Eye","Storm Eye",110405,ascension
-sr_ascension_mat_3,"Lightning Crown","Lightning Crown of the Past Shadow",110404,ascension
-sr_ascension_mat_4,"Endotherm Chitin","Endotherm Chitin",110402,ascension
-sr_ascension_mat_5,"Broken Teeth","Broken Teeth of Iron Wolf",110401,ascension
-sr_ascension_mat_6,"Gelid Chitin","Gelid Chitin",110413,ascension
-sr_ascension_mat_7,"Lightning Staff","Shape Shifter's Lightning Staff",110414,ascension
-sr_ascension_mat_8,"Horn of Snow","Horn of Snow",110403,ascension
-sr_ascension_mat_9,"Golden Crown","Golden Crown of the Past Shadow",110407,ascension
-sr_ascension_mat_10,"Ascendant Debris","Ascendant Debris",110415,ascension
-sr_ascension_mat_11,"Nail of the Ape","Nail of the Ape",110416,ascension
-sr_ascension_mat_12,"Suppressing Edict","Suppressing Edict",110417,ascension
-sr_ascension_mat_13,"Searing Steel","Searing Steel Blade",110412,ascension
-sr_ascension_mat_14,"Netherworld Token","Netherworld Token",110411,ascension
-sr_ascension_mat_15,"Dream Fridge","Dream Fridge",110423,ascension
-sr_ascension_mat_16,"Dream Flamer","Dream Flamer",110426,ascension
-sr_ascension_mat_17,"Raging Heart","Raging Heart",110422,ascension
+sr_general_mat_1,Squirming Core,Squirming Core,111003,basic
+sr_general_mat_2,Conquerors Will,Conqueror's Will,111013,basic
+sr_general_mat_3,Silvermane Medal,Silvermane Medal,112003,basic
+sr_general_mat_4,Ancient Engine,Ancient Engine,112013,basic
+sr_general_mat_5,Immortal Lumintwig,Immortal Lumintwig,113003,basic
+sr_general_mat_6,Artifex's Gyreheart,Artifex's Gyreheart,113013,basic
+sr_general_mat_7,Dream Making Engine,Dream Making Engine,114003,basic
+sr_general_mat_8,Shards of Desires,Shards of Desires,114013,basic
+sr_trace_mat_dest_1,Worldbreaker Blade,Worldbreaker Blade,110113,skill
+sr_trace_mat_dest_2,Moon Madness Fang,Moon Madness Fang,110183,skill
+sr_trace_mat_hunt_1,Arrow of the Starchaser,Arrow of the Starchaser,110123,skill
+sr_trace_mat_hunt_2,Countertemporal Shot,Countertemporal Shot,110193,skill
+sr_trace_mat_erud_1,Key of Wisdom,Key of Wisdom,110133,skill
+sr_trace_mat_erud_2,erudition_material_2,,110203,skill
+sr_trace_mat_pres_1,Safeguard of Amber,Safeguard of Amber,110143,skill
+sr_trace_mat_pres_2,Divine Amber,Divine Amber,110213,skill
+sr_trace_mat_nihi_1,Obsidian of Obsession,Obsidian of Obsession,110153,skill
+sr_trace_mat_nihi_2,Heaven Incinerator,Heaven Incinerator,110223,skill
+sr_trace_mat_harm_1,Stellaris Symphony,Stellaris Symphony,110163,skill
+sr_trace_mat_harm_2,Heavenly Melody,Heavenly Melody,110233,skill
+sr_trace_mat_abun_1,Flower of Eternity,Flower of Eternity,110173,skill
+sr_trace_mat_abun_2,Myriad Fruit,Myriad Fruit,110243,skill
+sr_advanced_mat_1,Destroyer's Final Road,Destroyer's Final Road,110501,eow
+sr_advanced_mat_2,Guardian's Lament,Guardian's Lament,110502,eow
+sr_advanced_mat_3,Regret of Infinite Ochema,Regret of Infinite Ochema,110503,eow
+sr_advanced_mat_4,Past Evils of Borehole,Past Evils of the Borehole Planet Disaster,110504,eow
+sr_advanced_mat_5,boss_material_5,,110505,eow
+sr_advanced_mat_destiny,Tracks of Destiny,Tracks of Destiny,241,eow
+sr_ascension_mat_physical_1,Broken Teeth,Broken Teeth of Iron Wolf,110401,ascension
+sr_ascension_mat_fire_1,Endotherm Chitin,Endotherm Chitin,110402,ascension
+sr_ascension_mat_ice_1,Horn of Snow,Horn of Snow,110403,ascension
+sr_ascension_mat_lightning_1,Lightning Crown,Lightning Crown of the Past Shadow,110404,ascension
+sr_ascension_mat_wind_1,Storm Eye,Storm Eye,110405,ascension
+sr_ascension_mat_quantum_1,Void Cast Iron,Void Cast Iron,110406,ascension
+sr_ascension_mat_imaginary_1,Golden Crown,Golden Crown of the Past Shadow,110407,ascension
+sr_ascension_mat_physical_2,Netherworld Token,Netherworld Token,110411,ascension
+sr_ascension_mat_fire_2,Searing Steel,Searing Steel Blade,110412,ascension
+sr_ascension_mat_ice_2,Gelid Chitin,Gelid Chitin,110413,ascension
+sr_ascension_mat_lightning_2,Lightning Staff,Shape Shifter's Lightning Staff,110414,ascension
+sr_ascension_mat_wind_2,Ascendant Debris,Ascendant Debris,110415,ascension
+sr_ascension_mat_quantum_2,Nail of the Ape,Nail of the Ape,110416,ascension
+sr_ascension_mat_imaginary_2,Suppressing Edict,Suppressing Edict,110417,ascension
+sr_ascension_mat_physical_3,IPC Work Permit,IPC Work Permit,110421,ascension
+sr_ascension_mat_fire_3,Raging Heart,Raging Heart,110422,ascension
+sr_ascension_mat_ice_3,Dream Fridge,Dream Fridge,110423,ascension
+sr_ascension_mat_lightning_3,lightning_material_3,,110424,ascension
+sr_ascension_mat_wind_3,wind_material_3,,110425,ascension
+sr_ascension_mat_quantum_3,Dream Flamer,Dream Flamer,110426,ascension
+sr_ascension_mat_imaginary_3,imaginary_material_3,,110427,ascension

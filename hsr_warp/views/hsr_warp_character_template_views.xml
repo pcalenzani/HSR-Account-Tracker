@@ -28,6 +28,7 @@
                     <filter string="Aeon Path" name="path" domain="[]" context="{'group_by': 'path_id'}"/>
                     <filter string="Ascension Material" name="ascension_mat" domain="[]" context="{'group_by': 'ascension_mat_id'}"/>
                     <filter string="Advanced Material" name="advanced_mat" domain="[]" context="{'group_by': 'advanced_mat_id'}"/>
+                    <filter string="Traces Material" name="traces_mat" domain="[]" context="{'group_by': 'skill_mat_id'}"/>
                     <filter string="General Material" name="general_mat" domain="[]" context="{'group_by': 'general_mat_id'}"/>
                 </group>
             </search>
@@ -76,6 +77,7 @@
                             <group>
                                 <field name="ascension_mat_id"/>
                                 <field name="advanced_mat_id"/>
+                                <field name="skill_mat_id"/>
                                 <field name="general_mat_id"/>
                             </group>
                         </page>
