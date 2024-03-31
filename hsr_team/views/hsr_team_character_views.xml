@@ -11,8 +11,8 @@
                 <field name="name"/>
                 <field name="relic_score"/>
                 <field name="rank"/>
-                <field name="element_img_id"/>
-                <field name="path_img_id"/>
+                <field name="element_img_id" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="path_img_id" widget="attachment_image" class="hsr_tree_img"/>
                 <field name="last_sync"/>
             </tree>
         </field>
@@ -59,7 +59,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Relics">
+                        <page string="Relics" readonly="1">
                             <field name="relic_ids"/>
                         </page>
                         <page string="Light Cone">
