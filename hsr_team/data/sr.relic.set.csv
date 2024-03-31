@@ -29,3 +29,5 @@ relic_set_309,"Rutilant Arena",309,0,1,"Increases the wearer's CRIT Rate by 8.00
 relic_set_310,"Broken Keel",310,0,1,"Increases the wearer's Effect RES by 10.00%. When the wearer's Effect RES is at 30.00% or higher, all allies' CRIT DMG increases by 10.00%",
 relic_set_311,"Firmament Frontline: Glamoth",311,0,1,"Increases the wearer's ATK by 12.00%. When the wearer's SPD is equal to or higher than 135/160, the wearer deals 12.00%/18.00% more DMG",
 relic_set_312,"Penacony, Land of the Dreams",312,0,1,"Increases wearer's Energy Regeneration Rate by 5.00%. Increases DMG by 10.00% for all other allies that are of the same Type as the wearer",
+relic_set_313,"Sigonia, the Unclaimed Desolation",313,0,1,"Increases the wearer's CRIT Rate by 4.00%. When an enemy target gets defeated, the wearer's CRIT DMG increases by 4.00%, stacking up to 10 time(s)",
+relic_set_314,"Izumo Gensei and Takama Divine Realm",314,0,1,"Increases the wearer's ATK by 12.00%. When entering battle, if at least one other ally follows the same Path as the wearer, then the wearer's CRIT Rate increases by 12.00%",
