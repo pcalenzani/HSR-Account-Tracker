@@ -15,7 +15,7 @@
         'views/hsr_team_relic_views.xml',
 
         'data/sr.relic.set.csv',
-        'data/sr.character.template.csv'
+        'data/sr.character.template.csv',
         'security/ir.model.access.csv',
     ],
     'installable': True,
