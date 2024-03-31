@@ -54,13 +54,11 @@ class Attribute(models.Model):
 
     def _compute_display_name(self):
         for rec in self:
-            val = rec.value
             tag = ''
             if rec.percent:
-                val *= 100
                 tag = '%'
             # Don't use float_round in str() due to python float multiplication
-            rec.display_name = str(round(val, 1)) + tag
+            rec.display_name = str(round(rec.value, 1)) + tag
     
     @api.depends('icon')
     def _compute_img_id(self):
@@ -73,7 +71,8 @@ class Attribute(models.Model):
     @api.depends('base', 'addition')
     def _compute_value(self):
         for rec in self:
-            rec.value = rec.base + rec.addition
+            value = rec.base + rec.addition
+            rec.value = value if not rec.percent else value * 100
 
     def _set_value(self):
         # If we set value directly, store it as the base amount
