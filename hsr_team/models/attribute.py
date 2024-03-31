@@ -70,6 +70,7 @@ class Attribute(models.Model):
 
     @api.depends('base', 'addition')
     def _compute_value(self):
+        # Store value * 100 if attribute is a percent amount
         for rec in self:
             value = rec.base + rec.addition
             rec.value = value if not rec.percent else value * 100
