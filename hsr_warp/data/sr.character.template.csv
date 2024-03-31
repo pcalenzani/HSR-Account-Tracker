@@ -1,4 +1,4 @@
-id,avatar,character_id,element_id,path_id,general_mat_id,advanced_mat_id,ascension_mat_id
+id,avatar,character_id,element_id:id,path_id:id,general_mat_id:id,advanced_mat_id:id,ascension_mat_id:id
 sr_character_march7th,March 7th,1001,sr_element_ice,sr_path_preservation,sr_general_mat_2,sr_advanced_mat_1,sr_ascension_mat_8
 sr_character_danheng,Dan Heng,1002,sr_element_wind,sr_path_hunt,sr_general_mat_1,sr_advanced_mat_1,sr_ascension_mat_2
 sr_character_himeko,Himeko,1003,sr_element_fire,sr_path_erudition,sr_general_mat_1,sr_advanced_mat_1,sr_ascension_mat_4
