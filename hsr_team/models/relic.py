@@ -109,7 +109,7 @@ class Relic(models.Model):
             
             # Score potential scales the possible good stats obtainable per relic
             score_potential = 55.0 / character.get_slot_distribution(relic.slot)
-            relic.score = (relic_score * score_potential) + 15 # TODO: remove 15
+            relic.score = (relic_score * score_potential)
 
     @api.model_create_multi
     def create(self, vals_list):
