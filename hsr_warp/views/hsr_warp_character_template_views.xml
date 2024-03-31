@@ -4,8 +4,7 @@
         <field name="name">hsr_warp.character.template.tree</field>
         <field name="model">sr.character.template</field>
         <field name="arch" type="xml">
-            <tree string="Character Templates" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="1">
-                <field name="rarity" column_invisible="1"/>
+            <tree string="Character Templates">
                 <field name="icon_img_id" widget="attachment_image" class="hsr_tree_img"/>
                 <field name="avatar"/>
                 <field name="element_id"/>
