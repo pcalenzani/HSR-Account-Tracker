@@ -1,4 +1,7 @@
 from odoo import api, fields, models, Command
+import logging
+
+_logger = logging.getLogger(__name__)
 
 RELIC_SLOTS = [
     ('head', 'Head'),
@@ -109,6 +112,7 @@ class Relic(models.Model):
             
             # Score potential scales the possible good stats obtainable per relic
             score_potential = 55.0 / character.get_slot_distribution(relic.slot)
+            _logger.info(f"{relic.slot} : {relic_score} * {score_potential}")
             relic.score = (relic_score * score_potential)
 
     @api.model_create_multi
