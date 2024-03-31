@@ -8,13 +8,6 @@ class CharacterTemplate(models.Model):
 
     eidolon_ids = fields.One2many('sr.character.eidolon', 'character_template_id', string='Eidolons')
 
-    # -- Materials --
-    general_mat_id = fields.Many2one('sr.item.material', string='General Material')
-    general_mat_img_id = fields.Many2one(related='general_mat_id.img_id', string='General Material Image')
-    advanced_mat_id = fields.Many2one('sr.item.material', string='Advanced Material')
-    advanced_mat_img_id = fields.Many2one(related='advanced_mat_id.img_id', string='Advanced Material Image')
-    ascension_mat_id = fields.Many2one('sr.item.material', string='Ascension Material')
-    ascension_mat_img_id = fields.Many2one(related='ascension_mat_id.img_id', string='Ascension Material Image')
 
 class Character(models.Model):
     _name = 'sr.character'

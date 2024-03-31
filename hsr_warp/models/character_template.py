@@ -32,6 +32,14 @@ class CharacterTemplate(models.Model):
                         domain="[('res_model','=','sr.character.template'),('res_field','=','preview_img_id')]")
     icon_img_id = fields.Many2one('ir.attachment', string='Icon Image', compute='_compute_images',
                         domain="[('res_model','=','sr.character.template'),('res_field','=','icon_img_id')]")
+    
+    # -- Materials --
+    general_mat_id = fields.Many2one('sr.item.material', string='General Material')
+    general_mat_img_id = fields.Many2one(related='general_mat_id.img_id', string='General Material Image')
+    advanced_mat_id = fields.Many2one('sr.item.material', string='Advanced Material')
+    advanced_mat_img_id = fields.Many2one(related='advanced_mat_id.img_id', string='Advanced Material Image')
+    ascension_mat_id = fields.Many2one('sr.item.material', string='Ascension Material')
+    ascension_mat_img_id = fields.Many2one(related='ascension_mat_id.img_id', string='Ascension Material Image')
 
     _sql_constraints = [
         ('character_key', 'UNIQUE (character_id)',  'Duplicate character deteced. Item ID must be unique.')
