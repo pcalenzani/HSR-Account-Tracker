@@ -52,12 +52,12 @@
                             <field name="last_sync"/>
                         </group>
                         <group>
-                            <field name="att_hp" nolabel="1"/><br/>
-                            <field name="att_atk" nolabel="1"/><br/>
-                            <field name="att_def" nolabel="1"/><br/>
-                            <field name="att_spd" nolabel="1"/><br/>
-                            <field name="att_crit_rate" nolabel="1"/><br/>
-                            <field name="att_crit_dmg" nolabel="1"/><br/>
+                            <span/><field name="att_hp" nolabel="1"/>
+                            <span/><field name="att_atk" nolabel="1"/>
+                            <span/><field name="att_def" nolabel="1"/>
+                            <span/><field name="att_spd" nolabel="1"/>
+                            <span/><field name="att_crit_rate" nolabel="1"/>
+                            <span/><field name="att_crit_dmg" nolabel="1"/>
                         </group>
                     </group>
                     <notebook>

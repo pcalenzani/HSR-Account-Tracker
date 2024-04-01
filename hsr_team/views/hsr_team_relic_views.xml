@@ -25,14 +25,14 @@
                         <field name="slot"/>
                         <h1>
                             <div class="d-flex">
-                                <field class="text-break" name="name" widget="text" options="{'line_breaks': False}" decoration-warning="rarity == 5" decoration-primary="rarity == 4"/>
+                                <field class="text-break" name="name" widget="text" options="{'line_breaks': False}" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'"/>
+                                <field name="score" decoration-bf="1"/>
                             </div>
                         </h1>
                     </div>
                     <group>
                         <group>
                             <field name="set_id"/>
-                            <field name="score"/>
                             <field name="level"/>
                             <field name="main_affix_id"/>
                         </group>
