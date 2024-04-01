@@ -31,11 +31,11 @@ class Attribute(models.Model):
 
     name = fields.Char('Name')
     field = fields.Char('Stat Reference')
-    value = fields.Float('Value', store=True, compute='_compute_value')
+    value = fields.Float('Value', store=True, compute='_compute_value', inverse='_set_value')
     percent = fields.Boolean('Is Percent')
 
     icon = fields.Char('Icon Image Path')
-    img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id', inverse='_set_value')
+    img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
 
     # Character attribute values will be split on receipt
     base = fields.Float('Base Value', default=0.0)
