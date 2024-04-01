@@ -23,7 +23,7 @@ class Warp(models.Model):
     rank_type = fields.Integer('Rarity')
     wid = fields.Char('Warp ID', index=True) # ID is out of int bounds, cannot use long int so need to be char
 
-    pity = fields.Integer('Pity', store=True, compute='_compute_pity')
+    pity = fields.Integer('Pity', store=True, compute='_compute_warp_pity')
     banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_banner')
     banner_type_id = fields.Many2one('sr.banner.type', store=True, compute='_compute_banner')
     character_id = fields.Many2one('sr.character.template', store=True, compute='_compute_character_id')
@@ -91,7 +91,6 @@ class Warp(models.Model):
     def _compute_warp_pity(self):
         for rec in self:
             latest_five = self.search([('rank_type','=',5),('banner_type_id','=',rec.banner_type_id),('wid','<',rec.wid)], limit=1, order='wid desc')
-            _logger.warning('test ' + str(latest_five))
             # Get most recent 5* pull, get count of how many warps since that pull
             if latest_five:
                 rec.pity = self.search_count([('banner_type_id','=',rec.banner_type_id),('wid','<=',rec.wid),('wid','>',latest_five.wid)])
