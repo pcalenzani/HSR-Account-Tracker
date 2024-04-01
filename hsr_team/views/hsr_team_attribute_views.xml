@@ -4,7 +4,7 @@
         <field name="name">hsr_team.attribute.tree</field>
         <field name="model">sr.attribute</field>
         <field name="arch" type="xml">
-            <tree string="Stats">
+            <tree string="Stats" editable="bottom">
                 <field name="img_id" widget="attachment_image" class="hsr_tree_img_small"/>
                 <field name="display_name"/>
                 <field name="name"/>

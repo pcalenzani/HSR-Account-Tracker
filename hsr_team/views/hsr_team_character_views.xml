@@ -61,8 +61,8 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Relics" readonly="1">
-                            <field name="relic_ids"/>
+                        <page string="Relics">
+                            <field name="relic_ids" readonly="1"/>
                         </page>
                         <page string="Light Cone">
                             <group>
@@ -75,7 +75,7 @@
                             </group>
                         </page>
                         <page string="All Stats">
-                            <field name="attribute_ids"/>
+                            <field name="attribute_ids" readonly="1"/>
                         </page>
                         <page string="Pulls">
                             <group>

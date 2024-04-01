@@ -6,11 +6,11 @@
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
             <tree string="Warps" decoration-warning="rank_type == 5" decoration-primary="rank_type == 4"  decoration-bf="rank_type > 3">
-                <field name="name"/>
-                <field name="rank_type"/>
                 <field name="time"/>
-                <field name="banner_id"/>
+                <field name="name"/>
+                <field name="pity"/>
                 <field name="banner_type_id"/>
+                <field name="banner_id"/>
             </tree>
         </field>
     </record>
@@ -33,10 +33,10 @@
                     <group>
                         <group>
                             <field name="time"/>
+                            <field name="pity"/>
                             <field name="rank_type"/>
                             <field name="item_type"/>
                             <field name="character_id" invisible="not character_id"/>
-                            <field name="pity"/>
                             <field name="banner_id"/>
                             <field name="banner_type_id"/>
                         </group>
