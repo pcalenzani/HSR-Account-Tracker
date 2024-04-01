@@ -6,6 +6,7 @@
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
             <tree string="Warps" decoration-warning="rank_type == 5" decoration-primary="rank_type == 4"  decoration-bf="rank_type > 3">
+                <field name="rank_type" column_invisible="1"/>
                 <field name="time"/>
                 <field name="name"/>
                 <field name="pity"/>
