@@ -19,6 +19,7 @@
         <field name="arch" type="xml">
             <form string="Warps" readonly="1">
                 <sheet>
+                    <field name="rarity" invisible="1"/>
                     <field name="img_id" widget="attachment_image" class="image_bg_float"/>
                     <div class="oe_title">
                         <field name="set_id"/>
