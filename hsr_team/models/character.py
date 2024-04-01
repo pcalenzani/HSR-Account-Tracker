@@ -65,7 +65,10 @@ class Character(models.Model):
 
     def _compute_display_name(self):
         for rec in self:
-            rec.display_name = f"{rec.name} ({rec.rank})"
+            if rec.rank > 0:
+                rec.display_name = f"{rec.name} ({rec.rank})"
+            else:
+                rec.display_name = rec.name
 
     @api.depends('icon_path', 'preview_path', 'portrait_path')
     def _compute_images(self):
