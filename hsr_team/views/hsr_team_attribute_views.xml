@@ -7,7 +7,6 @@
             <tree string="Stats" editable="bottom">
                 <field name="img_id" widget="attachment_image" class="hsr_tree_img_small"/>
                 <field name="display_name"/>
-                <field name="name"/>
                 <field name="base"/>
                 <field name="addition"/>
             </tree>
