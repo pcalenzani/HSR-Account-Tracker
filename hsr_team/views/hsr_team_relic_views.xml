@@ -22,7 +22,7 @@
                     <field name="rarity" invisible="1"/>
                     <field name="img_id" widget="attachment_image" class="image_bg_float"/>
                     <div class="oe_title">
-                        <field name="set_id"/>
+                        <field name="slot"/>
                         <h1>
                             <div class="d-flex">
                                 <field class="text-break" name="name" widget="text" options="{'line_breaks': False}" decoration-warning="rarity == 5" decoration-primary="rarity == 4"/>
@@ -31,18 +31,18 @@
                     </div>
                     <group>
                         <group>
+                            <field name="set_id"/>
                             <field name="score"/>
-                            <field name="slot"/>
                             <field name="level"/>
                             <field name="main_affix_id"/>
                         </group>
-                        <field name="sub_affix_ids">
-                            <tree editable="bottom">
-                                <field name="img_id" widget="attachment_image" class="hsr_tree_img_small"/>
-                                <field name="display_name"/>
-                            </tree>
-                        </field>
                     </group>
+                    <field name="sub_affix_ids">
+                        <tree editable="bottom">
+                            <field name="img_id" widget="attachment_image" class="hsr_tree_img_small"/>
+                            <field name="display_name"/>
+                        </tree>
+                    </field>
                 </sheet>
             </form>
         </field>
