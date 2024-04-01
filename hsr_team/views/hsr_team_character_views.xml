@@ -24,7 +24,7 @@
         <field name="name">hsr_team.character.form</field>
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
-            <form string="Characters">
+            <form string="Characters" edit="0">
                 <header>
                     <button name="calculate_relic_scores" string="Calculate Relic Scores" type="object"/>
                 </header>
@@ -36,11 +36,11 @@
                         <label for="name" string="Character Name"/>
                         <h1>
                             <div class="d-flex">
-                                <field class="text-break" name="name" widget="text" readonly="1" options="{'line_breaks': False}" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'"/>
+                                <field class="text-break" name="name" widget="text" options="{'line_breaks': False}" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'"/>
                             </div>
                         </h1>
                     </div>
-                    <field name="rarity" widget="priority" readonly="1"/>
+                    <field name="rarity" widget="priority"/>
                     <group>
                         <group>
                             <field name="element_id"/>
@@ -62,7 +62,7 @@
                     </group>
                     <notebook>
                         <page string="Relics">
-                            <field name="relic_ids" readonly="1"/>
+                            <field name="relic_ids"/>
                         </page>
                         <page string="Light Cone">
                             <group>
@@ -75,7 +75,7 @@
                             </group>
                         </page>
                         <page string="All Stats">
-                            <field name="attribute_ids" readonly="1"/>
+                            <field name="attribute_ids"/>
                         </page>
                         <page string="Pulls">
                             <group>
