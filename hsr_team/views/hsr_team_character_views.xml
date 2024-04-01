@@ -9,7 +9,7 @@
                 <field name="rarity" column_invisible="1"/>
                 <field name="last_sync"/>
                 <field name="icon_img_id" widget="attachment_image" class="hsr_tree_img"/>
-                <field name="name"/>
+                <field name="display_name"/>
                 <field name="relic_score"/>
                 <field name="light_cone_id"/>
                 <field name="light_cone_img_id" widget="attachment_image" class="hsr_tree_img"/>

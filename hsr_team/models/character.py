@@ -65,7 +65,7 @@ class Character(models.Model):
 
     def _compute_display_name(self):
         for rec in self:
-            rec.display_name = rec.name + ' *' + rec.rank
+            rec.display_name = f"{rec.name} ({rec.rank})"
 
     @api.depends('icon_path', 'preview_path', 'portrait_path')
     def _compute_images(self):
