@@ -70,6 +70,7 @@ class Character(models.Model):
             rec.preview_img_id = rec.get_image_from_path(rec.preview_path, field='preview_img_id').id
             rec.icon_img_id = rec.get_image_from_path(rec.icon_path, field='icon_img_id').id
 
+    @api.depends('attribute_ids')
     def _set_attributes(self):
         for rec in self:
             rec.att_hp, rec.att_atk, rec.att_def, rec.att_spd, rec.att_crit_rate, rec.att_crit_dmg, *_ = rec.attribute_ids
