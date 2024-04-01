@@ -90,13 +90,14 @@ class Warp(models.Model):
     @api.depends('wid')
     def _compute_warp_pity(self):
         for rec in self:
-            latest_five = self.search([('rank_type','=',5),('banner_type_id','=',rec.banner_type_id),('wid','<',rec.wid)], limit=1, order='wid desc')
+            latest_five = self.search([('rank_type','=',5),('banner_type_id','=',rec.banner_type_id.id),('wid','<',rec.wid)],
+                                      limit=1, order='wid desc')
             # Get most recent 5* pull, get count of how many warps since that pull
             if latest_five:
-                rec.pity = self.search_count([('banner_type_id','=',rec.banner_type_id),('wid','<=',rec.wid),('wid','>',latest_five.wid)])
+                rec.pity = self.search_count([('banner_type_id','=',rec.banner_type_id.id),('wid','<=',rec.wid),('wid','>',latest_five.wid)])
             else:
                 # For the first 5* pull, get count of all warps before
-                rec.pity = self.search_count([('banner_type_id','=',rec.banner_type_id),('wid','<=',rec.wid)])
+                rec.pity = self.search_count([('banner_type_id','=',rec.banner_type_id.id),('wid','<=',rec.wid)])
     
     def browse_sr_id(self, sr_ids):
         '''
