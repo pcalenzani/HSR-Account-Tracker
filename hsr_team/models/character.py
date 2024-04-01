@@ -63,6 +63,10 @@ class Character(models.Model):
         ('character_key', 'UNIQUE (item_id)',  'Duplicate character deteced. Item ID must be unique.')
     ]
 
+    def _compute_display_name(self):
+        for rec in self:
+            rec.display_name = rec.name + ' *' + rec.rank
+
     @api.depends('icon_path', 'preview_path', 'portrait_path')
     def _compute_images(self):
         for rec in self:
