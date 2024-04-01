@@ -31,15 +31,15 @@ class Attribute(models.Model):
 
     name = fields.Char('Name')
     field = fields.Char('Stat Reference')
-    value = fields.Float('Value', store=True, compute='_compute_value', inverse='_set_value')
+    value = fields.Float('Value', store=True, compute='_compute_value')
     percent = fields.Boolean('Is Percent')
 
     icon = fields.Char('Icon Image Path')
     img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
 
     # Character attribute values will be split on receipt
-    base = fields.Float('Base Value', default=0.0)
-    addition = fields.Float('Added Value', default=0.0)
+    base = fields.Float('Base Value', default=0.0, compute='_set_value')
+    addition = fields.Float('Added Value', default=0.0, compute='_set_value')
 
     # -- Relic Affix Fields ---
     attribute = fields.Char('Type') # This field is named 'type' in API
@@ -58,7 +58,7 @@ class Attribute(models.Model):
             if rec.percent:
                 tag = '%'
             # Don't use float_round in str() due to python float multiplication
-            rec.display_name = str(round(rec.value, 1)) + tag + rec.name
+            rec.display_name = str(round(rec.value, 1)) + tag + ' ' + rec.name
     
     @api.depends('icon')
     def _compute_img_id(self):
@@ -75,6 +75,7 @@ class Attribute(models.Model):
             value = rec.base + rec.addition
             rec.value = value if not rec.percent else value * 100
 
+    @api.depends('value')
     def _set_value(self):
         # If we set value directly, store it as the base amount
         for rec in self:
@@ -141,7 +142,7 @@ class Attribute(models.Model):
             'name': data['name'],
             'field': data['field'],
             'attribute': data['type'],
-            'value': data['value'],
+            'value': data['value'] * 100 if data['percent'] else data['value'],
             'percent': data['percent'],
             'icon': data['icon'],
         }).id
