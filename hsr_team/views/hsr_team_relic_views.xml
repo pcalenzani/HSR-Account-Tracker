@@ -12,4 +12,38 @@
             </tree>
         </field>
     </record>
+    
+    <record id="sr_relic_view_form" model="ir.ui.view">
+        <field name="name">hsr_team.relic.form</field>
+        <field name="model">sr.relic</field>
+        <field name="arch" type="xml">
+            <form string="Warps" readonly="1">
+                <sheet>
+                    <field name="img_id" widget="attachment_image" class="image_bg_float"/>
+                    <div class="oe_title">
+                        <field name="set_id">
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="name" widget="text" options="{'line_breaks': False}" decoration-warning="rarity == 5" decoration-primary="rarity == 4"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="score"/>
+                            <field name="slot"/>
+                            <field name="level"/>
+                            <field name="main_affix_id"/>
+                        </group>
+                        <field name="sub_affix_ids">
+                            <tree editable="bottom">
+                                <field name="img_id" widget="attachment_image" class="hsr_tree_img_small"/>
+                                <field name="display_name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>
