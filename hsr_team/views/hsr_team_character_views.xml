@@ -5,16 +5,16 @@
         <field name="name">hsr_team.character.tree</field>
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
-            <tree string="Characters" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'" decoration-bf="1">
+            <tree string="Characters" decoration-bf="1">
                 <field name="rarity" column_invisible="1"/>
                 <field name="last_sync"/>
                 <field name="icon_img_id" widget="attachment_image" class="hsr_tree_img"/>
-                <field name="display_name"/>
-                <field name="relic_score"/>
+                <field name="display_name" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'"/>
+                <field name="relic_score" decoration-danger="1"/>
+                <field name="element_img_id" string="Type" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="path_img_id" string="Path" widget="attachment_image" class="hsr_tree_img"/>
                 <field name="light_cone_id"/>
                 <field name="light_cone_img_id" widget="attachment_image" class="hsr_tree_img"/>
-                <field name="element_img_id" widget="attachment_image" class="hsr_tree_img"/>
-                <field name="path_img_id" widget="attachment_image" class="hsr_tree_img"/>
             </tree>
         </field>
     </record>
@@ -30,33 +30,33 @@
                 <sheet>
                     <field name="item_id" invisible="1"/>
                     <field name="template_id" invisible="1"/>
-                    <field name="preview_img_id" widget="attachment_image" class="image_bg_float"/>
+                    <field name="preview_img_id" widget="attachment_image" class="image_bg_float hsr_img_400"/>
                     <div class="oe_title">
                         <label for="name" string="Character Name"/>
                         <h1>
                             <div class="d-flex">
                                 <field class="text-break" name="name" widget="text" options="{'line_breaks': False}" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'"/>
+                                <field name="path_img_id" widget="attachment_image" class="hsr_tree_img"/>
+                                <field name="element_img_id" widget="attachment_image" class="hsr_tree_img"/>
                             </div>
                         </h1>
                     </div>
-                    <field name="rarity" widget="priority"/>
                     <group>
-                        <group>
-                            <field name="element_id"/>
-                            <field name="path_id"/>
+                        <group string="Info">
+                            <field name="rarity" widget="priority"/>
                             <field name="relic_score"/>
                             <field name="level"/>
                             <field name="rank"/>
                             <field name="promotion"/>
                             <field name="last_sync"/>
                         </group>
-                        <group>
-                            <span/><field name="att_hp" nolabel="1"/>
-                            <span/><field name="att_atk" nolabel="1"/>
-                            <span/><field name="att_def" nolabel="1"/>
-                            <span/><field name="att_spd" nolabel="1"/>
-                            <span/><field name="att_crit_rate" nolabel="1"/>
-                            <span/><field name="att_crit_dmg" nolabel="1"/>
+                        <group string="Stats">
+                            <span/><field name="att_hp" nolabel="1" options="{'no_open': True}"/>
+                            <span/><field name="att_atk" nolabel="1" options="{'no_open': True}"/>
+                            <span/><field name="att_def" nolabel="1" options="{'no_open': True}"/>
+                            <span/><field name="att_spd" nolabel="1" options="{'no_open': True}"/>
+                            <span/><field name="att_crit_rate" nolabel="1" options="{'no_open': True}"/>
+                            <span/><field name="att_crit_dmg" nolabel="1" options="{'no_open': True}"/>
                         </group>
                     </group>
                     <notebook>
