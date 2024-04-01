@@ -1,0 +1,103 @@
+id,active,banner_key,name,gacha_type_id:id
+sr_banner_standard,1,1001,Stellar Warp,sr_banner_standard_warp
+sr_banner_departure,1,4001,Departure Warp,sr_banner_departure_warp
+sr_banner_special_1,1,2003,Character Warp,sr_banner_special_warp_1
+sr_banner_special_2,1,2004,Character Warp,sr_banner_special_warp_1
+sr_banner_special_3,1,2005,Character Warp,sr_banner_special_warp_1
+sr_banner_special_4,1,2006,Character Warp,sr_banner_special_warp_1
+sr_banner_special_5,1,2007,Character Warp,sr_banner_special_warp_1
+sr_banner_special_6,1,2008,Character Warp,sr_banner_special_warp_1
+sr_banner_special_7,1,2009,Character Warp,sr_banner_special_warp_1
+sr_banner_special_8,1,2010,Character Warp,sr_banner_special_warp_1
+sr_banner_special_9,1,2011,Character Warp,sr_banner_special_warp_1
+sr_banner_special_10,1,2012,Character Warp,sr_banner_special_warp_1
+sr_banner_special_11,1,2013,Character Warp,sr_banner_special_warp_1
+sr_banner_special_12,1,2014,Character Warp,sr_banner_special_warp_1
+sr_banner_special_13,1,2015,Character Warp,sr_banner_special_warp_1
+sr_banner_special_14,1,2016,Character Warp,sr_banner_special_warp_1
+sr_banner_special_15,1,2017,Character Warp,sr_banner_special_warp_1
+sr_banner_special_16,1,2018,Character Warp,sr_banner_special_warp_1
+sr_banner_special_17,1,2019,Character Warp,sr_banner_special_warp_1
+sr_banner_special_18,1,2020,Character Warp,sr_banner_special_warp_1
+sr_banner_special_19,1,2021,Character Warp,sr_banner_special_warp_1
+sr_banner_special_20,1,2022,Character Warp,sr_banner_special_warp_1
+sr_banner_special_21,1,2023,Character Warp,sr_banner_special_warp_1
+sr_banner_special_22,1,2024,Character Warp,sr_banner_special_warp_1
+sr_banner_special_23,1,2025,Character Warp,sr_banner_special_warp_1
+sr_banner_special_24,1,2026,Character Warp,sr_banner_special_warp_1
+sr_banner_special_25,1,2027,Character Warp,sr_banner_special_warp_1
+sr_banner_special_26,1,2028,Character Warp,sr_banner_special_warp_1
+sr_banner_special_27,1,2029,Character Warp,sr_banner_special_warp_1
+sr_banner_special_28,1,2030,Character Warp,sr_banner_special_warp_1
+sr_banner_special_29,1,2031,Character Warp,sr_banner_special_warp_1
+sr_banner_special_30,1,2032,Character Warp,sr_banner_special_warp_1
+sr_banner_special_31,1,2033,Character Warp,sr_banner_special_warp_1
+sr_banner_special_32,1,2034,Character Warp,sr_banner_special_warp_1
+sr_banner_special_33,1,2035,Character Warp,sr_banner_special_warp_1
+sr_banner_special_34,1,2036,Character Warp,sr_banner_special_warp_1
+sr_banner_special_35,1,2037,Character Warp,sr_banner_special_warp_1
+sr_banner_special_36,1,2038,Character Warp,sr_banner_special_warp_1
+sr_banner_special_37,1,2039,Character Warp,sr_banner_special_warp_1
+sr_banner_special_38,1,2040,Character Warp,sr_banner_special_warp_1
+sr_banner_special_39,1,2041,Character Warp,sr_banner_special_warp_1
+sr_banner_special_40,1,2042,Character Warp,sr_banner_special_warp_1
+sr_banner_special_41,1,2043,Character Warp,sr_banner_special_warp_1
+sr_banner_special_42,1,2044,Character Warp,sr_banner_special_warp_1
+sr_banner_special_43,1,2045,Character Warp,sr_banner_special_warp_1
+sr_banner_special_44,1,2046,Character Warp,sr_banner_special_warp_1
+sr_banner_special_45,1,2047,Character Warp,sr_banner_special_warp_1
+sr_banner_special_46,1,2048,Character Warp,sr_banner_special_warp_1
+sr_banner_special_47,1,2049,Character Warp,sr_banner_special_warp_1
+sr_banner_special_48,1,2050,Character Warp,sr_banner_special_warp_1
+sr_banner_special_49,1,2051,Character Warp,sr_banner_special_warp_1
+sr_banner_special_50,1,2052,Character Warp,sr_banner_special_warp_1
+sr_banner_weapon_1,1,3003,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_2,1,3004,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_3,1,3005,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_4,1,3006,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_5,1,3007,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_6,1,3008,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_7,1,3009,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_8,1,3010,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_9,1,3011,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_10,1,3012,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_11,1,3013,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_12,1,3014,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_13,1,3015,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_14,1,3016,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_15,1,3017,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_16,1,3018,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_17,1,3019,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_18,1,3020,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_19,1,3021,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_20,1,3022,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_21,1,3023,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_22,1,3024,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_23,1,3025,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_24,1,3026,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_25,1,3027,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_26,1,3028,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_27,1,3029,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_28,1,3030,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_29,1,3031,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_30,1,3032,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_31,1,3033,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_32,1,3034,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_33,1,3035,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_34,1,3036,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_35,1,3037,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_36,1,3038,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_37,1,3039,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_38,1,3040,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_39,1,3041,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_40,1,3042,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_41,1,3043,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_42,1,3044,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_43,1,3045,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_44,1,3046,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_45,1,3047,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_46,1,3048,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_47,1,3049,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_48,1,3050,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_49,1,3051,Light Cone Warp,sr_banner_light_cone_warp_1
+sr_banner_weapon_50,1,3052,Light Cone Warp,sr_banner_light_cone_warp_1

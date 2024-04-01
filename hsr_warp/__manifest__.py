@@ -13,6 +13,7 @@
         'data/sr_element_path_data.xml',
         'data/sr.item.material.csv',
         'data/sr.character.template.csv',
+        'data/sr.banner.csv',
 
         'views/hsr_warp_menu_items.xml',
         'views/hsr_warp_warp_views.xml',
