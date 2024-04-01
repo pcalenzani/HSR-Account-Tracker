@@ -91,6 +91,7 @@ class Warp(models.Model):
     def _compute_warp_pity(self):
         for rec in self:
             latest_five = self.search([('rank_type','=',5),('banner_type_id','=',rec.banner_type_id),('wid','<',rec.wid)], limit=1, order='wid desc')
+            _logger.warning('test ' + str(latest_five))
             # Get most recent 5* pull, get count of how many warps since that pull
             if latest_five:
                 rec.pity = self.search_count([('banner_type_id','=',rec.banner_type_id),('wid','<=',rec.wid),('wid','>',latest_five.wid)])
