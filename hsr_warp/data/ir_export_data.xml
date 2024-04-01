@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="warp_export_template" model="ir.exports">
+        <field name="name">Warp Export (CSV)</field>
+        <field name="resource">sr.warp</field>
+    </record>
+    <record id="warp_export_line_1" model="ir.exports.line">
+        <field name="name"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+    <record id="warp_export_line_2" model="ir.exports.line">
+        <field name="rank_type"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+    <record id="warp_export_line_3" model="ir.exports.line">
+        <field name="time"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+    <record id="warp_export_line_4" model="ir.exports.line">
+        <field name="count"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+    <record id="warp_export_line_5" model="ir.exports.line">
+        <field name="gacha_id"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+    <record id="warp_export_line_6" model="ir.exports.line">
+        <field name="gacha_type"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+    <record id="warp_export_line_7" model="ir.exports.line">
+        <field name="item_id"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+    <record id="warp_export_line_8" model="ir.exports.line">
+        <field name="item_type"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+    <record id="warp_export_line_9" model="ir.exports.line">
+        <field name="lang"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+    <record id="warp_export_line_10" model="ir.exports.line">
+        <field name="wid"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+    <record id="warp_export_line_11" model="ir.exports.line">
+        <field name="uid"/>
+        <field name="export_id" ref="warp_export_template"/>
+    </record>
+</odoo>

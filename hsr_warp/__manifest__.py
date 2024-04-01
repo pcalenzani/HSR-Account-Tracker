@@ -9,6 +9,7 @@
         'data/sr_banner_data.xml',
         'data/ir_cron_data.xml',
         'data/ir_asset.xml',
+        'data/ir_export_data.xml',
         'data/sr_element_path_data.xml',
         'data/sr.item.material.csv',
         'data/sr.character.template.csv',
