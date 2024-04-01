@@ -8,13 +8,16 @@
             <tree string="Characters" decoration-bf="1">
                 <field name="rarity" column_invisible="1"/>
                 <field name="last_sync"/>
-                <field name="icon_img_id" widget="attachment_image" class="hsr_tree_img"/>
-                <field name="display_name" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'"/>
+                <field name="icon_img_id" string="Image" widget="attachment_image" class="hsr_tree_img"/>
                 <field name="relic_score" decoration-danger="1"/>
-                <field name="element_img_id" string="Type" widget="attachment_image" class="hsr_tree_img"/>
-                <field name="path_img_id" string="Path" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="display_name" decoration-warning="rarity == '5'" decoration-primary="rarity == '4'"/>
                 <field name="light_cone_id"/>
                 <field name="light_cone_img_id" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="element_img_id" string="Type" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="path_img_id" string="Path" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="ascension_mat_img_id" string="Ascension" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="skill_mat_img_id" string="Traces" widget="attachment_image" class="hsr_tree_img"/>
+                <field name="advanced_mat_img_id" string="Advanced" widget="attachment_image" class="hsr_tree_img"/>
             </tree>
         </field>
     </record>
