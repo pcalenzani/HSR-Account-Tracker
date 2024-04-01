@@ -87,6 +87,7 @@ class Warp(models.Model):
                 path = '/hsr_warp/static/image/character_preview/'
             rec.img_id = rec.get_image_from_path(path, rec.item_id).id
             
+    @api.depends('wid')
     def _compute_warp_pity(self):
         for rec in self:
             latest_five = self.search([('rank_type','=',5),('banner_type_id','=',rec.banner_type_id),('wid','<',rec.wid)], limit=1, order='wid desc')
