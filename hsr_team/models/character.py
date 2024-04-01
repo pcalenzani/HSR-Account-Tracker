@@ -48,12 +48,12 @@ class Character(models.Model):
 
     # --- Stat Fields ---
     attribute_ids = fields.One2many('sr.attribute', 'character_id', string='Character Stats', inverse='_set_attributes')
-    att_hp = fields.Many2one('sr.attribute', string='HP Stat')
-    att_atk = fields.Many2one('sr.attribute', string='ATK Stat')
-    att_def = fields.Many2one('sr.attribute', string='DEF Stat')
-    att_spd = fields.Many2one('sr.attribute', string='SPD Stat')
-    att_crit_rate = fields.Many2one('sr.attribute', string='CRIT_RATE Stat')
-    att_crit_dmg = fields.Many2one('sr.attribute', string='CRIT_DMG Stat')
+    att_hp = fields.Many2one('sr.attribute', string='HP Stat', compute='_set_attributes')
+    att_atk = fields.Many2one('sr.attribute', string='ATK Stat', compute='_set_attributes')
+    att_def = fields.Many2one('sr.attribute', string='DEF Stat', compute='_set_attributes')
+    att_spd = fields.Many2one('sr.attribute', string='SPD Stat', compute='_set_attributes')
+    att_crit_rate = fields.Many2one('sr.attribute', string='CRIT_RATE Stat', compute='_set_attributes')
+    att_crit_dmg = fields.Many2one('sr.attribute', string='CRIT_DMG Stat', compute='_set_attributes')
 
     # -- Relic Fields ---
     relic_ids = fields.One2many('sr.relic', 'character_id', string='Equipped Relics')
@@ -70,6 +70,7 @@ class Character(models.Model):
             rec.preview_img_id = rec.get_image_from_path(rec.preview_path, field='preview_img_id').id
             rec.icon_img_id = rec.get_image_from_path(rec.icon_path, field='icon_img_id').id
 
+    @api.depends('attribute_ids')
     def _set_attributes(self):
         for rec in self:
             rec.att_hp, rec.att_atk, rec.att_def, rec.att_spd, rec.att_crit_rate, rec.att_crit_dmg, *_ = rec.attribute_ids
@@ -80,7 +81,6 @@ class Character(models.Model):
         for ch in characters:
             # Link character record to character template
             ch.template_id = self.env['sr.character.template'].browse_sr_id([ch.item_id])
-            ch._set_attributes()
         return characters
     
     def calculate_relic_scores(self):
