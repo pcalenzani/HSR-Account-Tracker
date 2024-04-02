@@ -122,7 +122,7 @@
                     </group>
                     <notebook>
                         <page string="Relics">
-                            <field name="relic_ids" mode="kanban"/>
+                            <field name="relic_ids"/>
                         </page>
                         <page string="Light Cone">
                             <group>
