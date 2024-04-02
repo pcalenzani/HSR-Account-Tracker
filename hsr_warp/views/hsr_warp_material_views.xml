@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <record id="sr_item_material_view_tree" model="ir.ui.view">
-        <field name="name">hsr_team.material.template.tree</field>
+        <field name="name">hsr_warp.material.template.tree</field>
         <field name="model">sr.item.material</field>
         <field name="arch" type="xml">
             <tree string="Upgrade Materials">
@@ -13,7 +13,7 @@
     </record>
 
     <record id="sr_item_material_view_form" model="ir.ui.view">
-        <field name="name">hsr_team.material.form</field>
+        <field name="name">hsr_warp.material.form</field>
         <field name="model">sr.item.material</field>
         <field name="arch" type="xml">
             <form string="Materials" readonly="1">
@@ -34,6 +34,29 @@
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+    
+    <record id="sr_item_material_view_kanban" model="ir.ui.view">
+        <field name="name">hsr_warp.material.kanban</field>
+        <field name="model">sr.item.material</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="img_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div><field name="img_id" widget="attachment_image" class="image_bg_float hsr_tree_img"/></div>
+                                <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                <div><field name="type"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 </odoo>

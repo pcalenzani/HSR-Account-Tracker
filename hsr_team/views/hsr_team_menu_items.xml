@@ -3,7 +3,7 @@
     <record id="sr_character_action" model="ir.actions.act_window">
         <field name="name">Characters</field>
         <field name="res_model">sr.character</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
     <record id="sr_light_cone_action" model="ir.actions.act_window">
         <field name="name">Light Cones</field>

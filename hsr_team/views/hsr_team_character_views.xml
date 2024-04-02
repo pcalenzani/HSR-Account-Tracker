@@ -22,6 +22,65 @@
         </field>
     </record>
 
+    <record id="sr_item_character_view_kanban" model="ir.ui.view">
+        <field name="name">hsr_warp.character.kanban</field>
+        <field name="model">sr.character</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="display_name"/>
+                <field name="rarity"/>
+                <field name="relic_score"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div>
+                                    <field name="preview_img_id" widget="attachment_image" class="image_bg_float hsr_img_200"/>
+                                    <h3><field name="display_name"/></h3>
+                                    <div class="pt-2">
+                                        <field name="element_img_id" widget="attachment_image" class="hsr_tree_img"/>
+                                        <field name="path_img_id" widget="attachment_image" class="hsr_tree_img"/>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="pb-2">
+                                        <field name="att_hp"/><br/>
+                                        <field name="att_atk"/><br/>
+                                        <field name="att_def"/><br/>
+                                        <field name="att_spd"/><br/>
+                                        <field name="att_crit_rate"/><br/>
+                                        <field name="att_crit_dmg"/>
+                                </div>
+                                <div class="border-top pt-2 pb-2">
+                                    <div class="image_bg_float">
+                                        Level: <field name="level"/>
+                                        <br/>
+                                        Score: <field name="relic_score"/>
+                                    </div>
+                                    <field name="light_cone_img_id" widget="attachment_image" class="hsr_img_90"/>
+                                    <field name="light_cone_id"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="o_kanban_record_bottom border-top pt-2">
+                                    <div class="oe_kanban_bottom_left">
+                                    <field name="ascension_mat_img_id" widget="attachment_image" class="hsr_tree_img_small"/>
+                                    <field name="skill_mat_img_id" widget="attachment_image" class="hsr_tree_img_small"/>
+                                    <field name="advanced_mat_img_id" widget="attachment_image" class="hsr_tree_img_small"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="rarity" widget="priority" readonly="1"/>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="sr_character_view_form" model="ir.ui.view">
         <field name="name">hsr_team.character.form</field>
         <field name="model">sr.character</field>

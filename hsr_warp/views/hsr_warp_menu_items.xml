@@ -36,12 +36,12 @@
     <record id="sr_elements_action" model="ir.actions.act_window">
         <field name="name">Elements</field>
         <field name="res_model">sr.element</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,form</field>
     </record>
     <record id="sr_paths_action" model="ir.actions.act_window">
         <field name="name">Paths</field>
         <field name="res_model">sr.path</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,form</field>
     </record>
     <record id="sr_character_template_action" model="ir.actions.act_window">
         <field name="name">Character Settings</field>
@@ -51,7 +51,7 @@
     <record id="sr_item_materials_action" model="ir.actions.act_window">
         <field name="name">Upgrade Materials</field>
         <field name="res_model">sr.item.material</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
     </record>
 
     <menuitem id="menu_hsr_root" name="Star Rail" sequence="30" web_icon="hsr_warp,static/description/icon(2).png"/>

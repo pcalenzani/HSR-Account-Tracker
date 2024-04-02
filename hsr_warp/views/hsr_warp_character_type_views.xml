@@ -2,7 +2,7 @@
 <odoo>
     <!-- SR.ELEMENT -->
     <record id="sr_item_element_view_form" model="ir.ui.view">
-        <field name="name">hsr_team.element.form</field>
+        <field name="name">hsr_warp.element.form</field>
         <field name="model">sr.element</field>
         <field name="arch" type="xml">
             <form string="Elements" readonly="1">
@@ -31,24 +31,32 @@
         </field>
     </record>
 
-    <!-- TODO: KANBAN -->
-    <!-- <record id="sr_item_element_view_kanban" model="ir.ui.view">
-        <field name="name">hsr_team.element.kanban</field>
+    <record id="sr_item_element_view_kanban" model="ir.ui.view">
+        <field name="name">hsr_warp.element.kanban</field>
         <field name="model">sr.element</field>
         <field name="arch" type="xml">
             <kanban>
+                <field name="name"/>
+                <field name="character_template_ids"/>
+                <field name="img_id"/>
                 <templates>
                     <t t-name="kanban-box">
-
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div><field name="img_id" widget="attachment_image" class="image_bg_float hsr_tree_img"/></div>
+                                <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                <div><field name="character_template_ids"/></div>
+                            </div>
+                        </div>
                     </t>
                 </templates>
             </kanban>
         </field>
-    </record> -->
+    </record>
 
     <!-- SR.PATH -->
     <record id="sr_item_path_view_form" model="ir.ui.view">
-        <field name="name">hsr_team.path.form</field>
+        <field name="name">hsr_warp.path.form</field>
         <field name="model">sr.path</field>
         <field name="arch" type="xml">
             <form string="Aeon Paths" readonly="1">
@@ -74,6 +82,29 @@
                     </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="sr_item_path_view_kanban" model="ir.ui.view">
+        <field name="name">hsr_warp.path.kanban</field>
+        <field name="model">sr.path</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="character_template_ids"/>
+                <field name="img_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div><field name="img_id" widget="attachment_image" class="image_bg_float hsr_tree_img"/></div>
+                                <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                <div><field name="character_template_ids"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 </odoo>

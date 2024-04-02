@@ -58,7 +58,7 @@ class Attribute(models.Model):
             if rec.percent:
                 tag = '%'
             # Don't use float_round in str() due to python float multiplication
-            rec.display_name = str(round(rec.value, 1)) + tag + ' ' + rec.name
+            rec.display_name = rec.name + ': ' + str(round(rec.value, 1)) + tag
     
     @api.depends('icon')
     def _compute_img_id(self):

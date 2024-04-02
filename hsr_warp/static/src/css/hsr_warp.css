@@ -36,8 +36,24 @@
 }
 
 /* Image resize classes */
+.o_field_attachment_image.hsr_tree_img_small {
+    --hsr-img-max: 30px
+}
+
+.o_field_attachment_image.hsr_tree_img {
+    --hsr-img-max: 70px
+}
+
+.o_field_attachment_image.hsr_img_90 {
+    --hsr-img-max: 90px
+}
+
 .o_field_attachment_image.hsr_img_180 {
     --hsr-img-max: 180px
+}
+
+.o_field_attachment_image.hsr_img_200 {
+    --hsr-img-max: 200px
 }
 
 .o_field_attachment_image.hsr_img_300 {
@@ -46,14 +62,6 @@
 
 .o_field_attachment_image.hsr_img_400 {
     --hsr-img-max: 400px
-}
-
-.o_field_attachment_image.hsr_tree_img {
-    --hsr-img-max: 70px
-}
-
-.o_field_attachment_image.hsr_tree_img_small {
-    --hsr-img-max: 30px
 }
 
 .o_field_attachment_image.hsr_portrait_max {
