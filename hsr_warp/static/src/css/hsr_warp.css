@@ -32,7 +32,7 @@
 
 /* Kanban decoration */
 .kanban-five-star {
-    background-image: linear-gradient(to bottom right, rgba(213, 188, 50, 0.4), rgba(213, 188, 50, 0.1), rgba(0,0,0,0));
+    background-image: linear-gradient(to bottom right, rgba(248, 213, 16, 0.4), rgba(248, 213, 16, 0.05), rgba(0,0,0,0));
 }
 
 .kanban-four-star {

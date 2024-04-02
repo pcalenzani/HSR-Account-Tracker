@@ -32,7 +32,7 @@
                 <field name="relic_score"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_card oe_kanban_global_click" t-att-style="record.rarity.raw_value == '5' ? 'kanban-five-star' : 'kanban-four-star'">
+                        <div class="oe_kanban_card oe_kanban_global_click" t-att-class="record.rarity.raw_value == '5' ? 'kanban-five-star' : 'kanban-four-star'">
                             <div class="oe_kanban_content">
                                 <div class="image_bg_float">
                                     <field name="preview_img_id" widget="attachment_image" class="hsr_img_200"/>
