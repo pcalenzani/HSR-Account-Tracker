@@ -48,6 +48,10 @@
     --hsr-img-max: 90px
 }
 
+.o_field_attachment_image.hsr_img_128 {
+    --hsr-img-max: 128px
+}
+
 .o_field_attachment_image.hsr_img_180 {
     --hsr-img-max: 180px
 }
