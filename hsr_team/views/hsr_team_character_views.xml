@@ -23,7 +23,7 @@
     </record>
 
     <record id="sr_item_character_view_kanban" model="ir.ui.view">
-        <field name="name">hsr_warp.character.kanban</field>
+        <field name="name">hsr_team.character.kanban</field>
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
             <kanban>
@@ -122,7 +122,7 @@
                     </group>
                     <notebook>
                         <page string="Relics">
-                            <field name="relic_ids"/>
+                            <field name="relic_ids" mode="kanban"/>
                         </page>
                         <page string="Light Cone">
                             <group>
