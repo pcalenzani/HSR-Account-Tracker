@@ -19,15 +19,24 @@
 
 /* Tree view decoration */
 .text-warning {
-    --color: RGBA(213, 188, 50, var(--text-opacity, 1));
+    --color: rgba(213, 188, 50, var(--text-opacity, 1));
     color: var(--color) !important;
 }
 .text-primary {
-    --color: RGBA(179, 85, 192, var(--text-opacity, 1));
+    --color: rgba(179, 85, 192, var(--text-opacity, 1));
     color: var(--color) !important;
 }
 .fw-bold {
     font-weight: 700 !important;
+}
+
+/* Kanban decoration */
+.kanban-five-star {
+    background-image: linear-gradient(to bottom right, rgba(213, 188, 50, 0.4), rgba(213, 188, 50, 0.1), rgba(0,0,0,0));
+}
+
+.kanban-four-star {
+    background-image: linear-gradient(to bottom right, rgba(179, 85, 192, 0.4), rgba(179, 85, 192, 0.1), rgba(0,0,0,0));
 }
 
 /* Hover tree view, disable text color change */
