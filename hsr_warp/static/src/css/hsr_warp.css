@@ -32,11 +32,11 @@
 
 /* Kanban decoration */
 .kanban-five-star {
-    background-image: linear-gradient(to bottom right, rgba(248, 213, 16, 0.4), rgba(248, 213, 16, 0.05), rgba(0,0,0,0));
+    background-image: linear-gradient(0deg,#00000000 10%,#885550 55%,#c9a36a);
 }
 
 .kanban-four-star {
-    background-image: linear-gradient(to bottom right, rgba(179, 85, 192, 0.4), rgba(179, 85, 192, 0.1), rgba(0,0,0,0));
+    background-image: linear-gradient(0deg,#00000000 10%,#343659 53%,#8a5fcc);
 }
 
 /* Hover tree view, disable text color change */
