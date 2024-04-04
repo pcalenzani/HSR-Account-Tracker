@@ -13,12 +13,13 @@
         </field>
     </record>
     
-    <!-- <record id="sr_item_relic_view_kanban" model="ir.ui.view">
+    <record id="sr_item_relic_view_kanban" model="ir.ui.view">
         <field name="name">hsr_team.relic.kanban</field>
         <field name="model">sr.relic</field>
         <field name="arch" type="xml">
             <kanban>
                 <field name="name"/>
+                <field name="sub_affix_json"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_card oe_kanban_global_click">
@@ -36,8 +37,8 @@
                                     <span class="border-bottom">Stats</span>
                                     <field name="main_affix_id"/>
                                 </div>
-                                <t t-foreach="record.sub_affix_ids" t-as="sub_stat">
-                                    <t t-esc="sub_stat.display_name"/>
+                                <t t-foreach="record.sub_affix_json" t-as="sub_stat">
+                                    <t t-esc="sub_stat"/>
                                 </t>
                             </div>
                         </div>
@@ -45,7 +46,7 @@
                 </templates>
             </kanban>
         </field>
-    </record> -->
+    </record>
     
     <record id="sr_relic_view_form" model="ir.ui.view">
         <field name="name">hsr_team.relic.form</field>

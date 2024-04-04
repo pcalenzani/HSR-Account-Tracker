@@ -57,16 +57,16 @@ class Relic(models.Model):
     _description = 'Relic'
     _inherit = 'sr.item'
 
+    slot = fields.Selection(string='Relic Slot', selection=RELIC_SLOTS)
     set_id = fields.Many2one('sr.relic.set')
     main_affix_id = fields.Many2one('sr.attribute')
     sub_affix_ids = fields.One2many('sr.attribute', 'relic_id')
-    character_id = fields.Many2one('sr.character', string='Equipped By', ondelete='cascade')
-    slot = fields.Selection(string='Relic Slot', selection=RELIC_SLOTS)
+    sub_affix_json = fields.Char('Sub Stats JSON', compute='_compute_sub_affix_json')
 
+    character_id = fields.Many2one('sr.character', string='Equipped By', ondelete='cascade')
+    score = fields.Float('Relic Score')
     icon = fields.Char('Icon Image Path')
     img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
-
-    score = fields.Float('Relic Score')
 
     def name_get(self):
         return [(rec.id, f"{rec.set_id.name}: {rec.relic_name}") for rec in self]
@@ -113,6 +113,10 @@ class Relic(models.Model):
             # Score potential scales the possible good stats obtainable per relic
             score_potential = 55.0 / character.get_slot_distribution(relic.slot)
             relic.score = (relic_score * score_potential)
+
+    def _compute_sub_affix_json(self):
+        for record in self:
+            record.sub_affix_json = [affix.display_name for affix in record.sub_affix_ids]
 
     @api.model_create_multi
     def create(self, vals_list):
