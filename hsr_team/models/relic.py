@@ -1,7 +1,7 @@
-from json import dumps
-import ast
-
+from odoo.tools import json_default
 from odoo import api, fields, models, Command
+
+import json
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -119,7 +119,7 @@ class Relic(models.Model):
 
     def _compute_sub_affix_json(self):
         for record in self:
-            record.sub_affix_json = dumps(ast.literal_eval(str(record.sub_affix_ids.read(['display_name']))))
+            record.sub_affix_json = json.dumps(record.sub_affix_ids.read(['display_name']), default=json_default)
 
     @api.model_create_multi
     def create(self, vals_list):
