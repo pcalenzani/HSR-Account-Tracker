@@ -56,9 +56,9 @@
                                     <img src="/hsr_warp/static/icon/property/IconCriticalChance.png" style="max-block-size:19px;"/> <field name="att_crit_rate"/><br/>
                                     <img src="/hsr_warp/static/icon/property/IconCriticalDamage.png" style="max-block-size:19px;"/> <field name="att_crit_dmg"/>
                                 </div>
-                                <div class="border-top pt-2 pb-2">
-                                    <field name="light_cone_img_id" widget="attachment_image" class="hsr_img_90"/>
-                                    <field name="light_cone_id"/>
+                                <div class="kanban-lc-grid border-top pt-2 pb-2">
+                                    <field name="light_cone_img_id" widget="attachment_image" class="grid-child hsr_img_90"/>
+                                    <field name="light_cone_id" class="grid-child"/>
                                 </div>
                             </div>
                             <div class="oe_kanban_footer">

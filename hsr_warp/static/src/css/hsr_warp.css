@@ -31,6 +31,12 @@
 }
 
 /* Kanban decoration */
+.kanban-lc-grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+}
+
 .kanban-five-star {
     background-image: linear-gradient(0deg,#00000000 10%,#885550 55%,#c9a36a);
 }
