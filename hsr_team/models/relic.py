@@ -1,3 +1,6 @@
+from json import dumps
+from ast import literal_eval
+
 from odoo import api, fields, models, Command
 import logging
 
@@ -116,7 +119,7 @@ class Relic(models.Model):
 
     def _compute_sub_affix_json(self):
         for record in self:
-            record.sub_affix_json = record.sub_affix_ids.read(['display_name'])
+            record.sub_affix_json = dumps(literal_eval(record.sub_affix_ids.read(['display_name'])))
 
     @api.model_create_multi
     def create(self, vals_list):
