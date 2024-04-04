@@ -25,20 +25,18 @@
                         <div class="oe_kanban_card oe_kanban_global_click">
                             <div class="oe_kanban_content">
                                 <div class="image_bg_float">
-                                    <field name="img_id" widget="attachment_image" class="hsr_img_200"/>
-                                    <br/>
-                                    <field name="score"/>
+                                    <field name="img_id" widget="attachment_image" class="hsr_img_90"/>
                                 </div>
-                                <strong class="o_kanban_record_title"><field name="name"/></strong>
-                                <div>
-                                    Level <field name="level"/> <field name="slot"/>
+                                <strong class="o_kanban_record_title"><field name="slot"/> Lv<field name="level"/></strong>
+                                <div class="fw-bold text-danger">
+                                    Score: <field name="score"/>
                                 </div>
-                                <div>
-                                    <span class="border-bottom">Stats</span>
-                                    <field name="main_affix_id"/>
+                                <div class="pt-4">
+                                    <span class="border-bottom">Stats</span><br/>
+                                    <field name="main_affix_id" class="fw-bold"/>
                                 </div>
-                                <t t-foreach="record.sub_affix_json" t-as="sub_stat">
-                                    <t t-esc="sub_stat"/>
+                                <t t-foreach="JSON.parse(record.sub_affix_json.raw_value)" t-as="sub_stat">
+                                    <div t-esc="sub_stat.display_name"/>
                                 </t>
                             </div>
                         </div>
