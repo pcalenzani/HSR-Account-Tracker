@@ -19,11 +19,11 @@
 
 /* Extend Kanban Renderer to allow replacing width of cards */
 .kanban_size_500 {
-    --KanbanRecord-width: 500px
+    --KanbanRecord-width: 500px;
 }
 
 .o_kanban_renderer {
-    --KanbanRecord-width: var(--KanbanRecord-width, 320px)
+    --KanbanRecord-width: var(--KanbanRecord-width, 320px);
 }
 
 /* Tree view decoration */
