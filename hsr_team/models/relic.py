@@ -116,7 +116,7 @@ class Relic(models.Model):
 
     def _compute_sub_affix_json(self):
         for record in self:
-            record.sub_affix_json = [affix.display_name for affix in record.sub_affix_ids]
+            record.sub_affix_json = record.sub_affix_ids.read(['display_name'])
 
     @api.model_create_multi
     def create(self, vals_list):
