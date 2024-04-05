@@ -3,24 +3,24 @@
     <record id="hsr_warp_warp_all_action" model="ir.actions.act_window">
         <field name="name">Warps</field>
         <field name="res_model">sr.warp</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
     <record id="hsr_warp_warp_char_action" model="ir.actions.act_window">
         <field name="name">Limited Character Warps</field>
         <field name="res_model">sr.warp</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
         <field name="domain">[('banner_type_id.gacha_type','=','11')]</field>
     </record>
     <record id="hsr_warp_warp_lc_action" model="ir.actions.act_window">
         <field name="name">Light Cone Warps</field>
         <field name="res_model">sr.warp</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
         <field name="domain">[('banner_type_id.gacha_type','=','12')]</field>
     </record>
     <record id="hsr_warp_warp_std_action" model="ir.actions.act_window">
         <field name="name">Standard Warps</field>
         <field name="res_model">sr.warp</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
         <field name="domain">[('banner_type_id.gacha_type','=','1')]</field>
     </record>
     <record id="hsr_warp_banner_action" model="ir.actions.act_window">
