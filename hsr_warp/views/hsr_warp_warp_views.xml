@@ -21,7 +21,9 @@
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
             <kanban>
+                <field name="time"/>
                 <field name="rank_type"/>
+                <field name="pity"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_card oe_kanban_global_click" t-att-class="(record.rank_type.raw_value == 5 ? 'kanban-five-star' : '') + ' ' + (record.rank_type.raw_value == 4 ? 'kanban-four-star' : '')">
@@ -29,10 +31,13 @@
                                 <field name="img_id" widget="attachment_image" class="image_bg_float hsr_img_128"/>
                                 <div><h3><field name="name"/></h3></div>
                                 <div><field name="item_type"/></div>
-                                <div class="pt-4">
-                                    Pity: <field name="pity"/><br/>
-                                    Obtained: <field name="time"/>
-                                </div>
+                                <div>Pulled: <t t-out="record.time.raw_value.slice(0,10)"/></div>
+                                <t t-if="record.rank_type.raw_value == 5">Pity:
+                                    <t t-set="pity" t-value="record.pity.raw_value"/>
+                                    <h3>
+                                        <span t-out="pity" t-att-class="(pity &gt; 75 ? 'text-danger' : (pity &gt; 50 ? 'text-warning' : 'text-success'))"/>
+                                    </h3>
+                                </t>
                             </div>
                         </div>
                     </t>
