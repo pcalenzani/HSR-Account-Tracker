@@ -16,6 +16,31 @@
         </field>
     </record>
 
+    <record id="hsr_warp_warps_view_kanban" model="ir.ui.view">
+        <field name="name">hsr_team.warp.kanban</field>
+        <field name="model">sr.warp</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="display_name"/>
+                <field name="rarity"/>
+                <field name="relic_score"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click" t-att-class="record.rarity.raw_value == '5' ? 'kanban-five-star' : 'kanban-four-star'">
+                            <div class="oe_kanban_content">
+                                <field name="img_id" widget="attachment_image" class="image_bg_float hsr_img_200"/>
+                                <div><h3><field name="name"/></h3></div>
+                                <div><field name="item_type"/></div>
+                                <field name="pity"/>
+                                <field name="time"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="hsr_warp_warps_view_form" model="ir.ui.view">
         <field name="name">hsr_warp.warps.form</field>
         <field name="model">sr.warp</field>
