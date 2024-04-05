@@ -31,7 +31,7 @@
                                 <div><field name="item_type"/></div>
                                 <div class="pt-4">
                                     Pity: <field name="pity"/><br/>
-                                    Obtained: <field name="date"/>
+                                    Obtained: <field name="time"/>
                                 </div>
                             </div>
                         </div>

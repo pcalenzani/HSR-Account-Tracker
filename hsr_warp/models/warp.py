@@ -23,7 +23,6 @@ class Warp(models.Model):
     rank_type = fields.Integer('Rarity')
     wid = fields.Char('Warp ID', index=True) # ID is out of int bounds, cannot use long int so need to be char
 
-    date = fields.Date(related='time')
     pity = fields.Integer('Pity', store=True, compute='_compute_warp_pity')
     banner_id = fields.Many2one('sr.banner', store=True, compute='_compute_banner')
     banner_type_id = fields.Many2one('sr.banner.type', store=True, compute='_compute_banner')
