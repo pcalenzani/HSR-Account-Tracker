@@ -1,6 +1,6 @@
 /* Menu Background Image */
 .o_web_client.o_home_menu_background{
-    background-image: var(--homeMenu-bg-none, radial-gradient(at 100% 0%, rgba(59, 44, 63, 0.6) 0px, transparent 50%), radial-gradient(at 7% 13%, rgb(119 114 126 / 0%) 0px, transparent 50%), radial-gradient(at 96% 94%, rgb(117 111 123 / 0%) 0px, transparent 50%), radial-gradient(at 3% 96%, rgb(59 44 63 / 0%) 0px, transparent 50%), url(/hsr_warp/static/description/star_rail_background.png)) !important;
+    background-image: var(--homeMenu-bg-none, radial-gradient(at 100% 0%, rgba(59, 44, 63, 0.6) 0px, transparent 50%), radial-gradient(at 7% 13%, rgb(119 114 126 / 0%) 0px, transparent 50%), radial-gradient(at 96% 94%, rgb(117 111 123 / 0%) 0px, transparent 50%), radial-gradient(at 3% 96%, rgb(59 44 63 / 0%) 0px, transparent 50%), url(/hsr_warp/static/description/blackhole_background.png)) !important;
 }
 
 /* FLoat images to the right */
@@ -19,7 +19,11 @@
 
 /* Extend Kanban Renderer to allow replacing width of cards */
 .kanban_size_500 {
-    --KanbanRecord-width500: 500px;
+    --KanbanRecord-width-other: 500px;
+}
+
+.kanban_size_400 {
+    --KanbanRecord-width-other: 400px;
 }
 
 .o_kanban_renderer {
