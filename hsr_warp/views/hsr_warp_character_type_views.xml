@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <!-- SR.ELEMENT -->
-    <record id="sr_item_element_view_form" model="ir.ui.view">
+    <record id="hsr_warp_element_view_form" model="ir.ui.view">
         <field name="name">hsr_warp.element.form</field>
         <field name="model">sr.element</field>
         <field name="arch" type="xml">
@@ -31,7 +31,7 @@
         </field>
     </record>
 
-    <record id="sr_item_element_view_kanban" model="ir.ui.view">
+    <record id="hsr_warp_element_view_kanban" model="ir.ui.view">
         <field name="name">hsr_warp.element.kanban</field>
         <field name="model">sr.element</field>
         <field name="arch" type="xml">
@@ -55,7 +55,7 @@
     </record>
 
     <!-- SR.PATH -->
-    <record id="sr_item_path_view_form" model="ir.ui.view">
+    <record id="hsr_warp_path_view_form" model="ir.ui.view">
         <field name="name">hsr_warp.path.form</field>
         <field name="model">sr.path</field>
         <field name="arch" type="xml">
@@ -85,7 +85,7 @@
         </field>
     </record>
 
-    <record id="sr_item_path_view_kanban" model="ir.ui.view">
+    <record id="hsr_warp_path_view_kanban" model="ir.ui.view">
         <field name="name">hsr_warp.path.kanban</field>
         <field name="model">sr.path</field>
         <field name="arch" type="xml">

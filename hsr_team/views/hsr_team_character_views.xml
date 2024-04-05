@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <!-- SR.CHARACTER -->
-    <record id="sr_character_view_tree" model="ir.ui.view">
+    <record id="hsr_team_character_view_tree" model="ir.ui.view">
         <field name="name">hsr_team.character.tree</field>
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
@@ -22,7 +22,7 @@
         </field>
     </record>
 
-    <record id="sr_item_character_view_kanban" model="ir.ui.view">
+    <record id="hsr_team_character_view_kanban" model="ir.ui.view">
         <field name="name">hsr_team.character.kanban</field>
         <field name="model">sr.character</field>
         <field name="arch" type="xml">
@@ -80,7 +80,7 @@
         </field>
     </record>
 
-    <record id="sr_character_view_form" model="ir.ui.view">
+    <record id="hsr_team_character_view_form" model="ir.ui.view">
         <field name="name">hsr_team.character.form</field>
         <field name="model">sr.character</field>
         <field name="arch" type="xml">

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-    <record id="sr_item_material_view_tree" model="ir.ui.view">
+    <record id="hsr_warp_material_view_tree" model="ir.ui.view">
         <field name="name">hsr_warp.material.template.tree</field>
         <field name="model">sr.item.material</field>
         <field name="arch" type="xml">
@@ -12,7 +12,7 @@
         </field>
     </record>
 
-    <record id="sr_item_material_view_form" model="ir.ui.view">
+    <record id="hsr_warp_material_view_form" model="ir.ui.view">
         <field name="name">hsr_warp.material.form</field>
         <field name="model">sr.item.material</field>
         <field name="arch" type="xml">
@@ -37,7 +37,7 @@
         </field>
     </record>
     
-    <record id="sr_item_material_view_kanban" model="ir.ui.view">
+    <record id="hsr_warp_material_view_kanban" model="ir.ui.view">
         <field name="name">hsr_warp.material.kanban</field>
         <field name="model">sr.item.material</field>
         <field name="arch" type="xml">
