@@ -21,12 +21,10 @@
         <field name="model">sr.warp</field>
         <field name="arch" type="xml">
             <kanban>
-                <field name="display_name"/>
-                <field name="rarity"/>
-                <field name="relic_score"/>
+                <field name="rank_type"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_card oe_kanban_global_click" t-att-class="record.rarity.raw_value == '5' ? 'kanban-five-star' : 'kanban-four-star'">
+                        <div class="oe_kanban_card oe_kanban_global_click" t-att-class="record.rank_type.raw_value == 5 ? 'kanban-five-star' : kanban-four-star">
                             <div class="oe_kanban_content">
                                 <field name="img_id" widget="attachment_image" class="image_bg_float hsr_img_200"/>
                                 <div><h3><field name="name"/></h3></div>
