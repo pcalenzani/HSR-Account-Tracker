@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+import requests
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -98,6 +99,20 @@ class Character(models.Model):
     def action_calculate_all_scores(self):
         self.search([]).calculate_relic_scores()
 
+    def update_character_data(self, sr_uid=None):
+        if not sr_uid and not (sr_uid := self.env.user.sr_uid):
+            return
+            
+        url = "https://api.mihomo.me/sr_info_parsed/%s?lang=en&version=v2"%(sr_uid)
+        response = requests.get(url)
+        _logger.info("\"GET /sr_info_parsed\" " + str(response.status_code))
+        if response.status_code == 200:
+            self.generate_character_data(response.json()['characters'])
+        else:
+            _logger.info(url)
+            _logger.error(response.reason)
+            return
+
     def generate_character_data(self, data):
         '''
         Create or update character records with given data.
@@ -105,7 +120,9 @@ class Character(models.Model):
             attribute_ids
             light_cone_id
         :param data: List of character dictionary data
+        :param characters: List of character name strings
         '''
+        data = self._prune_character_data(data)
         self._prepare_api_values(data)
         LightCone = self.env['sr.light.cone']
         for ch in data:
@@ -125,6 +142,13 @@ class Character(models.Model):
                 # Update character record
                 ch_rec.write(ch)
                 _logger.info(f"Updated {ch_rec.name} data.")
+
+    def _prune_character_data(self, data):
+        if characters := self.env.context.get('character_id'):
+            for ch in data:
+                if ch['name'] not in characters:
+                    data.pop(ch)
+        return data
             
     def _prepare_api_values(self, data):
         '''
