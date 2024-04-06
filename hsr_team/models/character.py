@@ -145,7 +145,7 @@ class Character(models.Model):
 
     def _prune_character_data(self, data):
         if characters := self.env.context.get('character_id'):
-            data.filter(lambda x: x.get('name') in characters, data)
+            data = filter(lambda x: x.get('name') in characters, data)
         return data
             
     def _prepare_api_values(self, data):
