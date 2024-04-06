@@ -59,6 +59,7 @@ class Character(models.Model):
     # -- Relic Fields ---
     relic_ids = fields.One2many('sr.relic', 'character_id', string='Equipped Relics')
     relic_score = fields.Float('Relic Score')
+    relic_set_bonus_ids = fields.Many2many('sr.relic.set.bonus', string='Set Bonuses', compute='_compute_relic_set_ids')
     
     _sql_constraints = [
         ('character_key', 'UNIQUE (item_id)',  'Duplicate character deteced. Item ID must be unique.')
@@ -77,6 +78,14 @@ class Character(models.Model):
             rec.portrait_img_id = rec.get_image_from_path(rec.portrait_path, field='portrait_img_id').id
             rec.preview_img_id = rec.get_image_from_path(rec.preview_path, field='preview_img_id').id
             rec.icon_img_id = rec.get_image_from_path(rec.icon_path, field='icon_img_id').id
+
+    @api.depends('relic_ids')
+    def _compute_relic_set_ids(self):
+        for rec in self:
+            relics_by_set = self.env['sr.relic'].read_group([('character_id','=',rec.id)], ['set_id'], ['set_id'])
+            _logger.warning(relics_by_set)
+            rec.relic_set_ids = None
+            
 
     @api.depends('attribute_ids')
     def _set_attributes(self):

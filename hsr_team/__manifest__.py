@@ -14,6 +14,7 @@
         'views/hsr_team_relic_views.xml',
 
         'data/sr.relic.set.csv',
+        'data/sr.relic.set.bonus.csv',
         'data/sr.character.template.csv',
         'security/ir.model.access.csv',
     ],

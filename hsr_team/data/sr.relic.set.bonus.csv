@@ -1,0 +1,51 @@
+id,relic_set_id,pieces,bonus
+relic_set_101_2,relic_set_101,2,Increases Outgoing Healing by 10.00%
+relic_set_101_4,relic_set_101,4,"At the start of the battle, immediately regenerates 1 Skill Point"
+relic_set_102_2,relic_set_102,2,ATK increases by 12.00%
+relic_set_102_4,relic_set_102,4,The wearer's SPD increases by 6.00% and Basic ATK DMG increases by 10.00%
+relic_set_103_2,relic_set_103,2,Increases DEF by 15.00%
+relic_set_103_4,relic_set_103,4,Increases the max DMG that can be absorbed by the Shield created by the wearer by 20.00%
+relic_set_104_2,relic_set_104,2,Increases Ice DMG by 10.00%
+relic_set_104_4,relic_set_104,4,"After the wearer uses their Ultimate, their CRIT DMG increases by 25.00% for 2 turn(s)"
+relic_set_105_2,relic_set_105,2,Increases Physical DMG by 10.00%
+relic_set_105_4,relic_set_105,4,"After the wearer attacks or is hit, their ATK increases by 5.00% for the rest of the battle. This effect can stack up to 5 time(s)"
+relic_set_106_2,relic_set_106,2,Reduces DMG taken by 8.00%
+relic_set_106_4,relic_set_106,4,"At the beginning of the turn, if the wearer's HP is equal to or less than 50.00%, restores HP equal to 8.00% of their Max HP and regenerates 5 Energy"
+relic_set_107_2,relic_set_107,2,Increases Fire DMG by 10.00%
+relic_set_107_4,relic_set_107,4,"Increases the wearer's Skill DMG by 12.00%. After unleashing Ultimate, increases the wearer's Fire DMG by 12.00% for the next attack"
+relic_set_108_2,relic_set_108,2,Increases Quantum DMG by 10.00%
+relic_set_108_4,relic_set_108,4,"When the wearer deals DMG to the target enemy, ignores 10.00% DEF. If the target enemy has Quantum Weakness, the wearer additionally ignores 10.00% DEF."
+relic_set_109_2,relic_set_109,2,Increases Lightning DMG by 10.00%
+relic_set_109_4,relic_set_109,4,"When the wearer uses their Skill, increases the wearer's ATK by 20.00% for 1 turn(s)"
+relic_set_110_2,relic_set_110,2,Increases Wind DMG by 10.00%
+relic_set_110_4,relic_set_110,4,"After the wearer uses their Ultimate, their action is Advanced Forward by 25.00%"
+relic_set_111_2,relic_set_111,2,Increases Break Effect by 16.00%
+relic_set_111_4,relic_set_111,4,"Increases the wearer's Break Effect by 16.00%. After the wearer inflicts Weakness Break on an enemy, regenerates 3 Energy"
+relic_set_112_2,relic_set_112,2,Increases Imaginary DMG by 10.00%
+relic_set_112_4,relic_set_112,4,"When attacking debuffed enemies, the wearer's CRIT Rate increases by 10.00%, and their CRIT DMG increases by 20.00% against Imprisoned enemies"
+relic_set_113_2,relic_set_113,2,Increases Max HP by 12.00%
+relic_set_113_4,relic_set_113,4,"When the wearer is hit or has their HP consumed by an ally or themselves, their CRIT Rate increases by 8.00% for 2 turn(s) and up to 2 stacks"
+relic_set_114_2,relic_set_114,2,Increases SPD by 6.00%
+relic_set_114_4,relic_set_114,4,"When the wearer uses their Ultimate on an ally, SPD for all allies increases by 12.00% for 1 turn(s). This effect cannot be stacked"
+relic_set_115_2,relic_set_115,2,Increases the DMG dealt by follow-up attacks by 20.00%
+relic_set_115_4,relic_set_115,4,"When the wearer uses follow-up attacks, increases the wearer's ATK by 6.00% for every time the follow-up attack deals DMG. This effect can stack up to 8 time(s) and lasts for 3 turn(s). This effect is removed the next time the wearer uses a follow-up attack"
+relic_set_116_2,relic_set_116,2,ATK increases by 12.00%
+relic_set_116_4,relic_set_116,4,"For every DoT the target enemy is afflicted with, the wearer will ignore 6.00% of its DEF when dealing DMG to it. This effect is valid for a max of 3 DoTs"
+relic_set_117_2,relic_set_117,2,Increases DMG dealt to enemies with debuff by 12.00%
+relic_set_117_4,relic_set_117,4,"Increases CRIT Rate by 4.00%. The wearer deals 8.00%/12.00% increased CRIT DMG to enemies with at least 2/3 debuffs. After the wearer inflicts a debuff on enemy targets, the aforementioned effects increase by 100%, lasting for 1 turn(s)"
+relic_set_118_2,relic_set_118,2,Increases Break Effect by 16.00%
+relic_set_118_4,relic_set_118,4,"When the wearer uses their Ultimate on an ally, Break Effect for all allies increases by 30.00% for 2 turn(s). This effect cannot be stacked"
+relic_set_301_2,relic_set_301,2,"Increases the wearer's ATK by 12.00%. When the wearer's SPD reaches 120 or higher, the wearer's ATK increases by an extra 12.00%"
+relic_set_302_2,relic_set_302,2,"Increases the wearer's Max HP by 12.00%. When the wearer's SPD reaches 120 or higher, all allies' ATK increases by 8.00%"
+relic_set_303_2,relic_set_303,2,"Increases the wearer's Effect Hit Rate by 10.00%. Meanwhile, the wearer's ATK increases by an amount that is equal to 25.00% of the current Effect Hit Rate, up to a maximum of 25.00%"
+relic_set_304_2,relic_set_304,2,"Increases the wearer's DEF by 15.00%. When the wearer's Effect Hit Rate is 50.00% or higher, the wearer gains an extra 15.00% DEF"
+relic_set_305_2,relic_set_305,2,"Increases the wearer's CRIT DMG by 16.00%. When the wearer's current CRIT DMG reaches 120.00% or higher, after entering battle, the wearer's CRIT Rate increases by 60.00% until the end of their first attack"
+relic_set_306_2,relic_set_306,2,"Increases the wearer's CRIT Rate by 8.00%. When the wearer's current CRIT Rate reaches 50.00% or higher, the wearer's Ultimate and follow-up attack DMG increases by 15.00%"
+relic_set_307_2,relic_set_307,2,"Increases the wearer's Break Effect by 16.00%. When the wearer's SPD reaches 145 or higher, the wearer's Break Effect increases by an extra 20.00%"
+relic_set_308_2,relic_set_308,2,"Increases the wearer's Energy Regeneration Rate by 5.00%. When the wearer's SPD reaches 120 or higher, the wearer's action is Advanced Forward by 40.00% immediately upon entering battle"
+relic_set_309_2,relic_set_309,2,"Increases the wearer's CRIT Rate by 8.00%. When the wearer's current CRIT Rate reaches 70.00% or higher, the wearer's Basic ATK and Skill DMG increase by 20.00%"
+relic_set_310_2,relic_set_310,2,"Increases the wearer's Effect RES by 10.00%. When the wearer's Effect RES is at 30.00% or higher, all allies' CRIT DMG increases by 10.00%"
+relic_set_311_2,relic_set_311,2,"Increases the wearer's ATK by 12.00%. When the wearer's SPD is equal to or higher than 135/160, the wearer deals 12.00%/18.00% more DMG"
+relic_set_312_2,relic_set_312,2,Increases wearer's Energy Regeneration Rate by 5.00%. Increases DMG by 10.00% for all other allies that are of the same Type as the wearer
+relic_set_313_2,relic_set_313,2,"Increases the wearer's CRIT Rate by 4.00%. When an enemy target gets defeated, the wearer's CRIT DMG increases by 4.00%, stacking up to 10 time(s)"
+relic_set_314_2,relic_set_314,2,"Increases the wearer's ATK by 12.00%. When entering battle, if at least one other ally follows the same Path as the wearer, then the wearer's CRIT Rate increases by 12.00%"

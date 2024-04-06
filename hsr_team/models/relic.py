@@ -31,6 +31,16 @@ STAT_MAX_STEPS = {
 }
 
 
+class RelicSetBonus(models.Model):
+    _name = 'sr.relic.set.bonus'
+    _description = 'Set Bonus'
+    _order = 'pieces ASC'
+
+    relic_set_id = fields.Many2one('sr.relic.set', string='Relic Set')
+    pieces = fields.Selection('Set Pieces', selection=[('2','2-Set Bonus'),('4','4-Set Bonus')])
+    bonus = fields.Char('Passive Bonus')
+
+
 class RelicSet(models.Model):
     _name = 'sr.relic.set'
     _description = 'Relic Set'
@@ -42,8 +52,7 @@ class RelicSet(models.Model):
 
     is_ornament = fields.Boolean('Ornament Set')
     is_relic = fields.Boolean('Relic Set')
-    bonus_two = fields.Char('2-Set Bonus')
-    bonus_four = fields.Char('4-Set Bonus')
+    bonus_ids = fields.One2many('sr.relic.set.bonus', 'relic_set_id', string='Set Bonus')
     
     img_id = fields.Many2one('ir.attachment', string='Image', compute='_compute_img_id')
 
