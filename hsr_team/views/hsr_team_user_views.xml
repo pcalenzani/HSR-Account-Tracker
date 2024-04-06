@@ -2,7 +2,7 @@
     <record id="view_users_form_inherit_sr_team" model="ir.ui.view">
         <field name="name">res.users.form.inherit.hsr_team</field>
         <field name="model">res.users</field>
-        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="inherit_id" ref="hsr_warp.hsr_warp_sr_player_view_form"/>
         <field name="mode">extension</field>
         <field name="priority">80</field>
         <field name="arch" type="xml">

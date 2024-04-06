@@ -130,40 +130,4 @@
             </tree>
         </field>
     </record>
-
-    <!-- PLAYER -->
-    <record id="button_hsr_warp_warpdata" model="ir.actions.server">
-        <field name="name">Get Warp Data</field>
-        <field name="model_id" ref="base.model_res_users"/>
-        <field name="state">code</field>
-        <field name="code">record.get_warps()</field>
-    </record>
-
-    <record id="view_users_form_inherit_sr_player" model="ir.ui.view">
-        <field name="name">res.users.form.inherit.hsr_warp</field>
-        <field name="model">res.users</field>
-        <field name="inherit_id" ref="base.view_users_form"/>
-        <field name="mode">extension</field>
-        <field name="priority">80</field>
-        <field name="arch" type="xml">
-            <data>
-                <xpath expr="//page" position="before">
-                    <page string="Player Data" name="srdata" invisible="not active">
-                    <group>
-                        <field name="sr_uid"/>
-                        <field name="sr_update" widget="boolean_toggle"/>
-                        <field name="sr_authkey" widget="text" invisible="not sr_update"/>
-                    </group>
-                    <div class="row text-center">
-                        <span string="Generate Warps">
-                        <button name="get_warps" class="btn-primary btn-lg col-4" type="object" string="Refresh Warps" 
-                            invisible="not active or not sr_update"/>
-                        </span>
-                    </div>
-                    </page>
-                </xpath>
-            </data>
-        </field>
-    </record>
-
 </odoo>

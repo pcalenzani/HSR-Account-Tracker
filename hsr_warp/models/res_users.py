@@ -51,6 +51,18 @@ class Users(models.Model):
                 self.env['sr.banner'].generate_banners(data['list'])
                 end_id = self.env['sr.warp'].generate_warps(data['list'])
 
+    def config_player_action(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Player Configuration',
+            'res_model': 'res.users',
+            'res_id': self.env.user.id,
+            'target': 'current',
+            'view_mode': 'form',
+            'views': self.env.ref('hsr_warp_sr_player_view_form').id,
+            'context': {'create': False, 'delete': False}
+        }
+
     def _cron_auto_get_warps(self):
         players = self.env['res.users'].search([('sr_update','=',True)])
 

@@ -53,6 +53,14 @@
         <field name="res_model">sr.item.material</field>
         <field name="view_mode">tree,kanban,form</field>
     </record>
+    <record id="sr_player_action" model="ir.actions.server">
+        <field name="name">Player Config</field>
+        <field name="model_id" ref="model_res_users"/>
+        <field name="state">code</field>
+        <field name="code">
+action = model.config_player_action()
+        </field>
+    </record>
 
     <menuitem id="menu_hsr_root" name="Star Rail" sequence="30" web_icon="hsr_warp,static/description/icon(2).png"/>
     <menuitem id="menu_warps_root" name="Warps" sequence="30" parent="menu_hsr_root"/>
@@ -62,6 +70,7 @@
     <menuitem id="menu_warps_std" name="Standard Warps" sequence="30" parent="menu_warps_root" action="hsr_warp_warp_std_action"/>
     
     <menuitem id="menu_sr_config_root" name="Configuration" sequence="99" parent="menu_hsr_root"/>
+    <menuitem id="menu_sr_config_player" name="Player" sequence="10" parent="menu_sr_config_root" action="sr_player_action"/>
 
     <menuitem id="menu_sr_config_character" name="Character Config" sequence="10" parent="menu_sr_config_root"/>
     <menuitem id="menu_sr_character_template" name="Character Templates" sequence="0" parent="menu_sr_config_character" action="sr_character_template_action"/>
@@ -69,7 +78,7 @@
     <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_character" action="sr_elements_action"/>
     <menuitem id="menu_materials" name="Upgrade Materials" sequence="30" parent="menu_sr_config_character" action="sr_item_materials_action"/>
 
-    <menuitem id="menu_sr_config_banner" name="Banner Config" sequence="10" parent="menu_sr_config_root"/>
+    <menuitem id="menu_sr_config_banner" name="Banner Config" sequence="20" parent="menu_sr_config_root"/>
     <menuitem id="menu_banners" name="Banners" sequence="20" parent="menu_sr_config_banner" action="hsr_warp_banner_action"/>
     <menuitem id="menu_banner_types" name="Banner Types" sequence="30" parent="menu_sr_config_banner" action="hsr_warp_banner_type_action"/>
 </odoo>
