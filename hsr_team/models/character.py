@@ -149,6 +149,7 @@ class Character(models.Model):
         _logger.warning(self.env.context.get('character_id'))
         if characters := self.env.context.get('character_id'):
             data = filter(lambda x: x.get('name') in characters, data)
+        _logger.warning(data)
         return data
             
     def _prepare_api_values(self, data):
