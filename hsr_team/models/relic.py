@@ -34,6 +34,7 @@ STAT_MAX_STEPS = {
 class RelicSet(models.Model):
     _name = 'sr.relic.set'
     _description = 'Relic Set'
+    _order = 'id ASC'
     _inherit = 'sr.image.mixin'
 
     set_id = fields.Integer('Set ID')

@@ -17,7 +17,7 @@
         <field name="name">hsr_team.relic.kanban</field>
         <field name="model">sr.relic</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban default_order="id asc">
                 <field name="name"/>
                 <field name="sub_affix_json"/>
                 <templates>
