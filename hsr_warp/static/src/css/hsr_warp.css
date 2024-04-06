@@ -27,7 +27,7 @@
 }
 
 .o_kanban_renderer {
-    --KanbanRecord-width: var(--KanbanRecord-width500, 320px);
+    --KanbanRecord-width: var(--KanbanRecord-width-other, 320px);
 }
 
 /* Tree view decoration */
