@@ -28,6 +28,12 @@ class LightCone(models.Model):
     att_atk = fields.Many2one('sr.attribute', string='ATK Stat')
     att_def = fields.Many2one('sr.attribute', string='DEF Stat')
 
+    def write(self, vals):
+        # If light cone write has the same level, it will have the same stats
+        if vals['level'] == self.level:
+            vals.pop('attribute_ids', None)
+        return super(LightCone, self).write(vals)
+
     def _compute_display_name(self):
         # Compute name, example: Meshing Cogs (*5)
         for rec in self:
@@ -89,5 +95,3 @@ class LightCone(models.Model):
         # Prepare command list for attributes
         data['attribute_ids'] = self.env['sr.attribute']._populate_attributes(data.pop('attributes'))
         return data
-
-    # TODO: Add images, implement m2o links
