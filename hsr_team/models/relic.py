@@ -37,7 +37,7 @@ class RelicSetBonus(models.Model):
     _order = 'pieces ASC'
 
     relic_set_id = fields.Many2one('sr.relic.set', string='Relic Set')
-    pieces = fields.Selection('Set Pieces', selection=[('2','2-Set Bonus'),('4','4-Set Bonus')])
+    pieces = fields.Selection(string='Set Pieces', selection=[('2','2-Set Bonus'),('4','4-Set Bonus')])
     bonus = fields.Char('Passive Bonus')
 
 
