@@ -62,10 +62,14 @@
     <menuitem id="menu_warps_std" name="Standard Warps" sequence="30" parent="menu_warps_root" action="hsr_warp_warp_std_action"/>
     
     <menuitem id="menu_sr_config_root" name="Configuration" sequence="99" parent="menu_hsr_root"/>
-    <menuitem id="menu_sr_character_template" name="Character Settings" sequence="0" parent="menu_sr_config_root" action="sr_character_template_action"/>
-    <menuitem id="menu_materials" name="Upgrade Materials" sequence="5" parent="menu_sr_config_root" action="sr_item_materials_action"/>
-    <menuitem id="menu_sr_paths" name="Aeon Paths" sequence="10" parent="menu_sr_config_root" action="sr_paths_action"/>
-    <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_root" action="sr_elements_action"/>
-    <menuitem id="menu_banner_types" name="Banner Types" sequence="30" parent="menu_sr_config_root" action="hsr_warp_banner_type_action"/>
-    <menuitem id="menu_banners" name="Banners" sequence="40" parent="menu_sr_config_root" action="hsr_warp_banner_action"/>
+
+    <menuitem id="menu_sr_config_character" name="Character Config" sequence="10" parent="menu_sr_config_root"/>
+    <menuitem id="menu_sr_character_template" name="Character Templates" sequence="0" parent="menu_sr_config_character" action="sr_character_template_action"/>
+    <menuitem id="menu_sr_paths" name="Aeon Paths" sequence="10" parent="menu_sr_config_character" action="sr_paths_action"/>
+    <menuitem id="menu_sr_elements" name="Elements" sequence="20" parent="menu_sr_config_character" action="sr_elements_action"/>
+    <menuitem id="menu_materials" name="Upgrade Materials" sequence="30" parent="menu_sr_config_character" action="sr_item_materials_action"/>
+
+    <menuitem id="menu_sr_config_banner" name="Banner Config" sequence="10" parent="menu_sr_config_root"/>
+    <menuitem id="menu_banners" name="Banners" sequence="20" parent="menu_sr_config_banner" action="hsr_warp_banner_action"/>
+    <menuitem id="menu_banner_types" name="Banner Types" sequence="30" parent="menu_sr_config_banner" action="hsr_warp_banner_type_action"/>
 </odoo>
