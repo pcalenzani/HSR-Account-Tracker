@@ -139,6 +139,8 @@ class Character(models.Model):
             else:
                 # Update light cone
                 ch_rec.light_cone_id.write(light_cone_data)
+                # Reset relic score
+                ch['relic_score'] = 0.0
                 # Update character record
                 ch_rec.write(ch)
                 _logger.info(f"Updated {ch_rec.name} data.")
