@@ -59,7 +59,7 @@ class Users(models.Model):
             'res_id': self.env.user.id,
             'target': 'current',
             'view_mode': 'form',
-            'views': self.env.ref('hsr_warp_sr_player_view_form').id,
+            'views': self.env.ref('hsr_warp.hsr_warp_sr_player_view_form').id,
             'context': {'create': False, 'delete': False}
         }
 
