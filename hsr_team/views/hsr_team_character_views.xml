@@ -49,12 +49,12 @@
                                     </div>
                                 </div>
                                 <div class="pt-2 pb-2">
-                                    <img src="/hsr_warp/static/icon/property/IconMaxHP.png" style="max-block-size:19px;"/> <field name="att_hp"/><br/>
-                                    <img src="/hsr_warp/static/icon/property/IconAttack.png" style="max-block-size:19px;"/> <field name="att_atk"/><br/>
-                                    <img src="/hsr_warp/static/icon/property/IconDefence.png" style="max-block-size:19px;"/> <field name="att_def"/><br/>
-                                    <img src="/hsr_warp/static/icon/property/IconSpeed.png" style="max-block-size:19px;"/> <field name="att_spd"/><br/>
-                                    <img src="/hsr_warp/static/icon/property/IconCriticalChance.png" style="max-block-size:19px;"/> <field name="att_crit_rate"/><br/>
-                                    <img src="/hsr_warp/static/icon/property/IconCriticalDamage.png" style="max-block-size:19px;"/> <field name="att_crit_dmg"/>
+                                    <img alt="" src="/hsr_warp/static/icon/property/IconMaxHP.png" style="max-block-size:19px;"/> <field name="att_hp"/><br/>
+                                    <img alt="" src="/hsr_warp/static/icon/property/IconAttack.png" style="max-block-size:19px;"/> <field name="att_atk"/><br/>
+                                    <img alt="" src="/hsr_warp/static/icon/property/IconDefence.png" style="max-block-size:19px;"/> <field name="att_def"/><br/>
+                                    <img alt="" src="/hsr_warp/static/icon/property/IconSpeed.png" style="max-block-size:19px;"/> <field name="att_spd"/><br/>
+                                    <img alt="" src="/hsr_warp/static/icon/property/IconCriticalChance.png" style="max-block-size:19px;"/> <field name="att_crit_rate"/><br/>
+                                    <img alt="" src="/hsr_warp/static/icon/property/IconCriticalDamage.png" style="max-block-size:19px;"/> <field name="att_crit_dmg"/>
                                 </div>
                                 <div class="kanban-lc-grid border-top pt-2 pb-2">
                                     <field name="light_cone_img_id" widget="attachment_image" class="grid-child hsr_img_90"/>
