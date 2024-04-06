@@ -12,5 +12,5 @@
     </record>
 
     <menuitem id="menu_characters" name="Team" sequence="10" parent="hsr_warp.menu_hsr_root" action="sr_character_action"/>
-    <menuitem id="menu_light_cones" name="Light Cones" sequence="6" parent="hsr_warp.menu_sr_config_root" action="sr_light_cone_action"/>
+    <menuitem id="menu_light_cones" name="Light Cones" sequence="5" parent="hsr_warp.menu_sr_config_character" action="sr_light_cone_action"/>
 </odoo>
