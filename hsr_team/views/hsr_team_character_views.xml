@@ -18,6 +18,9 @@
                 <field name="ascension_mat_img_id" string="Ascension" widget="attachment_image" class="hsr_tree_img"/>
                 <field name="skill_mat_img_id" string="Traces" widget="attachment_image" class="hsr_tree_img"/>
                 <field name="advanced_mat_img_id" string="Advanced" widget="attachment_image" class="hsr_tree_img"/>
+                <header>
+                    <button name="action_calculate_all_scores" type="object" class="o_button_generate_leads" string="Calculate Relic Scores" display="always"/>
+                </header>
             </tree>
         </field>
     </record>
@@ -76,6 +79,9 @@
                         </div>
                     </t>
                 </templates>
+                <header>
+                    <button name="action_calculate_all_scores" type="object" class="o_button_generate_leads" string="Calculate Relic Scores" display="always"/>
+                </header>
             </kanban>
         </field>
     </record>

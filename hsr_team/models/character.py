@@ -95,6 +95,9 @@ class Character(models.Model):
             character.relic_ids.compute_relic_score()
             character.relic_score = sum(character.relic_ids.mapped('score'))
 
+    def action_calculate_all_scores(self):
+        self.search([]).calculate_relic_scores()
+
     def generate_character_data(self, data):
         '''
         Create or update character records with given data.
