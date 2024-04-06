@@ -64,6 +64,10 @@ class RelicSet(models.Model):
         for rec in self:
             rec.img_id = rec.get_image_from_path(img_path + str(rec.set_id)).id
 
+    def get_set_bonus(self, pieces=2):
+        pieces = str(pieces)
+        return self.bonus_ids.filtered(lambda x: x.pieces == pieces)
+
 
 class Relic(models.Model):
     _name = 'sr.relic'

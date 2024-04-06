@@ -57,7 +57,7 @@ class Character(models.Model):
     att_crit_dmg = fields.Many2one('sr.attribute', string='CRIT_DMG Stat', compute='_set_attributes')
 
     # -- Relic Fields ---
-    relic_ids = fields.One2many('sr.relic', 'character_id', string='Equipped Relics')
+    relic_ids = fields.One2many('sr.relic', 'character_id', string='Equipped Relics', store=True)
     relic_score = fields.Float('Relic Score')
     relic_set_bonus_ids = fields.Many2many('sr.relic.set.bonus', string='Set Bonuses', compute='_compute_relic_set_ids')
     
@@ -84,7 +84,13 @@ class Character(models.Model):
         for rec in self:
             relics_by_set = self.env['sr.relic'].read_group([('character_id','=',rec.id)], ['set_id'], ['set_id'])
             _logger.warning(relics_by_set)
-            rec.relic_set_ids = None
+            bonuses = []
+            for set_group in relics_by_set:
+                if set_group['set_id_count'] >= 2:
+                    bonuses.append(set_group['set_id'].get_set_bonus())
+                if set_group['set_id_count'] >= 4:
+                    bonuses.append(set_group['set_id'].get_set_bonus(4))
+            rec.relic_set_bonus_ids = bonuses
             
 
     @api.depends('attribute_ids')
