@@ -1,4 +1,4 @@
-id,relic_set_id,pieces,bonus
+id,relic_set_id:id,pieces,bonus
 relic_set_101_2,relic_set_101,2,Increases Outgoing Healing by 10.00%
 relic_set_101_4,relic_set_101,4,"At the start of the battle, immediately regenerates 1 Skill Point"
 relic_set_102_2,relic_set_102,2,ATK increases by 12.00%
