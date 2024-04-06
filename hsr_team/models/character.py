@@ -144,6 +144,7 @@ class Character(models.Model):
                 _logger.info(f"Updated {ch_rec.name} data.")
 
     def _prune_character_data(self, data):
+        _logger.warning(self.env.context.get('character_id'))
         if characters := self.env.context.get('character_id'):
             data = filter(lambda x: x.get('name') in characters, data)
         return data
