@@ -81,15 +81,16 @@ class Character(models.Model):
 
     @api.depends('relic_ids')
     def _compute_relic_set_ids(self):
+        RelicSet = self.env['sr.relic.set']
         for rec in self:
             relics_by_set = self.env['sr.relic'].read_group([('character_id','=',rec.id)], ['set_id'], ['set_id'])
-            _logger.warning(relics_by_set)
             bonuses = []
             for set_group in relics_by_set:
                 if set_group['set_id_count'] >= 2:
-                    bonuses.append(set_group['set_id'].get_set_bonus())
-                if set_group['set_id_count'] >= 4:
-                    bonuses.append(set_group['set_id'].get_set_bonus(4))
+                    relic_set = RelicSet.browse(set_group['set_id'][0])
+                    bonuses.append(relic_set.get_set_bonus())
+                    if set_group['set_id_count'] == 4:
+                        bonuses.append(relic_set.get_set_bonus(4))
             rec.relic_set_bonus_ids = bonuses
             
 
