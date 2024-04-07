@@ -46,7 +46,7 @@ class Banner(models.Model):
 
     name = fields.Char('Name', default='~')
     start_date = fields.Date('Start Date')
-    end_date = fields.Date('Start Date')
+    end_date = fields.Date('End Date')
     banner_key = fields.Char('Banner ID', index=True)
     gacha_type_id = fields.Many2one('sr.banner.type')
 
