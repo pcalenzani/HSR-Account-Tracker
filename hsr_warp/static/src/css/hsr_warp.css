@@ -5,9 +5,16 @@
 }
 
 /* Height Scroll Bar */
-.h-100 {
+.flex-nowrap.h-100 {
     height: unset !important;
 }
+.o_content::-webkit-scrollbar {
+    display: none;
+}
+.o_content {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 
 /* FLoat images to the right */
 .image_bg_float{
