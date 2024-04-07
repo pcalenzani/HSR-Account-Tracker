@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, Command
 import requests
 import logging
 
@@ -88,10 +88,10 @@ class Character(models.Model):
             for set_group in relics_by_set:
                 if set_group['set_id_count'] >= 2:
                     relic_set = RelicSet.browse(set_group['set_id'][0])
-                    bonuses.append(relic_set.get_set_bonus())
+                    bonuses.append(relic_set.get_set_bonus().id)
                     if set_group['set_id_count'] == 4:
-                        bonuses.append(relic_set.get_set_bonus(4))
-            rec.relic_set_bonus_ids = bonuses
+                        bonuses.append(relic_set.get_set_bonus(4).id)
+            rec.relic_set_bonus_ids = [Command.set(bonuses)]
             
 
     @api.depends('attribute_ids')
