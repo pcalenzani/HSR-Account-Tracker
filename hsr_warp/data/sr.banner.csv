@@ -1,103 +1,103 @@
-id,gacha_type_id:id,banner_key,name
-sr_banner_standard,sr_banner_standard_warp,1001,Stellar Warp
-sr_banner_departure,sr_banner_departure_warp,4001,Departure Warp
-sr_banner_special_1,sr_banner_special_warp_1,2003,Butterfly on Swordtip 2023-04-26
-sr_banner_special_2,sr_banner_special_warp_1,2004,Swirl of Heavenly Spear 2023-05-17
-sr_banner_special_3,sr_banner_special_warp_1,2005,Contract Zero 2023-06-07
-sr_banner_special_4,sr_banner_special_warp_1,2006,Laic Pursuit 2023-06-28
-sr_banner_special_5,sr_banner_special_warp_1,2007,A Lost Soul 2023-07-19
-sr_banner_special_6,sr_banner_special_warp_1,2008,Nessun Dorma 2023-08-09
-sr_banner_special_7,sr_banner_special_warp_1,2009,Epochal Spectrum 2023-08-30
-sr_banner_special_8,sr_banner_special_warp_1,2010,"Foreseen, Foreknown, Foretold 2023-09-20"
-sr_banner_special_9,sr_banner_special_warp_1,2011,Gentle Eclipse of the Moon 2023-10-11
-sr_banner_special_10,sr_banner_special_warp_1,2012,Sunset Clause 2023-10-27
-sr_banner_special_11,sr_banner_special_warp_1,2013,Butterfly on Swordtip 2023-10-27
-sr_banner_special_12,sr_banner_special_warp_1,2014,Bloom in Gloom 2023-11-15
-sr_banner_special_13,sr_banner_special_warp_1,2015,Thorns of Scented Crown 2023-12-06
-sr_banner_special_14,sr_banner_special_warp_1,2016,Contract Zero 2023-12-06
-sr_banner_special_15,sr_banner_special_warp_1,2017,Floral Triptych 2023-12-27
-sr_banner_special_16,sr_banner_special_warp_1,2018,A Lost Soul 2023-12-27
-sr_banner_special_17,sr_banner_special_warp_1,2019,Panta Rhei 2024-01-17
-sr_banner_special_18,sr_banner_special_warp_1,2020,Nessun Dorma 2024-01-17
-sr_banner_special_19,sr_banner_special_warp_1,2021,Ripples in Reflection 2024-02-06
-sr_banner_special_20,sr_banner_special_warp_1,2022,Epochal Spectrum 2024-02-06
-sr_banner_special_21,sr_banner_special_warp_1,2023,Sparkling Splendor 2024-02-29
-sr_banner_special_22,sr_banner_special_warp_1,2024,Swirl of Heavenly Spear 2024-02-29
-sr_banner_special_23,sr_banner_special_warp_1,2025,Words of Yore 2024-03-27
-sr_banner_special_24,sr_banner_special_warp_1,2026,Laic Pursuit 2024-03-27
-sr_banner_special_25,sr_banner_special_warp_1,2027,Gilded Imprisonment 2024-04-17
-sr_banner_special_26,sr_banner_special_warp_1,2028,Gentle Eclipse of the Moon 2024-04-17
-sr_banner_special_27,sr_banner_special_warp_1,2029,Character Warp
-sr_banner_special_28,sr_banner_special_warp_1,2030,Character Warp
-sr_banner_special_29,sr_banner_special_warp_1,2031,Character Warp
-sr_banner_special_30,sr_banner_special_warp_1,2032,Character Warp
-sr_banner_special_31,sr_banner_special_warp_1,2033,Character Warp
-sr_banner_special_32,sr_banner_special_warp_1,2034,Character Warp
-sr_banner_special_33,sr_banner_special_warp_1,2035,Character Warp
-sr_banner_special_34,sr_banner_special_warp_1,2036,Character Warp
-sr_banner_special_35,sr_banner_special_warp_1,2037,Character Warp
-sr_banner_special_36,sr_banner_special_warp_1,2038,Character Warp
-sr_banner_special_37,sr_banner_special_warp_1,2039,Character Warp
-sr_banner_special_38,sr_banner_special_warp_1,2040,Character Warp
-sr_banner_special_39,sr_banner_special_warp_1,2041,Character Warp
-sr_banner_special_40,sr_banner_special_warp_1,2042,Character Warp
-sr_banner_special_41,sr_banner_special_warp_1,2043,Character Warp
-sr_banner_special_42,sr_banner_special_warp_1,2044,Character Warp
-sr_banner_special_43,sr_banner_special_warp_1,2045,Character Warp
-sr_banner_special_44,sr_banner_special_warp_1,2046,Character Warp
-sr_banner_special_45,sr_banner_special_warp_1,2047,Character Warp
-sr_banner_special_46,sr_banner_special_warp_1,2048,Character Warp
-sr_banner_special_47,sr_banner_special_warp_1,2049,Character Warp
-sr_banner_special_48,sr_banner_special_warp_1,2050,Character Warp
-sr_banner_special_49,sr_banner_special_warp_1,2051,Character Warp
-sr_banner_special_50,sr_banner_special_warp_1,2052,Character Warp
-sr_banner_weapon_1,sr_banner_light_cone_warp_1,3003,Brilliant Fixation 2023-04-26
-sr_banner_weapon_2,sr_banner_light_cone_warp_1,3004,Brilliant Fixation 2023-05-17
-sr_banner_weapon_3,sr_banner_light_cone_warp_1,3005,Brilliant Fixation 2023-06-07
-sr_banner_weapon_4,sr_banner_light_cone_warp_1,3006,Brilliant Fixation 2023-06-28
-sr_banner_weapon_5,sr_banner_light_cone_warp_1,3007,Brilliant Fixation 2023-07-19
-sr_banner_weapon_6,sr_banner_light_cone_warp_1,3008,Brilliant Fixation 2023-08-09
-sr_banner_weapon_7,sr_banner_light_cone_warp_1,3009,Brilliant Fixation 2023-08-30
-sr_banner_weapon_8,sr_banner_light_cone_warp_1,3010,Brilliant Fixation 2023-09-20
-sr_banner_weapon_9,sr_banner_light_cone_warp_1,3011,Brilliant Fixation 2023-10-11
-sr_banner_weapon_10,sr_banner_light_cone_warp_1,3012,Brilliant Fixation 2023-10-27
-sr_banner_weapon_11,sr_banner_light_cone_warp_1,3013,Bygone Reminiscence 2023-10-27
-sr_banner_weapon_12,sr_banner_light_cone_warp_1,3014,Brilliant Fixation 2023-11-15
-sr_banner_weapon_13,sr_banner_light_cone_warp_1,3015,Brilliant Fixation 2023-12-06
-sr_banner_weapon_14,sr_banner_light_cone_warp_1,3016,Bygone Reminiscence 2023-12-06
-sr_banner_weapon_15,sr_banner_light_cone_warp_1,3017,Brilliant Fixation 2023-12-27
-sr_banner_weapon_16,sr_banner_light_cone_warp_1,3018,Bygone Reminiscence 2023-12-27
-sr_banner_weapon_17,sr_banner_light_cone_warp_1,3019,Brilliant Fixation 2024-01-17
-sr_banner_weapon_18,sr_banner_light_cone_warp_1,3020,Bygone Reminiscence 2024-01-17
-sr_banner_weapon_19,sr_banner_light_cone_warp_1,3021,Brilliant Fixation 2024-02-06
-sr_banner_weapon_20,sr_banner_light_cone_warp_1,3022,Bygone Reminiscence 2024-02-06
-sr_banner_weapon_21,sr_banner_light_cone_warp_1,3023,Brilliant Fixation 2024-02-29
-sr_banner_weapon_22,sr_banner_light_cone_warp_1,3024,Bygone Reminiscence 2024-02-29
-sr_banner_weapon_23,sr_banner_light_cone_warp_1,3025,Brilliant Fixation 2024-03-27
-sr_banner_weapon_24,sr_banner_light_cone_warp_1,3026,Bygone Reminiscence 2024-03-27
-sr_banner_weapon_25,sr_banner_light_cone_warp_1,3027,Brilliant Fixation 2024-04-17
-sr_banner_weapon_26,sr_banner_light_cone_warp_1,3028,Bygone Reminiscence 2024-04-17
-sr_banner_weapon_27,sr_banner_light_cone_warp_1,3029,Light Cone Warp
-sr_banner_weapon_28,sr_banner_light_cone_warp_1,3030,Light Cone Warp
-sr_banner_weapon_29,sr_banner_light_cone_warp_1,3031,Light Cone Warp
-sr_banner_weapon_30,sr_banner_light_cone_warp_1,3032,Light Cone Warp
-sr_banner_weapon_31,sr_banner_light_cone_warp_1,3033,Light Cone Warp
-sr_banner_weapon_32,sr_banner_light_cone_warp_1,3034,Light Cone Warp
-sr_banner_weapon_33,sr_banner_light_cone_warp_1,3035,Light Cone Warp
-sr_banner_weapon_34,sr_banner_light_cone_warp_1,3036,Light Cone Warp
-sr_banner_weapon_35,sr_banner_light_cone_warp_1,3037,Light Cone Warp
-sr_banner_weapon_36,sr_banner_light_cone_warp_1,3038,Light Cone Warp
-sr_banner_weapon_37,sr_banner_light_cone_warp_1,3039,Light Cone Warp
-sr_banner_weapon_38,sr_banner_light_cone_warp_1,3040,Light Cone Warp
-sr_banner_weapon_39,sr_banner_light_cone_warp_1,3041,Light Cone Warp
-sr_banner_weapon_40,sr_banner_light_cone_warp_1,3042,Light Cone Warp
-sr_banner_weapon_41,sr_banner_light_cone_warp_1,3043,Light Cone Warp
-sr_banner_weapon_42,sr_banner_light_cone_warp_1,3044,Light Cone Warp
-sr_banner_weapon_43,sr_banner_light_cone_warp_1,3045,Light Cone Warp
-sr_banner_weapon_44,sr_banner_light_cone_warp_1,3046,Light Cone Warp
-sr_banner_weapon_45,sr_banner_light_cone_warp_1,3047,Light Cone Warp
-sr_banner_weapon_46,sr_banner_light_cone_warp_1,3048,Light Cone Warp
-sr_banner_weapon_47,sr_banner_light_cone_warp_1,3049,Light Cone Warp
-sr_banner_weapon_48,sr_banner_light_cone_warp_1,3050,Light Cone Warp
-sr_banner_weapon_49,sr_banner_light_cone_warp_1,3051,Light Cone Warp
-sr_banner_weapon_50,sr_banner_light_cone_warp_1,3052,Light Cone Warp
+id,gacha_type_id:id,banner_key,name,start_date,end_date
+sr_banner_standard,sr_banner_standard_warp,1001,Stellar Warp,,
+sr_banner_departure,sr_banner_departure_warp,4001,Departure Warp,,
+sr_banner_special_1,sr_banner_special_warp_1,2003,Butterfly on Swordtip,2023-04-26,2023-05-17
+sr_banner_special_2,sr_banner_special_warp_1,2004,Swirl of Heavenly Spear,2023-05-17,2023-06-06
+sr_banner_special_3,sr_banner_special_warp_1,2005,Contract Zero,2023-06-07,2023-06-28
+sr_banner_special_4,sr_banner_special_warp_1,2006,Laic Pursuit,2023-06-28,2023-07-18
+sr_banner_special_5,sr_banner_special_warp_1,2007,A Lost Soul,2023-07-19,2023-08-09
+sr_banner_special_6,sr_banner_special_warp_1,2008,Nessun Dorma,2023-08-09,2023-08-29
+sr_banner_special_7,sr_banner_special_warp_1,2009,Epochal Spectrum,2023-08-30,2023-09-20
+sr_banner_special_8,sr_banner_special_warp_1,2010,"Foreseen, Foreknown, Foretold",2023-09-20,2023-10-10
+sr_banner_special_9,sr_banner_special_warp_1,2011,Gentle Eclipse of the Moon,2023-10-11,2023-10-27
+sr_banner_special_10,sr_banner_special_warp_1,2012,Sunset Clause,2023-10-27,2023-11-14
+sr_banner_special_11,sr_banner_special_warp_1,2013,Butterfly on Swordtip,2023-10-27,2023-11-14
+sr_banner_special_12,sr_banner_special_warp_1,2014,Bloom in Gloom,2023-11-15,2023-12-06
+sr_banner_special_13,sr_banner_special_warp_1,2015,Thorns of Scented Crown,2023-12-06,2023-12-26
+sr_banner_special_14,sr_banner_special_warp_1,2016,Contract Zero,2023-12-06,2023-12-26
+sr_banner_special_15,sr_banner_special_warp_1,2017,Floral Triptych,2023-12-27,2024-01-17
+sr_banner_special_16,sr_banner_special_warp_1,2018,A Lost Soul,2023-12-27,2024-01-17
+sr_banner_special_17,sr_banner_special_warp_1,2019,Panta Rhei,2024-01-17,2024-02-05
+sr_banner_special_18,sr_banner_special_warp_1,2020,Nessun Dorma,2024-01-17,2024-02-06
+sr_banner_special_19,sr_banner_special_warp_1,2021,Ripples in Reflection,2024-02-06,2024-02-29
+sr_banner_special_20,sr_banner_special_warp_1,2022,Epochal Spectrum,2024-02-06,2024-02-29
+sr_banner_special_21,sr_banner_special_warp_1,2023,Sparkling Splendor,2024-02-29,2024-03-26
+sr_banner_special_22,sr_banner_special_warp_1,2024,Swirl of Heavenly Spear,2024-02-29,2024-03-26
+sr_banner_special_23,sr_banner_special_warp_1,2025,Words of Yore,2024-03-27,2024-04-17
+sr_banner_special_24,sr_banner_special_warp_1,2026,Laic Pursuit,2024-03-27,2024-04-17
+sr_banner_special_25,sr_banner_special_warp_1,2027,Gilded Imprisonment,2024-04-17,
+sr_banner_special_26,sr_banner_special_warp_1,2028,Gentle Eclipse of the Moon,2024-04-17,
+sr_banner_special_27,sr_banner_special_warp_1,2029,Character Warp,,
+sr_banner_special_28,sr_banner_special_warp_1,2030,Character Warp,,
+sr_banner_special_29,sr_banner_special_warp_1,2031,Character Warp,,
+sr_banner_special_30,sr_banner_special_warp_1,2032,Character Warp,,
+sr_banner_special_31,sr_banner_special_warp_1,2033,Character Warp,,
+sr_banner_special_32,sr_banner_special_warp_1,2034,Character Warp,,
+sr_banner_special_33,sr_banner_special_warp_1,2035,Character Warp,,
+sr_banner_special_34,sr_banner_special_warp_1,2036,Character Warp,,
+sr_banner_special_35,sr_banner_special_warp_1,2037,Character Warp,,
+sr_banner_special_36,sr_banner_special_warp_1,2038,Character Warp,,
+sr_banner_special_37,sr_banner_special_warp_1,2039,Character Warp,,
+sr_banner_special_38,sr_banner_special_warp_1,2040,Character Warp,,
+sr_banner_special_39,sr_banner_special_warp_1,2041,Character Warp,,
+sr_banner_special_40,sr_banner_special_warp_1,2042,Character Warp,,
+sr_banner_special_41,sr_banner_special_warp_1,2043,Character Warp,,
+sr_banner_special_42,sr_banner_special_warp_1,2044,Character Warp,,
+sr_banner_special_43,sr_banner_special_warp_1,2045,Character Warp,,
+sr_banner_special_44,sr_banner_special_warp_1,2046,Character Warp,,
+sr_banner_special_45,sr_banner_special_warp_1,2047,Character Warp,,
+sr_banner_special_46,sr_banner_special_warp_1,2048,Character Warp,,
+sr_banner_special_47,sr_banner_special_warp_1,2049,Character Warp,,
+sr_banner_special_48,sr_banner_special_warp_1,2050,Character Warp,,
+sr_banner_special_49,sr_banner_special_warp_1,2051,Character Warp,,
+sr_banner_special_50,sr_banner_special_warp_1,2052,Character Warp,,
+sr_banner_weapon_1,sr_banner_light_cone_warp_1,3003,Brilliant Fixation,2023-04-26,2023-05-17
+sr_banner_weapon_2,sr_banner_light_cone_warp_1,3004,Brilliant Fixation,2023-05-17,2023-06-06
+sr_banner_weapon_3,sr_banner_light_cone_warp_1,3005,Brilliant Fixation,2023-06-07,2023-06-28
+sr_banner_weapon_4,sr_banner_light_cone_warp_1,3006,Brilliant Fixation,2023-06-28,2023-07-18
+sr_banner_weapon_5,sr_banner_light_cone_warp_1,3007,Brilliant Fixation,2023-07-19,2023-08-09
+sr_banner_weapon_6,sr_banner_light_cone_warp_1,3008,Brilliant Fixation,2023-08-09,2023-08-29
+sr_banner_weapon_7,sr_banner_light_cone_warp_1,3009,Brilliant Fixation,2023-08-30,2023-09-20
+sr_banner_weapon_8,sr_banner_light_cone_warp_1,3010,Brilliant Fixation,2023-09-20,2023-10-10
+sr_banner_weapon_9,sr_banner_light_cone_warp_1,3011,Brilliant Fixation,2023-10-11,2023-10-27
+sr_banner_weapon_10,sr_banner_light_cone_warp_1,3012,Brilliant Fixation,2023-10-27,2023-11-14
+sr_banner_weapon_11,sr_banner_light_cone_warp_1,3013,Bygone Reminiscence,2023-10-27,2023-11-14
+sr_banner_weapon_12,sr_banner_light_cone_warp_1,3014,Brilliant Fixation,2023-11-15,2023-12-06
+sr_banner_weapon_13,sr_banner_light_cone_warp_1,3015,Brilliant Fixation,2023-12-06,2023-12-26
+sr_banner_weapon_14,sr_banner_light_cone_warp_1,3016,Bygone Reminiscence,2023-12-06,2023-12-26
+sr_banner_weapon_15,sr_banner_light_cone_warp_1,3017,Brilliant Fixation,2023-12-27,2024-01-17
+sr_banner_weapon_16,sr_banner_light_cone_warp_1,3018,Bygone Reminiscence,2023-12-27,2024-01-17
+sr_banner_weapon_17,sr_banner_light_cone_warp_1,3019,Brilliant Fixation,2024-01-17,2024-02-05
+sr_banner_weapon_18,sr_banner_light_cone_warp_1,3020,Bygone Reminiscence,2024-01-17,2024-02-06
+sr_banner_weapon_19,sr_banner_light_cone_warp_1,3021,Brilliant Fixation,2024-02-06,2024-02-29
+sr_banner_weapon_20,sr_banner_light_cone_warp_1,3022,Bygone Reminiscence,2024-02-06,2024-02-29
+sr_banner_weapon_21,sr_banner_light_cone_warp_1,3023,Brilliant Fixation,2024-02-29,2024-03-26
+sr_banner_weapon_22,sr_banner_light_cone_warp_1,3024,Bygone Reminiscence,2024-02-29,2024-03-26
+sr_banner_weapon_23,sr_banner_light_cone_warp_1,3025,Brilliant Fixation,2024-03-27,2024-04-17
+sr_banner_weapon_24,sr_banner_light_cone_warp_1,3026,Bygone Reminiscence,2024-03-27,2024-04-17
+sr_banner_weapon_25,sr_banner_light_cone_warp_1,3027,Brilliant Fixation,2024-04-17,
+sr_banner_weapon_26,sr_banner_light_cone_warp_1,3028,Bygone Reminiscence,2024-04-17,
+sr_banner_weapon_27,sr_banner_light_cone_warp_1,3029,Light Cone Warp,,
+sr_banner_weapon_28,sr_banner_light_cone_warp_1,3030,Light Cone Warp,,
+sr_banner_weapon_29,sr_banner_light_cone_warp_1,3031,Light Cone Warp,,
+sr_banner_weapon_30,sr_banner_light_cone_warp_1,3032,Light Cone Warp,,
+sr_banner_weapon_31,sr_banner_light_cone_warp_1,3033,Light Cone Warp,,
+sr_banner_weapon_32,sr_banner_light_cone_warp_1,3034,Light Cone Warp,,
+sr_banner_weapon_33,sr_banner_light_cone_warp_1,3035,Light Cone Warp,,
+sr_banner_weapon_34,sr_banner_light_cone_warp_1,3036,Light Cone Warp,,
+sr_banner_weapon_35,sr_banner_light_cone_warp_1,3037,Light Cone Warp,,
+sr_banner_weapon_36,sr_banner_light_cone_warp_1,3038,Light Cone Warp,,
+sr_banner_weapon_37,sr_banner_light_cone_warp_1,3039,Light Cone Warp,,
+sr_banner_weapon_38,sr_banner_light_cone_warp_1,3040,Light Cone Warp,,
+sr_banner_weapon_39,sr_banner_light_cone_warp_1,3041,Light Cone Warp,,
+sr_banner_weapon_40,sr_banner_light_cone_warp_1,3042,Light Cone Warp,,
+sr_banner_weapon_41,sr_banner_light_cone_warp_1,3043,Light Cone Warp,,
+sr_banner_weapon_42,sr_banner_light_cone_warp_1,3044,Light Cone Warp,,
+sr_banner_weapon_43,sr_banner_light_cone_warp_1,3045,Light Cone Warp,,
+sr_banner_weapon_44,sr_banner_light_cone_warp_1,3046,Light Cone Warp,,
+sr_banner_weapon_45,sr_banner_light_cone_warp_1,3047,Light Cone Warp,,
+sr_banner_weapon_46,sr_banner_light_cone_warp_1,3048,Light Cone Warp,,
+sr_banner_weapon_47,sr_banner_light_cone_warp_1,3049,Light Cone Warp,,
+sr_banner_weapon_48,sr_banner_light_cone_warp_1,3050,Light Cone Warp,,
+sr_banner_weapon_49,sr_banner_light_cone_warp_1,3051,Light Cone Warp,,
+sr_banner_weapon_50,sr_banner_light_cone_warp_1,3052,Light Cone Warp,,

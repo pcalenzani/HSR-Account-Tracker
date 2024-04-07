@@ -45,6 +45,8 @@ class Banner(models.Model):
     _description = 'Warp Banner'
 
     name = fields.Char('Name', default='~')
+    start_date = fields.Date('Start Date')
+    end_date = fields.Date('Start Date')
     banner_key = fields.Char('Banner ID', index=True)
     gacha_type_id = fields.Many2one('sr.banner.type')
 

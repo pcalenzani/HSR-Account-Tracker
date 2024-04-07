@@ -110,6 +110,7 @@
         <field name="arch" type="xml">
             <tree string="Banners" editable="top" create="0" edit="0">
                 <field name="name"/>
+                <field name="start_date"/>
                 <field name="gacha_type_id"/>
                 <field name="banner_key"/>
             </tree>
