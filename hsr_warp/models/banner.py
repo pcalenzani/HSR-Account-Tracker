@@ -8,7 +8,6 @@ class BannerType(models.Model):
     _description = 'Warp Banner Type'
 
     name = fields.Char('Name')
-    active = fields.Boolean('Active', default=True)
     gacha_type = fields.Char('Gacha Type', readonly=True)
     warp_ids = fields.One2many('sr.warp', 'banner_type_id', string='Warps')
 
@@ -46,7 +45,6 @@ class Banner(models.Model):
     _description = 'Warp Banner'
 
     name = fields.Char('Name', default='~')
-    active = fields.Boolean('Active', default=True)
     banner_key = fields.Char('Banner ID', index=True)
     gacha_type_id = fields.Many2one('sr.banner.type')
 

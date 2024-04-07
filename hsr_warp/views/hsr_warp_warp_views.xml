@@ -108,7 +108,7 @@
         <field name="name">hsr_warp.banner.tree</field>
         <field name="model">sr.banner</field>
         <field name="arch" type="xml">
-            <tree string="Banners" editable="top" create="0">
+            <tree string="Banners" editable="top" create="0" edit="0">
                 <field name="name"/>
                 <field name="gacha_type_id"/>
                 <field name="banner_key"/>
@@ -121,9 +121,8 @@
         <field name="name">hsr_warp.banner.type.tree</field>
         <field name="model">sr.banner.type</field>
         <field name="arch" type="xml">
-            <tree string="Banner Types" editable="top">
+            <tree string="Banner Types" editable="top" edit="0">
                 <field name="name"/>
-                <field name="active" column_invisible="1"/>
                 <field name="pity_level"/>
                 <field name="last_warp"/>
                 <field name="last_five_star"/>
