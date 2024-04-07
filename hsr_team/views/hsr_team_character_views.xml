@@ -129,6 +129,13 @@
                     </group>
                     <notebook>
                         <page string="Relics">
+                            <field name="relic_set_bonus_ids" readonly="1">
+                                <tree editable="bottom">
+                                    <field name="relic_set_img_id" widget="attachment_image" class="hsr_tree_img"/>
+                                    <field name="pieces"/>
+                                    <field name="bonus"/>
+                                </tree>
+                            </field>
                             <field name="relic_ids" mode="kanban" class="kanban_size_500"/>
                         </page>
                         <page string="Light Cone">
