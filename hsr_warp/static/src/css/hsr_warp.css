@@ -4,6 +4,11 @@
     background-position: center;
 }
 
+/* Height Scroll Bar */
+.h-100 {
+    height: unset;
+}
+
 /* FLoat images to the right */
 .image_bg_float{
     float: right !important;
