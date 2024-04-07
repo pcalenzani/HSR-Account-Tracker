@@ -6,7 +6,7 @@
 
 /* Height Scroll Bar */
 .h-100 {
-    height: unset;
+    height: unset !important;
 }
 
 /* FLoat images to the right */
