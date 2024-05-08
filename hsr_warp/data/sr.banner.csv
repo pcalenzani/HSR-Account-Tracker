@@ -25,12 +25,12 @@ sr_banner_special_21,sr_banner_special_warp_1,2023,Sparkling Splendor,2024-02-29
 sr_banner_special_22,sr_banner_special_warp_1,2024,Swirl of Heavenly Spear,2024-02-29,2024-03-26
 sr_banner_special_23,sr_banner_special_warp_1,2025,Words of Yore,2024-03-27,2024-04-17
 sr_banner_special_24,sr_banner_special_warp_1,2026,Laic Pursuit,2024-03-27,2024-04-17
-sr_banner_special_25,sr_banner_special_warp_1,2027,Gilded Imprisonment,2024-04-17,
-sr_banner_special_26,sr_banner_special_warp_1,2028,Gentle Eclipse of the Moon,2024-04-17,
-sr_banner_special_27,sr_banner_special_warp_1,2029,Character Warp,,
-sr_banner_special_28,sr_banner_special_warp_1,2030,Character Warp,,
-sr_banner_special_29,sr_banner_special_warp_1,2031,Character Warp,,
-sr_banner_special_30,sr_banner_special_warp_1,2032,Character Warp,,
+sr_banner_special_25,sr_banner_special_warp_1,2027,Gilded Imprisonment,2024-04-17,2024-05-07
+sr_banner_special_26,sr_banner_special_warp_1,2028,Gentle Eclipse of the Moon,2024-04-17,2024-05-07
+sr_banner_special_27,sr_banner_special_warp_1,2029,Just Intonation,2024-05-07,2024-05-29
+sr_banner_special_28,sr_banner_special_warp_1,2030,Sunset Clause,2024-05-07,2024-05-29
+sr_banner_special_29,sr_banner_special_warp_1,2031,Dusty Trail's Lone Star,2024-05-29,2024-06-18
+sr_banner_special_30,sr_banner_special_warp_1,2032,"Foreseen, Foreknown, Foretold",2024-05-29,2024-06-18
 sr_banner_special_31,sr_banner_special_warp_1,2033,Character Warp,,
 sr_banner_special_32,sr_banner_special_warp_1,2034,Character Warp,,
 sr_banner_special_33,sr_banner_special_warp_1,2035,Character Warp,,
@@ -75,29 +75,29 @@ sr_banner_weapon_21,sr_banner_light_cone_warp_1,3023,Brilliant Fixation,2024-02-
 sr_banner_weapon_22,sr_banner_light_cone_warp_1,3024,Bygone Reminiscence,2024-02-29,2024-03-26
 sr_banner_weapon_23,sr_banner_light_cone_warp_1,3025,Brilliant Fixation,2024-03-27,2024-04-17
 sr_banner_weapon_24,sr_banner_light_cone_warp_1,3026,Bygone Reminiscence,2024-03-27,2024-04-17
-sr_banner_weapon_25,sr_banner_light_cone_warp_1,3027,Brilliant Fixation,2024-04-17,
-sr_banner_weapon_26,sr_banner_light_cone_warp_1,3028,Bygone Reminiscence,2024-04-17,
-sr_banner_weapon_27,sr_banner_light_cone_warp_1,3029,Light Cone Warp,,
-sr_banner_weapon_28,sr_banner_light_cone_warp_1,3030,Light Cone Warp,,
-sr_banner_weapon_29,sr_banner_light_cone_warp_1,3031,Light Cone Warp,,
-sr_banner_weapon_30,sr_banner_light_cone_warp_1,3032,Light Cone Warp,,
-sr_banner_weapon_31,sr_banner_light_cone_warp_1,3033,Light Cone Warp,,
-sr_banner_weapon_32,sr_banner_light_cone_warp_1,3034,Light Cone Warp,,
-sr_banner_weapon_33,sr_banner_light_cone_warp_1,3035,Light Cone Warp,,
-sr_banner_weapon_34,sr_banner_light_cone_warp_1,3036,Light Cone Warp,,
-sr_banner_weapon_35,sr_banner_light_cone_warp_1,3037,Light Cone Warp,,
-sr_banner_weapon_36,sr_banner_light_cone_warp_1,3038,Light Cone Warp,,
-sr_banner_weapon_37,sr_banner_light_cone_warp_1,3039,Light Cone Warp,,
-sr_banner_weapon_38,sr_banner_light_cone_warp_1,3040,Light Cone Warp,,
-sr_banner_weapon_39,sr_banner_light_cone_warp_1,3041,Light Cone Warp,,
-sr_banner_weapon_40,sr_banner_light_cone_warp_1,3042,Light Cone Warp,,
-sr_banner_weapon_41,sr_banner_light_cone_warp_1,3043,Light Cone Warp,,
-sr_banner_weapon_42,sr_banner_light_cone_warp_1,3044,Light Cone Warp,,
-sr_banner_weapon_43,sr_banner_light_cone_warp_1,3045,Light Cone Warp,,
-sr_banner_weapon_44,sr_banner_light_cone_warp_1,3046,Light Cone Warp,,
-sr_banner_weapon_45,sr_banner_light_cone_warp_1,3047,Light Cone Warp,,
-sr_banner_weapon_46,sr_banner_light_cone_warp_1,3048,Light Cone Warp,,
-sr_banner_weapon_47,sr_banner_light_cone_warp_1,3049,Light Cone Warp,,
-sr_banner_weapon_48,sr_banner_light_cone_warp_1,3050,Light Cone Warp,,
-sr_banner_weapon_49,sr_banner_light_cone_warp_1,3051,Light Cone Warp,,
-sr_banner_weapon_50,sr_banner_light_cone_warp_1,3052,Light Cone Warp,,
+sr_banner_weapon_25,sr_banner_light_cone_warp_1,3027,Brilliant Fixation,2024-04-17,2024-05-07
+sr_banner_weapon_26,sr_banner_light_cone_warp_1,3028,Bygone Reminiscence,2024-04-17,2024-05-07
+sr_banner_weapon_27,sr_banner_light_cone_warp_1,3029,Brilliant Fixation,2024-05-07,2024-05-29
+sr_banner_weapon_28,sr_banner_light_cone_warp_1,3030,Bygone Reminiscence,2024-05-07,2024-05-29
+sr_banner_weapon_29,sr_banner_light_cone_warp_1,3031,Brilliant Fixation,2024-05-29,2024-06-18
+sr_banner_weapon_30,sr_banner_light_cone_warp_1,3032,Bygone Reminiscence,2024-05-29,2024-06-18
+sr_banner_weapon_31,sr_banner_light_cone_warp_1,3033,Brilliant Fixation,,
+sr_banner_weapon_32,sr_banner_light_cone_warp_1,3034,Bygone Reminiscence,,
+sr_banner_weapon_33,sr_banner_light_cone_warp_1,3035,Brilliant Fixation,,
+sr_banner_weapon_34,sr_banner_light_cone_warp_1,3036,Bygone Reminiscence,,
+sr_banner_weapon_35,sr_banner_light_cone_warp_1,3037,Brilliant Fixation,,
+sr_banner_weapon_36,sr_banner_light_cone_warp_1,3038,Bygone Reminiscence,,
+sr_banner_weapon_37,sr_banner_light_cone_warp_1,3039,Brilliant Fixation,,
+sr_banner_weapon_38,sr_banner_light_cone_warp_1,3040,Bygone Reminiscence,,
+sr_banner_weapon_39,sr_banner_light_cone_warp_1,3041,Brilliant Fixation,,
+sr_banner_weapon_40,sr_banner_light_cone_warp_1,3042,Bygone Reminiscence,,
+sr_banner_weapon_41,sr_banner_light_cone_warp_1,3043,Brilliant Fixation,,
+sr_banner_weapon_42,sr_banner_light_cone_warp_1,3044,Bygone Reminiscence,,
+sr_banner_weapon_43,sr_banner_light_cone_warp_1,3045,Brilliant Fixation,,
+sr_banner_weapon_44,sr_banner_light_cone_warp_1,3046,Bygone Reminiscence,,
+sr_banner_weapon_45,sr_banner_light_cone_warp_1,3047,Brilliant Fixation,,
+sr_banner_weapon_46,sr_banner_light_cone_warp_1,3048,Bygone Reminiscence,,
+sr_banner_weapon_47,sr_banner_light_cone_warp_1,3049,Brilliant Fixation,,
+sr_banner_weapon_48,sr_banner_light_cone_warp_1,3050,Bygone Reminiscence,,
+sr_banner_weapon_49,sr_banner_light_cone_warp_1,3051,Brilliant Fixation,,
+sr_banner_weapon_50,sr_banner_light_cone_warp_1,3052,Bygone Reminiscence,,
