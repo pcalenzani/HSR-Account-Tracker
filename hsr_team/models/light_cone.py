@@ -30,7 +30,7 @@ class LightCone(models.Model):
 
     def write(self, vals):
         # If light cone write has the same level, it will have the same stats
-        if vals['level'] == self.level:
+        if self and vals['level'] == self.level:
             vals.pop('attribute_ids', None)
         return super(LightCone, self).write(vals)
 
