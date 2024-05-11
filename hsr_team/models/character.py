@@ -97,7 +97,12 @@ class Character(models.Model):
     @api.depends('attribute_ids')
     def _set_attributes(self):
         for rec in self:
-            rec.att_hp, rec.att_atk, rec.att_def, rec.att_spd, rec.att_crit_rate, rec.att_crit_dmg, *_ = rec.attribute_ids
+            rec.write({'att_hp': rec.attribute_ids[0],
+                       'att_atk': rec.attribute_ids[1],
+                       'att_def': rec.attribute_ids[2],
+                       'att_spd': rec.attribute_ids[3],
+                       'att_crit_rate': rec.attribute_ids[4],
+                       'att_crit_dmg': rec.attribute_ids[5]})
     
     @api.model_create_multi
     def create(self, vals_list):
