@@ -62,7 +62,7 @@ action = model.config_player_action()
         </field>
     </record>
 
-    <menuitem id="menu_hsr_root" name="Star Rail" sequence="30" web_icon="hsr_warp,static/description/icon(2).png"/>
+    <menuitem id="menu_hsr_root" name="Star Rail" sequence="30" web_icon="hsr_warp,static/description/icon(11).png"/>
     <menuitem id="menu_warps_root" name="Warps" sequence="30" parent="menu_hsr_root"/>
     <menuitem id="menu_warps_all" name="All Warps" sequence="0" parent="menu_warps_root" action="hsr_warp_warp_all_action"/>
     <menuitem id="menu_warps_special" name="Character Warps" sequence="10" parent="menu_warps_root" action="hsr_warp_warp_char_action"/>

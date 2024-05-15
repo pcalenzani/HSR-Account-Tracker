@@ -31,7 +31,7 @@
     },
     'installable': True,
     'application': True,
-    'icon': '/hsr_warp/static/description/icon(1).png',
+    'icon': '/hsr_warp/static/description/icon(2).png',
     'pre_init_hook': 'pre_init',
     # 'post_init_hook': '_method_name',
     'license': 'LGPL-3',

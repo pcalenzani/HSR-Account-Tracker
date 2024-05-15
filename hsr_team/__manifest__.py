@@ -20,7 +20,7 @@
     ],
     'installable': True,
     'application': True,
-    'icon': '/hsr_warp/static/description/icon(3).png',
+    'icon': '/hsr_warp/static/description/icon(11).png',
     'pre_init_hook': 'pre_init',
     'assets': {},
     'license': 'LGPL-3',
