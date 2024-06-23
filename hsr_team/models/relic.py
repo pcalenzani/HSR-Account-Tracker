@@ -148,6 +148,7 @@ class Relic(models.Model):
             name        - Name of relic, str
             set_id      - Relic set ID, str
             set_name    - Relic set name, str
+            type        - Relic Slot, int
             rarity      - Star Rarity, int
             level       - Relic Level, int
             icon        - Relic Image Path, str
@@ -160,13 +161,13 @@ class Relic(models.Model):
         if len(data) < 6:
             # Skip relic saving if any empty slots, less headache for slot assignment
             return commands
-        for ind, rel in enumerate(data):
+        for rel in data:
             # Remove key if exists
             for k in to_remove: rel.pop(k, None) 
             # Rename id key to db friendly, cast to int for lookup
             rel['item_id'] = int(rel.pop('id'))
             # Get relic slot, relics are received in precise order
-            rel['slot'] = RELIC_SLOTS[ind][0]
+            rel['slot'] = RELIC_SLOTS[rel.pop('type') + 1][0]
             # Typecast fields for easy storing
             rel['rarity'] = str(rel.pop('rarity'))
             # Locate set id by reference
