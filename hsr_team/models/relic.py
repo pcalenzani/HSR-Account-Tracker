@@ -167,7 +167,7 @@ class Relic(models.Model):
             # Rename id key to db friendly, cast to int for lookup
             rel['item_id'] = int(rel.pop('id'))
             # Get relic slot, relics are received in precise order
-            rel['slot'] = RELIC_SLOTS[rel.pop('type') + 1][0]
+            rel['slot'] = RELIC_SLOTS[rel.pop('type') - 1][0]
             # Typecast fields for easy storing
             rel['rarity'] = str(rel.pop('rarity'))
             # Locate set id by reference
