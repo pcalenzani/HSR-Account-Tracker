@@ -5,7 +5,7 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
-WARP_API_URL = 'https://api-os-takumi.mihoyo.com/common/gacha_record/api/getGachaLog'
+WARP_API_URL = 'https://public-operation-hkrpg-sg.hoyoverse.com/common/gacha_record/api/getGachaLog'
 
 class Users(models.Model):
     _description = 'Player'
@@ -36,6 +36,7 @@ class Users(models.Model):
 
         if ret['retcode'] != 0:
             _logger.error(f"Error {ret['retcode']}: {ret['message']}") 
+            _logger.error(f"Error from URL: {WARP_API_URL}") 
         return ret['data']
     
     def get_warps(self):
